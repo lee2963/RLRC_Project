@@ -40,9 +40,9 @@ public class NoticeController {
     public ResponseEntity<Void> saveNotice(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Long adminId, NoticeDto noticeDto) {
 
         try {
-//            if (adminId == null) {
-//                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//            }
+            if (adminId == null) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
 
             Notice notice = new Notice(noticeDto);
 

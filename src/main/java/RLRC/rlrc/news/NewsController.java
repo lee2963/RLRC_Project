@@ -48,9 +48,9 @@ public class NewsController {
 
             News news = new News(newsDto);
 
-//            if (adminId == null) {
-//                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//            }
+            if (adminId == null) {
+                return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            }
 
             if(newsDto.getAttachFiles()!= null) {
                 log.info("ori:{}", newsDto.getAttachFiles().get(0).getOriginalFilename());

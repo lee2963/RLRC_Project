@@ -29,7 +29,11 @@ public class ThesisController {
     private final ThesisService thesisService;
 
     @PostMapping("/admin/thesis/read")
-    public ResponseEntity<Void> readExcel(@RequestParam("file") MultipartFile file) throws TikaException, IOException { // 2
+    public ResponseEntity<Void> readExcel(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Long adminId, @RequestParam("file") MultipartFile file) throws TikaException, IOException { // 2
+
+        if (adminId == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
 
         List<Thesis> dataList = new ArrayList<>();
 
