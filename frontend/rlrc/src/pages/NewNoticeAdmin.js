@@ -283,6 +283,10 @@ export default function NewNoticeAdmin() {
                               letterSpacing: "0px",
                               color: "#447BF7",
                               opacity: 1,
+                              display: "block",
+                              whiteSpace: "nowrap",
+                              overflow: "hidden",
+                              textOverflow: "ellipsis",
                             }}
                           >
                             {ele.title}
@@ -416,6 +420,10 @@ export default function NewNoticeAdmin() {
                             letterSpacing: "0px",
                             color: "#447BF7",
                             opacity: 1,
+                            display: "block",
+                            whiteSpace: "nowrap",
+                            overflow: "hidden",
+                            textOverflow: "ellipsis",
                           }}
                         >
                           {ele.title}

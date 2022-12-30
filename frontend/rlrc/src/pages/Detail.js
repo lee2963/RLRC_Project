@@ -247,6 +247,10 @@ const DetailTitle = styled.div`
 const TitleText = styled.p`
   position: relative;
   left: 45px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 const DetailProperties = styled.div`
   height: 53px;
