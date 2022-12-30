@@ -304,9 +304,7 @@ export default function ResearchOutcomes() {
   const getThesisPatent = async (content) => {
     try {
       const response = await axios.get(
-        `/${content}/search/all?page=${
-          page - 1
-        }`
+        `/${content}/search/all?page=${page - 1}`
       );
       content === "thesis"
         ? setThesisPosts(response.data)
@@ -409,7 +407,7 @@ export default function ResearchOutcomes() {
       {content === "thesis" ? (
         <>
           <ThesisContainer>
-            <TabList>
+            {/* <TabList>
               <Tab>
                 전체<Cases>200건</Cases>
               </Tab>
@@ -425,7 +423,7 @@ export default function ResearchOutcomes() {
               <Tab>
                 2020<Cases>50건</Cases>
               </Tab>
-            </TabList>
+            </TabList> */}
             <Search placeholder="검색" onChange={changeSearch} />
             <Icon src={SearchIcon} onClick={handleSearch}></Icon>
             <Table border={1}>
@@ -484,7 +482,7 @@ export default function ResearchOutcomes() {
       ) : (
         <>
           <PatentContainer>
-            <TabList>
+            {/* <TabList>
               <Tab>
                 전체<Cases>200건</Cases>
               </Tab>
@@ -500,7 +498,7 @@ export default function ResearchOutcomes() {
               <Tab>
                 2020<Cases>50건</Cases>
               </Tab>
-            </TabList>
+            </TabList> */}
             <Search placeholder="검색" onChange={changeSearch} />
             <Icon src={SearchIcon} onClick={handleSearch}></Icon>
             <Table>
@@ -607,14 +605,16 @@ const PatenteButton = styled.button`
 
 const ThesisContainer = styled.div`
   position: relative;
+  top: 100px;
   left: 335px;
   height: 1500px;
   width: 1250px;
 `;
 const PatentContainer = styled.div`
   position: relative;
+  top: 100px;
   left: 335px;
-  height: 1400px;
+  height: 1500px;
   width: 1250px;
 `;
 
@@ -711,8 +711,8 @@ const TableRow = styled.tr`
 `;
 const TableTitleData = styled.td`
   border-bottom: 1px solid #b4b4b4;
-  border-left: 1px solid #b4b4b4;
-  border-right: 1px solid #b4b4b4;
+  border-left: 1px solid #dfdcdc;
+  border-right: 1px solid #dfdcdc;
   white-space: pre-line;
   padding: 10px;
 `;

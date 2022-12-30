@@ -6,12 +6,276 @@ import axios from "axios";
 import Pagination from "../components/Pagination";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../../src/components/AdminNavbar";
+
+const sampleThesis = {
+  content: [
+    {
+      id: 19,
+      no: 19,
+      year: 2020,
+      title: "Modern Catalysts in A3- Coupling Reactions",
+      authors: "Ali Ramazani, Hamideh Ahankar, Zahra T. Nafeh, Sang W. Joo",
+      journal: "CURRENT ORGANIC CHEMISTRY",
+      iif: 2.029,
+      jcr: 54.0,
+      doi: "10.2174/1385272823666191113160643",
+    },
+    {
+      id: 18,
+      no: 18,
+      year: 2019,
+      title: "Seismic phononic crystals by elastodynamic Navier equation",
+      authors: "Lee, Dongwoo, Joo Hwan Oh, In Seok Kang, Junsuk Rho",
+      journal: "PHYSICAL REVIEW E",
+      iif: 2.353,
+      jcr: 12.0,
+      doi: "10.1103/PhysRevE.100.063002",
+    },
+    {
+      id: 17,
+      no: 17,
+      year: 2019,
+      title:
+        "Observation of enhanced optical spin hall effect in a vertical hyperbolic metamaterial",
+      authors:
+        "Dasol Lee, Tae Hak Kim, Younghwan Yang, Hui Joon Park, Minkyung Kim,  Junsuk Rho",
+      journal: "ACS Photonics",
+      iif: 7.143,
+      jcr: 6.0,
+      doi: "10.1021/acsphotonics.9b00904.",
+    },
+    {
+      id: 16,
+      no: 16,
+      year: 2019,
+      title:
+        "Spectrally sharp plasmon resonances in near-infrared:subwavel ength coreshell nanoparticles",
+      authors: "Jungho Mun, Sunae So, Junsuk Rho",
+      journal: "Physical Review\nApplied",
+      iif: 4.532,
+      jcr: 17.0,
+      doi: "10.1103/PhysRevApplied.12.044072",
+    },
+    {
+      id: 15,
+      no: 15,
+      year: 2019,
+      title:
+        "Wavelength-decoupled geometric metasurfaces by arbitrary dispersion control",
+      authors:
+        "Jeonghyun Kim, Jungho Mun , Dasol Lee, Gwanho Yoon,Junsuk Rho\n, Ki Tae Nam ",
+      journal: "Communication\nPhysics",
+      iif: null,
+      jcr: null,
+      doi: "10.1038/s42005-019-0232-7",
+    },
+    {
+      id: 14,
+      no: 14,
+      year: 2019,
+      title: "Twisted non-diffracting beams through all dielectric meta-axicon",
+      authors:
+        "Heonyeong Jeong,  Inki Kim, Muhammad Qasim Mehmood, Muhammad Zubair, Ali Akbar, Murtaza Saleem, Muhammad Sabieh Anwar, Farooq Ahmad Tahir, Nasir Mahmood, Junsuk Rho",
+      journal: "Nanoscale",
+      iif: 6.97,
+      jcr: 12.0,
+      doi: "10.1039/C9NR04888J",
+    },
+    {
+      id: 13,
+      no: 13,
+      year: 2019,
+      title: "Metasurface zone plate: light manipulation in vectorial regime",
+      authors:
+        "Gwanho Yoon, Junsuk Rho,  Jaehyuck Jang,Jungho Mun, Ki Tae Nam ",
+      journal: "COMMUNICATIONS PHYSICS",
+      iif: null,
+      jcr: null,
+      doi: "10.1038/s42005-019-0258-x",
+    },
+    {
+      id: 12,
+      no: 12,
+      year: 2020,
+      title:
+        "Performance Enhancement of a\nQuartz Tuning Fork Sensor\nusing a Cellulose\nNanocrystal-Reinforced\nNanoporous Polymer Fiber",
+      authors: "Wuseok Kim, Sangmin Jeon, Eunjin Park",
+      journal: "SENSORS",
+      iif: 3.031,
+      jcr: 24.0,
+      doi: "10.3390/s20020437",
+    },
+    {
+      id: 11,
+      no: 11,
+      year: 2020,
+      title:
+        "Facile Fabrication of a Highly Efficient Moisture-Driven Power Generator using Laser-Induced Graphitization under Ambient Conditions",
+      authors: "Sanghee Lee, Sangmin Jeon, Jakyung Eun",
+      journal: "Nano\nEnergy",
+      iif: 15.548,
+      jcr: 4.0,
+      doi: "10.1016/j.nanoen.2019.104364",
+    },
+    {
+      id: 10,
+      no: 10,
+      year: 2019,
+      title:
+        "Asymmetric Encoder-Decoder Structured FCN Based LiDAR to Color Image Generation",
+      authors: "Hyun-Koo Kim, Kook-Yeol Yoo, Ju H. Park, Ho-Youl Jung",
+      journal: "SENSORS",
+      iif: 3.031,
+      jcr: 24.0,
+      doi: "10.3390/s19214818",
+    },
+  ],
+  pageable: {
+    sort: {
+      empty: false,
+      unsorted: false,
+      sorted: true,
+    },
+    offset: 0,
+    pageNumber: 0,
+    pageSize: 10,
+    paged: true,
+    unpaged: false,
+  },
+  totalPages: 2,
+  totalElements: 19,
+  last: false,
+  size: 10,
+  number: 0,
+  sort: {
+    empty: false,
+    unsorted: false,
+    sorted: true,
+  },
+  numberOfElements: 10,
+  first: true,
+  empty: false,
+};
+const samplePatent = {
+  content: [
+    {
+      id: 24,
+      no: 24,
+      date: "20220113",
+      submit: "PCT 출원",
+      title:
+        "가시광에서 투명한 저손실 수소화 비정질 실리콘 및 이의 제조방법(Low-loss hydrogenated amorphous silicon transparent to visible light and Manufacturing method thereof)",
+      author: "양영환, 윤관호, 노준석",
+    },
+    {
+      id: 23,
+      no: 23,
+      date: "2022.06.03",
+      submit: "등록",
+      title:
+        "표면 굴곡 구조를 이용한 태양열 증기 발생에서의 염 석출\n방지 및 에너지 전환 효율 향상 방법",
+      author: "전상민, 장한솔, 최지훈",
+    },
+    {
+      id: 22,
+      no: 22,
+      date: "2022. 06. 20",
+      submit: "출원",
+      title: "알칼리 수전해용 삼원 합금 촉매를 포함하는 전극 및 이의 제조방법",
+      author: "강미숙, 박병현",
+    },
+    {
+      id: 21,
+      no: 21,
+      date: "2021",
+      submit: "출원",
+      title: "보호장비 착용에 대한 보상 제공 방법 및 장치",
+      author: "정호열, 이동민, 김나연, 박웅규",
+    },
+    {
+      id: 20,
+      no: 20,
+      date: "2021.12.16",
+      submit: "출원",
+      title: "이중안전 전동식 조향장치의 제어성능 평가 실험장치",
+      author: "강석원\n남강현\n최정현\n김지헌",
+    },
+    {
+      id: 19,
+      no: 19,
+      date: "2021",
+      submit: "출원",
+      title:
+        "의미론적 분할을 이용하여 관심 영역을 집중적으로 측정하는 방법 및 그를 위한 라이다 장\n치",
+      author: "정호열, 최연규, 박웅규",
+    },
+    {
+      id: 18,
+      no: 18,
+      date: "20210428",
+      submit: "출원",
+      title: "홀로그래픽 메타표면 가스 센서 및 이를 포함하는 웨어러블 장치",
+      author: "김인기, 김원식, 김영기, 노준석",
+    },
+    {
+      id: 17,
+      no: 17,
+      date: "20210401",
+      submit: "출원",
+      title:
+        "IGZO(Indium-Gallium-Zinc-Oxide)를 포함하는 컬러필터 및 이의 제조방법",
+      author: "김인기, 윤주영, 정윤영, 노준석",
+    },
+    {
+      id: 16,
+      no: 16,
+      date: "20210331",
+      submit: "출원",
+      title: "온도 반응형 상전이 냉각소자",
+      author: "김민경, 이다솔, 노준석",
+    },
+    {
+      id: 15,
+      no: 15,
+      date: "20210317",
+      submit: "출원",
+      title: "가시광에서 투명한 저손실 수소화 비정질 실리콘 및 이의 제조방법",
+      author: "양영환, 윤관호, 노준석",
+    },
+  ],
+  pageable: {
+    sort: {
+      empty: false,
+      unsorted: false,
+      sorted: true,
+    },
+    offset: 0,
+    pageNumber: 0,
+    pageSize: 10,
+    paged: true,
+    unpaged: false,
+  },
+  totalPages: 3,
+  totalElements: 24,
+  last: false,
+  size: 10,
+  number: 0,
+  sort: {
+    empty: false,
+    unsorted: false,
+    sorted: true,
+  },
+  numberOfElements: 10,
+  first: true,
+  empty: false,
+};
+
 function ResearchOutcomesAdmin() {
   const [content, setContent] = useState("THESIS");
   const [searchText, setSearchText] = useState("");
   // const [years, setYears] = useState(null);
-  const [thesisPosts, setThesisPosts] = useState(null);
-  const [patentPosts, setPatentPosts] = useState(null);
+  const [thesisPosts, setThesisPosts] = useState(sampleThesis);
+  const [patentPosts, setPatentPosts] = useState(samplePatent);
   const [page, setPage] = useState(1);
   const [isUpload, setUpload] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);
@@ -141,7 +405,7 @@ function ResearchOutcomesAdmin() {
           <ThesisContainer>
             {!isUpload && (
               <>
-                <TabList>
+                {/* <TabList>
                   <Tab>
                     전체<Cases>200건</Cases>
                   </Tab>
@@ -157,7 +421,7 @@ function ResearchOutcomesAdmin() {
                   <Tab>
                     2020<Cases>50건</Cases>
                   </Tab>
-                </TabList>
+                </TabList> */}
                 <UploadButton onClick={handleUpload}>파일 업로드</UploadButton>
                 <Search placeholder="검색" onChange={changeSearch} />
                 <Icon src={SearchIcon} onClick={handleSearch}></Icon>
@@ -286,14 +550,14 @@ function ResearchOutcomesAdmin() {
               <Table border={1}>
                 <tbody>
                   <TableTitle>
-                    <TableData>No</TableData>
-                    <TableData>Year</TableData>
-                    <TableData>Title</TableData>
-                    <TableData>Authors</TableData>
-                    <TableData>Journal</TableData>
-                    <TableData>IF</TableData>
-                    <TableData>JCI</TableData>
-                    <TableData>DOI</TableData>
+                    <TableTitleData>No</TableTitleData>
+                    <TableTitleData>Year</TableTitleData>
+                    <TableTitleData>Title</TableTitleData>
+                    <TableTitleData>Authors</TableTitleData>
+                    <TableTitleData>Journal</TableTitleData>
+                    <TableTitleData>IF</TableTitleData>
+                    <TableTitleData>JCI</TableTitleData>
+                    <TableTitleData>DOI</TableTitleData>
                   </TableTitle>
                   {thesisPosts && (
                     <>
@@ -303,7 +567,9 @@ function ResearchOutcomesAdmin() {
                             <TableRow>
                               <TableData>{thesis.id}</TableData>
                               <TableData>{thesis.year}</TableData>
-                              <TableData>{thesis.title}</TableData>
+                              <TableData style={{ maxWidth: "300px" }}>
+                                {thesis.title}
+                              </TableData>
                               <TableData>{thesis.authors}</TableData>
                               <TableData>{thesis.journal}</TableData>
                               <TableData>{thesis.iif}</TableData>
@@ -341,7 +607,7 @@ function ResearchOutcomesAdmin() {
           <PatentContainer>
             {!isUpload && (
               <>
-                <TabList>
+                {/* <TabList>
                   <Tab>
                     전체<Cases>200건</Cases>
                   </Tab>
@@ -357,7 +623,7 @@ function ResearchOutcomesAdmin() {
                   <Tab>
                     2020<Cases>50건</Cases>
                   </Tab>
-                </TabList>
+                </TabList> */}
                 <UploadButton onClick={handleUpload}>파일 업로드</UploadButton>
                 <Search placeholder="검색" onChange={changeSearch} />
                 <Icon src={SearchIcon} onClick={handleSearch}></Icon>
@@ -485,11 +751,11 @@ function ResearchOutcomesAdmin() {
                 <Table>
                   <tbody>
                     <TableTitle>
-                      <TableData>No</TableData>
-                      <TableData>Date</TableData>
-                      <TableData>Submit</TableData>
-                      <TableData>Title</TableData>
-                      <TableData>Author</TableData>
+                      <TableTitleData>No</TableTitleData>
+                      <TableTitleData>Date</TableTitleData>
+                      <TableTitleData>Submit</TableTitleData>
+                      <TableTitleData>Title</TableTitleData>
+                      <TableTitleData>Author</TableTitleData>
                     </TableTitle>
                     {patentPosts &&
                       patentPosts.content.map((patent) => {
@@ -499,7 +765,9 @@ function ResearchOutcomesAdmin() {
                               <TableData>{patent.id}</TableData>
                               <TableData>{patent.date}</TableData>
                               <TableData>{patent.submit}</TableData>
-                              <TableData>{patent.title}</TableData>
+                              <TableData style={{ maxWidth: "300px" }}>
+                                {patent.title}
+                              </TableData>
                               <TableData>{patent.author}</TableData>
                             </TableRow>
                           </>
@@ -514,7 +782,7 @@ function ResearchOutcomesAdmin() {
             <footer
               style={{
                 position: "relative",
-                top: "270px",
+                top: "180px",
                 right: "10px",
               }}
             >
@@ -588,14 +856,14 @@ const ThesisContainer = styled.div`
   position: relative;
   top: 300px;
   left: 335px;
-  height: 1400px;
+  height: 1500px;
   width: 1250px;
 `;
 const PatentContainer = styled.div`
   position: relative;
   top: 300px;
   left: 335px;
-  height: 1400px;
+  height: 1500px;
   width: 1250px;
 `;
 
@@ -647,7 +915,7 @@ const UploadButton = styled.button`
   position: absolute;
   display: flex;
   left: 800px;
-  top: 0px;
+  top: -45px;
   width: 132px;
   height: 46px;
   /* UI Properties */
@@ -709,9 +977,18 @@ const TableRow = styled.tr`
   vertical-align: middle;
   height: 117px;
 `;
+const TableTitleData = styled.td`
+  border-bottom: 1px solid #b4b4b4;
+  border-left: 1px solid #dfdcdc;
+  border-right: 1px solid #dfdcdc;
+  white-space: pre-line;
+  padding: 10px;
+`;
 const TableData = styled.td`
   border-bottom: 1px solid #b4b4b4;
+  padding: 10px;
   border-right: none;
+  white-space: pre-line;
 `;
 
 const UploadContainer = styled.div`
