@@ -19,9 +19,7 @@ function Detail() {
 
   const getDetailData = async (content, id) => {
     try {
-      const response = await axios.get(
-        `/${content}/${id}`
-      );
+      const response = await axios.get(`/${content}/${id}`);
       console.log(response);
       setDetailData(response.data);
       setImageName(response.data.imageFile.storeFileName);
@@ -151,7 +149,10 @@ function Detail() {
             {imageName && <DetailImage src={`/notice/image/${imageName}`} />}
             <br />
             <br />
-            <span style={{ whiteSpace: "pre-wrap" }}>{detailData.content}</span>
+            <span style={{ whiteSpace: "pre-wrap" }}>
+              {detailData.content}
+              {/* {sampleContent} */}
+            </span>
           </DetailContent>
         )}
       </DetailContainer>
@@ -270,11 +271,12 @@ const DetailProperties = styled.div`
 `;
 const DetailContent = styled.div`
   padding: 66px;
-  height: 1572px;
+  height: 1200px;
   width: 1115px;
   border-bottom: 1px solid #b4b4b4;
   opacity: 1;
   line-height: 2;
+  overflow: auto;
 `;
 const DetailImage = styled.img`
   position: relative;

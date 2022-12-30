@@ -7,7 +7,7 @@ import Pagination from "../components/Pagination";
 import { useNavigate } from "react-router-dom";
 import AdminNavbar from "../../src/components/AdminNavbar";
 
-const sampleThesis = {
+/*const sampleThesis = {
   content: [
     {
       id: 19,
@@ -269,13 +269,14 @@ const samplePatent = {
   first: true,
   empty: false,
 };
+*/
 
 function ResearchOutcomesAdmin() {
   const [content, setContent] = useState("THESIS");
   const [searchText, setSearchText] = useState("");
   // const [years, setYears] = useState(null);
-  const [thesisPosts, setThesisPosts] = useState(sampleThesis);
-  const [patentPosts, setPatentPosts] = useState(samplePatent);
+  const [thesisPosts, setThesisPosts] = useState(null);
+  const [patentPosts, setPatentPosts] = useState(null);
   const [page, setPage] = useState(1);
   const [isUpload, setUpload] = useState(false);
   const [selectedFile, setSelectedFile] = useState(null);

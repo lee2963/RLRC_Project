@@ -150,9 +150,7 @@ export default function NewNotice() {
   const getNewNotice = async (content) => {
     try {
       const response = await axios.get(
-        `/${content}/search/all?page=${
-          page - 1
-        }`
+        `/${content}/search/all?page=${page - 1}`
       );
       content === "news"
         ? setNewsPosts(response.data)
@@ -163,6 +161,12 @@ export default function NewNotice() {
   };
   const changeSearch = (event) => {
     setSearchText(event.target.value);
+  };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      alert(e.key);
+      handleSearch(e);
+    }
   };
   useEffect(() => {
     // 페이지 요청
@@ -234,8 +238,10 @@ export default function NewNotice() {
         {curContent === "news" ? (
           <News>
             <NoticeTitle>NEWS</NoticeTitle>
-            <Search placeholder="검색" onChange={changeSearch} />
-            <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+            <form onSubmit={handleSearch}>
+              <Search placeholder="검색" onChange={changeSearch} />
+              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+            </form>
             <Line />
             <PaginationContainer>
               {newsPosts && (
@@ -335,8 +341,10 @@ export default function NewNotice() {
         ) : (
           <Notice>
             <NoticeTitle>NOTICE</NoticeTitle>
-            <Search placeholder="검색" onChange={changeSearch} />
-            <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+            <form onSubmit={handleSearch}>
+              <Search placeholder="검색" onChange={changeSearch} />
+              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+            </form>
             <Line />
             <PaginationContainer>
               {noticePosts && (

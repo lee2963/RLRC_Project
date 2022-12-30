@@ -202,6 +202,12 @@ export default function NewNoticeAdmin() {
   const changeSearch = (event) => {
     setSearchText(event.target.value);
   };
+  const onKeyPress = (e) => {
+    if (e.key === "Enter") {
+      alert(e.key);
+      handleSearch(e);
+    }
+  };
   return (
     <main className={styles.main}>
       <>
@@ -236,8 +242,10 @@ export default function NewNoticeAdmin() {
           addNews === false ? (
             <News>
               <NoticeTitle>NEWS</NoticeTitle>
-              <Search placeholder="검색" onChange={changeSearch} />
-              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+              <form onSubmit={handleSearch}>
+                <Search placeholder="검색" onChange={changeSearch} />
+                <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+              </form>
               <ButtonContainer>
                 <Button value="add" onClick={handleAddNews}>
                   추가
@@ -367,8 +375,10 @@ export default function NewNoticeAdmin() {
         ) : addNotice === false ? (
           <Notice>
             <NoticeTitle>NOTICE</NoticeTitle>
-            <Search placeholder="검색" onChange={changeSearch} />
-            <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+            <form onSubmit={handleSearch}>
+              <Search placeholder="검색" onChange={changeSearch} />
+              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+            </form>
             <ButtonContainer>
               <Button value="add" onClick={handleAddNotice}>
                 추가
