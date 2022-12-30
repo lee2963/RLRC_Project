@@ -8,10 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -21,6 +18,15 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
     private final LoginService loginService;
 
+    @GetMapping("/check-login")
+    public ResponseEntity<Void> isLogin (@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Long adminId){
+
+        if (adminId == null) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
     @PostMapping("/login")
     public ResponseEntity<Void> login(@RequestBody LoginDto loginDto, BindingResult bindingResult, HttpServletRequest request) {
 
