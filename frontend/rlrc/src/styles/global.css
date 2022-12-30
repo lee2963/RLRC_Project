@@ -1,0 +1,67 @@
+#selectbar_content {
+  float: left;
+}
+
+.selectionbar {
+  position: relative;
+  top: 100px;
+  left: 265px;
+  width: 645px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout {
+  width: 1920px;
+}
+.selectionbar_menu {
+  color: #ffffff;
+  align-items: center;
+  vertical-align: center;
+  width: 645px;
+}
+
+.main {
+  width: 1920px;
+}
+
+#line {
+  position: relative;
+  background-color: #ffffff;
+  width: 645px;
+  height: 2px;
+  /* top: 247.5px; */
+}
+
+#selectbar_content {
+  margin-top: 21.5px;
+  position: relative;
+  width: 95px;
+  height: 19px;
+  text-align: left;
+  font: normal normal medium 16px/19px Roboto;
+  letter-spacing: 0px;
+  opacity: 1;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+#selectbar_content.select_new_notice {
+  width: 108px;
+}
+
+.vision_layout {
+  color: #ffffff;
+  position: static;
+  top: 483px;
+  left: 240px;
+  width: 785px;
+  height: 244px;
+  text-align: left;
+  font: normal normal bold 55px/60px Roboto;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  opacity: 1;
+  margin-top: 235px;
+}

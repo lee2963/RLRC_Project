@@ -1,0 +1,190 @@
+.main {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  width: 1920px;
+  height: 1081px;
+  background-image: url("../static/images/AboutRLRC.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+.selectionbar {
+  position: relative;
+  top: 100px;
+  left: 265px;
+  width: 645px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.selectionbar_menu {
+  color: #ffffff;
+  align-items: center;
+  vertical-align: center;
+  width: 645px;
+}
+.selection_line_white {
+  position: absolute;
+  background-color: #ffffff;
+  width: 200px;
+  height: 2px;
+  z-index: 10;
+  /* top: 247.5px; */
+}
+.selection_line_grey {
+  position: absolute;
+  background-color: rgba(221, 221, 221, 0.674);
+  width: 645px;
+  height: 2px;
+  /* top: 247.5px; */
+}
+
+#selectbar_content {
+  float: left;
+  margin-top: 21.5px;
+  position: relative;
+  width: 110px;
+  height: 19px;
+  text-align: left;
+  font: normal normal 16px/19px Roboto;
+  letter-spacing: 0px;
+  opacity: 1;
+  margin-left: 55px;
+  margin-right: 50px;
+}
+
+#selectbar_content.select_new_notice {
+  width: 108px;
+}
+.vision_layout {
+  color: #ffffff;
+  position: relative;
+  left: 240px;
+  width: 785px;
+  height: 244px;
+  text-align: left;
+  font: normal normal bold 55px/60px Roboto;
+  letter-spacing: 0px;
+  text-transform: uppercase;
+  opacity: 1;
+  margin-top: 235px;
+}
+.vision {
+  position: relative;
+  top: 135px;
+  left: 240px;
+  width: 96px;
+  height: 35px;
+  text-align: left;
+  font: normal normal medium Roboto;
+  font-size: 30px;
+  letter-spacing: 0px;
+  color: #ffffff;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+a:visited {
+  color: #ffffff;
+}
+.vision_mission {
+  display: flex;
+  position: absolute;
+  top: 1050px;
+  left: 0px;
+  width: 1920px;
+  height: 680px;
+  /* UI Properties */
+  background: #17a1b2 0% 0% no-repeat padding-box;
+  opacity: 1;
+  flex-direction: row;
+}
+
+.material_group {
+  position: absolute;
+  top: 2250px;
+  left: 0px;
+  width: 1920px;
+  height: 1570px;
+  background: white 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+
+.material_title {
+  position: absolute;
+  top: 125px;
+  left: 888px;
+  width: 147px;
+  height: 51px;
+  text-align: left;
+  font: normal normal bold 42px Roboto;
+  letter-spacing: 0px;
+  color: #191919;
+  opacity: 1;
+}
+
+.material_content {
+  position: absolute;
+  top: 230px;
+  left: 700px;
+  width: 552px;
+  height: 25px;
+  text-align: left;
+  font: normal normal bold 20px Roboto;
+  letter-spacing: 0px;
+  color: #e55757;
+  opacity: 1;
+}
+.meterial_carousel {
+  position: absolute;
+  top: 300px;
+  width: 1920px;
+}
+.part_group {
+  position: absolute;
+  top: 3000px;
+  left: 0px;
+  width: 1920px;
+  height: 1570px;
+  background: white 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.part_title {
+  position: absolute;
+  left: 888px;
+  width: 150px;
+  height: 51px;
+  text-align: left;
+  font: normal normal bold 42px/49px Roboto;
+  letter-spacing: 0px;
+  color: #191919;
+  opacity: 1;
+}
+.part_contents {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  top: 100px;
+  left: 400px;
+  width: 1050px;
+  height: 25px;
+}
+#part_content {
+  white-space: nowrap;
+  position: relative;
+  font: normal normal bold 20px/24px Roboto;
+  letter-spacing: 0px;
+  color: #e55757;
+  opacity: 1;
+  margin-left: 2vw;
+}
+.part_carousel {
+  position: absolute;
+  top: 200px;
+  width: 1920px;
+}

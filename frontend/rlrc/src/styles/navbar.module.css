@@ -1,0 +1,37 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  vertical-align: center;
+  width: 1920px;
+}
+
+.navbar_menu {
+  position: relative;
+  right: 240px;
+}
+
+#navbar_content {
+  color: #ffffff;
+  float: left;
+  margin: 58px;
+  font: normal normal medium 22px/25px Roboto;
+  letter-spacing: 0px;
+  opacity: 1;
+}
+
+#navbar_content.sideIcon {
+  position: relative;
+  font-size: xxx-large;
+  top: -18px;
+}
+.logo {
+  color: #ffffff;
+  width: 109.94px;
+  height: 38.36px;
+  text-align: center;
+  vertical-align: middle;
+  margin-left: 240px;
+  margin-right: 240px;
+  font-size: xxx-large;
+}

@@ -1,0 +1,111 @@
+.main {
+  position: absolute;
+  top: -1px;
+  left: 0px;
+  width: 1920px;
+  height: 1090px;
+  background-image: url("../static/images/NEWSNOTICE.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+}
+.selectionbar {
+  position: relative;
+  top: 100px;
+  left: 265px;
+  width: 645px;
+  height: 100px;
+  justify-content: center;
+  align-items: center;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.selectionbar_menu {
+  color: #ffffff;
+  align-items: center;
+  vertical-align: center;
+  width: 645px;
+}
+.selection_line_white {
+  position: absolute;
+  background-color: #ffffff;
+  left: 435px;
+  width: 210px;
+  height: 2px;
+  z-index: 10;
+  /* top: 247.5px; */
+}
+.selection_line_grey {
+  position: absolute;
+  background-color: rgba(221, 221, 221, 0.674);
+  width: 645px;
+  height: 2px;
+  /* top: 247.5px; */
+}
+#selectbar_content {
+  float: left;
+  margin-top: 21.5px;
+  position: relative;
+  width: 110px;
+  height: 19px;
+  text-align: left;
+  font: normal normal 16px/19px Roboto;
+  letter-spacing: 0px;
+  opacity: 1;
+  margin-left: 55px;
+  margin-right: 50px;
+}
+
+#selectbar_content.select_new_notice {
+  width: 108px;
+}
+.key_project {
+  position: absolute;
+  top: 1090px;
+  left: 0px;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.key_project_title {
+  position: relative;
+  top: 206px;
+  left: 847px;
+  width: 226px;
+  height: 47px;
+  font: var(--unnamed-font-style-normal) normal bold 40px/36px
+    var(--unnamed-font-family-roboto);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal bold 40px/36px Roboto;
+  letter-spacing: 0px;
+  color: #030316;
+  opacity: 1;
+}
+.key_project_contents {
+  position: relative;
+  top: 335px;
+  height: 730px;
+  width: 1920px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.fade-enter {
+  opacity: 0;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-enter-active {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-exit-active {
+  transition: opacity 500ms;
+}
