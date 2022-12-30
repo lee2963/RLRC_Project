@@ -188,7 +188,7 @@ export default function AboutRLRC() {
       <footer
         style={{
           position: "relative",
-          top: "6000px",
+          top: "5500px",
         }}
       >
         <Footer />
