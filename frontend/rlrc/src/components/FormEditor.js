@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
 function FormEditor(props) {
   const navigate = useNavigate();
   const setAddContents = props.setAddContents;
@@ -17,7 +18,7 @@ function FormEditor(props) {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (title === "" || content === "") {
-      alert("제목과 내용을 입력해주세요");
+      swal("제목과 내용을 입력해주세요");
       return;
     }
     const formData = new FormData();
@@ -37,7 +38,7 @@ function FormEditor(props) {
           },
         }
       );
-      alert("성공");
+      swal("성공");
       console.log(response);
       setAddContents(false);
       window.location.reload();

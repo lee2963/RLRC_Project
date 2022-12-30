@@ -3,9 +3,10 @@ import axios from "axios";
 import styled from "styled-components";
 import loginImage from "../static/images/LoginImage.png";
 import { useNavigate } from "react-router-dom";
+import swal from "sweetalert";
+
 // import { useDispatch } from "react-redux";
 // import userSlice from "../slices/user";
-
 function UserLogin() {
   // const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -21,10 +22,10 @@ function UserLogin() {
     }
     if (!userId || !userId.trim()) {
       //trim은 좌우 공백 없애는 함수
-      return alert("이메일을 입력해주세요");
+      return swal("이메일을 입력해주세요");
     }
     if (!password || !password.trim()) {
-      return alert("비밀번호를 입력해주세요");
+      return swal("비밀번호를 입력해주세요");
     }
     try {
       setLoading(true);
@@ -32,7 +33,7 @@ function UserLogin() {
         loginId: userId,
         password: password,
       });
-      alert("로그인 되었습니다.");
+      swal("로그인 되었습니다.");
       setLoading(false);
       setLogIn(true);
       // dispatch(
@@ -46,7 +47,7 @@ function UserLogin() {
       setLoading(false);
       const errorResponse = error.response;
       if (errorResponse) {
-        alert("회원정보와 일치하지 않습니다.");
+        swal("회원정보와 일치하지 않습니다.");
       }
     }
   };
