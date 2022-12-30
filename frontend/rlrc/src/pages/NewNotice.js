@@ -10,95 +10,11 @@ import axios from "axios";
 import SearchIcon from "../static/search.png";
 import styled from "styled-components";
 
-const page1 = {
-  content: [
-    {
-      id: 8,
-      attachFile: null,
-      title: "8",
-      content: "11111",
-      dateTime: "2022-12-23T16:15:32.530192",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 7,
-      attachFile: null,
-      title: "7",
-      content: "11111",
-      dateTime: "2022-12-23T16:15:28.301017",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 6,
-      attachFile: null,
-      title: "6",
-      content: "11111",
-      dateTime: "2022-12-23T16:15:24.861397",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 5,
-      attachFile: null,
-      title: "5",
-      content:
-        "Quis sit reprehenderit fugiat in amet reprehenderit est exercitation incididunt. Aliqua tempor exercitation in pariatur ea non qui irure labore dolor occaecat excepteur aliqua commodo. Aliqua consectetur culpa cupidatat dolor aute officia consequat incididunt sit est consectetur consectetur. Est ullamco quis eu minim nulla id enim aute. In amet in fugiat consequat nulla. Voluptate veniam elit dolore elit sint ea cupidatat ea labore ad commodo Lorem commodo. Enim elit eu velit minim amet officia ipsum magna.Id ipsum sunt laboris labore aliquip ex aute Lorem aute esse dolore tempor. Ad reprehenderit dolore ut sint ex adipisicing officia nisi adipisicing fugiat ea labore. Dolor esse est sint nisi magna enim consectetur non.Pariatur consectetur cupidatat culpa dolor aliqua non amet velit exercitation culpa occaecat. Exercitation consequat do nostrud consequat non ea anim laborum anim cillum ut occaecat. Ipsum incididunt do cupidatat voluptate qui. Incididunt est eiusmod labore tempor exercitation dolor cillum nostrud tempor do deserunt velit nulla tempor.Labore tempor velit nulla ea adipisicing sit incididunt deserunt amet eiusmod. Ut ad laboris ut eiusmod aute. Aliquip quis duis et ea eiusmod tempor qui eiusmod esse. Consectetur excepteur ad minim commodo. Ad reprehenderit ut reprehenderit cupidatat nulla dolore non anim aliquip in. Tempor qui cillum adipisicing nostrud ex consectetur eiusmod aute ex. Elit Lorem incididunt nisi proident.",
-      dateTime: "2022-12-23T16:15:21.558377",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 4,
-      attachFile: null,
-      title: "4",
-      content: "11111",
-      dateTime: "2022-12-23T16:15:17.429154",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 3,
-      attachFile: null,
-      title: "3",
-      content: "11111",
-      dateTime: "2022-12-23T16:15:14.163898",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-  ],
-  pageable: {
-    sort: {
-      empty: false,
-      unsorted: false,
-      sorted: true,
-    },
-    offset: 0,
-    pageNumber: 0,
-    pageSize: 6,
-    paged: true,
-    unpaged: false,
-  },
-  totalPages: 7,
-  totalElements: 8,
-  last: false,
-  size: 6,
-  number: 0,
-  sort: {
-    empty: false,
-    unsorted: false,
-    sorted: true,
-  },
-  numberOfElements: 6,
-  first: true,
-  empty: false,
-};
 export default function NewNotice() {
   const navigate = useNavigate();
   const [showContent, setShowContent] = useState(false);
   const [curContent, setCurContent] = useState("news");
-  const [newsPosts, setNewsPosts] = useState(page1);
+  const [newsPosts, setNewsPosts] = useState(null);
   const [noticePosts, setNoticePosts] = useState(null);
   const [page, setPage] = useState(1);
   const [searchText, setSearchText] = useState("");
@@ -185,7 +101,7 @@ export default function NewNotice() {
           <div className={styles.selection_line_white} />
           <div className={styles.selection_line_grey} />
           <ul className={styles.selectionbar_menu}>
-            <Link
+            <StyledLink
               to="/"
               id={styles.selectbar_content}
               className="select_rlrc"
@@ -194,8 +110,8 @@ export default function NewNotice() {
               }}
             >
               ABOUT RLRC
-            </Link>
-            <Link
+            </StyledLink>
+            <StyledLink
               to="/Research"
               id={styles.selectbar_content}
               className="slelect_research"
@@ -204,8 +120,8 @@ export default function NewNotice() {
               }}
             >
               RESEARCH
-            </Link>
-            <Link
+            </StyledLink>
+            <StyledLink
               to="/NewNotice"
               id={styles.selectbar_content}
               className="select_new_notice"
@@ -214,7 +130,7 @@ export default function NewNotice() {
               }}
             >
               NEW & NOTICE
-            </Link>
+            </StyledLink>
           </ul>
         </div>
         <Title>NEWS & NOTICE</Title>

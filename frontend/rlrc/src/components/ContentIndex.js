@@ -117,9 +117,8 @@ function ContentIndex(props) {
           </TableData>
           <TableData>
             <StyledLink
+              smooth
               to="/UserLogin"
-              spy={true}
-              smooth={true}
               onClick={() => {
                 setShow(false);
               }}
@@ -131,10 +130,9 @@ function ContentIndex(props) {
         <tr>
           <TableData>
             <StyledLink
-              to="연구그룹"
-              spy={true}
-              smooth={true}
-              onSetActive={() => {
+              smooth
+              to="/AboutRLRC#partners"
+              onClick={() => {
                 setShow(false);
               }}
             >
