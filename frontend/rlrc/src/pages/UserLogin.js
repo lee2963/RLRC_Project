@@ -61,11 +61,11 @@ function UserLogin() {
     receiveLoginStatus();
   });
   return (
-    <Container>
+    <>
       {checkLogin ? (
         <PathSelection />
       ) : (
-        <>
+        <Container>
           <Image src={loginImage}></Image>
           <LoginForm onSubmit={handleSubmit}>
             <IdLabel htmlFor="userId">ID</IdLabel>
@@ -88,9 +88,9 @@ function UserLogin() {
             <LinePassword />
             <Button type="submit">Login</Button>
           </LoginForm>
-        </>
+        </Container>
       )}
-    </Container>
+    </>
   );
 }
 
