@@ -1,17 +1,15 @@
-import React, { useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import loginImage from "../static/images/LoginImage.png";
-import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
-
+import PathSelection from "../components/PathSelection";
 // import { useDispatch } from "react-redux";
 // import userSlice from "../slices/user";
 function UserLogin() {
   // const dispatch = useDispatch();
-  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [logIn, setLogIn] = useState(false);
+  const [checkLogin, setCheckLogIn] = useState(false);
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
 
@@ -35,14 +33,7 @@ function UserLogin() {
       });
       swal("로그인 되었습니다.");
       setLoading(false);
-      setLogIn(true);
-      // dispatch(
-      //   userSlice.actions.setUserInfo({
-      //     userId: response.data.customeruserId,
-      //     isLogIn: response.data.logIn,
-      //   })
-      // );
-      navigate("/PathSelection");
+      setCheckLogIn(true);
     } catch (error) {
       setLoading(false);
       const errorResponse = error.response;
@@ -51,16 +42,28 @@ function UserLogin() {
       }
     }
   };
+  const receiveLoginStatus = async () => {
+    try {
+      const response = await axios.get("/check-login");
+      // console.log(response.data);
+      setCheckLogIn(true);
+    } catch (error) {
+      setCheckLogIn(false);
+    }
+  };
   const handleId = useCallback((e) => {
     setUserId(e.currentTarget.value);
   }, []);
   const handlePassword = useCallback((e) => {
     setPassword(e.currentTarget.value);
   }, []);
+  useEffect(() => {
+    receiveLoginStatus();
+  });
   return (
     <Container>
-      {logIn ? (
-        <></>
+      {checkLogin ? (
+        <PathSelection />
       ) : (
         <>
           <Image src={loginImage}></Image>
