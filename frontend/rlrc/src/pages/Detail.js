@@ -7,7 +7,6 @@ import ContentIndex from "../components/ContentIndex";
 import Navbar from "../components/Navbar";
 import styles from "../styles/newNotice.module.css";
 import styled from "styled-components";
-
 function Detail() {
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -149,10 +148,8 @@ function Detail() {
             {imageName && <DetailImage src={`/notice/image/${imageName}`} />}
             <br />
             <br />
-            <span style={{ whiteSpace: "pre-wrap" }}>
-              {detailData.content}
-              {/* {sampleContent} */}
-            </span>
+            <br />
+            {detailData.content}
           </DetailContent>
         )}
       </DetailContainer>
@@ -277,6 +274,7 @@ const DetailContent = styled.div`
   opacity: 1;
   line-height: 2;
   overflow: auto;
+  white-space: pre-wrap;
 `;
 const DetailImage = styled.img`
   position: relative;
