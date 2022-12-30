@@ -273,7 +273,7 @@ const DetailContent = styled.div`
   border-bottom: 1px solid #b4b4b4;
   opacity: 1;
   line-height: 2;
-  overflow: auto;
+  overflow: scroll;
   white-space: pre-wrap;
 `;
 const DetailImage = styled.img`
