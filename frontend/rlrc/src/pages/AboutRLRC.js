@@ -15,7 +15,7 @@ import slide07 from "../static/images/이중안전기술.png";
 import slide08 from "../static/images/습기제어소자.png";
 import slide09 from "../static/images/에너지소자.png";
 import materialIcon from "../static/materialIcon.png";
-import partners from "../static/images/협력기관.png";
+import partners from "../static/images/협력기관.jpeg";
 import partnersList from "../static/images/협력기관목록.png";
 
 import ContentBar from "../../src/components/ContentBar";
@@ -166,7 +166,13 @@ export default function AboutRLRC() {
           </div>
         </div>
         <PartnersContainer id="partners">
-          <Partners src={partners}></Partners>
+          <Partners
+            src={partners}
+            style={{
+              position: "relative",
+              left: "-59px",
+            }}
+          />
           <Partners
             src={partnersList}
             style={{
@@ -207,6 +213,6 @@ const PartnersContainer = styled.div`
   height: 1500px;
 `;
 const Partners = styled.img`
-  height: 1081px;
-  width: 1922px;
+  height: 552px;
+  width: 1980px;
 `;
