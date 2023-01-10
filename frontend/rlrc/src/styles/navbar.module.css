@@ -1,9 +1,11 @@
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   vertical-align: center;
-  width: 1920px;
+  width: 100%;
+  z-index: 1;
 }
 
 .navbar_menu {

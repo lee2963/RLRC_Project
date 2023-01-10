@@ -5,8 +5,8 @@ function Footer() {
   return <FooterContainer src={footer}></FooterContainer>;
 }
 const FooterContainer = styled.img`
-  width: 1920px;
-  height: 284px;
+  width: 100%;
+  height: auto;
   background: #e5e5e5 0% 0% no-repeat padding-box;
   opacity: 1;
 `;

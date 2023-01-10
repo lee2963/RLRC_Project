@@ -13,7 +13,7 @@
 }
 
 .layout {
-  width: 1920px;
+  width: 100%;
 }
 .selectionbar_menu {
   color: #ffffff;
@@ -23,7 +23,7 @@
 }
 
 .main {
-  width: 1920px;
+  width: 100%;
 }
 
 #line {

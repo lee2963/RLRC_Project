@@ -5,11 +5,13 @@ import logo from "../static/logo.png";
 import AboutRLRC from "../pages/AboutRLRC";
 import Research from "../pages/Research";
 import NewNotice from "../pages/NewNotice";
+import ContentBar from "./ContentBar";
 
-export default function Navbar() {
+export default function Navbar(props) {
   const [isClick, setIsClick] = useState(false);
+  const contentBar = props;
   return (
-    <nav className={styles.navbar}>
+    <div className={styles.navbar}>
       <h1 className={styles.logo}>
         <img
           src={logo}
@@ -32,7 +34,7 @@ export default function Navbar() {
         </Link>
         <Link
           id={styles.navbar_content}
-          className="rearch"
+          className="research"
           to="/Research"
           style={{ textDecoration: "none" }}
           element={<Research />}
@@ -49,6 +51,6 @@ export default function Navbar() {
           NEW & NOTICE
         </Link>
       </div>
-    </nav>
+    </div>
   );
 }

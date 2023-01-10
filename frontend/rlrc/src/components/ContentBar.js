@@ -4,25 +4,28 @@ import sidebarIcon from "../static/sidebarIcon.png";
 function ContentBar(props) {
   const { setShow } = props;
   return (
-    <SidebarButton
-      onClick={() => {
-        setShow(true);
-      }}
-    >
-      <img
-        src={sidebarIcon}
-        style={{ height: "21px", width: "25px", color: "black" }}
-      ></img>
-    </SidebarButton>
+    <ButtonContainer>
+      <SidebarButton
+        onClick={() => {
+          setShow(true);
+        }}
+      >
+        <img src={sidebarIcon} style={{ height: "21px", width: "25px" }}></img>
+      </SidebarButton>
+    </ButtonContainer>
   );
 }
 
 export default ContentBar;
 
-const SidebarButton = styled.button`
-  position: absolute;
-  top: 55px;
+const ButtonContainer = styled.div`
+  position: relative;
+  float: right;
+  right: 120px;
+  top: -80px;
   background-color: transparent;
-  border-width: 0px;
-  left: 1700px;
+`;
+const SidebarButton = styled.button`
+  background-color: transparent;
+  border: none;
 `;

@@ -4,7 +4,6 @@ import styles from "../styles/rlrc.module.css";
 import Navbar from "../../src/components/Navbar";
 import Footer from "../components/Footer";
 import Carousel from "../../src/components/Carousel";
-import VISIONMISSION from "../static/images/VISIONMISSION.png";
 import slide01 from "../static/images/경량화소재.png";
 import slide02 from "../static/images/열관리소재.png";
 import slide03 from "../static/images/에너지소재.png";
@@ -15,7 +14,7 @@ import slide07 from "../static/images/이중안전기술.png";
 import slide08 from "../static/images/습기제어소자.png";
 import slide09 from "../static/images/에너지소자.png";
 import materialIcon from "../static/materialIcon.png";
-import partners from "../static/images/협력기관.jpeg";
+import partners from "../static/images/협력기관.png";
 import partnersList from "../static/images/협력기관목록.png";
 
 import ContentBar from "../../src/components/ContentBar";
@@ -83,13 +82,13 @@ export default function AboutRLRC() {
   const [showContent, setShowContent] = useState(false);
   return (
     <>
-      <main className={styles.main}>
-        <Navbar />
-        <ContentBar setShow={setShowContent} />
-        {showContent && (
-          <ContentIndex setShow={setShowContent} isShow={showContent} />
-        )}
-        <div className={styles.selectionbar}>
+      <Navbar />
+      <ContentBar setShow={setShowContent} />
+      {showContent && (
+        <ContentIndex setShow={setShowContent} isShow={showContent} />
+      )}
+      <div className={styles.main}>
+        <SelectionBarCotainer>
           <div className={styles.selection_line_white} />
           <div className={styles.selection_line_grey} />
           <ul className={styles.selectionbar_menu}>
@@ -124,75 +123,62 @@ export default function AboutRLRC() {
               NEW & NOTICE
             </StyledLink>
           </ul>
-        </div>
-        <div className={styles.vision_mission} id="vision_mission">
-          <img
-            src={VISIONMISSION}
-            style={{ width: "1920px", height: "1101px" }}
-          />
-        </div>
-        <div className={styles.material_group} id="material">
+        </SelectionBarCotainer>
+      </div>
+      <div className={styles.vision_mission} id="vision_mission" />
+
+      <div className={styles.material_group} id="material">
+        <TitleContainer>
           <img
             src={materialIcon}
             style={{
               position: "absolute",
-              top: "80px",
-              left: "750px",
+              top: "-250%",
+              left: "43.5%",
               width: "217px",
-              height: "216px",
+              height: "220px",
             }}
           />
           <h4 className={styles.material_title}>소재그룹</h4>
-          <div className={styles.meterial_carousel}>
-            <Carousel images={materialImages}></Carousel>
-          </div>
+        </TitleContainer>
+        <div className={styles.meterial_carousel}>
+          <Carousel images={materialImages}></Carousel>
         </div>
-        <div className={styles.part_group} id="part">
+      </div>
+
+      <div className={styles.part_group} id="part">
+        <TitleContainer>
           <p className={styles.part_title}>부품그룹</p>
           <img
             src={materialIcon}
             style={{
               position: "absolute",
-              top: "-70px",
-              left: "750px",
+              top: "-250%",
+              left: "43.5%",
               width: "217px",
-              height: "216px",
+              height: "220px",
             }}
           />
-
-          <div className={styles.part_contents}></div>
-          <div className={styles.part_carousel}>
-            <Carousel images={partImages}></Carousel>
-          </div>
+        </TitleContainer>
+        <div className={styles.part_carousel}>
+          <Carousel images={partImages}></Carousel>
         </div>
-        <PartnersContainer id="partners">
-          <Partners
-            src={partners}
-            style={{
-              position: "relative",
-              left: "-59px",
-            }}
-          />
-          <Partners
-            src={partnersList}
-            style={{
-              position: "relative",
-              top: "198px",
-              left: "247px",
-              height: "841px",
-              width: "1433px",
-            }}
-          />
-        </PartnersContainer>
-      </main>
-      <footer
-        style={{
-          position: "relative",
-          top: "5500px",
-        }}
-      >
+      </div>
+      <PartnersContainer id="partners">
+        <Partners src={partners} />
+        <Partners
+          src={partnersList}
+          style={{
+            marginTop: "135px",
+            marginLeft: "15%",
+            width: "70%",
+            height: "auto",
+          }}
+        />
+      </PartnersContainer>
+      <div style={{ marginTop: "135px" }}>
         <Footer />
-      </footer>
+      </div>
     </>
   );
 }
@@ -205,14 +191,24 @@ const StyledLink = styled((props) => <Link {...props} />)`
   }
   text-decoration: none;
 `;
-
-const PartnersContainer = styled.div`
+const TitleContainer = styled.div`
   position: relative;
-  top: 3500px;
-  width: 1922px;
-  height: 1500px;
+  width: 100%;
+`;
+const SelectionBarCotainer = styled.div`
+  position: absolute;
+  float: left;
+  top: 25%;
+  left: 10%;
+  width: auto;
+  height: auto;
+`;
+const PartnersContainer = styled.div`
+  margin-top: 270px;
+  width: 100%;
+  height: auto;
 `;
 const Partners = styled.img`
-  height: 552px;
-  width: 1980px;
+  width: 100%;
+  height: auto;
 `;

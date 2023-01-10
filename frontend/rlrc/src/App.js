@@ -20,18 +20,18 @@ function App() {
           path="/"
           style={{ textDecoration: "none" }}
           element={
-            <Layout>
+            <>
               <AboutRLRC />
-            </Layout>
+            </>
           }
         ></Route>
         <Route
           path="/AboutRLRC"
           style={{ textDecoration: "none" }}
           element={
-            <Layout>
+            <>
               <AboutRLRC />
-            </Layout>
+            </>
           }
         ></Route>
         <Route

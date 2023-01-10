@@ -41,7 +41,7 @@ ul {
 .selection_line_grey {
   position: absolute;
   background-color: rgba(221, 221, 221, 0.674);
-  width: 645px;
+  width: 620px;
   height: 2px;
   /* top: 247.5px; */
 }
@@ -49,13 +49,13 @@ ul {
   float: left;
   margin-top: 21.5px;
   position: relative;
-  width: 110px;
+  width: auto;
   height: 19px;
   text-align: left;
   font: normal normal 16px/19px Roboto;
   letter-spacing: 0px;
   opacity: 1;
-  margin-left: 55px;
+  margin-left: 60px;
   margin-right: 50px;
 }
 
