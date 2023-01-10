@@ -21,9 +21,11 @@ export default ContentBar;
 const ButtonContainer = styled.div`
   position: relative;
   float: right;
-  right: 120px;
+  right: 160px;
   top: -80px;
   background-color: transparent;
+
+  z-index: 1;
 `;
 const SidebarButton = styled.button`
   background-color: transparent;

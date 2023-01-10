@@ -129,12 +129,13 @@ export default function AboutRLRC() {
 
       <div className={styles.material_group} id="material">
         <TitleContainer>
+          {/* 여기 부분 이미지로 달라고 하기 => 글씨랑 이미지랑 위치가 고정되어야 하는데 해상도에 따라 위치가 바뀜 */}
           <img
             src={materialIcon}
             style={{
               position: "absolute",
               top: "-250%",
-              left: "43.5%",
+              left: "550px",
               width: "217px",
               height: "220px",
             }}
@@ -148,13 +149,14 @@ export default function AboutRLRC() {
 
       <div className={styles.part_group} id="part">
         <TitleContainer>
+          {/* 여기 부분 이미지로 달라고 하기 => 글씨랑 이미지랑 위치가 고정되어야 하는데 해상도에 따라 위치가 바뀜 */}
           <p className={styles.part_title}>부품그룹</p>
           <img
             src={materialIcon}
             style={{
               position: "absolute",
               top: "-250%",
-              left: "43.5%",
+              left: "550px",
               width: "217px",
               height: "220px",
             }}
