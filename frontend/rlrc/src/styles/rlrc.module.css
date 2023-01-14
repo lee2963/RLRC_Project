@@ -22,6 +22,8 @@ ul {
   width: 645px;
 }
 .selection_line_white {
+  position: relative;
+  top: 2px;
   background-color: #ffffff;
   width: 200px;
   height: 2px;

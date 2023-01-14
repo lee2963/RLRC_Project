@@ -43,14 +43,14 @@ export default function Research() {
   };
 
   return (
-    <main className={styles.main}>
+    <>
       <Navbar />
       <ContentBar setShow={setShowContent} />
       {showContent && (
         <ContentIndex setShow={setShowContent} isShow={showContent} />
       )}
-      <>
-        <div className={styles.selectionbar}>
+      <main className={styles.main}>
+        <SelectionBarCotainer>
           <div className={styles.selection_line_white} />
           <div className={styles.selection_line_grey} />
           <ul className={styles.selectionbar_menu}>
@@ -85,7 +85,7 @@ export default function Research() {
               NEW & NOTICE
             </StyledLink>
           </ul>
-        </div>
+        </SelectionBarCotainer>
         <div className={styles.key_project}>
           <h4
             className={styles.key_project_title}
@@ -108,118 +108,160 @@ export default function Research() {
         <Introduction id="field">
           <IntroductionImage src={showIntro} visible={isVisible} />
           <ButtonContainer>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction1);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Joo");
-              }}
-            >
-              Joo, Sang Woo
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction2);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Rho");
-              }}
-            >
-              Junsuk Rho
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction3);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Park");
-              }}
-            >
-              Ju Hyun Park
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction4);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Jeon");
-              }}
-            >
-              Sangmin Jeon
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction5);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Kyoung");
-              }}
-            >
-              Kim. Hae Kyoung
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction6);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Youl");
-              }}
-            >
-              Jung Ho-Youl
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction7);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Sook");
-              }}
-            >
-              Kang, Misook
-            </Button>
-            <Button
-              onMouseOver={() => {
-                setIsVisible(false);
-                setTimeout(() => {
-                  setShowIntro(introduction8);
-                  setIsVisible(true);
-                }, 300);
-              }}
-              onClick={() => {
-                navigateTo("Won");
-              }}
-            >
-              Seokwon Kang
-            </Button>
+            <tbody>
+              <tr>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction1);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Joo");
+                      }}
+                    >
+                      Joo, Sang Woo
+                    </Button>
+                  </center>
+                </td>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction2);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Rho");
+                      }}
+                    >
+                      Junsuk Rho
+                    </Button>
+                  </center>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction3);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Park");
+                      }}
+                    >
+                      Ju Hyun Park
+                    </Button>
+                  </center>
+                </td>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction4);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Jeon");
+                      }}
+                    >
+                      Sangmin Jeon
+                    </Button>
+                  </center>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction5);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Kyoung");
+                      }}
+                    >
+                      Kim. Hae Kyoung
+                    </Button>
+                  </center>
+                </td>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction6);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Youl");
+                      }}
+                    >
+                      Jung Ho-Youl
+                    </Button>
+                  </center>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction7);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Sook");
+                      }}
+                    >
+                      Kang, Misook
+                    </Button>
+                  </center>
+                </td>
+                <td>
+                  <center>
+                    <Button
+                      onMouseOver={() => {
+                        setIsVisible(false);
+                        setTimeout(() => {
+                          setShowIntro(introduction8);
+                          setIsVisible(true);
+                        }, 300);
+                      }}
+                      onClick={() => {
+                        navigateTo("Won");
+                      }}
+                    >
+                      Seokwon Kang
+                    </Button>
+                  </center>
+                </td>
+              </tr>
+            </tbody>
           </ButtonContainer>
         </Introduction>
         {/* <OutComes id="outcomes">
@@ -547,8 +589,8 @@ export default function Research() {
             )}
           </>
         )} */}
-      </>
-    </main>
+      </main>
+    </>
   );
 }
 
@@ -564,28 +606,37 @@ function Card({ image, largeImage }) {
   );
 }
 
+const SelectionBarCotainer = styled.div`
+  position: absolute;
+  float: left;
+  top: 25%;
+  left: 10%;
+  width: auto;
+  height: auto;
+`;
+
 const Image = styled.img`
   position: relative;
-  width: 207px;
-  height: 723px;
+  width: 10vw;
+  height: 40vw;
   padding: 10px;
   object-fit: cover;
   transition-duration: 0.25s;
   &:hover {
-    width: 345px;
-    /* transform: scaleX(1.5); */
-    /* justify-content: space-around; */
+    width: 17vw;
+    height: 40vw;
   }
 `;
 
 const CardComponent = styled.div`
-  height: 735px;
+  display: inline-flex;
+  justify-content: center;
+  width: auto;
 `;
 const Introduction = styled.div`
-  position: absolute;
-  top: 2642px;
-  width: 1920px;
-  height: 1150px;
+  position: relative;
+  top: 405px;
+  width: 100%;
   background: #f0f0f0 0% 0% no-repeat padding-box;
 `;
 const fadeIn = keyframes`
@@ -605,35 +656,33 @@ const fadeOut = keyframes`
     opacity: 0;
   }
 `;
+
 const IntroductionImage = styled.img`
-  width: 1012px;
-  height: 1150px;
+  width: 50%;
+  height: auto;
   object-fit: cover;
-  z-index: 10;
   opacity: ${(props) => (props.visible ? 1 : 0.5)};
-  z-index: 15;
   animation: ${(props) => (props.visible ? fadeIn : fadeOut)} 0.5s ease-in-out;
   transition: opacity 0.1s ease;
 `;
 const ButtonContainer = styled.div`
   position: absolute;
-  top: 651px;
-  left: 1192px;
-  flex-wrap: wrap;
-  width: 800px;
+  display: table;
+  margin-left: 3%;
+  left: 50%;
+  top: 50%;
+  width: 45%;
+  height: 50%;
 `;
 const Button = styled.button`
-  left: 300px;
-  width: 233px;
-  height: 68px;
-  margin-left: 42px;
-  margin-bottom: 41px;
+  width: 80%;
+  height: 100%;
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
   text-align: center;
   vertical-align: center;
   border-width: 0px;
-  font: normal normal bold 22px/25px Roboto;
+  font: normal normal bold 1.3vw Roboto;
   letter-spacing: 0px;
   color: black;
   opacity: 1;

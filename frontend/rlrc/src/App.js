@@ -19,30 +19,18 @@ function App() {
         <Route
           path="/"
           style={{ textDecoration: "none" }}
-          element={
-            <>
-              <AboutRLRC />
-            </>
-          }
+          element={<AboutRLRC />}
         ></Route>
         <Route
           path="/AboutRLRC"
           style={{ textDecoration: "none" }}
-          element={
-            <>
-              <AboutRLRC />
-            </>
-          }
+          element={<AboutRLRC />}
         ></Route>
         <Route
           className="rearch"
           path="/Research"
           style={{ textDecoration: "none" }}
-          element={
-            <Layout>
-              <Research />
-            </Layout>
-          }
+          element={<Research />}
         ></Route>
         <Route
           className="rearchField"
@@ -54,11 +42,7 @@ function App() {
           className="newNotice"
           path="/NewNotice"
           style={{ textDecoration: "none" }}
-          element={
-            <Layout>
-              <NewNotice />
-            </Layout>
-          }
+          element={<NewNotice />}
         ></Route>
         <Route
           className="newNoticeAdmin"
