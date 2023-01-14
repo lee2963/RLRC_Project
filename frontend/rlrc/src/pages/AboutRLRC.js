@@ -139,7 +139,8 @@ export default function AboutRLRC() {
               height: "220px",
             }}
           />
-          소재그룹</div>
+          소재그룹
+        </div>
         <div className={styles.meterial_carousel}>
           <Carousel images={materialImages}></Carousel>
         </div>
@@ -202,7 +203,7 @@ const TitleContainer = styled.div`
 const SelectionBarCotainer = styled.div`
   position: absolute;
   float: left;
-  top: 25%;
+  top: 250px;
   left: 200px;
   width: auto;
   height: auto;
