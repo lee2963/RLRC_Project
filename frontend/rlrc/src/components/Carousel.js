@@ -21,11 +21,7 @@ function Carousel(props) {
   };
   return (
     <Container>
-      <ScrollMenu
-        LeftArrow={LeftArrow}
-        RightArrow={RightArrow}
-        style={{ width: "1920px" }}
-      >
+      <ScrollMenu LeftArrow={LeftArrow} RightArrow={RightArrow}>
         {items.map((item) => (
           <Card
             itemId={item.id} // NOTE: itemId is required for track items
