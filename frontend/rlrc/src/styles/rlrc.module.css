@@ -40,14 +40,15 @@ ul {
 #selectbar_content {
   float: left;
   margin-top: 21.5px;
+  position: relative;
   width: auto;
   height: 19px;
   text-align: left;
   font: normal normal 16px/19px Roboto;
   letter-spacing: 0px;
   opacity: 1;
-  margin-left: 60px;
-  margin-right: 50px;
+  margin-left: 40px;
+  margin-right: 80px;
 }
 #selectbar_content.select_new_notice {
   width: auto;
@@ -76,10 +77,11 @@ a:visited {
   opacity: 1;
 }
 .material_title {
+  position: relative;
+  left: -25px;
   width: auto;
   height: auto;
   text-align: center;
-  vertical-align: center;
   font: normal normal bold 42px Roboto;
   letter-spacing: 0px;
   color: #191919;
@@ -102,10 +104,11 @@ a:visited {
   opacity: 1;
 }
 .part_title {
+  position: relative;
   width: auto;
   height: auto;
   text-align: center;
-  vertical-align: center;
+  left: -25px;
   font: normal normal bold 42px Roboto;
   letter-spacing: 0px;
   color: #191919;
@@ -114,6 +117,7 @@ a:visited {
 }
 .part_carousel {
   width: 100%;
+  margin-top: 135px;
   display: flex;
   justify-content: center;
 }

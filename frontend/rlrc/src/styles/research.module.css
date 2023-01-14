@@ -47,13 +47,10 @@ ul {
   font: normal normal 16px/19px Roboto;
   letter-spacing: 0px;
   opacity: 1;
-  margin-left: 60px;
-  margin-right: 50px;
+  margin-left: 40px;
+  margin-right: 80px;
 }
 
-#selectbar_content.select_new_notice {
-  width: auto;
-}
 .key_project {
   position: relative;
   top: -135px;
@@ -88,20 +85,4 @@ center {
   display: inline-flex;
   flex-basis: 10%;
   flex-direction: row;
-}
-.fade-enter {
-  opacity: 0;
-}
-.fade-exit {
-  opacity: 1;
-}
-.fade-enter-active {
-  opacity: 1;
-}
-.fade-exit-active {
-  opacity: 0;
-}
-.fade-enter-active,
-.fade-exit-active {
-  transition: opacity 500ms;
 }

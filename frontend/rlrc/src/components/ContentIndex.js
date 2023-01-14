@@ -22,7 +22,7 @@ function ContentIndex(props) {
         <TableHeader>ABOUT RLRC</TableHeader>
         <TableHeader>RESEARCH</TableHeader>
         <TableHeader>NEW & NOTICE</TableHeader>
-        <tr>
+        <TableRow>
           <TableData>
             <StyledLink
               smooth
@@ -56,8 +56,8 @@ function ContentIndex(props) {
               NEWS
             </StyledLink>
           </TableData>
-        </tr>
-        <tr>
+        </TableRow>
+        <TableRow>
           <TableData>
             <StyledLink
               smooth
@@ -91,8 +91,8 @@ function ContentIndex(props) {
               NOTICE
             </StyledLink>
           </TableData>
-        </tr>
-        <tr>
+        </TableRow>
+        <TableRow>
           <TableData>
             <StyledLink
               smooth
@@ -126,8 +126,8 @@ function ContentIndex(props) {
               관리자
             </StyledLink>
           </TableData>
-        </tr>
-        <tr>
+        </TableRow>
+        <TableRow>
           <TableData>
             <StyledLink
               smooth
@@ -139,7 +139,7 @@ function ContentIndex(props) {
               협력기관
             </StyledLink>
           </TableData>
-        </tr>
+        </TableRow>
       </ContentTable>
     </Container>
   );
@@ -155,18 +155,19 @@ const slideUp = keyframes`
 `;
 const slideDown = keyframes`
   from{
-    transform: translateY(-1100px);
+   transform: translateY(-1100px);
   }
   to{
     transform: translateY(0px);
   }
 `;
 const Container = styled.div`
-  position: absolute;
-  top: 0px;
-  left: -2px;
-  width: 1930px;
-  height: 1100px;
+  position: relative;
+  top: -165px;
+  width: 100%;
+  height: 110vh;
+  display: flex;
+  justify-content: center;
   /* UI Properties */
   background: #000000 0% 0% no-repeat padding-box;
   animation: ${(props) => (props.isShow ? slideDown : slideUp)} 0.5s ease;
@@ -174,17 +175,22 @@ const Container = styled.div`
 `;
 
 const ContentTable = styled.table`
-  position: absolute;
-  top: 238px;
-  left: 388px;
-  width: 1200px;
-  height: 58px;
+  position: relative;
+  top: calc(135 * 3px);
+  width: 80%;
+  height: 50%;
+  left: 100px;
   text-align: center;
   border-spacing: 60px;
 `;
+const TableRow = styled.tr`
+  text-align: center;
+  width: auto;
+`;
 const TableData = styled.td`
   text-align: center;
-  font: normal normal 30px/35px Roboto;
+  width: auto;
+  font: normal normal 1.8vw Roboto;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -192,10 +198,11 @@ const TableData = styled.td`
 const TableHeader = styled.th`
   /* UI Properties */
   text-align: center;
-  font: normal normal 900 50px/58px Roboto;
+  font: normal normal 900 3vw Roboto;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
+  height: 40px;
 `;
 const BackButton = styled.button`
   position: absolute;

@@ -128,40 +128,39 @@ export default function AboutRLRC() {
       <div className={styles.vision_mission} id="vision_mission" />
 
       <div className={styles.material_group} id="material">
-        <TitleContainer>
-          {/* 여기 부분 이미지로 달라고 하기 => 글씨랑 이미지랑 위치가 고정되어야 하는데 해상도에 따라 위치가 바뀜 */}
+        <div className={styles.material_title}>
           <img
             src={materialIcon}
             style={{
-              position: "absolute",
-              top: "-250%",
-              left: "550px",
+              position: "relative",
+              left: "100px",
+              top: "60px",
               width: "217px",
               height: "220px",
             }}
           />
-          <h4 className={styles.material_title}>소재그룹</h4>
-        </TitleContainer>
+          소재그룹</div>
         <div className={styles.meterial_carousel}>
           <Carousel images={materialImages}></Carousel>
         </div>
       </div>
 
       <div className={styles.part_group} id="part">
-        <TitleContainer>
-          {/* 여기 부분 이미지로 달라고 하기 => 글씨랑 이미지랑 위치가 고정되어야 하는데 해상도에 따라 위치가 바뀜 */}
-          <p className={styles.part_title}>부품그룹</p>
+        {/* 여기 부분 이미지로 달라고 하기 => 글씨랑 이미지랑 위치가 고정되어야 하는데 해상도에 따라 위치가 바뀜 */}
+        <div className={styles.part_title}>
           <img
             src={materialIcon}
             style={{
-              position: "absolute",
-              top: "-250%",
-              left: "550px",
+              position: "relative",
+              left: "100px",
+              top: "60px",
               width: "217px",
               height: "220px",
             }}
           />
-        </TitleContainer>
+          부품그룹
+        </div>
+
         <div className={styles.part_carousel}>
           <Carousel images={partImages}></Carousel>
         </div>
@@ -196,12 +195,15 @@ const StyledLink = styled((props) => <Link {...props} />)`
 const TitleContainer = styled.div`
   position: relative;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;
 const SelectionBarCotainer = styled.div`
   position: absolute;
   float: left;
   top: 25%;
-  left: 10%;
+  left: 200px;
   width: auto;
   height: auto;
 `;
