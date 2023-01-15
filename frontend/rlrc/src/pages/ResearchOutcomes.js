@@ -568,10 +568,10 @@ const ThesisButton = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "thesis" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -591,10 +591,10 @@ const PatenteButton = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "patent" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -633,11 +633,11 @@ const Tab = styled.div`
   height: 46px;
   font: var(--unnamed-font-style-normal) normal
     var(--unnamed-font-weight-normal) 17px/30px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal normal 17px/30px Roboto;
+  font: normal normal normal 17px/30px sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -651,11 +651,11 @@ const Cases = styled.div`
   height: 28px;
   border-radius: 10px;
   font: var(--unnamed-font-style-normal) normal bold 15px/30px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--unnamed-color-447bf7);
   text-align: center;
-  font: normal normal bold 15px/30px Roboto;
+  font: normal normal bold 15px/30px sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -695,10 +695,10 @@ const TableTitle = styled.tr`
   background: #f4f4f4 0% 0% no-repeat padding-box;
   opacity: 1;
   font: var(--unnamed-font-style-normal) normal medium 20px /
-    var(--unnamed-line-spacing-28) var(--unnamed-font-family-roboto);
+    var(--unnamed-line-spacing-28) var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: center;
-  font: normal normal bold 20px/28px Roboto;
+  font: normal normal bold 20px/28px sans-serif;
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;

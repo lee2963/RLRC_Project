@@ -52,7 +52,7 @@ ul {
   width: 110px;
   height: 19px;
   text-align: left;
-  font: normal normal 16px/19px Roboto;
+  font: normal normal 16px/19px sans-serif;
   letter-spacing: 0px;
   opacity: 1;
   margin-left: 55px;
@@ -77,10 +77,10 @@ ul {
   width: 226px;
   height: 0px;
   font: var(--unnamed-font-style-normal) normal bold 40px/36px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: center;
-  font: normal normal bold 40px/36px Roboto;
+  font: normal normal bold 40px/36px sans-serif;
   letter-spacing: 0px;
   color: black;
   opacity: 1;

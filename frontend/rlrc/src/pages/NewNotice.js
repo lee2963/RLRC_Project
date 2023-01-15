@@ -183,7 +183,7 @@ export default function NewNotice() {
                           <h3
                             style={{
                               textAalign: "left",
-                              font: "normal normal bold 2vw Roboto",
+                              font: "normal normal bold 2vw sans-serif",
                               letterSpacing: "0px",
                               color: "#447BF7",
                               opacity: 1,
@@ -201,7 +201,7 @@ export default function NewNotice() {
                             style={{
                               display: "-webkit-box",
                               textAlign: "left",
-                              font: "normal normal normal 1vw Roboto",
+                              font: "normal normal normal 1vw sans-serif",
                               letterSpacing: "0px",
                               color: "#606060",
                               opacity: 1,
@@ -219,7 +219,7 @@ export default function NewNotice() {
                             style={{
                               position: "relative",
                               top: "5vw",
-                              font: "normal normal normal 1vw Roboto",
+                              font: "normal normal normal 1vw sans-serif",
                               letterSpacing: "0px",
                               color: "#969696",
                               opacity: 1,
@@ -289,7 +289,7 @@ export default function NewNotice() {
                           <h3
                             style={{
                               textAalign: "left",
-                              font: "normal normal bold 2vw Roboto",
+                              font: "normal normal bold 2vw sans-serif",
                               letterSpacing: "0px",
                               color: "#447BF7",
                               opacity: 1,
@@ -307,7 +307,7 @@ export default function NewNotice() {
                             style={{
                               display: "-webkit-box",
                               textAlign: "left",
-                              font: "normal normal normal 1vw Roboto",
+                              font: "normal normal normal 1vw sans-serif",
                               letterSpacing: "0px",
                               color: "#606060",
                               opacity: 1,
@@ -326,7 +326,7 @@ export default function NewNotice() {
                             style={{
                               position: "relative",
                               top: "5vw",
-                              font: "normal normal normal 1vw Roboto",
+                              font: "normal normal normal 1vw sans-serif",
                               letterSpacing: "0px",
                               color: "#969696",
                               opacity: 1,
@@ -387,7 +387,7 @@ const Title = styled.p`
   left: 200px;
   width: auto;
   text-align: left;
-  font: normal normal bold 4vw Roboto;
+  font: normal normal bold 4vw sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
@@ -409,7 +409,7 @@ const NewsButton = styled.button`
   background-color: ${(props) =>
     props.content === "news" ? "#ffffff" : "#447bfb"};
   opacity: 1;
-  font: normal normal bold 2vw Roboto;
+  font: normal normal bold 2vw sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "news" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -425,7 +425,7 @@ const NoticeButton = styled.button`
   background-color: ${(props) =>
     props.content === "news" ? "#447bfb" : "#ffffff"};
   opacity: 1;
-  font: normal normal bold 2vw Roboto;
+  font: normal normal bold 2vw sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "notice" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -457,7 +457,7 @@ const NoticeTitle = styled.p`
   width: calc(97 / 1920 * 100%);
   height: auto;
   text-align: center;
-  font: normal normal bold 28px/50px Roboto;
+  font: normal normal bold 28px/50px sans-serif;
   letter-spacing: 0px;
   color: #6a6a6a;
   margin: 0;

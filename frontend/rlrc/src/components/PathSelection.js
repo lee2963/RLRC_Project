@@ -91,7 +91,7 @@ const Button = styled.button`
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
   border: none;
-  font: normal normal 23px Roboto;
+  font: normal normal 23px sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
@@ -106,7 +106,7 @@ const Text = styled.span`
   width: 243px;
   height: 27px;
   font: var(--unnamed-font-style-normal) normal 23px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;

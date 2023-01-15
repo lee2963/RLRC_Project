@@ -89,7 +89,7 @@ const Button = styled.button`
   height: 53px;
   background: #ffffff 0% 0% no-repeat padding-box;
   border: 1px solid #bababa;
-  font: normal normal normal 22px/25px Roboto;
+  font: normal normal normal 22px/25px sans-serif;
   color: #aaaaaa;
   opacity: 1;
   opacity: 1;

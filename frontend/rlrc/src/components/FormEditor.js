@@ -178,7 +178,7 @@ function FormEditor(props) {
                   style={{
                     position: "relative",
                     top: "0.7rem",
-                    font: "normal normal bold 20px/28px Roboto",
+                    font: "normal normal bold 20px/28px sans-serif",
                     letterSpacing: "0px",
                     color: "#000000",
                     opacity: 0.7,
@@ -257,7 +257,7 @@ function FormEditor(props) {
                   style={{
                     position: "relative",
                     top: "0.7rem",
-                    font: "normal normal bold 20px/28px Roboto",
+                    font: "normal normal bold 20px/28px sans-serif",
                     letterSpacing: "0px",
                     color: "#000000",
                     opacity: 0.7,
@@ -343,7 +343,7 @@ function FormEditor(props) {
 
 const RowTitle = styled.p`
   text-align: center;
-  font: normal normal bold 20px/28px Roboto;
+  font: normal normal bold 20px/28px sans-serif;
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;
@@ -356,7 +356,7 @@ const Button = styled.button`
   background: #e8e8e8 0% 0% no-repeat padding-box;
   opacity: 1;
   border: none;
-  font: normal normal bold 18px/28px Roboto;
+  font: normal normal bold 18px/28px sans-serif;
   letter-spacing: 0px;
   color: #575757;
   opacity: 1;

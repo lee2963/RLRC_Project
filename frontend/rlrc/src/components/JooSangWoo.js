@@ -113,7 +113,7 @@ const Name = styled.div`
   height: 47px;
   /* UI Properties */
   text-align: left;
-  font: normal normal bold 40px/47px Roboto;
+  font: normal normal bold 40px/47px sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -127,7 +127,7 @@ const Text = styled.div`
   height: 24px;
   /* UI Properties */
   text-align: left;
-  font: normal normal medium 20px/24px Roboto;
+  font: normal normal medium 20px/24px sans-serif;
   letter-spacing: 0px;
   color: #818181;
   opacity: 0.69;
@@ -141,7 +141,7 @@ const Title = styled.div`
   height: 58px;
   /* UI Properties */
   text-align: left;
-  font: normal normal bold 50px/58px Roboto;
+  font: normal normal bold 50px/58px sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -227,7 +227,7 @@ const SmallTitle = styled.h2`
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
   font-size: 22px/36px;
-  font-family: Roboto;
+  font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
   color: #1a1a1a;
@@ -244,7 +244,7 @@ const List = styled.div`
 `;
 
 const ListContent = styled.li`
-  font: normal normal normal 20px/36px Roboto;
+  font: normal normal normal 20px/36px sans-serif;
   letter-spacing: 0px;
   color: #606060;
   opacity: 1;

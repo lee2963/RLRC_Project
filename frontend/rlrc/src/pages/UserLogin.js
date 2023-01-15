@@ -128,7 +128,7 @@ const IdInput = styled.input`
   height: 35px;
   left: 140px;
   text-align: left;
-  font: normal normal 25px Roboto;
+  font: normal normal 25px sans-serif;
   letter-spacing: 0px;
   color: #363636;
   opacity: 1;
@@ -144,7 +144,7 @@ const IdLabel = styled.label`
   width: 17px;
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal 25px Roboto;
+  font: normal normal 25px sans-serif;
   letter-spacing: 0px;
   color: #2680eb;
   opacity: 1;
@@ -156,7 +156,7 @@ const PasswordInput = styled.input`
   width: 200px;
   height: 35px;
   text-align: left;
-  font: normal normal 25px Roboto;
+  font: normal normal 25px sans-serif;
   letter-spacing: 0px;
   color: #363636;
   opacity: 1;
@@ -172,7 +172,7 @@ const PasswordLabel = styled.label`
   top: 75px;
   width: 80px;
   height: 21px;
-  font: normal normal 25px Roboto;
+  font: normal normal 25px sans-serif;
   letter-spacing: 0px;
   color: #2680eb;
   opacity: 1;
@@ -203,11 +203,11 @@ const Button = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal medium 18px/21px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   color: var(--unnamed-color-ffffff);
   text-align: left;
-  font: normal normal medium 18px/21px Roboto;
+  font: normal normal medium 18px/21px sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;

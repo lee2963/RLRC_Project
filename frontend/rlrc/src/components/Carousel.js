@@ -115,7 +115,7 @@ const Image = styled.img`
 const ImageText = styled.p`
   transform: translate(34%, -450%);
   text-align: left;
-  font: normal normal 900 28px/33px Roboto;
+  font: normal normal 900 28px/33px sans-serif;
   letter-spacing: 0px;
   color: white;
   text-shadow: 4px 9px 16px #00000036;

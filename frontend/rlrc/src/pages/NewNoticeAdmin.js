@@ -279,7 +279,7 @@ export default function NewNoticeAdmin() {
                           <h3
                             style={{
                               textAalign: "left",
-                              font: "normal normal bold 22px/28px Roboto",
+                              font: "normal normal bold 22px/28px sans-serif",
                               letterSpacing: "0px",
                               color: "#447BF7",
                               opacity: 1,
@@ -295,7 +295,7 @@ export default function NewNoticeAdmin() {
                             style={{
                               display: "-webkit-box",
                               textAlign: "left",
-                              font: "normal normal normal 16px/23px Roboto",
+                              font: "normal normal normal 16px/23px sans-serif",
                               letterSpacing: "0px",
                               color: "#606060",
                               opacity: 1,
@@ -314,7 +314,7 @@ export default function NewNoticeAdmin() {
                             style={{
                               position: "relative",
                               top: "31px",
-                              font: "normal normal normal 20px Roboto",
+                              font: "normal normal normal 20px sans-serif",
                               letterSpacing: "0px",
                               color: "#969696",
                               opacity: 1,
@@ -416,7 +416,7 @@ export default function NewNoticeAdmin() {
                         <h3
                           style={{
                             textAalign: "left",
-                            font: "normal normal bold 22px/28px Roboto",
+                            font: "normal normal bold 22px/28px sans-serif",
                             letterSpacing: "0px",
                             color: "#447BF7",
                             opacity: 1,
@@ -432,7 +432,7 @@ export default function NewNoticeAdmin() {
                           style={{
                             display: "-webkit-box",
                             textAlign: "left",
-                            font: "normal normal normal 16px/23px Roboto",
+                            font: "normal normal normal 16px/23px sans-serif",
                             letterSpacing: "0px",
                             color: "#606060",
                             opacity: 1,
@@ -451,7 +451,7 @@ export default function NewNoticeAdmin() {
                           style={{
                             position: "relative",
                             top: "31px",
-                            font: "normal normal normal 20px Roboto",
+                            font: "normal normal normal 20px sans-serif",
                             letterSpacing: "0px",
                             color: "#969696",
                             opacity: 1,
@@ -526,10 +526,10 @@ const Title = styled.p`
   width: 592px;
   height: 94px;
   font: var(--unnamed-font-style-normal) normal bold 80px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 80px/70px Roboto;
+  font: normal normal bold 80px/70px sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
@@ -548,10 +548,10 @@ const NewsButton = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "news" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -571,10 +571,10 @@ const NoticeButton = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "notice" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -605,10 +605,10 @@ const NoticeTitle = styled.p`
   height: 33px;
 
   font: var(--unnamed-font-style-normal) normal bold 28px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 28px/70px Roboto;
+  font: normal normal bold 28px/70px sans-serif;
   letter-spacing: 0px;
   color: #6a6a6a;
   text-transform: uppercase;

@@ -164,10 +164,10 @@ const Title = styled.p`
   width: 592px;
   height: 94px;
   font: var(--unnamed-font-style-normal) normal bold 80px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 80px/70px Roboto;
+  font: normal normal bold 80px/70px sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
@@ -185,10 +185,10 @@ const NewsButton = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "news" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -208,10 +208,10 @@ const NoticeButton = styled.button`
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "notice" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -234,12 +234,12 @@ const DetailTitle = styled.div`
   background: #f4f4f4 0% 0% no-repeat padding-box;
   opacity: 1;
   font: var(--unnamed-font-style-normal) normal bold 20px /
-    var(--unnamed-line-spacing-28) var(--unnamed-font-family-roboto);
+    var(--unnamed-line-spacing-28) var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   vertical-align: center;
   justify-content: flex-start;
   align-items: center;
-  font: normal normal bold 20px/28px Roboto;
+  font: normal normal bold 20px/28px sans-serif;
   letter-spacing: 0px;
   color: #000000;
   opacity: 1;
@@ -262,10 +262,10 @@ const DetailProperties = styled.div`
   align-items: center;
   flex-direction: row;
   font: var(--unnamed-font-style-normal) normal medium 20px/30px
-    var(--unnamed-font-family-roboto);
+    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal medium 20px/30px Roboto;
+  font: normal normal medium 20px/30px sans-serif;
   letter-spacing: 0px;
   color: #535353;
   opacity: 1;

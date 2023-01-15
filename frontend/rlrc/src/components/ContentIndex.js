@@ -1,6 +1,6 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
 import { HashLink } from "react-router-hash-link";
+import styled, { keyframes } from "styled-components";
 import back from "../static/back.png";
 
 function ContentIndex(props) {
@@ -190,7 +190,7 @@ const TableRow = styled.tr`
 const TableData = styled.td`
   text-align: center;
   width: auto;
-  font: normal normal 1.8vw Roboto;
+  font: normal normal 1.8vw sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -198,7 +198,7 @@ const TableData = styled.td`
 const TableHeader = styled.th`
   /* UI Properties */
   text-align: center;
-  font: normal normal 900 3vw Roboto;
+  font: normal normal 900 3vw sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;

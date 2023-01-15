@@ -40,7 +40,7 @@
   width: 95px;
   height: 19px;
   text-align: left;
-  font: normal normal medium 16px/19px Roboto;
+  font: normal normal medium 16px/19px sans-serif;
   letter-spacing: 0px;
   opacity: 1;
   margin-left: 50px;
@@ -59,7 +59,7 @@
   width: 785px;
   height: 244px;
   text-align: left;
-  font: normal normal bold 55px/60px Roboto;
+  font: normal normal bold 55px/60px sans-serif;
   letter-spacing: 0px;
   text-transform: uppercase;
   opacity: 1;
