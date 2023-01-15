@@ -121,3 +121,39 @@ a:visited {
   display: flex;
   justify-content: center;
 }
+
+.key_project {
+  position: relative;
+  top: -135px;
+  width: 100%;
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.key_project_title {
+  position: relative;
+  text-decoration: none;
+  top: 135px;
+  text-align: center;
+  width: auto;
+  font: normal normal bold 40px/36px Roboto;
+  letter-spacing: 0px;
+  color: black;
+  opacity: 1;
+}
+td {
+  width: 50%;
+}
+center {
+  height: 60%;
+}
+.key_project_contents {
+  position: relative;
+  top: calc(135px * 2);
+  height: auto;
+  left: 3.5%;
+  margin-left: auto;
+  margin-right: auto;
+  display: inline-flex;
+  flex-basis: 10%;
+  flex-direction: row;
+}

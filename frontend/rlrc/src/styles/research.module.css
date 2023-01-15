@@ -50,7 +50,57 @@ ul {
   margin-left: 40px;
   margin-right: 80px;
 }
+.material_group {
+  width: 100%;
+  height: auto;
+  background: white 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.material_title {
+  position: relative;
+  left: -25px;
+  width: auto;
+  height: auto;
+  text-align: center;
+  font: normal normal bold 42px Roboto;
+  letter-spacing: 0px;
+  color: #191919;
+  opacity: 1;
+  z-index: 1;
+}
+.meterial_carousel {
+  position: relative;
+  margin-top: 135px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
 
+.part_group {
+  width: 100%;
+  height: auto;
+  margin-top: 270px;
+  background: white 0% 0% no-repeat padding-box;
+  opacity: 1;
+}
+.part_title {
+  position: relative;
+  width: auto;
+  height: auto;
+  text-align: center;
+  left: -25px;
+  font: normal normal bold 42px Roboto;
+  letter-spacing: 0px;
+  color: #191919;
+  opacity: 1;
+  z-index: 1;
+}
+.part_carousel {
+  width: 100%;
+  margin-top: 135px;
+  display: flex;
+  justify-content: center;
+}
 .key_project {
   position: relative;
   top: -135px;

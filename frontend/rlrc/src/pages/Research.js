@@ -1,36 +1,78 @@
 import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styled, { keyframes } from "styled-components";
 import Navbar from "../components/Navbar";
 import styles from "../styles/research.module.css";
-import styled, { keyframes } from "styled-components";
-import { useNavigate, Link } from "react-router-dom";
-import smallImage1 from "../static/images/습기제어기술(1).png";
-import largeImage1 from "../static/images/습기제어기술(2).png";
-import smallImage2 from "../static/images/친환경경량화(1).png";
-import largeImage2 from "../static/images/친환경경량화(2).png";
-import smallImage3 from "../static/images/열관리(1).png";
-import largeImage3 from "../static/images/열관리(2).png";
-import smallImage4 from "../static/images/에너지 소재(1).png";
-import largeImage4 from "../static/images/에너지 소재(2).png";
-import smallImage5 from "../static/images/홀로그램 디스플레이(1).png";
-import largeImage5 from "../static/images/홀로그램 디스플레이(2).png";
-import smallImage6 from "../static/images/능동차체(1).png";
-import largeImage6 from "../static/images/능동차체(2).png";
-import smallImage7 from "../static/images/주행환경인식(1).png";
-import largeImage7 from "../static/images/주행환경인식(2).png";
-import smallImage8 from "../static/images/횡종방향(1).png";
-import largeImage8 from "../static/images/횡종방향(2).png";
 
-import introduction1 from "../static/images/주상우교수님.png";
+import introduction7 from "../static/images/강미숙교수님.png";
+import introduction8 from "../static/images/강석원교수님.png";
+import introduction5 from "../static/images/김해경교수님.png";
 import introduction2 from "../static/images/노준석교수님.png";
 import introduction3 from "../static/images/박주현교수님.png";
 import introduction4 from "../static/images/전상민교수님.png";
-import introduction5 from "../static/images/김해경교수님.png";
 import introduction6 from "../static/images/정호열교수님.png";
-import introduction7 from "../static/images/강미숙교수님.png";
-import introduction8 from "../static/images/강석원교수님.png";
+import introduction1 from "../static/images/주상우교수님.png";
 
+import slide01 from "../static/images/경량화소재.png";
+import slide05 from "../static/images/디스플레이소재.png";
+import slide08 from "../static/images/습기제어소자.png";
+import slide09 from "../static/images/에너지소자.png";
+import slide03 from "../static/images/에너지소재.png";
+import slide02 from "../static/images/열관리소재.png";
+import slide07 from "../static/images/이중안전기술.png";
+import slide04 from "../static/images/헬스케어소재.png";
+import slide06 from "../static/images/환경인식기술.png";
+import materialIcon from "../static/materialIcon.png";
+
+import Carousel from "../components/Carousel";
 import ContentBar from "../components/ContentBar";
 import ContentIndex from "../components/ContentIndex";
+
+const materialImages = [
+  {
+    id: 1,
+    src: slide01,
+  },
+  {
+    id: 2,
+    src: slide02,
+  },
+  {
+    id: 3,
+    src: slide03,
+  },
+  {
+    id: 4,
+    src: slide04,
+  },
+  {
+    id: 5,
+    src: slide05,
+  },
+];
+
+const partImages = [
+  {
+    id: 1,
+    src: slide06,
+  },
+  {
+    id: 2,
+    src: slide07,
+  },
+  {
+    id: 3,
+    src: slide08,
+  },
+  {
+    id: 4,
+    src: slide09,
+  },
+  {
+    id: 5,
+    src: slide05,
+  },
+];
 
 export default function Research() {
   const [showContent, setShowContent] = useState(false);
@@ -85,23 +127,57 @@ export default function Research() {
             </StyledLink>
           </ul>
         </SelectionBarCotainer>
-        <div className={styles.key_project}>
-          <h4
-            className={styles.key_project_title}
-            style={{ color: "black" }}
-            id="key_project"
-          >
-            Key Project
-          </h4>
-          <div className={styles.key_project_contents}>
-            <Card image={smallImage2} largeImage={largeImage2} />
-            <Card image={smallImage3} largeImage={largeImage3} />
-            <Card image={smallImage1} largeImage={largeImage1} />
-            <Card image={smallImage4} largeImage={largeImage4} />
-            <Card image={smallImage5} largeImage={largeImage5} />
-            <Card image={smallImage6} largeImage={largeImage6} />
-            <Card image={smallImage7} largeImage={largeImage7} />
-            <Card image={smallImage8} largeImage={largeImage8} />
+        <h2
+          style={{
+            position: "relative",
+            left: "80px",
+            marginTop: "10%",
+            textAlign: "center",
+            font: "normal normal bold 42px/49px Roboto",
+            letterSpacing: "0px",
+            color: "#191919",
+            opacity: 1,
+          }}
+        >
+          Research Group
+        </h2>
+        <div className={styles.material_group} id="material">
+          <div className={styles.material_title}>
+            <img
+              src={materialIcon}
+              style={{
+                position: "relative",
+                left: "100px",
+                top: "60px",
+                width: "217px",
+                height: "220px",
+              }}
+            />
+            소재그룹
+          </div>
+          <div className={styles.meterial_carousel}>
+            <Carousel images={materialImages}></Carousel>
+          </div>
+        </div>
+
+        <div className={styles.part_group} id="part">
+          {/* 여기 부분 이미지로 달라고 하기 => 글씨랑 이미지랑 위치가 고정되어야 하는데 해상도에 따라 위치가 바뀜 */}
+          <div className={styles.part_title}>
+            <img
+              src={materialIcon}
+              style={{
+                position: "relative",
+                left: "100px",
+                top: "60px",
+                width: "217px",
+                height: "220px",
+              }}
+            />
+            부품그룹
+          </div>
+
+          <div className={styles.part_carousel}>
+            <Carousel images={partImages}></Carousel>
           </div>
         </div>
         <Introduction id="field">
