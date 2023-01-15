@@ -19,13 +19,13 @@ ul {
   color: #ffffff;
   align-items: center;
   vertical-align: center;
-  width: 645px;
+  width: auto;
 }
 .selection_line_white {
   position: relative;
   background-color: #ffffff;
   top: 2px;
-  left: 412px;
+  left: 400px;
   width: 210px;
   height: 2px;
   z-index: 10;
@@ -33,7 +33,7 @@ ul {
 }
 .selection_line_grey {
   background-color: rgba(221, 221, 221, 0.674);
-  width: 620px;
+  width: 610px;
   height: 2px;
   /* top: 247.5px; */
 }

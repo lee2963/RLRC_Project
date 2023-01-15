@@ -19,20 +19,20 @@ ul {
   color: #ffffff;
   align-items: center;
   vertical-align: center;
-  width: 645px;
+  width: auto;
 }
 .selection_line_white {
   position: relative;
   top: 2px;
   background-color: #ffffff;
-  width: 200px;
+  width: 190px;
   height: 2px;
   z-index: 10;
   /* top: 247.5px; */
 }
 .selection_line_grey {
   background-color: rgba(221, 221, 221, 0.674);
-  width: 620px;
+  width: 610px;
   height: 2px;
   /* top: 247.5px; */
 }
