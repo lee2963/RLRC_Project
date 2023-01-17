@@ -119,11 +119,23 @@ public class ThesisController {
     }
 
     @GetMapping("/thesis/search/title")
-    public ResponseEntity<Page<Thesis>> searchNotice(@RequestParam String word,
+    public ResponseEntity<Page<Thesis>> searchNoticeByTitle(@RequestParam String word,
                                                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         try {
             String title = URLDecoder.decode(word, "UTF-8");
-            Page<Thesis> findThesis = thesisService.searchThesis(title, pageable);
+            Page<Thesis> findThesis = thesisService.searchThesisByTitle(title, pageable);
+
+            return new ResponseEntity<>(findThesis, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @GetMapping("/thesis/search/year")
+    public ResponseEntity<Page<Thesis>> searchNoticeByYear(@RequestParam int year,
+                                                     @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        try {
+            Page<Thesis> findThesis = thesisService.searchThesisByYear(year, pageable);
 
             return new ResponseEntity<>(findThesis, HttpStatus.OK);
         } catch (Exception e) {

@@ -32,7 +32,7 @@ public class ThesisService {
         return findThesis;
     }
 
-    public Page<Thesis> searchThesis(String word, Pageable pageable) throws Exception {
+    public Page<Thesis> searchThesisByTitle(String word, Pageable pageable) throws Exception {
 
         Page<Thesis> findThesis = thesisRepository.findAllByTitleContaining(word, pageable);
 
@@ -43,7 +43,19 @@ public class ThesisService {
         return findThesis;
     }
 
-    public void delete(Long id) {
+    public Page<Thesis> searchThesisByYear(int year, Pageable pageable) throws Exception {
+
+        Page<Thesis> findThesis = thesisRepository.findAllByYear(year, pageable);
+
+        if (findThesis.isEmpty()) {
+            throw new Exception("조회한 결과가 없습니다.");
+        }
+
+        return findThesis;
+    }
+
+
+        public void delete(Long id) {
         Optional<Thesis> findThesis = thesisRepository.findById(id);
 
         Thesis getThesis = findThesis.orElseThrow(IllegalAccessError::new);

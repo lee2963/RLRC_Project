@@ -12,6 +12,8 @@ public interface ThesisRepository extends JpaRepository<Thesis, Long> {
     Page<Thesis> findAll(Pageable pageable);
     Page<Thesis> findAllByTitleContaining(String title , Pageable pageable);
 
+    Page<Thesis> findAllByYear(int year, Pageable pageable);
+
 //    @Query(value =
 //            "SELECT "+
 //                    " new RLRC.rlrc.thesis.YearCount(t.year, count(t.year))" +
