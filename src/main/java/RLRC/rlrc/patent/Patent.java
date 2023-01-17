@@ -16,6 +16,7 @@ public class Patent {
 
     private Long no;
     private String date;
+    private int year;
     @Lob
     private String submit;
     private String title;

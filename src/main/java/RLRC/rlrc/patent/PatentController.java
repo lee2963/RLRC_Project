@@ -74,7 +74,7 @@ public class PatentController {
             } else if (row.getCell(1).getCellType() == CellType.NUMERIC) {
                 data.setDate(Integer.toString((int)row.getCell(1).getNumericCellValue()));
             }
-
+            data.setYear(Integer.parseInt(data.getDate().substring(0, 4)));;
             data.setSubmit(row.getCell(2).getStringCellValue());
             data.setTitle(row.getCell(3).getStringCellValue());
             data.setAuthor(row.getCell(4).getStringCellValue());
@@ -83,7 +83,6 @@ public class PatentController {
         }
 
         patentService.excelSave(dataList);
-
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
@@ -102,11 +101,11 @@ public class PatentController {
     }
 
     @GetMapping("/patent/search/title")
-    public ResponseEntity<Page<Patent>> searchNotice(@RequestParam String word,
+    public ResponseEntity<Page<Patent>> searchNoticeByTitle(@RequestParam String word,
                                                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         try {
             String title = URLDecoder.decode(word, "UTF-8");
-            Page<Patent> findPatent = patentService.searchPatent(title, pageable);
+            Page<Patent> findPatent = patentService.searchPatentByTitle(title, pageable);
 
             return new ResponseEntity<>(findPatent, HttpStatus.OK);
         } catch (Exception e) {
@@ -114,6 +113,17 @@ public class PatentController {
         }
     }
 
+    @GetMapping("/patent/search/year")
+    public ResponseEntity<Page<Patent>> searchNoticeByYear(@RequestParam int year,
+                                                            @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
+        try {
+            Page<Patent> findPatent = patentService.searchPatentByYear(year, pageable);
+
+            return new ResponseEntity<>(findPatent, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
     @DeleteMapping("/admin/patent/{id}")
     public ResponseEntity<Void> deleteNotice(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Long adminId, @PathVariable("id") Long id) {
         try {

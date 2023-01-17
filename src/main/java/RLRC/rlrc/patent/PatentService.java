@@ -29,9 +29,20 @@ public class PatentService {
         return findPatent;
     }
 
-    public Page<Patent> searchPatent(String word, Pageable pageable) throws Exception {
+    public Page<Patent> searchPatentByTitle(String word, Pageable pageable) throws Exception {
 
         Page<Patent> findPatent = patentRepository.findAllByTitleContaining(word, pageable);
+
+        if (findPatent.isEmpty()) {
+            throw new Exception("조회한 결과가 없습니다.");
+        }
+
+        return findPatent;
+    }
+
+    public Page<Patent> searchPatentByYear(int year, Pageable pageable) throws Exception {
+
+        Page<Patent> findPatent = patentRepository.findAllByYear(year, pageable);
 
         if (findPatent.isEmpty()) {
             throw new Exception("조회한 결과가 없습니다.");

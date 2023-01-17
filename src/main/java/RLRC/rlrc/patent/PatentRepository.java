@@ -9,5 +9,7 @@ public interface PatentRepository extends JpaRepository<Patent, Long> {
     Page<Patent> findAll(Pageable pageable);
     Page<Patent> findAllByTitleContaining(String title , Pageable pageable);
 
+    Page<Patent> findAllByYear(int year, Pageable pageable);
+
 
 }
