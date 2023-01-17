@@ -72,7 +72,7 @@ public class PatentController {
             if (row.getCell(1).getCellType() == CellType.STRING) {
                 data.setDate(row.getCell(1).getStringCellValue());
             } else if (row.getCell(1).getCellType() == CellType.NUMERIC) {
-                data.setDate(Integer.toString((int)row.getCell(1).getNumericCellValue()));
+                data.setDate(Double.toString(row.getCell(1).getNumericCellValue()));
             }
             data.setYear(Integer.parseInt(data.getDate().substring(0, 4)));;
             data.setSubmit(row.getCell(2).getStringCellValue());
