@@ -272,7 +272,7 @@ const samplePatent = {
 */
 
 function ResearchOutcomesAdmin() {
-  const [content, setContent] = useState("THESIS");
+  const [content, setContent] = useState("PAPER");
   const [searchText, setSearchText] = useState("");
   // const [years, setYears] = useState(null);
   const [thesisPosts, setThesisPosts] = useState(null);
@@ -324,7 +324,7 @@ function ResearchOutcomesAdmin() {
           searchText
         )}`
       );
-      content === "THESIS"
+      content === "PAPER"
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
@@ -341,7 +341,7 @@ function ResearchOutcomesAdmin() {
       const response = await axios.get(
         `/${content.toLowerCase()}/search/all?page=${page - 1}`
       );
-      content === "THESIS"
+      content === "PAPER"
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
@@ -355,7 +355,7 @@ function ResearchOutcomesAdmin() {
           searchText
         )}`
       );
-      content === "thesis"
+      content === "PAPER"
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
@@ -381,14 +381,14 @@ function ResearchOutcomesAdmin() {
       <OutComes id="outcomes">
         <ThesisButton
           onClick={() => {
-            setContent("THESIS");
+            setContent("PAPER");
             setUpload(false);
             // setPosts(sampleThesis);
           }}
           content={content}
           id="new_notice"
         >
-          THESIS
+          PAPER
         </ThesisButton>
         <PatenteButton
           onClick={() => {
@@ -401,7 +401,7 @@ function ResearchOutcomesAdmin() {
           PATENT
         </PatenteButton>
       </OutComes>
-      {content === "THESIS" ? (
+      {content === "PAPER" ? (
         <>
           <ThesisContainer>
             {!isUpload && (
@@ -562,20 +562,20 @@ function ResearchOutcomesAdmin() {
                   </TableTitle>
                   {thesisPosts && (
                     <>
-                      {thesisPosts.content.map((thesis) => {
+                      {thesisPosts.content.map((PAPER) => {
                         return (
                           <>
                             <TableRow>
-                              <TableData>{thesis.id}</TableData>
-                              <TableData>{thesis.year}</TableData>
+                              <TableData>{PAPER.id}</TableData>
+                              <TableData>{PAPER.year}</TableData>
                               <TableData style={{ maxWidth: "300px" }}>
-                                {thesis.title}
+                                {PAPER.title}
                               </TableData>
-                              <TableData>{thesis.authors}</TableData>
-                              <TableData>{thesis.journal}</TableData>
-                              <TableData>{thesis.iif}</TableData>
-                              <TableData>{thesis.jcr}</TableData>
-                              <TableData>{thesis.doi}</TableData>
+                              <TableData>{PAPER.authors}</TableData>
+                              <TableData>{PAPER.journal}</TableData>
+                              <TableData>{PAPER.iif}</TableData>
+                              <TableData>{PAPER.jcr}</TableData>
+                              <TableData>{PAPER.doi}</TableData>
                             </TableRow>
                           </>
                         );
@@ -814,7 +814,7 @@ const ThesisButton = styled.button`
   height: 186px;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
-    props.content === "THESIS" ? "#ffffff" : "#447bfb"};
+    props.content === "PAPER" ? "#ffffff" : "#447bfb"};
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
@@ -823,7 +823,7 @@ const ThesisButton = styled.button`
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
-  color: ${(props) => (props.content === "THESIS" ? "#447bfb" : "#ffffff")};
+  color: ${(props) => (props.content === "PAPER" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
   opacity: 1;
   text-align: center;
@@ -837,7 +837,7 @@ const PatenteButton = styled.button`
   height: 186px;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
-    props.content === "THESIS" ? "#447bfb" : "#ffffff"};
+    props.content === "PAPER" ? "#447bfb" : "#ffffff"};
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
