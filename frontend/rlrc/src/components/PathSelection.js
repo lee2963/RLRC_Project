@@ -7,57 +7,63 @@ import rightArrow from "../static/rightArrowWhite.png";
 function PathSelection() {
   const navigate = useNavigate();
   return (
-    <Container>
-      <PathContainer src={pathSelectionImage}>
-        <ButtonContainer>
-          <Button
-            style={{ width: "358px" }}
-            onClick={() => {
-              navigate("/ResearchOutcomesAdmin");
-            }}
-          >
-            <Text>RESEARCH OUTCOMES</Text>
-            <img
-              src={rightArrow}
-              style={{
-                position: "relative",
-                top: "36px",
-                left: "2.5em",
-                width: "7px",
-                height: "14px",
+    <MainContaniner>
+      <Container>
+        <PathContainer src={pathSelectionImage}>
+          <ButtonContainer>
+            <Button
+              style={{ width: "358px" }}
+              onClick={() => {
+                navigate("/ResearchOutcomesAdmin");
               }}
-            ></img>
-          </Button>
-          <Button
-            style={{ width: "322px" }}
-            onClick={() => {
-              navigate("/NewNoticeAdmin");
-            }}
-          >
-            <Text style={{ width: "169px", left: "61px" }}>NEWS & NOTICE</Text>
-            <img
-              src={rightArrow}
-              style={{
-                position: "relative",
-                top: "36px",
-                left: "3.5em",
-                width: "7px",
-                height: "14px",
+            >
+              <Text style={{ whiteSpace: "nowrap" }}>RESEARCH OUTCOMES </Text>
+              <img
+                src={rightArrow}
+                style={{
+                  position: "relative",
+                  top: "36px",
+                  left: "3em",
+                  width: "10px",
+                  height: "18px",
+                }}
+              ></img>
+            </Button>
+            <Button
+              style={{ width: "322px" }}
+              onClick={() => {
+                navigate("/NewNoticeAdmin");
               }}
-            ></img>
-          </Button>
-        </ButtonContainer>
-      </PathContainer>
-    </Container>
+            >
+              <Text style={{ width: "169px", left: "55px", whiteSpace: "nowrap" }}>NEWS & NOTICE</Text>
+              <img
+                src={rightArrow}
+                style={{
+                  position: "relative",
+                  top: "36px",
+                  left: "4.3em",
+                  width: "10px",
+                  height: "18px",
+                }}
+              ></img>
+            </Button>
+          </ButtonContainer>
+        </PathContainer>
+      </Container>
+    </MainContaniner>
   );
 }
 
+const MainContaniner = styled.div`
+
+`;
+
 const Container = styled.div`
-  position: absolute;
-  top: -2px;
-  left: 0px;
-  width: 1920px;
-  height: 1150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
   background: #f0f0f0 0% 0% no-repeat padding-box;
   opacity: 1;
   display: flex;
@@ -65,9 +71,6 @@ const Container = styled.div`
   align-items: center;
 `;
 const PathContainer = styled.div`
-  position: absolute;
-  top: 216px;
-  left: 365px;
   width: 1190px;
   height: 738px;
   /* background: #2680eb 0% 0% no-repeat padding-box; */
@@ -101,8 +104,8 @@ const Button = styled.button`
 `;
 const Text = styled.span`
   position: relative;
-  top: 31px;
-  left: 47px;
+  top: 27px;
+  left: 37px;
   width: 243px;
   height: 27px;
   font: var(--unnamed-font-style-normal) normal 23px
