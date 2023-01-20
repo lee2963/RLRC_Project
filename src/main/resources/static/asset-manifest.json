@@ -1,10 +1,11 @@
 {
   "files": {
-    "main.css": "/static/css/main.f707fdd0.css",
-    "main.js": "/static/js/main.a14ad7aa.js",
+    "main.css": "/static/css/main.b3d1d104.css",
+    "main.js": "/static/js/main.31b82e52.js",
     "static/js/787.03a9f564.chunk.js": "/static/js/787.03a9f564.chunk.js",
     "static/media/RESEARCH.png": "/static/media/RESEARCH.3e91933ff39dea425333.png",
     "static/media/ResearchOutcome.png": "/static/media/ResearchOutcome.95a44634b0867fb52c0e.png",
+    "static/media/협력기관.png": "/static/media/협력기관.99d272432ab8a95eeea4.png",
     "static/media/AboutRLRC.png": "/static/media/AboutRLRC.a5e8f3e6462ad91dbd34.png",
     "static/media/NEWSNOTICE.jpg": "/static/media/NEWSNOTICE.20ef5bb717899ea431d8.jpg",
     "static/media/VISIONMISSION.png": "/static/media/VISIONMISSION.cde23a75eb31b282a3cd.png",
@@ -28,6 +29,7 @@
     "static/media/홀로그램 디스플레이(1).png": "/static/media/홀로그램 디스플레이(1).5b37d3752ee1d9681fac.png",
     "static/media/주행환경인식(1).png": "/static/media/주행환경인식(1).2cf436b3aa9604295517.png",
     "static/media/열관리(1).png": "/static/media/열관리(1).8d20d0c8ed42bcd2dc5d.png",
+    "static/media/협력기관목록.png": "/static/media/협력기관목록.dab67156e6d461caeb22.png",
     "static/media/junghoyoul3.png": "/static/media/junghoyoul3.0c376eb14bf328d46bec.png",
     "static/media/습기제어기술(1).png": "/static/media/습기제어기술(1).afccff883436e4aad384.png",
     "static/media/kimhaekyoung1.png": "/static/media/kimhaekyoung1.418e49c18662a3c23751.png",
@@ -71,12 +73,12 @@
     "static/media/slick.ttf": "/static/media/slick.c94f7671dcc99dce43e2.ttf",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "index.html": "/index.html",
-    "main.f707fdd0.css.map": "/static/css/main.f707fdd0.css.map",
-    "main.a14ad7aa.js.map": "/static/js/main.a14ad7aa.js.map",
+    "main.b3d1d104.css.map": "/static/css/main.b3d1d104.css.map",
+    "main.31b82e52.js.map": "/static/js/main.31b82e52.js.map",
     "787.03a9f564.chunk.js.map": "/static/js/787.03a9f564.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f707fdd0.css",
-    "static/js/main.a14ad7aa.js"
+    "static/css/main.b3d1d104.css",
+    "static/js/main.31b82e52.js"
   ]
 }
