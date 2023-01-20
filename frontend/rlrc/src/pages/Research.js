@@ -584,9 +584,6 @@ const TableTitle = styled.tr`
   vertical-align: middle;
   background: #f4f4f4 0% 0% no-repeat padding-box;
   opacity: 1;
-  font: var(--unnamed-font-style-normal) normal medium 20px /
-    var(--unnamed-line-spacing-28) var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
   text-align: center;
   font: normal normal bold 20px/28px sans-serif;
   letter-spacing: 0px;
