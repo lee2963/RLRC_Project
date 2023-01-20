@@ -1,9 +1,11 @@
 .main {
-  position: absolute;
+  /* position: absolute;
   top: -1px;
-  left: 0px;
-  width: 1920px;
-  height: 1090px;
+  left: 0px; */
+  /* min-width: 1280px;
+  min-height: 768px; */
+  width: 100vw;
+  height: 100vh;
   background-image: url("../static/images/ResearchOutcome.png");
   background-repeat: no-repeat;
   background-size: cover;

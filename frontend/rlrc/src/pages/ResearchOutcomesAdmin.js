@@ -376,8 +376,10 @@ function ResearchOutcomesAdmin() {
     // getThesisPatentYear(content);
   }, [content, page]);
   return (
-    <main className={styles.main}>
-      <AdminNavbar />
+    <>
+      <main className={styles.main}>
+        <AdminNavbar />
+      </main>
       <OutComes id="outcomes">
         <ThesisButton
           onClick={() => {
@@ -401,12 +403,13 @@ function ResearchOutcomesAdmin() {
           PATENT
         </PatenteButton>
       </OutComes>
-      {content === "PAPER" ? (
-        <>
-          <ThesisContainer>
-            {!isUpload && (
-              <>
-                {/* <TabList>
+      <ContentsWrapper>
+        {content === "PAPER" ? (
+          <>
+            <ThesisContainer>
+              {!isUpload && (
+                <>
+                  {/* <TabList>
                   <Tab>
                     전체<Cases>200건</Cases>
                   </Tab>
@@ -423,192 +426,199 @@ function ResearchOutcomesAdmin() {
                     2020<Cases>50건</Cases>
                   </Tab>
                 </TabList> */}
-                <UploadButton onClick={handleUpload}>파일 업로드</UploadButton>
-                <Search placeholder="검색" onChange={changeSearch} />
-                <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-              </>
-            )}
-            {isUpload ? (
-              <UploadContainer>
-                <form onSubmit={handleSubmit} encType="multipart/form-data">
-                  <UploadTitle>{content} 파일 업로드</UploadTitle>
-                  <table
-                    style={{
-                      borderCollapse: "collapse",
-                    }}
-                  >
-                    <tbody>
-                      <tr
-                        style={{
-                          borderTop: "3px solid #447BF7",
-                        }}
-                      >
-                        <td
+                  <FunctionWrapper>
+                    <UploadButton onClick={handleUpload}>파일 업로드</UploadButton>
+                    <Search placeholder="검색" onChange={changeSearch} />
+                    <IconWrapper>
+                      <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+                    </IconWrapper>
+                  </FunctionWrapper>
+                </>
+              )}
+              {isUpload ? (
+                <UploadContainer>
+                  <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <UploadTitle>{content} 파일 업로드</UploadTitle>
+                    <table
+                      style={{
+                        borderCollapse: "collapse",
+                      }}
+                    >
+                      <tbody>
+                        <tr
                           style={{
-                            width: "160px",
-                            height: "84px",
-                            background: "#D5D5D5 0% 0% no-repeat padding-box",
-                            opacity: 1,
+                            borderTop: "3px solid #447BF7",
                           }}
                         >
-                          <RowTitle>첨부파일</RowTitle>
-                        </td>
-                        <td
-                          style={{
-                            display: "flex",
-                            width: "1078px",
-                            height: "84px",
-                            background: "#F4F4F4 0% 0% no-repeat padding-box",
-                            opacity: 1,
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                        >
-                          <input
-                            ref={input}
-                            type={"file"}
-                            onChange={handleFileSelect}
+                          <td
                             style={{
-                              display: "none",
-                            }}
-                          ></input>
-                          <label
-                            htmlFor="file"
-                            style={{
-                              display: "inline-block",
-                              padding: "0px 20px",
-                              color: "#fff",
-                              verticalAlign: "middle",
-                              cursor: "pointer",
-                              marginLeft: "10px",
-                              textAlign: "center",
-                              width: "83px",
-                              height: "47px",
-                              background: "#DDDDDD 0% 0% no-repeat padding-box",
-                              border: "1px solid #9F9F9F",
+                              width: "160px",
+                              width: "7.5vw",
+                              height: "84px",
+                              background: "#D5D5D5 0% 0% no-repeat padding-box",
                               opacity: 1,
                             }}
-                            onClick={() => {
-                              input.current?.click();
+                          >
+                            <RowTitle>업로드 파일</RowTitle>
+                          </td>
+                          <td
+                            style={{
+                              display: "flex",
+                              // width: "1078px",
+                              width: "62.3vw",
+                              height: "84px",
+                              background: "#F4F4F4 0% 0% no-repeat padding-box",
+                              opacity: 1,
+                              justifyContent: "center",
+                              alignItems: "center",
                             }}
                           >
-                            <span
+                            <input
+                              ref={input}
+                              type={"file"}
+                              onChange={handleFileSelect}
                               style={{
-                                position: "relative",
-                                top: "0.7rem",
-                                font: "normal normal bold 20px/28px sans-serif",
-                                letterSpacing: "0px",
-                                color: "#000000",
-                                opacity: 0.7,
+                                display: "none",
+                              }}
+                            ></input>
+                            <label
+                              htmlFor="file"
+                              style={{
+                                display: "inline-block",
+                                padding: "0px 20px",
+                                color: "#fff",
+                                verticalAlign: "middle",
+                                cursor: "pointer",
+                                marginLeft: "10px",
+                                textAlign: "center",
+                                width: "83px",
+                                height: "47px",
+                                background: "#DDDDDD 0% 0% no-repeat padding-box",
+                                border: "1px solid #9F9F9F",
+                                opacity: 1,
+                              }}
+                              onClick={() => {
+                                input.current?.click();
                               }}
                             >
-                              파일선택
-                            </span>
-                          </label>
-                          <input
-                            className="upload-name"
-                            placeholder={selectedFileName}
-                            style={{
-                              position: "relative",
-                              display: "inline-block",
-                              padding: "0 10px",
-                              verticalAlign: "middle",
-                              border: "1px solid #dddddd",
-                              width: "863px",
-                              height: "47px",
-                              right: "6px",
-                            }}
-                            readOnly
-                          ></input>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "flex-end",
-                      width: "1250px",
-                      height: "100px",
-                      marginTop: "60px",
-                    }}
-                  >
-                    <Button
-                      style={{ marginRight: "1em" }}
-                      onClick={() => {
-                        setUpload(false);
+                              <span
+                                style={{
+                                  position: "relative",
+                                  top: "0.7rem",
+                                  font: "normal normal bold 20px/28px sans-serif",
+                                  letterSpacing: "0px",
+                                  color: "#000000",
+                                  opacity: 0.7,
+                                }}
+                              >
+                                파일선택
+                              </span>
+                            </label>
+                            <input
+                              className="upload-name"
+                              placeholder={selectedFileName}
+                              style={{
+                                position: "relative",
+                                display: "inline-block",
+                                padding: "0 10px",
+                                verticalAlign: "middle",
+                                border: "1px solid #dddddd",
+                                width: "863px",
+                                width: "50vw",
+                                height: "47px",
+                                right: "6px",
+                              }}
+                              readOnly
+                            ></input>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        width: "100%",
+                        height: "100px",
+                        marginTop: "60px",
                       }}
                     >
-                      목록으로
-                    </Button>
-                    <Button type="submit" value="Upload File">
-                      게시하기
-                    </Button>
-                  </div>
-                </form>
-              </UploadContainer>
-            ) : (
-              <Table border={1}>
-                <tbody>
-                  <TableTitle>
-                    <TableTitleData>No</TableTitleData>
-                    <TableTitleData>Year</TableTitleData>
-                    <TableTitleData>Title</TableTitleData>
-                    <TableTitleData>Authors</TableTitleData>
-                    <TableTitleData>Journal</TableTitleData>
-                    <TableTitleData>IF</TableTitleData>
-                    <TableTitleData>JCI</TableTitleData>
-                    <TableTitleData>DOI</TableTitleData>
-                  </TableTitle>
-                  {thesisPosts && (
-                    <>
-                      {thesisPosts.content.map((PAPER) => {
-                        return (
-                          <>
-                            <TableRow>
-                              <TableData>{PAPER.id}</TableData>
-                              <TableData>{PAPER.year}</TableData>
-                              <TableData style={{ maxWidth: "300px" }}>
-                                {PAPER.title}
-                              </TableData>
-                              <TableData>{PAPER.authors}</TableData>
-                              <TableData>{PAPER.journal}</TableData>
-                              <TableData>{PAPER.iif}</TableData>
-                              <TableData>{PAPER.jcr}</TableData>
-                              <TableData>{PAPER.doi}</TableData>
-                            </TableRow>
-                          </>
-                        );
-                      })}
-                    </>
-                  )}
-                </tbody>
-              </Table>
+                      <Button
+                        style={{ marginRight: "1em" }}
+                        onClick={() => {
+                          setUpload(false);
+                        }}
+                      >
+                        목록으로
+                      </Button>
+                      <Button type="submit" value="Upload File">
+                        게시하기
+                      </Button>
+                    </div>
+                  </form>
+                </UploadContainer>
+              ) : (
+                <Table border={1}>
+                  <tbody>
+                    <TableTitle>
+                      <TableTitleData style={{ width: "5%" }}>No</TableTitleData>
+                      <TableTitleData>Year</TableTitleData>
+                      <TableTitleData>Title</TableTitleData>
+                      <TableTitleData>Authors</TableTitleData>
+                      <TableTitleData>Journal</TableTitleData>
+                      <TableTitleData>IF</TableTitleData>
+                      <TableTitleData>JCI</TableTitleData>
+                      <TableTitleData>DOI</TableTitleData>
+                    </TableTitle>
+                    {thesisPosts && (
+                      <>
+                        {thesisPosts.content.map((PAPER) => {
+                          return (
+                            <>
+                              <TableRow>
+                                <TableData>{PAPER.id}</TableData>
+                                <TableData>{PAPER.year}</TableData>
+                                <TableData style={{ maxWidth: "300px" }}>
+                                  {PAPER.title}
+                                </TableData>
+                                <TableData>{PAPER.authors}</TableData>
+                                <TableData>{PAPER.journal}</TableData>
+                                <TableData>{PAPER.iif}</TableData>
+                                <TableData>{PAPER.jcr}</TableData>
+                                <TableData>{PAPER.doi}</TableData>
+                              </TableRow>
+                            </>
+                          );
+                        })}
+                      </>
+                    )}
+                  </tbody>
+                </Table>
+              )}
+            </ThesisContainer>
+            {thesisPosts && (
+              <footer
+                style={{
+                  position: "relative",
+                  top: "270px",
+                  right: "10px",
+                }}
+              >
+                <Pagination
+                  total={thesisPosts.totalPages}
+                  page={page}
+                  setPage={setPage}
+                  pageSize={thesisPosts.size}
+                />
+              </footer>
             )}
-          </ThesisContainer>
-          {thesisPosts && (
-            <footer
-              style={{
-                position: "relative",
-                top: "270px",
-                right: "10px",
-              }}
-            >
-              <Pagination
-                total={thesisPosts.totalPages}
-                page={page}
-                setPage={setPage}
-                pageSize={thesisPosts.size}
-              />
-            </footer>
-          )}
-        </>
-      ) : (
-        <>
-          <PatentContainer>
-            {!isUpload && (
-              <>
-                {/* <TabList>
+          </>
+        ) : (
+          <>
+            <PatentContainer>
+              {!isUpload && (
+                <>
+                  {/* <TabList>
                   <Tab>
                     전체<Cases>200건</Cases>
                   </Tab>
@@ -625,193 +635,340 @@ function ResearchOutcomesAdmin() {
                     2020<Cases>50건</Cases>
                   </Tab>
                 </TabList> */}
-                <UploadButton onClick={handleUpload}>파일 업로드</UploadButton>
-                <Search placeholder="검색" onChange={changeSearch} />
-                <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-              </>
-            )}
-            {isUpload ? (
-              <form onSubmit={handleSubmit} encType="multipart/form-data">
-                <UploadTitle>{content} 파일 업로드</UploadTitle>
-                <table
-                  style={{
-                    borderCollapse: "collapse",
-                  }}
-                >
-                  <tbody>
-                    <tr
+                  <FunctionWrapper>
+                    <UploadButton onClick={handleUpload}>파일 업로드</UploadButton>
+                    <Search placeholder="검색" onChange={changeSearch} />
+                    <IconWrapper>
+                      <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+                    </IconWrapper>
+                  </FunctionWrapper>
+                </>
+              )}
+              {isUpload ? (
+                // <UploadContainer>
+                //   <form onSubmit={handleSubmit} encType="multipart/form-data">
+                //     <UploadTitle>{content} 파일 업로드</UploadTitle>
+                //     <table
+                //       style={{
+                //         borderCollapse: "collapse",
+                //       }}
+                //     >
+                //       <tbody>
+                //         <tr
+                //           style={{
+                //             borderTop: "3px solid #447BF7",
+                //           }}
+                //         >
+                //           <td
+                //             style={{
+                //               // width: "160px",
+                //               width: "7.5vw",
+                //               height: "84px",
+                //               background: "#D5D5D5 0% 0% no-repeat padding-box",
+                //               opacity: 1,
+                //             }}
+                //           >
+                //             <RowTitle>업로드 파일</RowTitle>
+                //           </td>
+                //           <td
+                //             style={{
+                //               display: "flex",
+                //               width: "1078px",
+                //               height: "84px",
+                //               background: "#F4F4F4 0% 0% no-repeat padding-box",
+                //               opacity: 1,
+                //               justifyContent: "center",
+                //               alignItems: "center",
+                //             }}
+                //           >
+                //             <input
+                //               ref={input}
+                //               type={"file"}
+                //               onChange={handleFileSelect}
+                //               style={{
+                //                 display: "none",
+                //               }}
+                //             ></input>
+                //             <label
+                //               htmlFor="file"
+                //               style={{
+                //                 display: "inline-block",
+                //                 padding: "0px 20px",
+                //                 color: "#fff",
+                //                 verticalAlign: "middle",
+                //                 cursor: "pointer",
+                //                 marginLeft: "10px",
+                //                 textAlign: "center",
+                //                 width: "83px",
+                //                 height: "47px",
+                //                 background: "#DDDDDD 0% 0% no-repeat padding-box",
+                //                 border: "1px solid #9F9F9F",
+                //                 opacity: 1,
+                //               }}
+                //               onClick={() => {
+                //                 input.current?.click();
+                //               }}
+                //             >
+                //               <span
+                //                 style={{
+                //                   position: "relative",
+                //                   top: "0.7rem",
+                //                   font: "normal normal bold 20px/28px sans-serif",
+                //                   letterSpacing: "0px",
+                //                   color: "#000000",
+                //                   opacity: 0.7,
+                //                 }}
+                //               >
+                //                 파일선택
+                //               </span>
+                //             </label>
+                //             <input
+                //               className="upload-name"
+                //               placeholder={selectedFileName}
+                //               style={{
+                //                 position: "relative",
+                //                 display: "inline-block",
+                //                 padding: "0 10px",
+                //                 verticalAlign: "middle",
+                //                 border: "1px solid #dddddd",
+                //                 width: "863px",
+                //                 width: "50vw",
+                //                 height: "47px",
+                //                 right: "6px",
+                //               }}
+                //               readOnly
+                //             ></input>
+                //           </td>
+                //         </tr>
+                //       </tbody>
+                //     </table>
+                //     <div
+                //       style={{
+                //         display: "flex",
+                //         justifyContent: "flex-end",
+                //         width: "1250px",
+                //         height: "100px",
+                //         marginTop: "60px",
+                //       }}
+                //     >
+                //       <Button
+                //         style={{ marginRight: "1em" }}
+                //         onClick={() => {
+                //           setUpload(false);
+                //         }}
+                //       >
+                //         목록으로
+                //       </Button>
+                //       <Button type="submit" value="Upload File">
+                //         게시하기
+                //       </Button>
+                //     </div>
+                //   </form>
+                // </UploadContainer>
+                <UploadContainer>
+                  <form onSubmit={handleSubmit} encType="multipart/form-data">
+                    <UploadTitle>{content} 파일 업로드</UploadTitle>
+                    <table
                       style={{
-                        borderTop: "3px solid #447BF7",
+                        borderCollapse: "collapse",
                       }}
                     >
-                      <td
-                        style={{
-                          width: "160px",
-                          height: "84px",
-                          background: "#D5D5D5 0% 0% no-repeat padding-box",
-                          opacity: 1,
-                        }}
-                      >
-                        <RowTitle>첨부파일</RowTitle>
-                      </td>
-                      <td
-                        style={{
-                          display: "flex",
-                          width: "1078px",
-                          height: "84px",
-                          background: "#F4F4F4 0% 0% no-repeat padding-box",
-                          opacity: 1,
-                          justifyContent: "center",
-                          alignItems: "center",
-                        }}
-                      >
-                        <input
-                          ref={input}
-                          type={"file"}
-                          onChange={handleFileSelect}
+                      <tbody>
+                        <tr
                           style={{
-                            display: "none",
-                          }}
-                        ></input>
-                        <label
-                          htmlFor="file"
-                          style={{
-                            display: "inline-block",
-                            padding: "0px 20px",
-                            color: "#fff",
-                            verticalAlign: "middle",
-                            cursor: "pointer",
-                            marginLeft: "10px",
-                            textAlign: "center",
-                            width: "83px",
-                            height: "47px",
-                            background: "#DDDDDD 0% 0% no-repeat padding-box",
-                            border: "1px solid #9F9F9F",
-                            opacity: 1,
-                          }}
-                          onClick={() => {
-                            input.current?.click();
+                            borderTop: "3px solid #447BF7",
                           }}
                         >
-                          <span
+                          <td
                             style={{
-                              position: "relative",
-                              top: "0.7rem",
-                              font: "normal normal bold 20px/28px sans-serif",
-                              letterSpacing: "0px",
-                              color: "#000000",
-                              opacity: 0.7,
+                              width: "160px",
+                              width: "7.5vw",
+                              height: "84px",
+                              background: "#D5D5D5 0% 0% no-repeat padding-box",
+                              opacity: 1,
                             }}
                           >
-                            파일선택
-                          </span>
-                        </label>
-                        <input
-                          className="upload-name"
-                          placeholder={selectedFileName}
-                          style={{
-                            position: "relative",
-                            display: "inline-block",
-                            padding: "0 10px",
-                            verticalAlign: "middle",
-                            border: "1px solid #dddddd",
-                            width: "863px",
-                            height: "47px",
-                            right: "6px",
-                          }}
-                          readOnly
-                        ></input>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "flex-end",
-                    width: "1250px",
-                    height: "100px",
-                    marginTop: "60px",
-                  }}
-                >
-                  <Button
-                    style={{ marginRight: "1em" }}
-                    onClick={() => {
-                      setUpload(false);
-                    }}
-                  >
-                    목록으로
-                  </Button>
-                  <Button type="submit" value="Upload File">
-                    게시하기
-                  </Button>
-                </div>
-              </form>
-            ) : (
-              <>
-                <Table>
-                  <tbody>
-                    <TableTitle>
-                      <TableTitleData>No</TableTitleData>
-                      <TableTitleData>Date</TableTitleData>
-                      <TableTitleData>Submit</TableTitleData>
-                      <TableTitleData>Title</TableTitleData>
-                      <TableTitleData>Author</TableTitleData>
-                    </TableTitle>
-                    {patentPosts &&
-                      patentPosts.content.map((patent) => {
-                        return (
-                          <>
-                            <TableRow>
-                              <TableData>{patent.id}</TableData>
-                              <TableData>{patent.date}</TableData>
-                              <TableData>{patent.submit}</TableData>
-                              <TableData style={{ maxWidth: "300px" }}>
-                                {patent.title}
-                              </TableData>
-                              <TableData>{patent.author}</TableData>
-                            </TableRow>
-                          </>
-                        );
-                      })}
-                  </tbody>
-                </Table>
-              </>
+                            <RowTitle>업로드 파일</RowTitle>
+                          </td>
+                          <td
+                            style={{
+                              display: "flex",
+                              // width: "1078px",
+                              width: "62.3vw",
+                              height: "84px",
+                              background: "#F4F4F4 0% 0% no-repeat padding-box",
+                              opacity: 1,
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            <input
+                              ref={input}
+                              type={"file"}
+                              onChange={handleFileSelect}
+                              style={{
+                                display: "none",
+                              }}
+                            ></input>
+                            <label
+                              htmlFor="file"
+                              style={{
+                                display: "inline-block",
+                                padding: "0px 20px",
+                                color: "#fff",
+                                verticalAlign: "middle",
+                                cursor: "pointer",
+                                marginLeft: "10px",
+                                textAlign: "center",
+                                width: "83px",
+                                height: "47px",
+                                background: "#DDDDDD 0% 0% no-repeat padding-box",
+                                border: "1px solid #9F9F9F",
+                                opacity: 1,
+                              }}
+                              onClick={() => {
+                                input.current?.click();
+                              }}
+                            >
+                              <span
+                                style={{
+                                  position: "relative",
+                                  top: "0.7rem",
+                                  font: "normal normal bold 20px/28px sans-serif",
+                                  letterSpacing: "0px",
+                                  color: "#000000",
+                                  opacity: 0.7,
+                                }}
+                              >
+                                파일선택
+                              </span>
+                            </label>
+                            <input
+                              className="upload-name"
+                              placeholder={selectedFileName}
+                              style={{
+                                position: "relative",
+                                display: "inline-block",
+                                padding: "0 10px",
+                                verticalAlign: "middle",
+                                border: "1px solid #dddddd",
+                                width: "863px",
+                                width: "50vw",
+                                height: "47px",
+                                right: "6px",
+                              }}
+                              readOnly
+                            ></input>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        width: "100%",
+                        height: "100px",
+                        marginTop: "60px",
+                      }}
+                    >
+                      <Button
+                        style={{ marginRight: "1em" }}
+                        onClick={() => {
+                          setUpload(false);
+                        }}
+                      >
+                        목록으로
+                      </Button>
+                      <Button type="submit" value="Upload File">
+                        게시하기
+                      </Button>
+                    </div>
+                  </form>
+                </UploadContainer>
+              ) : (
+                <>
+                  <Table>
+                    <tbody>
+                      <TableTitle>
+                        <TableTitleData>No</TableTitleData>
+                        <TableTitleData>Date</TableTitleData>
+                        <TableTitleData>Submit</TableTitleData>
+                        <TableTitleData>Title</TableTitleData>
+                        <TableTitleData>Author</TableTitleData>
+                      </TableTitle>
+                      {patentPosts &&
+                        patentPosts.content.map((patent) => {
+                          return (
+                            <>
+                              <TableRow>
+                                <TableData>{patent.id}</TableData>
+                                <TableData>{patent.date}</TableData>
+                                <TableData>{patent.submit}</TableData>
+                                <TableData style={{ maxWidth: "300px" }}>
+                                  {patent.title}
+                                </TableData>
+                                <TableData>{patent.author}</TableData>
+                              </TableRow>
+                            </>
+                          );
+                        })}
+                    </tbody>
+                  </Table>
+                </>
+              )}
+            </PatentContainer>
+            {patentPosts && (
+              <footer
+                style={{
+                  position: "relative",
+                  top: "180px",
+                  right: "10px",
+                }}
+              >
+                <Pagination
+                  total={patentPosts.totalPages}
+                  page={page}
+                  setPage={setPage}
+                  pageSize={patentPosts.size}
+                />
+              </footer>
             )}
-          </PatentContainer>
-          {patentPosts && (
-            <footer
-              style={{
-                position: "relative",
-                top: "180px",
-                right: "10px",
-              }}
-            >
-              <Pagination
-                total={patentPosts.totalPages}
-                page={page}
-                setPage={setPage}
-                pageSize={patentPosts.size}
-              />
-            </footer>
-          )}
-        </>
-      )}
-    </main>
+          </>
+        )}
+      </ContentsWrapper>
+
+    </>
   );
 }
 const OutComes = styled.div`
-  position: relative;
-  top: 330px;
-  width: 1920px;
-  height: 1050px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+`;
+
+const ContentsWrapper = styled.div`
+  display:flex;
+  justify-content: center;
+  // background: green;
+  width: 100vw;
+  heigth: 100%;
+  margin-top: 150px;
+`;
+
+const FunctionWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 40px;
 `;
 const ThesisButton = styled.button`
-  position: absolute;
-  top: 620px;
-  left: 0px;
-  width: 960px;
-  height: 186px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "PAPER" ? "#ffffff" : "#447bfb"};
@@ -822,6 +979,7 @@ const ThesisButton = styled.button`
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
+  font-size: 1.8vw;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "PAPER" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -830,18 +988,13 @@ const ThesisButton = styled.button`
   border-style: none;
 `;
 const PatenteButton = styled.button`
-  position: absolute;
-  top: 620px;
-  left: 960px;
-  width: 960px;
-  height: 186px;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "PAPER" ? "#447bfb" : "#ffffff"};
   opacity: 1;
 
-  font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
@@ -851,21 +1004,19 @@ const PatenteButton = styled.button`
   opacity: 1;
   text-align: center;
   border-style: none;
+  font-size: 1.8vw;
 `;
 
 const ThesisContainer = styled.div`
-  position: relative;
-  top: 300px;
-  left: 335px;
   height: 1500px;
-  width: 1250px;
+  // width: 1250px;
+  width: 70vw;
+  // background: red;
 `;
 const PatentContainer = styled.div`
-  position: relative;
-  top: 300px;
-  left: 335px;
   height: 1500px;
   width: 1250px;
+    width: 70vw;
 `;
 
 const TabList = styled.div`
@@ -912,13 +1063,12 @@ const Cases = styled.div`
   background-color: white;
 `;
 const UploadButton = styled.button`
-  border: none;
-  position: absolute;
   display: flex;
-  left: 800px;
-  top: -45px;
-  width: 132px;
-  height: 46px;
+  border: none;
+  // width: 132px;
+  width: 7vw;
+  // height: 46px;
+  height: 4.6vh;
   /* UI Properties */
   background: #d3d3d35c 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -926,31 +1076,40 @@ const UploadButton = styled.button`
   justify-content: center;
   align-items: center;
   font: normal normal normal 16px/30px sans-serif;
+  font-size: 0.8vw;
   letter-spacing: 0px;
   color: #171717;
   opacity: 0.7;
 `;
 const Search = styled.input`
-  position: relative;
-  top: -47px;
-  left: 950px;
-  width: 280px;
-  height: 46px;
+  margin-left: 30px;
+  // width: 280px;
+  width: 10.5vw;
+  // height: 46px;
+  height: 4.6vh;
   background: #d3d3d35c 0% 0% no-repeat padding-box;
   opacity: 1;
   border: none;
   padding-left: 20px;
+  font-size: 0.8vw;
 `;
+const IconWrapper = styled.div`
+display: flex;
+align-items: center;
+height: 4.6vh;    
+background: #efefef;
+padding: 0 30px;
+`;
+
 const Icon = styled.img`
-  position: relative;
-  top: -38px;
-  left: 908px;
   width: 25px;
   height: 25px;
+  
 `;
 const Table = styled.table`
-  position: absolute;
+  // position: absolute;
   width: 1250px;
+  width: 100%;
   height: 84px;
   opacity: 1;
   border-spacing: 0px;
@@ -993,7 +1152,10 @@ const TableData = styled.td`
 `;
 
 const UploadContainer = styled.div`
-  height: 274px;
+  display: flex;
+  justify-content: flex-start;
+  // height: 274px;
+  // background: green;
 `;
 const UploadTitle = styled.h1`
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
@@ -1006,6 +1168,7 @@ const UploadTitle = styled.h1`
   color: #447bf7;
   text-transform: uppercase;
   opacity: 1;
+  font-size: 1.8vw;
 `;
 const RowTitle = styled.p`
   text-align: center;
