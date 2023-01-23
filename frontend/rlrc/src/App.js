@@ -11,16 +11,23 @@ import ResearchOutcomes from "./pages/ResearchOutcomes";
 import ResearchOutcomesAdmin from "./pages/ResearchOutcomesAdmin";
 // import PathSelection from "./pages/PathSelection";
 import UserLogin from "./pages/UserLogin";
+import Landing from "./pages/Landing";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route
+          path='/'
+          style={{ textDecoration: "none" }}
+          element={<Landing />}
+        >
+        </Route>
+        {/* <Route
           path="/"
           style={{ textDecoration: "none" }}
           element={<AboutRLRC />}
-        ></Route>
+        ></Route> */}
         <Route
           path="/AboutRLRC"
           style={{ textDecoration: "none" }}
