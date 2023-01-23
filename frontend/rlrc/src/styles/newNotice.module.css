@@ -25,15 +25,14 @@ ul {
   position: relative;
   background-color: #ffffff;
   top: 2px;
-  left: 410px;
-  width: 220px;
+  left: 610px;
+  width: 225px;
   height: 2px;
   z-index: 10;
-  /* top: 247.5px; */
 }
 .selection_line_grey {
   background-color: rgba(221, 221, 221, 0.674);
-  width: 630px;
+  width: 835px;
   height: 2px;
   /* top: 247.5px; */
 }

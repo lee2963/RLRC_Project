@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import styled from "styled-components";
 
-import prevArrow from "../static/prevArrow.png";
-import nextArrow from "../static/nextArrow.png";
 import logo from "../static/images/parkjuhyun1.png";
+import nextArrow from "../static/nextArrow.png";
+import prevArrow from "../static/prevArrow.png";
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -45,9 +45,13 @@ function JooSangWoo() {
   return (
     <Body>
       <Container>
-        <Name>Joo Sang Woo</Name>
-        <Text>RESEARCH FIELD</Text>
-        <Title>Control of Autonomous Intelligent Vehicles</Title>
+        <NameContainer>
+          <Name>Joo Sang Woo</Name>
+        </NameContainer>
+        <TextContainer>
+          <Text>RESEARCH FIELD</Text>
+          <Title>Control of Autonomous Intelligent Vehicles</Title>
+        </TextContainer>
       </Container>
       <StyledSlider
         {...settings}
@@ -86,43 +90,49 @@ function JooSangWoo() {
 const Body = styled.main`
   top: 0px;
   left: 0px;
-  width: 1920px;
-  height: 1149px;
+  width: 100%;
+  height: 0;
   /* UI Properties */
-  background: #f0f0f0 0% 0% no-repeat padding-box;
+  background: #f0f0f0;
   opacity: 1;
 `;
 const Container = styled.div`
-  position: absolute;
+  position: relative;
   top: 196px;
-  left: -68px;
-  width: 643px;
+  width: 100%;
   height: 160px;
-
+  display: flex;
   /* UI Properties */
-  background: #447bf7 0% 0% no-repeat padding-box;
-  border-radius: 80px;
-  opacity: 1;
 `;
-const Name = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 60px;
-  left: 280px;
-  width: 260px;
-  height: 47px;
-  /* UI Properties */
-  text-align: left;
-  font: normal normal bold 40px/47px sans-serif;
+const NameContainer = styled.div`
+  background: #447bf7 0% 0% no-repeat padding-box;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  opacity: 1;
+  width: 30%;
+  height: 100%;
+  vertical-align: center;
+`;
+
+const TextContainer = styled.div`
+  float: right;
+  width: 70%;
+  height: 100%;
+  background-color: pink;
+`;
+const Name = styled.p`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  text-align: center;
+  font: normal normal bold 2.5vw sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
 `;
 const Text = styled.div`
   /* Layout Properties */
-  position: absolute;
-  top: 30px;
-  left: 703px;
   width: 157px;
   height: 24px;
   /* UI Properties */
@@ -134,9 +144,6 @@ const Text = styled.div`
 `;
 const Title = styled.div`
   /* Layout Properties */
-  position: absolute;
-  top: 60px;
-  left: 700px;
   width: 967px;
   height: 58px;
   /* UI Properties */

@@ -1,15 +1,14 @@
 import React from "react";
-import Layout from "../src/components/Layout";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import AboutRLRC from "./pages/AboutRLRC";
-import Research from "./pages/Research";
+import Detail from "./pages/Detail";
 import NewNotice from "./pages/NewNotice";
 import NewNoticeAdmin from "./pages/NewNoticeAdmin";
+import Research from "./pages/Research";
 import ResearchField from "./pages/ResearchField";
-import Detail from "./pages/Detail";
 import ResearchOutcomes from "./pages/ResearchOutcomes";
 import ResearchOutcomesAdmin from "./pages/ResearchOutcomesAdmin";
-// import PathSelection from "./pages/PathSelection";
+import SiteMap from "./pages/SiteMap";
 import UserLogin from "./pages/UserLogin";
 import Landing from "./pages/Landing";
 
@@ -18,12 +17,20 @@ function App() {
     <div className="App">
       <Routes>
         <Route
+<<<<<<< Updated upstream
           path='/'
           style={{ textDecoration: "none" }}
           element={<Landing />}
         >
         </Route>
         {/* <Route
+=======
+          path="/SiteMap"
+          style={{ textDecoration: "none" }}
+          element={<SiteMap />}
+        ></Route>
+        <Route
+>>>>>>> Stashed changes
           path="/"
           style={{ textDecoration: "none" }}
           element={<AboutRLRC />}

@@ -1,13 +1,13 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-import styles from "../styles/researchOutcomes.module.css";
-import SearchIcon from "../static/search.png";
 import axios from "axios";
-import Pagination from "../components/Pagination";
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
 import ContentBar from "../components/ContentBar";
 import ContentIndex from "../components/ContentIndex";
 import Navbar from "../components/Navbar";
+import Pagination from "../components/Pagination";
+import SearchIcon from "../static/search.png";
+import styles from "../styles/researchOutcomes.module.css";
 /*
 const sampleThesis = {
   content: [
@@ -343,71 +343,82 @@ export default function ResearchOutcomes() {
   }, [content, page]);
 
   return (
-    <main className={styles.main}>
+    <>
       <Navbar />
       <ContentBar setShow={setShowContent} />
       {showContent && (
         <ContentIndex setShow={setShowContent} isShow={showContent} />
       )}
-      <div className={styles.selectionbar}>
-        <div className={styles.selection_line_white} />
-        <div className={styles.selection_line_grey} />
-        <ul className={styles.selectionbar_menu}>
-          <StyledLink
-            to="/AboutRLRC"
-            id={styles.selectbar_content}
-            className="select_rlrc"
-            style={{
-              textDecoration: "none",
+      <main className={styles.main}>
+        <SelectionBarCotainer>
+          <div className={styles.selection_line_white} />
+          <div className={styles.selection_line_grey} />
+          <ul className={styles.selectionbar_menu}>
+            <StyledLink
+              to="/AboutRLRC"
+              id={styles.selectbar_content}
+              className="select_rlrc"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              ABOUT RLRC
+            </StyledLink>
+            <StyledLink
+              to="/Research"
+              id={styles.selectbar_content}
+              className="slelect_research"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              RESEARCH
+            </StyledLink>
+            <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              OUTCOMES
+            </StyledLink>
+            <StyledLink
+              to="/NewNotice"
+              id={styles.selectbar_content}
+              className="select_new_notice"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              NEW & NOTICE
+            </StyledLink>
+          </ul>
+        </SelectionBarCotainer>
+        <OutComes id="outcomes">
+          <ThesisButton
+            onClick={() => {
+              setContent("thesis");
             }}
+            content={content}
+            id="new_notice"
           >
-            ABOUT RLRC
-          </StyledLink>
-          <StyledLink
-            to="/Research"
-            id={styles.selectbar_content}
-            className="slelect_research"
-            style={{
-              textDecoration: "none",
+            THESIS
+          </ThesisButton>
+          <PatenteButton
+            onClick={() => {
+              setContent("patent");
             }}
+            content={content}
           >
-            RESEARCH
-          </StyledLink>
-          <StyledLink
-            to="/NewNotice"
-            id={styles.selectbar_content}
-            className="select_new_notice"
-            style={{
-              textDecoration: "none",
-            }}
-          >
-            NEW & NOTICE
-          </StyledLink>
-        </ul>
-      </div>
-      <OutComes id="outcomes">
-        <ThesisButton
-          onClick={() => {
-            setContent("thesis");
-          }}
-          content={content}
-          id="new_notice"
-        >
-          THESIS
-        </ThesisButton>
-        <PatenteButton
-          onClick={() => {
-            setContent("patent");
-          }}
-          content={content}
-        >
-          PATENT
-        </PatenteButton>
-      </OutComes>
-      {content === "thesis" ? (
-        <>
-          <ThesisContainer>
-            {/* <TabList>
+            PATENT
+          </PatenteButton>
+        </OutComes>
+        {content === "thesis" ? (
+          <>
+            <ThesisContainer>
+              {/* <TabList>
               <Tab>
                 전체<Cases>200건</Cases>
               </Tab>
@@ -424,132 +435,140 @@ export default function ResearchOutcomes() {
                 2020<Cases>50건</Cases>
               </Tab>
             </TabList> */}
-            <Search placeholder="검색" onChange={changeSearch} />
-            <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-            <Table border={1}>
-              <tbody>
-                <TableTitle>
-                  <TableTitleData>No</TableTitleData>
-                  <TableTitleData>Year</TableTitleData>
-                  <TableTitleData>Title</TableTitleData>
-                  <TableTitleData>Authors</TableTitleData>
-                  <TableTitleData>Journal</TableTitleData>
-                  <TableTitleData>IF</TableTitleData>
-                  <TableTitleData>JCI</TableTitleData>
-                  <TableTitleData>DOI</TableTitleData>
-                </TableTitle>
-                {thesisPosts && (
-                  <>
-                    {thesisPosts.content.map((thesis) => {
+              <Search placeholder="검색" onChange={changeSearch} />
+              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+              <Table border={1}>
+                <tbody>
+                  <TableTitle>
+                    <TableTitleData>No</TableTitleData>
+                    <TableTitleData>Year</TableTitleData>
+                    <TableTitleData>Title</TableTitleData>
+                    <TableTitleData>Authors</TableTitleData>
+                    <TableTitleData>Journal</TableTitleData>
+                    <TableTitleData>IF</TableTitleData>
+                    <TableTitleData>JCI</TableTitleData>
+                    <TableTitleData>DOI</TableTitleData>
+                  </TableTitle>
+                  {thesisPosts && (
+                    <>
+                      {thesisPosts.content.map((thesis) => {
+                        return (
+                          <>
+                            <TableRow>
+                              <TableData>{thesis.id}</TableData>
+                              <TableData>{thesis.year}</TableData>
+                              <TableData style={{ maxWidth: "300px" }}>
+                                {thesis.title}
+                              </TableData>
+                              <TableData>{thesis.authors}</TableData>
+                              <TableData>{thesis.journal}</TableData>
+                              <TableData>{thesis.iif}</TableData>
+                              <TableData>{thesis.jcr}</TableData>
+                              <TableData>{thesis.doi}</TableData>
+                            </TableRow>
+                          </>
+                        );
+                      })}
+                    </>
+                  )}
+                </tbody>
+              </Table>
+            </ThesisContainer>
+            {thesisPosts && (
+              <footer
+                style={{
+                  position: "relative",
+                  right: "10px",
+                }}
+              >
+                <Pagination
+                  total={thesisPosts.totalPages}
+                  page={page}
+                  setPage={setPage}
+                  pageSize={thesisPosts.size}
+                />
+              </footer>
+            )}
+          </>
+        ) : (
+          <>
+            <PatentContainer>
+              {/* <TabList>
+              <Tab>
+                전체<Cases>200건</Cases>
+              </Tab>
+              <Tab>
+                2023<Cases>50건</Cases>
+              </Tab>
+              <Tab>
+                2022<Cases>50건</Cases>
+              </Tab>
+              <Tab>
+                2021<Cases>50건</Cases>
+              </Tab>
+              <Tab>
+                2020<Cases>50건</Cases>
+              </Tab>
+            </TabList> */}
+              <Search placeholder="검색" onChange={changeSearch} />
+              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+              <Table>
+                <tbody>
+                  <TableTitle>
+                    <TableTitleData>No</TableTitleData>
+                    <TableTitleData>Date</TableTitleData>
+                    <TableTitleData>Submit</TableTitleData>
+                    <TableTitleData>Title</TableTitleData>
+                    <TableTitleData>Author</TableTitleData>
+                  </TableTitle>
+                  {patentPosts &&
+                    patentPosts.content.map((patent) => {
                       return (
                         <>
                           <TableRow>
-                            <TableData>{thesis.id}</TableData>
-                            <TableData>{thesis.year}</TableData>
+                            <TableData>{patent.id}</TableData>
+                            <TableData>{patent.date}</TableData>
+                            <TableData>{patent.submit}</TableData>
                             <TableData style={{ maxWidth: "300px" }}>
-                              {thesis.title}
+                              {patent.title}
                             </TableData>
-                            <TableData>{thesis.authors}</TableData>
-                            <TableData>{thesis.journal}</TableData>
-                            <TableData>{thesis.iif}</TableData>
-                            <TableData>{thesis.jcr}</TableData>
-                            <TableData>{thesis.doi}</TableData>
+                            <TableData>{patent.author}</TableData>
                           </TableRow>
                         </>
                       );
                     })}
-                  </>
-                )}
-              </tbody>
-            </Table>
-          </ThesisContainer>
-          {thesisPosts && (
-            <footer
-              style={{
-                position: "relative",
-                right: "10px",
-              }}
-            >
-              <Pagination
-                total={thesisPosts.totalPages}
-                page={page}
-                setPage={setPage}
-                pageSize={thesisPosts.size}
-              />
-            </footer>
-          )}
-        </>
-      ) : (
-        <>
-          <PatentContainer>
-            {/* <TabList>
-              <Tab>
-                전체<Cases>200건</Cases>
-              </Tab>
-              <Tab>
-                2023<Cases>50건</Cases>
-              </Tab>
-              <Tab>
-                2022<Cases>50건</Cases>
-              </Tab>
-              <Tab>
-                2021<Cases>50건</Cases>
-              </Tab>
-              <Tab>
-                2020<Cases>50건</Cases>
-              </Tab>
-            </TabList> */}
-            <Search placeholder="검색" onChange={changeSearch} />
-            <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-            <Table>
-              <tbody>
-                <TableTitle>
-                  <TableTitleData>No</TableTitleData>
-                  <TableTitleData>Date</TableTitleData>
-                  <TableTitleData>Submit</TableTitleData>
-                  <TableTitleData>Title</TableTitleData>
-                  <TableTitleData>Author</TableTitleData>
-                </TableTitle>
-                {patentPosts &&
-                  patentPosts.content.map((patent) => {
-                    return (
-                      <>
-                        <TableRow>
-                          <TableData>{patent.id}</TableData>
-                          <TableData>{patent.date}</TableData>
-                          <TableData>{patent.submit}</TableData>
-                          <TableData style={{ maxWidth: "300px" }}>
-                            {patent.title}
-                          </TableData>
-                          <TableData>{patent.author}</TableData>
-                        </TableRow>
-                      </>
-                    );
-                  })}
-              </tbody>
-            </Table>
-          </PatentContainer>
-          {patentPosts && (
-            <footer
-              style={{
-                position: "relative",
-                right: "10px",
-              }}
-            >
-              <Pagination
-                total={patentPosts.totalPages}
-                page={page + 1}
-                setPage={setPage}
-                pageSize={patentPosts.size}
-              />
-            </footer>
-          )}
-        </>
-      )}
-    </main>
+                </tbody>
+              </Table>
+            </PatentContainer>
+            {patentPosts && (
+              <footer
+                style={{
+                  position: "relative",
+                  right: "10px",
+                }}
+              >
+                <Pagination
+                  total={patentPosts.totalPages}
+                  page={page + 1}
+                  setPage={setPage}
+                  pageSize={patentPosts.size}
+                />
+              </footer>
+            )}
+          </>
+        )}
+      </main>
+    </>
   );
 }
-
+const SelectionBarCotainer = styled.div`
+  position: absolute;
+  float: left;
+  top: 250px;
+  left: 200px;
+  width: auto;
+  height: auto;
+`;
 const OutComes = styled.div`
   position: relative;
   top: 230px;

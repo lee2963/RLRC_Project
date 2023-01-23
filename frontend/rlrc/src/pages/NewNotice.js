@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import ContentBar from "../components/ContentBar";
@@ -5,10 +6,9 @@ import ContentIndex from "../components/ContentIndex";
 import Navbar from "../components/Navbar";
 import Pagination from "../components/Pagination";
 import styles from "../styles/newNotice.module.css";
-import axios from "axios";
 
-import SearchIcon from "../static/search.png";
 import styled from "styled-components";
+import SearchIcon from "../static/search.png";
 
 export default function NewNotice() {
   const navigate = useNavigate();
@@ -120,6 +120,16 @@ export default function NewNotice() {
               }}
             >
               RESEARCH
+            </StyledLink>
+            <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              OUTCOMES
             </StyledLink>
             <StyledLink
               to="/NewNotice"

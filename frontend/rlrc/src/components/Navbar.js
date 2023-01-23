@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import styles from "../styles/navbar.module.css";
-import logo from "../static/logo.png";
 import AboutRLRC from "../pages/AboutRLRC";
-import Research from "../pages/Research";
 import NewNotice from "../pages/NewNotice";
-import ContentBar from "./ContentBar";
+import Research from "../pages/Research";
+import ResearchOutcomes from "../pages/ResearchOutcomes";
+import logo from "../static/logo.png";
+import styles from "../styles/navbar.module.css";
 
 export default function Navbar(props) {
   const [isClick, setIsClick] = useState(false);
@@ -41,6 +41,15 @@ export default function Navbar(props) {
           element={<Research />}
         >
           RESEARCH
+        </Link>
+        <Link
+          id={styles.navbar_content}
+          className="researchOutcomes"
+          to="/ResearchOutcomes"
+          style={{ textDecoration: "none" }}
+          element={<ResearchOutcomes />}
+        >
+          OUTCOMES
         </Link>
         <Link
           id={styles.navbar_content}

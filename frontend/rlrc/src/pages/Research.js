@@ -116,6 +116,16 @@ export default function Research() {
               RESEARCH
             </StyledLink>
             <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              OUTCOMES
+            </StyledLink>
+            <StyledLink
               to="/NewNotice"
               id={styles.selectbar_content}
               className="select_new_notice"
@@ -131,6 +141,7 @@ export default function Research() {
           style={{
             position: "relative",
             left: "80px",
+            width: "auto",
             marginTop: "10%",
             textAlign: "center",
             font: "normal normal bold 42px/49px sans-serif",

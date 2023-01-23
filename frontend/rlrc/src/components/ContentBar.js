@@ -1,15 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import sidebarIcon from "../static/sidebarIcon.png";
-function ContentBar(props) {
-  const { setShow } = props;
+function ContentBar() {
   return (
     <ButtonContainer>
-      <SidebarButton
-        onClick={() => {
-          setShow(true);
-        }}
-      >
+      <SidebarButton to="/SiteMap">
         <img src={sidebarIcon} style={{ height: "21px", width: "25px" }}></img>
       </SidebarButton>
     </ButtonContainer>
@@ -27,7 +23,7 @@ const ButtonContainer = styled.div`
 
   z-index: 1;
 `;
-const SidebarButton = styled.button`
+const SidebarButton = styled((props) => <Link {...props} />)`
   background-color: transparent;
   border: none;
 `;

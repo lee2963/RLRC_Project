@@ -1,146 +1,71 @@
 import React from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import styled, { keyframes } from "styled-components";
 import back from "../static/back.png";
 
-function ContentIndex(props) {
-  const setShow = props.setShow;
-  const isShow = props.isShow;
+function ContentIndex({ history }) {
+  const navigate = useNavigate();
   return (
-    <Container isShow={isShow}>
+    <Container>
       <BackButton
         onClick={() => {
-          setShow(false);
+          navigate(-1);
         }}
       >
         <img
           src={back}
-          style={{ height: "21px", width: "25px", color: "black" }}
+          style={{ height: "1.8vw", width: "2vw", color: "black" }}
         ></img>
       </BackButton>
       <ContentTable>
-        <TableHeader>ABOUT RLRC</TableHeader>
-        <TableHeader>RESEARCH</TableHeader>
-        <TableHeader>NEW & NOTICE</TableHeader>
+        <TableHeader>
+          <p style={{ whiteSpace: "nowrap" }}>ABOUT RLRC</p>
+        </TableHeader>
+        <TableHeader>
+          <p style={{ whiteSpace: "nowrap" }}>RESEARCH</p>
+        </TableHeader>
+        <TableHeader>
+          <p style={{ whiteSpace: "nowrap" }}>OUTCOMES</p>
+        </TableHeader>
+        <TableHeader>
+          <p style={{ whiteSpace: "nowrap" }}>NEW & NOTICE</p>
+        </TableHeader>
         <TableRow>
           <TableData>
-            <StyledLink
-              smooth
-              to="/AboutRLRC#vision_mission"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
+            <StyledLink smooth to="/AboutRLRC#vision_mission">
               Vision & Mission
             </StyledLink>
           </TableData>
           <TableData>
-            <StyledLink
-              smooth
-              to="/Research#key_project"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              Key Project
-            </StyledLink>
-          </TableData>
-          <TableData>
-            <StyledLink
-              smooth
-              to="/NewNotice#new_notice"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              NEWS
+            <StyledLink smooth to="/Research#key_project">
+              Research Group
             </StyledLink>
           </TableData>
         </TableRow>
         <TableRow>
           <TableData>
-            <StyledLink
-              smooth
-              to="/AboutRLRC#material"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              소재그룹
+            <StyledLink smooth to="/AboutRLRC#material">
+              Key Projects
             </StyledLink>
           </TableData>
           <TableData>
-            <StyledLink
-              smooth
-              to="/Research#field"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              연구분야
-            </StyledLink>
-          </TableData>
-          <TableData>
-            <StyledLink
-              smooth
-              to="/NewNotice#new_notice"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              NOTICE
+            <StyledLink smooth to="/Research#field">
+              Researcher
             </StyledLink>
           </TableData>
         </TableRow>
         <TableRow>
           <TableData>
-            <StyledLink
-              smooth
-              to="/AboutRLRC#part"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              부품그룹
-            </StyledLink>
-          </TableData>
-          <TableData>
-            <StyledLink
-              smooth
-              to="/ResearchOutcomes"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              Research Outcomes
-            </StyledLink>
-          </TableData>
-          <TableData>
-            <StyledLink
-              smooth
-              to="/UserLogin"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              관리자
-            </StyledLink>
-          </TableData>
-        </TableRow>
-        <TableRow>
-          <TableData>
-            <StyledLink
-              smooth
-              to="/AboutRLRC#partners"
-              onClick={() => {
-                setShow(false);
-              }}
-            >
-              협력기관
+            <StyledLink smooth to="/AboutRLRC#partners">
+              Cooperation
             </StyledLink>
           </TableData>
         </TableRow>
       </ContentTable>
+      <AdminButton>
+        <AdminLink to="/UserLogin">관리자</AdminLink>
+      </AdminButton>
     </Container>
   );
 }
@@ -162,26 +87,22 @@ const slideDown = keyframes`
   }
 `;
 const Container = styled.div`
-  position: relative;
-  top: -165px;
+  position: absolute;
   width: 100%;
-  height: 110vh;
   display: flex;
+  height: 100%;
   justify-content: center;
+  align-items: center;
   /* UI Properties */
   background: #000000 0% 0% no-repeat padding-box;
-  animation: ${(props) => (props.isShow ? slideDown : slideUp)} 0.5s ease;
-  z-index: 20;
 `;
 
 const ContentTable = styled.table`
   position: relative;
-  top: calc(135 * 3px);
   width: 80%;
-  height: 50%;
-  left: 100px;
+  left: 30px;
   text-align: center;
-  border-spacing: 60px;
+  border-spacing: 50px;
 `;
 const TableRow = styled.tr`
   text-align: center;
@@ -199,15 +120,13 @@ const TableHeader = styled.th`
   /* UI Properties */
   text-align: center;
   font: normal normal 900 3vw sans-serif;
-  letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
-  height: 40px;
 `;
 const BackButton = styled.button`
   position: absolute;
-  top: 128px;
-  left: 193px;
+  top: 135px;
+  left: 80px;
   background-color: transparent;
   border-width: 0px;
 `;
@@ -219,6 +138,33 @@ const StyledLink = styled((props) => <HashLink {...props} />)`
     color: white;
   }
   text-decoration: none;
+`;
+
+const AdminButton = styled.div`
+  position: relative;
+  top: 35%;
+  right: 10%;
+  width: 9vw;
+  height: 3.8vw;
+  background: #464646;
+  border: 1px solid #464646;
+  border-radius: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  float: left;
+`;
+const AdminLink = styled((props) => <Link {...props} />)`
+  text-align: center;
+  font: normal normal bold 21px/24px sans-serif;
+  letter-spacing: 0px;
+  color: #ffffff;
+  opacity: 1;
+  white-space: nowrap;
+  text-decoration: none;
+  &:hover {
+    color: #447bf7;
+  }
 `;
 
 export default ContentIndex;

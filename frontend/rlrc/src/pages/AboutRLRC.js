@@ -73,6 +73,16 @@ export default function AboutRLRC() {
               RESEARCH
             </StyledLink>
             <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              OUTCOMES
+            </StyledLink>
+            <StyledLink
               to="/NewNotice"
               id={styles.selectbar_content}
               className="select_new_notice"
