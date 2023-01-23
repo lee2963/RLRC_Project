@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import axios from "axios";
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 function FormEditor(props) {
   const navigate = useNavigate();
@@ -78,7 +78,7 @@ function FormEditor(props) {
           position: "relative",
           borderCollapse: "separate",
           borderSpacing: "0 8px",
-          right: "5em",
+          // right: "5em",
         }}
       >
         <tbody>
@@ -325,9 +325,9 @@ function FormEditor(props) {
         style={{
           display: "flex",
           justifyContent: "flex-end",
-          width: "1160px",
-          height: "100px",
+          // width: "1160px",
           marginTop: "60px",
+          marginBottom: "60px",
         }}
       >
         <Button style={{ marginRight: "1em" }} onClick={toAdminHome}>

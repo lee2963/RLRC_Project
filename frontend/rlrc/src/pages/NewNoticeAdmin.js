@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Pagination from "../components/Pagination";
-import styles from "../styles/newNotice.module.css";
+import styles from "../styles/newNoticeAdmin.module.css";
 import axios from "axios";
 import SearchIcon from "../static/search.png";
 import FormEditor from "../components/FormEditor";
@@ -107,8 +107,8 @@ export default function NewNoticeAdmin() {
         ? Array(newsPosts.numberOfElements).fill(false)
         : []
       : noticePosts
-      ? Array(noticePosts.number).fill(false)
-      : []
+        ? Array(noticePosts.number).fill(false)
+        : []
   );
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -209,10 +209,12 @@ export default function NewNoticeAdmin() {
     }
   };
   return (
-    <main className={styles.main}>
-      <>
+    <>
+      <main className={styles.main}>
         <AdminNavbar />
         <Title>NEWS & NOTICE</Title>
+      </main>
+      <ButtonWrapper>
         <NewsButton
           onClick={() => {
             setCurContent("news");
@@ -220,6 +222,7 @@ export default function NewNoticeAdmin() {
             setAddNotice(false);
             setDeleteContent(false);
             setSearchText("");
+            // console.log("newsButton");
           }}
           content={curContent}
           id="new_notice"
@@ -238,164 +241,34 @@ export default function NewNoticeAdmin() {
         >
           NOTICE
         </NoticeButton>
-        {curContent === "news" ? (
-          addNews === false ? (
-            <News>
+      </ButtonWrapper>
+      {curContent === "news" ? (
+        addNews === false ? (
+          <News>
+            <SearchWrapper>
               <NoticeTitle>NEWS</NoticeTitle>
-              <form onSubmit={handleSearch}>
+              <form onSubmit={handleSearch} style={{
+                display: "flex",
+                flexDirection: "row"
+              }}>
                 <Search placeholder="검색" onChange={changeSearch} />
                 <Icon src={SearchIcon} onClick={handleSearch}></Icon>
               </form>
-              <ButtonContainer>
-                <Button value="add" onClick={handleAddNews}>
-                  추가
-                </Button>
-                <Button value="delete" onClick={handleDelete}>
-                  삭제
-                </Button>
-              </ButtonContainer>
-              <Line />
-              <PaginationContainer>
-                {newsPosts && (
-                  <>
-                    {newsPosts.content.map((ele) => (
-                      <PaginationElement
-                        key={ele.id}
-                        onMouseEnter={() => {
-                          handleEnter(ele.id);
-                        }}
-                        onMouseLeave={() => {
-                          handleLeave(ele.id);
-                        }}
-                      >
-                        {deleteContent && (
-                          <DeleteButton
-                            onClick={() => handleDeleteContent(ele.id, "news")}
-                          >
-                            X
-                          </DeleteButton>
-                        )}
-                        <ContentContainer>
-                          <h3
-                            style={{
-                              textAalign: "left",
-                              font: "normal normal bold 22px/28px sans-serif",
-                              letterSpacing: "0px",
-                              color: "#447BF7",
-                              opacity: 1,
-                              display: "block",
-                              whiteSpace: "nowrap",
-                              overflow: "hidden",
-                              textOverflow: "ellipsis",
-                            }}
-                          >
-                            {ele.title}
-                          </h3>
-                          <span
-                            style={{
-                              display: "-webkit-box",
-                              textAlign: "left",
-                              font: "normal normal normal 16px/23px sans-serif",
-                              letterSpacing: "0px",
-                              color: "#606060",
-                              opacity: 1,
-                              overflow: "hidden",
-                              WebkitBoxOrient: "vertical",
-                              WebkitLineClamp: 3,
-                              maxWidth: "100%",
-                              textOverflow: "ellipsis",
-                              lineClamp: 2,
-                              height: "66px",
-                            }}
-                          >
-                            {ele.content}
-                          </span>
-                          <p
-                            style={{
-                              position: "relative",
-                              top: "31px",
-                              font: "normal normal normal 20px sans-serif",
-                              letterSpacing: "0px",
-                              color: "#969696",
-                              opacity: 1,
-                            }}
-                          >
-                            {ele.dateTime}
-                          </p>
-                        </ContentContainer>
-                        {showButton[newsPosts.content.length - ele.id] ===
-                        true ? (
-                          !deleteContent && (
-                            <DetailButton
-                              onClick={() => {
-                                handleClick(ele.id);
-                              }}
-                            >
-                              <p
-                                style={{
-                                  color: "white",
-                                  fontSize: "20px",
-                                  fontWeight: "bold",
-                                }}
-                              >
-                                +
-                              </p>
-                            </DetailButton>
-                          )
-                        ) : (
-                          <></>
-                        )}
-                      </PaginationElement>
-                    ))}
-                  </>
-                )}
-              </PaginationContainer>
-              {newsPosts && (
-                <footer
-                  style={{
-                    position: "relative",
-                    right: "50px",
-                    top: "2200px",
-                  }}
-                >
-                  <Pagination
-                    total={newsPosts.totalPages}
-                    page={page}
-                    setPage={setPage}
-                    pageSize={newsPosts.size}
-                  />
-                </footer>
-              )}
-            </News>
-          ) : (
-            <Editor>
-              <FormEditor
-                addContents={addNews}
-                setAddContents={setAddNews}
-                content="news"
-              />
-            </Editor>
-          )
-        ) : addNotice === false ? (
-          <Notice>
-            <NoticeTitle>NOTICE</NoticeTitle>
-            <form onSubmit={handleSearch}>
-              <Search placeholder="검색" onChange={changeSearch} />
-              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-            </form>
+            </SearchWrapper>
+            <Line />
+
             <ButtonContainer>
-              <Button value="add" onClick={handleAddNotice}>
+              <Button value="add" onClick={handleAddNews}>
                 추가
               </Button>
               <Button value="delete" onClick={handleDelete}>
                 삭제
               </Button>
             </ButtonContainer>
-            <Line />
             <PaginationContainer>
-              {noticePosts && (
+              {newsPosts && (
                 <>
-                  {noticePosts.content.map((ele) => (
+                  {newsPosts.content.map((ele) => (
                     <PaginationElement
                       key={ele.id}
                       onMouseEnter={() => {
@@ -407,7 +280,7 @@ export default function NewNoticeAdmin() {
                     >
                       {deleteContent && (
                         <DeleteButton
-                          onClick={() => handleDeleteContent(ele.id, "notice")}
+                          onClick={() => handleDeleteContent(ele.id, "news")}
                         >
                           X
                         </DeleteButton>
@@ -460,8 +333,8 @@ export default function NewNoticeAdmin() {
                           {ele.dateTime}
                         </p>
                       </ContentContainer>
-                      {showButton[noticePosts.content.length - ele.id] ===
-                      true ? (
+                      {showButton[newsPosts.content.length - ele.id] ===
+                        true ? (
                         !deleteContent && (
                           <DetailButton
                             onClick={() => {
@@ -487,26 +360,175 @@ export default function NewNoticeAdmin() {
                 </>
               )}
             </PaginationContainer>
+            {newsPosts && (
+              <footer
+                style={{
+                  position: "relative",
+                  right: "50px",
+                  top: "2200px",
+                }}
+              >
+                <Pagination
+                  total={newsPosts.totalPages}
+                  page={page}
+                  setPage={setPage}
+                  pageSize={newsPosts.size}
+                />
+              </footer>
+            )}
+          </News>
+        ) : (
+          <>
+            <EditorTitle> NEWS 게시글 작성 </EditorTitle>
+            <Editor>
+              <FormEditor
+                addContents={addNews}
+                setAddContents={setAddNews}
+                content="news"
+              />
+            </Editor>
+          </>
+        )
+      ) : addNotice === false ? (
+        <Notice>
+          <SearchWrapper>
+            <NoticeTitle>NOTICE</NoticeTitle>
+            <form onSubmit={handleSearch} style={{
+              display: "flex",
+              flexDirection: "row"
+            }}>
+              <Search placeholder="검색" onChange={changeSearch} />
+              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+
+            </form>
+          </SearchWrapper>
+          <Line />
+          <ButtonContainer>
+            <Button value="add" onClick={handleAddNotice}>
+              추가
+            </Button>
+            <Button value="delete" onClick={handleDelete}>
+              삭제
+            </Button>
+          </ButtonContainer>
+
+          <PaginationContainer>
             {noticePosts && (
               <>
-                <footer
-                  style={{
-                    position: "relative",
-                    right: "50px",
-                    top: "2200px",
-                  }}
-                >
-                  <Pagination
-                    total={noticePosts.totalPages}
-                    page={page}
-                    setPage={setPage}
-                    pageSize={noticePosts.size}
-                  />
-                </footer>
+                {noticePosts.content.map((ele) => (
+                  <PaginationElement
+                    key={ele.id}
+                    onMouseEnter={() => {
+                      handleEnter(ele.id);
+                    }}
+                    onMouseLeave={() => {
+                      handleLeave(ele.id);
+                    }}
+                  >
+                    {deleteContent && (
+                      <DeleteButton
+                        onClick={() => handleDeleteContent(ele.id, "notice")}
+                      >
+                        X
+                      </DeleteButton>
+                    )}
+                    <ContentContainer>
+                      <h3
+                        style={{
+                          textAalign: "left",
+                          font: "normal normal bold 22px/28px sans-serif",
+                          letterSpacing: "0px",
+                          color: "#447BF7",
+                          opacity: 1,
+                          display: "block",
+                          whiteSpace: "nowrap",
+                          overflow: "hidden",
+                          textOverflow: "ellipsis",
+                        }}
+                      >
+                        {ele.title}
+                      </h3>
+                      <span
+                        style={{
+                          display: "-webkit-box",
+                          textAlign: "left",
+                          font: "normal normal normal 16px/23px sans-serif",
+                          letterSpacing: "0px",
+                          color: "#606060",
+                          opacity: 1,
+                          overflow: "hidden",
+                          WebkitBoxOrient: "vertical",
+                          WebkitLineClamp: 3,
+                          maxWidth: "100%",
+                          textOverflow: "ellipsis",
+                          lineClamp: 2,
+                          height: "66px",
+                        }}
+                      >
+                        {ele.content}
+                      </span>
+                      <p
+                        style={{
+                          position: "relative",
+                          top: "31px",
+                          font: "normal normal normal 20px sans-serif",
+                          letterSpacing: "0px",
+                          color: "#969696",
+                          opacity: 1,
+                        }}
+                      >
+                        {ele.dateTime}
+                      </p>
+                    </ContentContainer>
+                    {showButton[noticePosts.content.length - ele.id] ===
+                      true ? (
+                      !deleteContent && (
+                        <DetailButton
+                          onClick={() => {
+                            handleClick(ele.id);
+                          }}
+                        >
+                          <p
+                            style={{
+                              color: "white",
+                              fontSize: "20px",
+                              fontWeight: "bold",
+                            }}
+                          >
+                            +
+                          </p>
+                        </DetailButton>
+                      )
+                    ) : (
+                      <></>
+                    )}
+                  </PaginationElement>
+                ))}
               </>
             )}
-          </Notice>
-        ) : (
+          </PaginationContainer>
+          {noticePosts && (
+            <>
+              <footer
+                style={{
+                  position: "relative",
+                  right: "50px",
+                  top: "2200px",
+                }}
+              >
+                <Pagination
+                  total={noticePosts.totalPages}
+                  page={page}
+                  setPage={setPage}
+                  pageSize={noticePosts.size}
+                />
+              </footer>
+            </>
+          )}
+        </Notice>
+      ) : (
+        <>
+          <EditorTitle> NOTICE 게시글 작성 </EditorTitle>
           <Editor>
             <FormEditor
               addContents={addNotice}
@@ -514,34 +536,44 @@ export default function NewNoticeAdmin() {
               content="notice"
             />
           </Editor>
-        )}
-      </>
-    </main>
+        </>
+      )
+      }
+    </>
+
   );
 }
 const Title = styled.p`
   position: absolute;
   top: 683px;
   left: 265px;
-  width: 592px;
+  top: 63vh;
+  left: 12vw;
+  width: 100%;
   height: 94px;
   font: var(--unnamed-font-style-normal) normal bold 80px/70px
     var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 80px/70px sans-serif;
+  font-size: 4.1vw;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
   opacity: 1;
 `;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+`;
 
 const NewsButton = styled.button`
-  position: absolute;
-  top: 1080px;
-  left: 0px;
-  width: 960px;
-  height: 186px;
+  // position: absolute;
+  // top: 1080px;
+  // left: 0px;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "news" ? "#ffffff" : "#447bfb"};
@@ -552,19 +584,22 @@ const NewsButton = styled.button`
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
+  font-size: 1.8vw;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "news" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
   opacity: 1;
   text-align: center;
   border-style: none;
+
+  
 `;
 const NoticeButton = styled.button`
-  position: absolute;
-  top: 1080px;
-  left: 960px;
-  width: 960px;
-  height: 186px;
+  // position: absolute;
+  // top: 1080px;
+  // left: 960px;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "news" ? "#447bfb" : "#ffffff"};
@@ -581,28 +616,46 @@ const NoticeButton = styled.button`
   opacity: 1;
   text-align: center;
   border-style: none;
+  font-size: 1.8vw;
 `;
-const News = styled.div``;
-const Notice = styled.main``;
+const News = styled.div`
+  // background: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+const Notice = styled.div`
+  // background: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
+const SearchWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // background: red;
+  width: 68vw;
+  height: 18vh;
+  margin-left: 10vh;
+
+`;
 const DeleteButton = styled.button`
-  position: relative;
-  top: -0.9rem;
-  left: 21.3rem;
   width: 30px;
   height: 30px;
   border-radius: 100px;
   border: none;
-  background-color: red;
+  // background-color: red;
   color: white;
   font-weight: bold;
-  z-index: 2;
 `;
 const NoticeTitle = styled.p`
-  position: absolute;
-  top: 1376px;
-  left: 350px;
-  width: 97px;
-  height: 33px;
+  // position: absolute;
+  // top: 1376px;
+  // left: 350px;
 
   font: var(--unnamed-font-style-normal) normal bold 28px/70px
     var(--unnamed-font-family-sans-serif);
@@ -613,11 +666,12 @@ const NoticeTitle = styled.p`
   color: #6a6a6a;
   text-transform: uppercase;
   opacity: 1;
+  font-size: 1.7vw;
 `;
 const Search = styled.input`
-  position: absolute;
-  top: 1415px;
-  left: 678px;
+  // position: absolute;
+  // top: 1415px;
+  // left: 678px;
   width: 520px;
   height: 46px;
   background: #d3d3d35c 0% 0% no-repeat padding-box;
@@ -626,12 +680,14 @@ const Search = styled.input`
   padding-left: 20px;
 `;
 const ButtonContainer = styled.div`
-  position: relative;
-  top: 79.8em;
-  left: 81em;
+  // position: relative;
+  // top: 79.8em;
+  // left: 81em;
+  margin-top: 30px;
   width: 18em;
   display: flex;
   justify-content: space-around;
+  // background: red;
 `;
 const Button = styled.button`
   width: 100px;
@@ -652,10 +708,8 @@ const Button = styled.button`
 `;
 
 const Line = styled.span`
-  position: absolute;
-  top: 1530px;
-  left: 0.5px;
-  width: 1920px;
+
+  width: 100vw;
   border: 1px solid #447bf7;
   background-color: #447bf7;
   opacity: 1;
@@ -702,20 +756,35 @@ const DetailButton = styled.button`
   opacity: 1;
   border: none;
 `;
+const IconWrapper = styled.div`
+
+`;
 
 const Icon = styled.img`
-  position: absolute;
-  top: 1423px;
-  left: 1180px;
+  // position: absolute;
+  // top: 1423px;
+  // left: 1180px;
   width: 30px;
   height: 30px;
+  background: #d3d3d35c;
+  padding: 9px 0;
+  padding-right: 16px;
 `;
 
 const Editor = styled.div`
-  position: absolute;
-  top: 90em;
-  left: 28em;
-  height: 800px;
-  width: 1920px;
-  margin-bottom: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  // background: green;
+`;
+
+const EditorTitle = styled.div`
+  margin: 0 15.35vw;
+  margin-top: 18vh;
+  font: normal normal bold 33px/70px Roboto;
+  letter-spacing: 0px;
+  color: #447BF7;
+  text-transform: uppercase;
 `;
