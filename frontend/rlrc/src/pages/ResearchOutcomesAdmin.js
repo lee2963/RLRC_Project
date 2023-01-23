@@ -329,11 +329,11 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
-      // 디버그 코드
-      content === "PAPER"
-        ? setThesisPosts(sampleThesis)
-        : setPatentPosts(samplePatent);
-      //
+      // // 디버그 코드
+      // content === "PAPER"
+      //   ? setThesisPosts(sampleThesis)
+      //   : setPatentPosts(samplePatent);
+      // //
       console.log(error);
     }
   };
