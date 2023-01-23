@@ -24,8 +24,8 @@ export default function NewNotice() {
         ? Array(newsPosts.numberOfElements).fill(false)
         : []
       : noticePosts
-      ? Array(noticePosts.number).fill(false)
-      : []
+        ? Array(noticePosts.number).fill(false)
+        : []
   );
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -102,7 +102,7 @@ export default function NewNotice() {
           <div className={styles.selection_line_grey} />
           <ul className={styles.selectionbar_menu}>
             <StyledLink
-              to="/"
+              to="/AboutRLRC"
               id={styles.selectbar_content}
               className="select_rlrc"
               style={{
