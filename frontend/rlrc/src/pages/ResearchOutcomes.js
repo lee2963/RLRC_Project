@@ -8,7 +8,7 @@ import Navbar from "../components/Navbar";
 import Pagination from "../components/Pagination";
 import SearchIcon from "../static/search.png";
 import styles from "../styles/researchOutcomes.module.css";
-/*
+
 const sampleThesis = {
   content: [
     {
@@ -271,7 +271,6 @@ const samplePatent = {
   first: true,
   empty: false,
 };
-*/
 
 export default function ResearchOutcomes() {
   const [showContent, setShowContent] = useState(false);
@@ -345,10 +344,8 @@ export default function ResearchOutcomes() {
   return (
     <>
       <Navbar />
-      <ContentBar setShow={setShowContent} />
-      {showContent && (
-        <ContentIndex setShow={setShowContent} isShow={showContent} />
-      )}
+      <ContentBar />
+      {showContent && <ContentIndex />}
       <main className={styles.main}>
         <SelectionBarCotainer>
           <div className={styles.selection_line_white} />
@@ -400,6 +397,7 @@ export default function ResearchOutcomes() {
           <ThesisButton
             onClick={() => {
               setContent("thesis");
+              setPage(1);
             }}
             content={content}
             id="new_notice"
@@ -409,16 +407,18 @@ export default function ResearchOutcomes() {
           <PatenteButton
             onClick={() => {
               setContent("patent");
+              setPage(1);
             }}
             content={content}
           >
             PATENT
           </PatenteButton>
         </OutComes>
-        {content === "thesis" ? (
-          <>
-            <ThesisContainer>
-              {/* <TabList>
+        <ContentsWrapper>
+          {content === "thesis" ? (
+            <>
+              <ThesisContainer>
+                {/* <TabList>
               <Tab>
                 전체<Cases>200건</Cases>
               </Tab>
@@ -435,128 +435,131 @@ export default function ResearchOutcomes() {
                 2020<Cases>50건</Cases>
               </Tab>
             </TabList> */}
-              <Search placeholder="검색" onChange={changeSearch} />
-              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-              <Table border={1}>
-                <tbody>
-                  <TableTitle>
-                    <TableTitleData>No</TableTitleData>
-                    <TableTitleData>Year</TableTitleData>
-                    <TableTitleData>Title</TableTitleData>
-                    <TableTitleData>Authors</TableTitleData>
-                    <TableTitleData>Journal</TableTitleData>
-                    <TableTitleData>IF</TableTitleData>
-                    <TableTitleData>JCI</TableTitleData>
-                    <TableTitleData>DOI</TableTitleData>
-                  </TableTitle>
-                  {thesisPosts && (
-                    <>
-                      {thesisPosts.content.map((thesis) => {
+                <form onSubmit={handleSearch}>
+                  <SearchContainer>
+                    <InputContainer>
+                      <Search placeholder="검색" onChange={changeSearch} />
+                      <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+                    </InputContainer>
+                  </SearchContainer>
+                </form>
+                <Table border={1}>
+                  <tbody>
+                    <TableTitle>
+                      <TableTitleData>No</TableTitleData>
+                      <TableTitleData>Year</TableTitleData>
+                      <TableTitleData>Title</TableTitleData>
+                      <TableTitleData>Authors</TableTitleData>
+                      <TableTitleData>Journal</TableTitleData>
+                      <TableTitleData>IF</TableTitleData>
+                      <TableTitleData>JCI</TableTitleData>
+                      <TableTitleData>DOI</TableTitleData>
+                    </TableTitle>
+                    {thesisPosts && (
+                      <>
+                        {thesisPosts.content.map((thesis) => {
+                          return (
+                            <>
+                              <TableRow>
+                                <TableData>{thesis.id}</TableData>
+                                <TableData>{thesis.year}</TableData>
+                                <TableData style={{ maxWidth: "300px" }}>
+                                  {thesis.title}
+                                </TableData>
+                                <TableData>{thesis.authors}</TableData>
+                                <TableData>{thesis.journal}</TableData>
+                                <TableData>{thesis.iif}</TableData>
+                                <TableData>{thesis.jcr}</TableData>
+                                <TableData>{thesis.doi}</TableData>
+                              </TableRow>
+                            </>
+                          );
+                        })}
+                      </>
+                    )}
+                  </tbody>
+                </Table>
+                {thesisPosts && (
+                  <Paginate>
+                    <Pagination
+                      total={thesisPosts.totalPages}
+                      page={page}
+                      setPage={setPage}
+                      pageSize={thesisPosts.size}
+                    />
+                  </Paginate>
+                )}
+              </ThesisContainer>
+            </>
+          ) : (
+            <>
+              <PatentContainer>
+                {/* <TabList>
+              <Tab>
+                전체<Cases>200건</Cases>
+              </Tab>
+              <Tab>
+                2023<Cases>50건</Cases>
+              </Tab>
+              <Tab>
+                2022<Cases>50건</Cases>
+              </Tab>
+              <Tab>
+                2021<Cases>50건</Cases>
+              </Tab>
+              <Tab>
+                2020<Cases>50건</Cases>
+              </Tab>
+            </TabList> */}
+                <form onSubmit={handleSearch}>
+                  <SearchContainer>
+                    <InputContainer>
+                      <Search placeholder="검색" onChange={changeSearch} />
+                      <Icon src={SearchIcon} onClick={handleSearch}></Icon>
+                    </InputContainer>
+                  </SearchContainer>
+                </form>
+                <Table>
+                  <tbody>
+                    <TableTitle>
+                      <TableTitleData>No</TableTitleData>
+                      <TableTitleData>Date</TableTitleData>
+                      <TableTitleData>Submit</TableTitleData>
+                      <TableTitleData>Title</TableTitleData>
+                      <TableTitleData>Author</TableTitleData>
+                    </TableTitle>
+                    {patentPosts &&
+                      patentPosts.content.map((patent) => {
                         return (
                           <>
                             <TableRow>
-                              <TableData>{thesis.id}</TableData>
-                              <TableData>{thesis.year}</TableData>
+                              <TableData>{patent.id}</TableData>
+                              <TableData>{patent.date}</TableData>
+                              <TableData>{patent.submit}</TableData>
                               <TableData style={{ maxWidth: "300px" }}>
-                                {thesis.title}
+                                {patent.title}
                               </TableData>
-                              <TableData>{thesis.authors}</TableData>
-                              <TableData>{thesis.journal}</TableData>
-                              <TableData>{thesis.iif}</TableData>
-                              <TableData>{thesis.jcr}</TableData>
-                              <TableData>{thesis.doi}</TableData>
+                              <TableData>{patent.author}</TableData>
                             </TableRow>
                           </>
                         );
                       })}
-                    </>
-                  )}
-                </tbody>
-              </Table>
-            </ThesisContainer>
-            {thesisPosts && (
-              <footer
-                style={{
-                  position: "relative",
-                  right: "10px",
-                }}
-              >
-                <Pagination
-                  total={thesisPosts.totalPages}
-                  page={page}
-                  setPage={setPage}
-                  pageSize={thesisPosts.size}
-                />
-              </footer>
-            )}
-          </>
-        ) : (
-          <>
-            <PatentContainer>
-              {/* <TabList>
-              <Tab>
-                전체<Cases>200건</Cases>
-              </Tab>
-              <Tab>
-                2023<Cases>50건</Cases>
-              </Tab>
-              <Tab>
-                2022<Cases>50건</Cases>
-              </Tab>
-              <Tab>
-                2021<Cases>50건</Cases>
-              </Tab>
-              <Tab>
-                2020<Cases>50건</Cases>
-              </Tab>
-            </TabList> */}
-              <Search placeholder="검색" onChange={changeSearch} />
-              <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-              <Table>
-                <tbody>
-                  <TableTitle>
-                    <TableTitleData>No</TableTitleData>
-                    <TableTitleData>Date</TableTitleData>
-                    <TableTitleData>Submit</TableTitleData>
-                    <TableTitleData>Title</TableTitleData>
-                    <TableTitleData>Author</TableTitleData>
-                  </TableTitle>
-                  {patentPosts &&
-                    patentPosts.content.map((patent) => {
-                      return (
-                        <>
-                          <TableRow>
-                            <TableData>{patent.id}</TableData>
-                            <TableData>{patent.date}</TableData>
-                            <TableData>{patent.submit}</TableData>
-                            <TableData style={{ maxWidth: "300px" }}>
-                              {patent.title}
-                            </TableData>
-                            <TableData>{patent.author}</TableData>
-                          </TableRow>
-                        </>
-                      );
-                    })}
-                </tbody>
-              </Table>
-            </PatentContainer>
-            {patentPosts && (
-              <footer
-                style={{
-                  position: "relative",
-                  right: "10px",
-                }}
-              >
-                <Pagination
-                  total={patentPosts.totalPages}
-                  page={page + 1}
-                  setPage={setPage}
-                  pageSize={patentPosts.size}
-                />
-              </footer>
-            )}
-          </>
-        )}
+                  </tbody>
+                </Table>
+                {patentPosts && (
+                  <Paginate>
+                    <Pagination
+                      total={patentPosts.totalPages}
+                      page={page}
+                      setPage={setPage}
+                      pageSize={patentPosts.size}
+                    />
+                  </Paginate>
+                )}
+              </PatentContainer>
+            </>
+          )}
+        </ContentsWrapper>
       </main>
     </>
   );
@@ -570,17 +573,31 @@ const SelectionBarCotainer = styled.div`
   height: auto;
 `;
 const OutComes = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+`;
+const ContentsWrapper = styled.div`
   position: relative;
-  top: 230px;
-  width: 1920px;
-  height: 1150px;
+  display: flex;
+  justify-content: center;
+  // background: green;
+  width: 100vw;
+  margin-top: 200px;
+`;
+const FunctionWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: 40px;
 `;
 const ThesisButton = styled.button`
-  position: absolute;
-  top: 620px;
-  left: 0px;
-  width: 960px;
-  height: 186px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "thesis" ? "#ffffff" : "#447bfb"};
@@ -591,6 +608,7 @@ const ThesisButton = styled.button`
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
+  font-size: 1.8vw;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "thesis" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -599,18 +617,14 @@ const ThesisButton = styled.button`
   border-style: none;
 `;
 const PatenteButton = styled.button`
-  position: absolute;
-  top: 620px;
-  left: 960px;
-  width: 960px;
-  height: 186px;
+  width: 50vw;
+  height: 18vh;
+  background: 0% 0% no-repeat padding-box;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "thesis" ? "#447bfb" : "#ffffff"};
   opacity: 1;
 
-  font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
@@ -620,72 +634,36 @@ const PatenteButton = styled.button`
   opacity: 1;
   text-align: center;
   border-style: none;
+  font-size: 1.8vw;
 `;
 
 const ThesisContainer = styled.div`
   position: relative;
-  top: 100px;
-  left: 335px;
-  height: 1500px;
-  width: 1250px;
+
+  width: 100%;
+  height: auto;
 `;
 const PatentContainer = styled.div`
   position: relative;
-  top: 100px;
-  left: 335px;
-  height: 1500px;
-  width: 1250px;
+  width: 100%;
 `;
-
-const TabList = styled.div`
+const SearchContainer = styled.div`
+  position: relative;
+  width: 90%;
+  margin: 0;
+  height: auto;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  width: 750px;
+  justify-content: flex-end;
+  margin-left: 5.5vw;
 `;
-const Tab = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 125px;
-  height: 46px;
-  font: var(--unnamed-font-style-normal) normal
-    var(--unnamed-font-weight-normal) 17px/30px
-    var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-ffffff);
-  text-align: left;
-  font: normal normal normal 17px/30px sans-serif;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 1;
-  background: var(--unnamed-color-447bf7) 0% 0% no-repeat padding-box;
-  background: #447bf7 0% 0% no-repeat padding-box;
-  opacity: 1;
-  margin-right: 10px;
-`;
-const Cases = styled.div`
-  width: 53px;
-  height: 28px;
-  border-radius: 10px;
-  font: var(--unnamed-font-style-normal) normal bold 15px/30px
-    var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-447bf7);
-  text-align: center;
-  font: normal normal bold 15px/30px sans-serif;
-  letter-spacing: 0px;
-  color: #447bf7;
-  opacity: 1;
-  background-color: white;
+const InputContainer = styled.div`
+  display: inline-flex;
 `;
 const Search = styled.input`
   position: relative;
-  top: -47px;
-  left: 756px;
-  width: 472px;
-  height: 46px;
+  width: 500px;
+  height: 50px;
   background: #d3d3d35c 0% 0% no-repeat padding-box;
   opacity: 1;
   border: none;
@@ -693,19 +671,26 @@ const Search = styled.input`
 `;
 const Icon = styled.img`
   position: relative;
-  top: -38px;
-  left: 718px;
+  float: left;
+  top: 25%;
+  right: 45px;
   width: 25px;
   height: 25px;
 `;
+
 const Table = styled.table`
-  position: absolute;
-  width: 1250px;
-  height: 84px;
+  position: relative;
+  top: 4%;
+  width: 90%;
+  /* margin: 0; */
+  margin-left: 5%;
+  height: auto;
   opacity: 1;
   border-spacing: 0px;
   border-top: 2px solid #414ffd;
   border-bottom: 2px solid #447bf7;
+  table-layout: fixed;
+  word-break: break-all;
 `;
 const TableTitle = styled.tr`
   height: 84px;
@@ -733,13 +718,18 @@ const TableTitleData = styled.td`
   border-left: 1px solid #dfdcdc;
   border-right: 1px solid #dfdcdc;
   white-space: pre-line;
-  padding: 10px;
+  // padding: 10px;
 `;
 const TableData = styled.td`
   border-bottom: 1px solid #b4b4b4;
   padding: 10px;
   border-right: none;
   white-space: pre-line;
+`;
+
+const Paginate = styled.div`
+  position: relative;
+  top: calc(135px * 1);
 `;
 const StyledLink = styled((props) => <Link {...props} />)`
   &:hover {

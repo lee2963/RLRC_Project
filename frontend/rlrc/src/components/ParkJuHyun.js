@@ -1,14 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
-
+import back from "../static/back.png";
 import parkjuhyun1 from "../static/images/parkjuhyun1.png";
 import parkjuhyun2 from "../static/images/parkjuhyun2.png";
 import parkjuhyun3 from "../static/images/parkjuhyun3.png";
 import nextArrow from "../static/nextArrow.png";
 import prevArrow from "../static/prevArrow.png";
+
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -35,6 +37,7 @@ const NextBtn = (props) => {
   );
 };
 function ParkJuHyun() {
+  const navigate = useNavigate();
   const settings = {
     // dots: true,
     infinite: false,
@@ -46,6 +49,14 @@ function ParkJuHyun() {
   };
   return (
     <Body>
+      <BackButton
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        <img src={back} style={{ height: "36px", width: "36px" }}></img>
+      </BackButton>
+      {/* back 버튼(파란색) 로고 받기 */}
       <Container>
         <NameContainer>
           <Name>Ju Hyun Park</Name>
@@ -153,7 +164,13 @@ function ParkJuHyun() {
     </Body>
   );
 }
-
+const BackButton = styled.button`
+  position: absolute;
+  top: 86px;
+  left: 150px;
+  background-color: transparent;
+  border-width: 0px;
+`;
 const Body = styled.div`
   position: absolute;
   top: 0px;

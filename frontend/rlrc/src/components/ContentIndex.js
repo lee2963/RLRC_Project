@@ -20,16 +20,24 @@ function ContentIndex({ history }) {
       </BackButton>
       <ContentTable>
         <TableHeader>
-          <p style={{ whiteSpace: "nowrap" }}>ABOUT RLRC</p>
+          <CustomLink to="/AboutRLRC">
+            <p style={{ whiteSpace: "nowrap" }}>ABOUT RLRC</p>
+          </CustomLink>
         </TableHeader>
         <TableHeader>
-          <p style={{ whiteSpace: "nowrap" }}>RESEARCH</p>
+          <CustomLink to="/Research">
+            <p style={{ whiteSpace: "nowrap" }}>RESEARCH</p>
+          </CustomLink>
         </TableHeader>
         <TableHeader>
-          <p style={{ whiteSpace: "nowrap" }}>OUTCOMES</p>
+          <CustomLink to="/ResearchOutcomes">
+            <p style={{ whiteSpace: "nowrap" }}>OUTCOMES</p>
+          </CustomLink>
         </TableHeader>
         <TableHeader>
-          <p style={{ whiteSpace: "nowrap" }}>NEW & NOTICE</p>
+          <CustomLink to="/NewNotice">
+            <p style={{ whiteSpace: "nowrap" }}>NEW & NOTICE</p>
+          </CustomLink>
         </TableHeader>
         <TableRow>
           <TableData>
@@ -100,7 +108,7 @@ const Container = styled.div`
 const ContentTable = styled.table`
   position: relative;
   width: 80%;
-  left: 30px;
+  left: 90px;
   text-align: center;
   border-spacing: 50px;
 `;
@@ -143,9 +151,9 @@ const StyledLink = styled((props) => <HashLink {...props} />)`
 const AdminButton = styled.div`
   position: relative;
   top: 35%;
-  right: 10%;
-  width: 9vw;
-  height: 3vw;
+  right: 7%;
+  width: 152px;
+  height: 59px;
   background: #464646;
   border: 1px solid #464646;
   border-radius: 36px;
@@ -153,6 +161,13 @@ const AdminButton = styled.div`
   align-items: center;
   justify-content: center;
   float: left;
+`;
+const CustomLink = styled((props) => <Link {...props} />)`
+  text-decoration: none;
+  color: #ffffff;
+  &:hover {
+    color: #447bf7;
+  }
 `;
 const AdminLink = styled((props) => <Link {...props} />)`
   text-align: center;
