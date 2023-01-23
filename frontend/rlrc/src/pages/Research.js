@@ -141,7 +141,7 @@ export default function Research() {
           style={{
             position: "relative",
             left: "80px",
-            width: "auto",
+            width: "90%",
             marginTop: "10%",
             textAlign: "center",
             font: "normal normal bold 42px/49px sans-serif",

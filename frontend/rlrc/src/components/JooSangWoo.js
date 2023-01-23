@@ -57,8 +57,8 @@ function JooSangWoo() {
       </Container>
       <StyledSlider {...settings}>
         <Content>
-          <Image src={logo}></Image>
           <List>
+            <Image src={logo}></Image>
             <SmallTitle>Vehicular Platooning</SmallTitle>
             <ListContent>Leader-followers consensus problem. </ListContent>
             <ListContent>
@@ -102,7 +102,7 @@ const NameContainer = styled.span`
   border-top-right-radius: 80px;
   border-bottom-right-radius: 80px;
   opacity: 1;
-  width: 30%;
+  width: 650px;
   height: 100%;
   display: table;
   table-layout: fixed;
@@ -122,7 +122,7 @@ const Name = styled.p`
   display: table-cell;
   vertical-align: middle;
   text-align: center;
-  font: normal normal bold 2.5vw sans-serif;
+  font: normal normal bold 2.5em sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
@@ -136,7 +136,7 @@ const Text = styled.p`
   display: table-cell;
   padding-left: 5%;
   /* UI Properties */
-  font: normal normal medium 20px/24px sans-serif;
+  font: normal normal medium 1vw sans-serif;
   letter-spacing: 0px;
   color: #818181;
 `;
@@ -150,7 +150,7 @@ const Title = styled.p`
   height: 0;
   padding-top: 2%;
   /* UI Properties */
-  font: normal normal bold 50px/58px sans-serif;
+  font: normal normal bold 2.7vw sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -169,16 +169,19 @@ const DivPre = styled.div`
   width: 30px;
   height: 30px;
   position: absolute;
-  left: 16px;
   z-index: 99;
   text-align: left;
   line-height: 30px;
+  clear: both;
+  display: block;
+  right: 40px;
+  float: right;
 `;
 const StyledSlider = styled((props) => <Slider {...props} />)`
   position: relative;
-  width: 80%;
-  top: 30%;
-  left: 10%;
+  width: 90%;
+  top: 23%;
+  left: 5%;
   .slick-prev::before,
   .slick-next::before {
     opacity: 0;
@@ -201,30 +204,30 @@ const PrevIcon = styled.img`
 `;
 const NextIcon = styled.img`
   position: relative;
-  left: 100%;
+  display: block;
   width: 51px;
   height: 51px;
   background: 0% 0% no-repeat padding-box;
   border-radius: 100px;
   opacity: 1;
+  margin-left: auto;
+  display: block;
 `;
 
 const Content = styled.div`
   width: 100%;
-  height: auto;
+  height: 30vw;
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 `;
 const Image = styled.img`
   /* Layout Properties */
   position: relative;
 
-  width: 30%;
+  width: 80%;
+  padding-left: 10%;
+  height: auto;
   margin: 0;
   /* UI Properties */
   opacity: 1;
@@ -237,25 +240,31 @@ const SmallTitle = styled.h2`
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 2vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
   color: #1a1a1a;
   opacity: 1;
+  margin: 0;
+  padding-top: 30px;
+  padding-bottom: 30px;
 `;
 
 const List = styled.div`
   position: relative;
+  top: 28%;
   width: auto;
   white-space: nowrap;
-  text-align: left;
+  column-count: 2;
+  column-gap: 1%;
 `;
 
 const ListContent = styled.li`
   width: auto;
-  white-space: nowrap;
-  font: normal normal normal 20px/36px sans-serif;
+  white-space: pre-wrap;
+  padding-bottom: 10px;
+  font: normal normal normal 0.9vw sans-serif;
   letter-spacing: 0px;
   color: #606060;
   opacity: 1;

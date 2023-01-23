@@ -1,19 +1,16 @@
 import React from "react";
-import styled from "styled-components";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-import prevArrow from "../static/prevArrow.png";
-import nextArrow from "../static/nextArrow.png";
+import "slick-carousel/slick/slick.css";
+import styled from "styled-components";
 import rhojunsuk1 from "../static/images/rhojunsuk1.png";
-import rhojunsuk2 from "../static/images/rhojunsuk2.png";
-import rhojunsuk3 from "../static/images/rhojunsuk4.png";
-import rhojunsuk4 from "../static/images/rhojunsuk3.png";
+import rhojunsuk3 from "../static/images/rhojunsuk3.png";
 import rhojunsuk5 from "../static/images/rhojunsuk5.png";
 import rhojunsuk6 from "../static/images/rhojunsuk6.png";
 import rhojunsuk7 from "../static/images/rhojunsuk7.png";
 import rhojunsuk8 from "../static/images/rhojunsuk8.png";
+import nextArrow from "../static/nextArrow.png";
+import prevArrow from "../static/prevArrow.png";
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -52,53 +49,26 @@ function RhoJunSuk() {
   return (
     <Body>
       <Container>
-        <Name>Junsuk Rho</Name>
-        <Text>RESEARCH FIELD</Text>
-        <Title>Hologram display for vehicle</Title>
+        <NameContainer>
+          <Name>Junsuk Rho</Name>
+        </NameContainer>
+        <TextContainer>
+          <Text>
+            RESEARCH FIELD
+            <Title>Hologram display for vehicle</Title>
+          </Text>
+        </TextContainer>
       </Container>
-      <StyledSlider
-        {...settings}
-        style={{
-          position: "absolute",
-          top: "500px",
-          left: "200px",
-          width: "1508px",
-          height: "480px",
-          opacity: 1,
-          backgroundColor: "white",
-        }}
-      >
+      <StyledSlider {...settings}>
         <Content>
-          <Image
-            src={rhojunsuk1}
-            style={{
-              left: "200px",
-              top: "50px",
-              width: "330px",
-              height: "180px",
-            }}
-          ></Image>
-          <Image
-            src={rhojunsuk2}
-            style={{
-              left: "200px",
-              top: "70px",
-              width: "330px",
-              height: "180px",
-            }}
-          ></Image>
-          <SmallTitle style={{ top: "-230px", left: "580px" }}>
-            Multi-hologram development
-          </SmallTitle>
-          <List
-            style={{
-              top: "-220px",
-              left: "580px",
-              width: "850px",
-              listStyle: "none",
-            }}
-          >
-            <ListContent>
+          <List>
+            <Image src={rhojunsuk1}></Image>
+            <SmallTitle style={{ right: "35%" }}>
+              Multi-hologram development
+            </SmallTitle>
+            <ListContent
+              style={{ right: "35%", width: "85%", lineHeight: "1.8" }}
+            >
               1) Development of a metasurface that can independently adjust the
               wavelength (Nature Communications, 2019.)
               <br /> Exploring metasurface structures that can obtain clear
@@ -107,32 +77,11 @@ function RhoJunSuk() {
           </List>
         </Content>
         <Content>
-          <Image
-            src={rhojunsuk3}
-            style={{
-              left: "200px",
-              top: "140px",
-              width: "202px",
-              height: "220px",
-            }}
-          ></Image>
-          <Image
-            src={rhojunsuk4}
-            style={{
-              top: "-80px",
-              left: "415px",
-              width: "202px",
-              height: "220px",
-            }}
-          ></Image>
-          <List
-            style={{
-              top: "-270px",
-              left: "650px",
-              width: "700px",
-            }}
-          >
-            <ListContent style={{ listStyle: "none" }}>
+          <List style={{ top: "30%" }}>
+            <Image src={rhojunsuk3} style={{ width: "50%" }}></Image>
+            <ListContent
+              style={{ right: "16%", width: "85%", lineHeight: "1.8" }}
+            >
               2) Development of a device that generates multi-holographic images
               (Nanoscale Horizons, 2020.) One type of metasurface is charged
               with phase information encoded when light travels forward, while
@@ -143,23 +92,19 @@ function RhoJunSuk() {
           </List>
         </Content>
         <Content>
-          <Image
-            src={rhojunsuk5}
-            style={{
-              top: "70px",
-              left: "220px",
-              width: "250px",
-              height: "370px",
-            }}
-          ></Image>
-          <List
-            style={{
-              top: "-180px",
-              left: "500px",
-              width: "700px",
-            }}
-          >
-            <ListContent style={{ listStyle: "none", width: "850px" }}>
+          <List style={{ top: "20%" }}>
+            <Image
+              src={rhojunsuk5}
+              style={{ width: "30%", left: "5%" }}
+            ></Image>
+            <ListContent
+              style={{
+                listStyle: "none",
+                width: "85%",
+                lineHeight: "1.8",
+                top: "35%",
+              }}
+            >
               3) Developing an active hologram that responds to voltage,
               temperature and touch (Advanced Materials, 2020) An active
               holographic optical device combined with a liquid crystal-based
@@ -170,26 +115,20 @@ function RhoJunSuk() {
           </List>
         </Content>
         <Content>
-          <Image
-            src={rhojunsuk6}
-            style={{
-              top: "60px",
-              left: "200px",
-              width: "250px",
-              height: "370px",
-            }}
-          ></Image>
-          <List
-            style={{
-              top: "-220px",
-              left: "500px",
-              width: "700px",
-            }}
-          >
-            <ListContent style={{ listStyle: "none", width: "800px" }}>
+          <List style={{ top: "15%" }}>
+            <Image src={rhojunsuk6}></Image>
+            <ListContent
+              style={{
+                right: "35%",
+                listStyle: "none",
+                width: "85%",
+                lineHeight: "1.8",
+              }}
+            >
               4) Development of a meta-hologram device that works simultaneously
               in visible and near infrared light (Advanced Optical Materials,
-              2021) By grouping metasurfaces using heterogeneous meta-atoms of
+              2021) <br />
+              By grouping metasurfaces using heterogeneous meta-atoms of
               different materials, functional pixels operate simultaneously in
               visible and near-infrared (NIR) bands. When visible and NIR lasers
               are simply illuminated on the metasurface device, a green
@@ -199,28 +138,20 @@ function RhoJunSuk() {
           </List>
         </Content>
         <Content>
-          <Image
-            src={rhojunsuk7}
-            style={{
-              width: "354px",
-              height: "190px",
-              left: "200px",
-            }}
-          ></Image>
-          <SmallTitle style={{ left: "600px", top: "-85px" }}>
-            2. Development of hologram production technology
-          </SmallTitle>
-          <List
-            style={{
-              listStyle: "none",
-              left: "600px",
-              top: "-65px",
-              width: "750px",
-            }}
-          >
-            <ListContent>
+          <List style={{ top: "30%" }}>
+            <Image src={rhojunsuk7} style={{ top: "30%" }}></Image>
+            <SmallTitle>
+              2. Development of hologram production technology
+            </SmallTitle>
+            <ListContent
+              style={{
+                top: "30%",
+                listStyle: "none",
+                lineHeight: "1.5",
+              }}
+            >
               1) Development of high-efficiency metasurface mass production
-              technology using nanoimprint (Nature Communications, 2020)
+              technology using nanoimprint (Nature Communications, 2020) <br />
               One-step nanoimprinting technology for mass production of metalens
               was developed. The effectiveness of fabrication was maximized by
               directly forming a polymer in which nanoparticles are uniformly
@@ -230,23 +161,16 @@ function RhoJunSuk() {
           </List>
         </Content>
         <Content>
-          <Image
-            src={rhojunsuk8}
-            style={{
-              top: "60px",
-              left: "200px",
-              width: "250px",
-              height: "370px",
-            }}
-          ></Image>
-          <List
-            style={{
-              top: "-220px",
-              left: "500px",
-              width: "700px",
-            }}
-          >
-            <ListContent style={{ listStyle: "none", width: "800px" }}>
+          <List style={{ top: "20%" }}>
+            <Image src={rhojunsuk8}></Image>
+            <ListContent
+              style={{
+                listStyle: "none",
+                top: "30%",
+                lineHeight: "1.8",
+                width: "90%",
+              }}
+            >
               2) Identification of structural disorder of hydrogenated amorphous
               silicon for fabrication of photonic platform with low loss at
               visible light frequency (Nature Nanotechnology, 2020) By lowering
@@ -265,66 +189,77 @@ function RhoJunSuk() {
   );
 }
 
-const Body = styled.main`
+const Body = styled.div`
+  position: absolute;
   top: 0px;
   left: 0px;
-  width: 1920px;
-  height: 1149px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
   /* UI Properties */
-  background: #f0f0f0 0% 0% no-repeat padding-box;
+  background: #f0f0f0;
   opacity: 1;
 `;
 const Container = styled.div`
-  position: absolute;
+  position: relative;
   top: 196px;
-  left: -68px;
-  width: 643px;
+  width: 100%;
   height: 160px;
-
-  /* UI Properties */
-  background: #447bf7 0% 0% no-repeat padding-box;
-  border-radius: 80px;
-  opacity: 1;
+  display: flex;
 `;
-const Name = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 60px;
-  left: 280px;
-  width: 260px;
-  height: 47px;
-  /* UI Properties */
-  text-align: left;
-  font: normal normal bold 40px/47px sans-serif;
+const NameContainer = styled.span`
+  background: #447bf7 0% 0% no-repeat padding-box;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  opacity: 1;
+  width: 650px;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+`;
+const TextContainer = styled.div`
+  width: 70%;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+`;
+const Name = styled.p`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font: normal normal bold 2.5em sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
 `;
-const Text = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 15px;
-  left: 703px;
-  width: 190px;
-  height: 24px;
+const Text = styled.p`
+  position: relative;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 5%;
   /* UI Properties */
-  text-align: left;
-  font: normal normal medium sans-serif;
-  font-size: 25px;
+  font: normal normal medium 1vw sans-serif;
   letter-spacing: 0px;
   color: #818181;
-  opacity: 0.69;
 `;
-const Title = styled.div`
+const Title = styled.p`
   /* Layout Properties */
-  position: absolute;
-  top: 60px;
-  left: 700px;
-  width: 967px;
-  height: 58px;
+  position: relative;
+  display: table-cell;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: auto;
+  height: 0;
+  padding-top: 2%;
   /* UI Properties */
-  text-align: left;
-  font: normal normal bold 50px/58px sans-serif;
+  font: normal normal bold 2.3em sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -343,15 +278,19 @@ const DivPre = styled.div`
   width: 30px;
   height: 30px;
   position: absolute;
-  left: 16px;
   z-index: 99;
   text-align: left;
   line-height: 30px;
+  clear: both;
+  display: block;
+  right: 40px;
+  float: right;
 `;
-const StyledSlider = styled(Slider)`
-  height: 260px;
-  width: 100%;
+const StyledSlider = styled((props) => <Slider {...props} />)`
   position: relative;
+  width: 90%;
+  top: 23%;
+  left: 5%;
   .slick-prev::before,
   .slick-next::before {
     opacity: 0;
@@ -360,6 +299,9 @@ const StyledSlider = styled(Slider)`
   .slick-slide div {
     //슬라이더  컨텐츠
     cursor: pointer;
+  }
+  .slick-slide img {
+    display: inline;
   }
 `;
 
@@ -373,18 +315,19 @@ const PrevIcon = styled.img`
   opacity: 1;
 `;
 const NextIcon = styled.img`
-  position: absolute;
-  left: 1410px;
+  position: relative;
+  display: block;
   width: 51px;
   height: 51px;
   background: 0% 0% no-repeat padding-box;
   border-radius: 100px;
   opacity: 1;
+  margin-left: auto;
+  display: block;
 `;
 
 const Content = styled.div`
-  width: 1508px;
-  height: 480px;
+  height: 30vw;
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -392,42 +335,49 @@ const Content = styled.div`
 const Image = styled.img`
   /* Layout Properties */
   position: relative;
-  top: 140px;
-  left: 121px;
-  width: 404px;
-  height: 213px;
+  width: 30%;
+  padding-left: 30%;
+  height: auto;
+  margin: 0px;
   /* UI Properties */
   opacity: 1;
 `;
 
 const SmallTitle = styled.h2`
   position: relative;
-  top: -100px;
-  left: 580px;
-  width: 768px;
-  height: 25px;
+  right: 30%;
+  top: 25%;
+  padding: 0;
+  width: auto;
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 1.1vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
   color: #1a1a1a;
   opacity: 1;
 `;
-
 const List = styled.div`
   position: relative;
-  top: -80px;
-  left: 580px;
-  width: 796px;
-  height: 199px;
-  text-align: left;
+  top: 28%;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  column-count: 2;
+  column-gap: 0;
 `;
 
 const ListContent = styled.li`
-  font: normal normal normal 20px/36px sans-serif;
+  position: relative;
+  right: 30%;
+  top: 25%;
+  width: auto;
+  white-space: pre-wrap;
+  display: block;
+  padding-bottom: 10px;
+  font: normal normal normal 0.9vw sans-serif;
   letter-spacing: 0px;
   color: #606060;
   opacity: 1;

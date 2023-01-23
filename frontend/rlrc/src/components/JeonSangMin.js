@@ -1,13 +1,13 @@
 import React from "react";
-import styled from "styled-components";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import styled from "styled-components";
 
-import prevArrow from "../static/prevArrow.png";
-import nextArrow from "../static/nextArrow.png";
 import jeonsangmin1 from "../static/images/jeonsangmin1.png";
 import jeonsangmin2 from "../static/images/jeonsangmin2.png";
+import nextArrow from "../static/nextArrow.png";
+import prevArrow from "../static/prevArrow.png";
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -47,34 +47,22 @@ function JeonSangMin() {
   return (
     <Body>
       <Container>
-        <Name>Sangmin Jeon</Name>
-        <Text>RESEARCH FIELD</Text>
-        <Title>
-          Development of Eco-friendly, Light-weight and
-          <br /> Strong Nanocellulose Composite Materials
-        </Title>
+        <NameContainer>
+          <Name>Sangmin Jeon</Name>
+        </NameContainer>
+        <TextContainer>
+          <Text>
+            RESEARCH FIELD
+            <Title>
+              Development of Eco-friendly, Light-weight and
+              <br /> Strong Nanocellulose Composite Materials
+            </Title>
+          </Text>
+        </TextContainer>
       </Container>
-      <StyledSlider
-        {...settings}
-        style={{
-          position: "absolute",
-          top: "500px",
-          left: "200px",
-          width: "1508px",
-          height: "480px",
-          opacity: 1,
-          backgroundColor: "white",
-        }}
-      >
+      <StyledSlider {...settings}>
         <Content>
-          <ListNonImage
-            style={{
-              listStyle: "none",
-              left: "120px",
-              top: "180px",
-              width: "1250px",
-            }}
-          >
+          <ListNonImage>
             <ListContent>
               Since autonomous vehicles contain heavy batteries and many
               sensors, it is important to reduce the weight of the vehicle frame
@@ -89,47 +77,22 @@ function JeonSangMin() {
           </ListNonImage>
         </Content>
         <Content>
-          <Image
-            src={jeonsangmin1}
-            style={{ top: "110px", width: "374px", height: "281px" }}
-          ></Image>
-          <List
-            style={{
-              top: "-100px",
-              left: "540px",
-              listStyle: "none",
-              width: "770px",
-            }}
-          >
-            <ListContent>
+          <List>
+            <Image src={jeonsangmin1}></Image>
+            <ListContentWithImage>
               We are developing eco-friendly, lightweight and strong
               nanocellulose composite materials in two ways. A bottom-up
               approach is to extract nanocellulose from various materials such
               as wood and seaweed to fabricate nanocellulose composites. The
               composites are obtained by electrospinning, resin impregnation, or
               high-pressure extrusion processes.
-            </ListContent>
+            </ListContentWithImage>
           </List>
         </Content>
         <Content>
-          <Image
-            src={jeonsangmin2}
-            style={{
-              top: "110px",
-              left: "170px",
-              width: "384px",
-              height: "243px",
-            }}
-          ></Image>
-          <List
-            style={{
-              top: "-100px",
-              left: "640px",
-              listStyle: "none",
-              width: "700px",
-            }}
-          >
-            <ListContent>
+          <List>
+            <Image src={jeonsangmin2}></Image>
+            <ListContentWithImage style={{ top: "20%", width: "80%" }}>
               The top-down approach is to directly use wood containing aligned
               nanocelluloses. The mechanical strength of wood is improved by
               chemical delignification that removes the amorphous content of
@@ -138,7 +101,7 @@ function JeonSangMin() {
               With these studies, we aim to replace current automobile metal
               frames with environmentally friendly, lightweight and strong
               nanocellulose composites.
-            </ListContent>
+            </ListContentWithImage>
           </List>
         </Content>
       </StyledSlider>
@@ -146,66 +109,77 @@ function JeonSangMin() {
   );
 }
 
-const Body = styled.main`
+const Body = styled.div`
+  position: absolute;
   top: 0px;
   left: 0px;
-  width: 1920px;
-  height: 1149px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
   /* UI Properties */
-  background: #f0f0f0 0% 0% no-repeat padding-box;
+  background: #f0f0f0;
   opacity: 1;
 `;
 const Container = styled.div`
-  position: absolute;
+  position: relative;
   top: 196px;
-  left: -68px;
-  width: 643px;
+  width: 100%;
   height: 160px;
-
-  /* UI Properties */
-  background: #447bf7 0% 0% no-repeat padding-box;
-  border-radius: 80px;
-  opacity: 1;
+  display: flex;
 `;
-const Name = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 60px;
-  left: 280px;
-  width: 260px;
-  height: 47px;
-  /* UI Properties */
-  text-align: left;
-  font: normal normal bold 40px/47px sans-serif;
+const NameContainer = styled.span`
+  background: #447bf7 0% 0% no-repeat padding-box;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  opacity: 1;
+  width: 650px;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+`;
+const TextContainer = styled.div`
+  width: 70%;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+`;
+const Name = styled.p`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font: normal normal bold 2.5em sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
 `;
-const Text = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 5px;
-  left: 703px;
-  width: 190px;
-  height: 24px;
+const Text = styled.p`
+  position: relative;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 5%;
   /* UI Properties */
-  text-align: left;
-  font: normal normal medium sans-serif;
-  font-size: 25px;
+  font: normal normal medium 1vw sans-serif;
   letter-spacing: 0px;
   color: #818181;
-  opacity: 0.69;
 `;
-const Title = styled.div`
+const Title = styled.p`
   /* Layout Properties */
-  position: absolute;
-  top: 50px;
-  left: 700px;
-  width: 1100px;
-  height: 58px;
+  position: relative;
+  display: table-cell;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: auto;
+  height: 0;
+  padding-top: 2%;
   /* UI Properties */
-  text-align: left;
-  font: normal normal bold 50px/58px sans-serif;
+  font: normal normal bold 2.3em sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -224,15 +198,19 @@ const DivPre = styled.div`
   width: 30px;
   height: 30px;
   position: absolute;
-  left: 16px;
   z-index: 99;
   text-align: left;
   line-height: 30px;
+  clear: both;
+  display: block;
+  right: 40px;
+  float: right;
 `;
-const StyledSlider = styled(Slider)`
-  height: 260px;
-  width: 100%;
+const StyledSlider = styled((props) => <Slider {...props} />)`
   position: relative;
+  width: 90%;
+  top: 23%;
+  left: 5%;
   .slick-prev::before,
   .slick-next::before {
     opacity: 0;
@@ -241,6 +219,9 @@ const StyledSlider = styled(Slider)`
   .slick-slide div {
     //슬라이더  컨텐츠
     cursor: pointer;
+  }
+  .slick-slide img {
+    display: inline;
   }
 `;
 
@@ -254,18 +235,19 @@ const PrevIcon = styled.img`
   opacity: 1;
 `;
 const NextIcon = styled.img`
-  position: absolute;
-  left: 1410px;
+  position: relative;
+  display: block;
   width: 51px;
   height: 51px;
   background: 0% 0% no-repeat padding-box;
   border-radius: 100px;
   opacity: 1;
+  margin-left: auto;
+  display: block;
 `;
 
 const Content = styled.div`
-  width: 1508px;
-  height: 480px;
+  height: 30vw;
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -273,68 +255,56 @@ const Content = styled.div`
 const Image = styled.img`
   /* Layout Properties */
   position: relative;
-  top: 140px;
-  left: 121px;
-  width: 404px;
-  height: 213px;
+  width: 50%;
+  padding-left: 30%;
+  height: auto;
+  margin: 0px;
   /* UI Properties */
-  opacity: 1;
-`;
-
-const SmallTitle = styled.h2`
-  position: relative;
-  top: -100px;
-  left: 580px;
-  width: 768px;
-  height: 25px;
-  /* UI Properties */
-  text-align: left;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
-  font-family: sans-serif;
-  text-align: left;
-  letter-spacing: 0px;
-  color: #1a1a1a;
-  opacity: 1;
-`;
-const SmallTitleNonImage = styled.h2`
-  position: relative;
-  top: 196px;
-  left: 228px;
-  width: 768px;
-  height: 25px;
-  /* UI Properties */
-  text-align: left;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
-  font-family: sans-serif;
-  text-align: left;
-  letter-spacing: 0px;
-  color: #1a1a1a;
   opacity: 1;
 `;
 
 const List = styled.div`
   position: relative;
-  top: -80px;
-  left: 580px;
-  width: 796px;
-  height: 199px;
-  text-align: left;
-`;
-const ListNonImage = styled.div`
-  position: relative;
-  top: 205px;
-  left: 228px;
-  width: 796px;
-  height: 199px;
-  text-align: left;
+  top: 28%;
+  width: 100%;
+  white-space: nowrap;
+  column-count: 2;
+  column-gap: 0;
 `;
 
 const ListContent = styled.li`
-  font: normal normal normal 20px/36px sans-serif;
+  width: 70%;
+  white-space: pre-wrap;
+  display: block;
+  font: normal normal normal 1vw sans-serif;
   letter-spacing: 0px;
+  line-height: 1.5vw;
   color: #606060;
   opacity: 1;
+`;
+
+const ListContentWithImage = styled.li`
+  position: relative;
+  width: 85%;
+  right: 10%;
+  top: 30%;
+  height: auto;
+  white-space: pre-wrap;
+  display: block;
+  font: normal normal normal 1vw sans-serif;
+  letter-spacing: 0px;
+  line-height: 1.5vw;
+  color: #606060;
+  opacity: 1;
+`;
+const ListNonImage = styled.div`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-align: left;
 `;
 export default JeonSangMin;
