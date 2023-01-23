@@ -593,22 +593,15 @@ const FunctionWrapper = styled.div`
   margin-bottom: 40px;
 `;
 const ThesisButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50vw;
-  height: 18vh;
+  position: relative;
+  left: 0px;
+  width: 50%;
+  height: 13vw;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "thesis" ? "#ffffff" : "#447bfb"};
   opacity: 1;
-
-  font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: left;
-  font: normal normal bold 33px/70px sans-serif;
-  font-size: 1.8vw;
+  font: normal normal bold 2vw sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "thesis" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -617,9 +610,9 @@ const ThesisButton = styled.button`
   border-style: none;
 `;
 const PatenteButton = styled.button`
-  width: 50vw;
-  height: 18vh;
-  background: 0% 0% no-repeat padding-box;
+  position: relative;
+  width: 50%;
+  height: 13vw;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "thesis" ? "#447bfb" : "#ffffff"};
@@ -627,14 +620,13 @@ const PatenteButton = styled.button`
 
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
-  font: normal normal bold 33px/70px sans-serif;
+  font: normal normal bold 2vw sans-serif;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "patent" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
   opacity: 1;
   text-align: center;
   border-style: none;
-  font-size: 1.8vw;
 `;
 
 const ThesisContainer = styled.div`

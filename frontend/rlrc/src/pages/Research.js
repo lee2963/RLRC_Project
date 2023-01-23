@@ -140,7 +140,7 @@ export default function Research() {
         <h2
           style={{
             position: "relative",
-            left: "80px",
+            left: "150px",
             width: "90%",
             marginTop: "10%",
             textAlign: "center",
