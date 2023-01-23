@@ -131,11 +131,11 @@ const BackButton = styled.button`
   border-width: 0px;
 `;
 const StyledLink = styled((props) => <HashLink {...props} />)`
-  &:hover {
-    color: #447bf7;
-  }
   &:link {
     color: white;
+  }
+  &:hover {
+    color: #447bf7;
   }
   text-decoration: none;
 `;

@@ -49,26 +49,17 @@ function JooSangWoo() {
           <Name>Joo Sang Woo</Name>
         </NameContainer>
         <TextContainer>
-          <Text>RESEARCH FIELD</Text>
-          <Title>Control of Autonomous Intelligent Vehicles</Title>
+          <Text>
+            RESEARCH FIELD <br />
+            <Title>Control of Autonomous Intelligent Vehicles</Title>
+          </Text>
         </TextContainer>
       </Container>
-      <StyledSlider
-        {...settings}
-        style={{
-          position: "absolute",
-          top: "500px",
-          left: "200px",
-          width: "1508px",
-          height: "480px",
-          opacity: 1,
-          backgroundColor: "white",
-        }}
-      >
+      <StyledSlider {...settings}>
         <Content>
           <Image src={logo}></Image>
-          <SmallTitle>Vehicular Platooning</SmallTitle>
           <List>
+            <SmallTitle>Vehicular Platooning</SmallTitle>
             <ListContent>Leader-followers consensus problem. </ListContent>
             <ListContent>
               Neuroadaptive fault-tolerant control, (IEEETr.
@@ -87,11 +78,13 @@ function JooSangWoo() {
   );
 }
 
-const Body = styled.main`
+const Body = styled.div`
+  position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
-  height: 0;
+  height: 100%;
+  display: inline-block;
   /* UI Properties */
   background: #f0f0f0;
   opacity: 1;
@@ -104,50 +97,59 @@ const Container = styled.div`
   display: flex;
   /* UI Properties */
 `;
-const NameContainer = styled.div`
+const NameContainer = styled.span`
   background: #447bf7 0% 0% no-repeat padding-box;
   border-top-right-radius: 80px;
   border-bottom-right-radius: 80px;
   opacity: 1;
   width: 30%;
   height: 100%;
-  vertical-align: center;
+  display: table;
+  table-layout: fixed;
 `;
 
 const TextContainer = styled.div`
-  float: right;
   width: 70%;
   height: 100%;
-  background-color: pink;
+  display: table;
+  table-layout: fixed;
 `;
 const Name = styled.p`
   position: relative;
   width: 100%;
   height: 100%;
   margin: 0;
+  display: table-cell;
+  vertical-align: middle;
   text-align: center;
   font: normal normal bold 2.5vw sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
 `;
-const Text = styled.div`
-  /* Layout Properties */
-  width: 157px;
-  height: 24px;
+const Text = styled.p`
+  position: relative;
+  width: auto;
+  height: 0;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 5%;
   /* UI Properties */
-  text-align: left;
   font: normal normal medium 20px/24px sans-serif;
   letter-spacing: 0px;
   color: #818181;
-  opacity: 0.69;
 `;
-const Title = styled.div`
+const Title = styled.p`
   /* Layout Properties */
-  width: 967px;
-  height: 58px;
+  position: relative;
+  display: table-cell;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: auto;
+  height: 0;
+  padding-top: 2%;
   /* UI Properties */
-  text-align: left;
   font: normal normal bold 50px/58px sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
@@ -172,10 +174,11 @@ const DivPre = styled.div`
   text-align: left;
   line-height: 30px;
 `;
-const StyledSlider = styled(Slider)`
-  height: 260px;
-  width: 100%;
+const StyledSlider = styled((props) => <Slider {...props} />)`
   position: relative;
+  width: 80%;
+  top: 30%;
+  left: 10%;
   .slick-prev::before,
   .slick-next::before {
     opacity: 0;
@@ -197,8 +200,8 @@ const PrevIcon = styled.img`
   opacity: 1;
 `;
 const NextIcon = styled.img`
-  position: absolute;
-  left: 1410px;
+  position: relative;
+  left: 100%;
   width: 51px;
   height: 51px;
   background: 0% 0% no-repeat padding-box;
@@ -207,29 +210,30 @@ const NextIcon = styled.img`
 `;
 
 const Content = styled.div`
-  width: 1508px;
-  height: 480px;
+  width: 100%;
+  height: auto;
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 const Image = styled.img`
   /* Layout Properties */
   position: relative;
-  top: 140px;
-  left: 121px;
-  width: 404px;
-  height: 213px;
+
+  width: 30%;
+  margin: 0;
   /* UI Properties */
   opacity: 1;
 `;
 
 const SmallTitle = styled.h2`
   position: relative;
-  top: -100px;
-  left: 580px;
-  width: 768px;
-  height: 25px;
+  width: auto;
+  white-space: nowrap;
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
@@ -243,14 +247,14 @@ const SmallTitle = styled.h2`
 
 const List = styled.div`
   position: relative;
-  top: -80px;
-  left: 580px;
-  width: 796px;
-  height: 199px;
+  width: auto;
+  white-space: nowrap;
   text-align: left;
 `;
 
 const ListContent = styled.li`
+  width: auto;
+  white-space: nowrap;
   font: normal normal normal 20px/36px sans-serif;
   letter-spacing: 0px;
   color: #606060;
