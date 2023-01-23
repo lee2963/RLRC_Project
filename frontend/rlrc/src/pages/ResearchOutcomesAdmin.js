@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
-import styles from "../styles/researchOutcomes.module.css";
+import styles from "../styles/researchOutcomesAdmin.module.css";
 import SearchIcon from "../static/search.png";
 import axios from "axios";
 import Pagination from "../components/Pagination";
 import { useNavigate } from "react-router-dom";
-import AdminNavbar from "../../src/components/AdminNavbar";
+import AdminNavbar from "../../src/components/Navbar";
 
-/*const sampleThesis = {
+const sampleThesis = {
   content: [
     {
       id: 19,
@@ -269,7 +269,7 @@ const samplePatent = {
   first: true,
   empty: false,
 };
-*/
+
 
 function ResearchOutcomesAdmin() {
   const [content, setContent] = useState("PAPER");
@@ -328,6 +328,11 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
+      // 디버그 코드
+      content === "PAPER"
+        ? setThesisPosts(sampleThesis)
+        : setPatentPosts(samplePatent);
+      //
       console.log(error);
     }
   };
@@ -568,7 +573,15 @@ function ResearchOutcomesAdmin() {
                       <TableTitleData style={{ width: "16%" }}>Journal</TableTitleData>
                       <TableTitleData style={{ width: "8%" }}>IF</TableTitleData>
                       <TableTitleData style={{ width: "8%" }}>JCI</TableTitleData>
-                      <TableTitleData >DOI</TableTitleData>
+                      <TableTitleData style={{ width: "8%" }}>DOI</TableTitleData>
+                      {/* <TableTitleData  >No</TableTitleData>
+                      <TableTitleData >Year</TableTitleData>
+                      <TableTitleData > Title</TableTitleData>
+                      <TableTitleData>Authors</TableTitleData>
+                      <TableTitleData >Journal</TableTitleData>
+                      <TableTitleData >IF</TableTitleData>
+                      <TableTitleData >JCI</TableTitleData>
+                      <TableTitleData >DOI</TableTitleData> */}
                     </TableTitle>
                     {thesisPosts && (
                       <>
@@ -585,7 +598,7 @@ function ResearchOutcomesAdmin() {
                                 <TableData>{PAPER.journal}</TableData>
                                 <TableData>{PAPER.iif}</TableData>
                                 <TableData>{PAPER.jcr}</TableData>
-                                <TableData>{PAPER.doi}</TableData>
+                                <TableData>{PAPER.doi.replace('/', '/\n')}</TableData>
                               </TableRow>
                             </>
                           );
@@ -595,23 +608,24 @@ function ResearchOutcomesAdmin() {
                   </tbody>
                 </Table>
               )}
+              {thesisPosts && (
+                <footer
+                  style={{
+                    // position: "relative",
+                    // top: "270px",
+                    // right: "10px",
+                  }}
+                >
+                  <Pagination
+                    total={thesisPosts.totalPages}
+                    page={page}
+                    setPage={setPage}
+                    pageSize={thesisPosts.size}
+                  />
+                </footer>
+              )}
             </ThesisContainer>
-            {thesisPosts && (
-              <footer
-                style={{
-                  position: "relative",
-                  top: "270px",
-                  right: "10px",
-                }}
-              >
-                <Pagination
-                  total={thesisPosts.totalPages}
-                  page={page}
-                  setPage={setPage}
-                  pageSize={thesisPosts.size}
-                />
-              </footer>
-            )}
+
           </>
         ) : (
           <>
@@ -891,12 +905,13 @@ function ResearchOutcomesAdmin() {
                   <Table>
                     <tbody>
                       <TableTitle>
-                        <TableTitleData style={{ width: "7%" }}>연번</TableTitleData>
-                        <TableTitleData style={{ width: "10%" }}>출원일자</TableTitleData>
-                        <TableTitleData style={{ width: "12%" }}>출원등록구분</TableTitleData>
-                        <TableTitleData style={{ width: "48%" }}>출원등록명</TableTitleData>
-                        <TableTitleData >발명자명</TableTitleData>
+                        <TableTitleData style={{ width: "10%" }}>연번</TableTitleData>
+                        <TableTitleData style={{ width: "15%" }}>출원일자</TableTitleData>
+                        <TableTitleData style={{ width: "17%" }}>출원등록구분</TableTitleData>
+                        <TableTitleData >출원등록명</TableTitleData>
+                        <TableTitleData style={{ width: "30%" }}>발명자명</TableTitleData>
                       </TableTitle>
+
                       {patentPosts &&
                         patentPosts.content.map((patent) => {
                           return (
@@ -917,23 +932,18 @@ function ResearchOutcomesAdmin() {
                   </Table>
                 </>
               )}
+              {patentPosts && (
+                <footer>
+                  <Pagination
+                    total={patentPosts.totalPages}
+                    page={page}
+                    setPage={setPage}
+                    pageSize={patentPosts.size}
+                  />
+                </footer>
+              )}
             </PatentContainer>
-            {patentPosts && (
-              <footer
-                style={{
-                  position: "relative",
-                  top: "180px",
-                  right: "10px",
-                }}
-              >
-                <Pagination
-                  total={patentPosts.totalPages}
-                  page={page}
-                  setPage={setPage}
-                  pageSize={patentPosts.size}
-                />
-              </footer>
-            )}
+
           </>
         )}
       </ContentsWrapper>
@@ -1107,14 +1117,14 @@ const Icon = styled.img`
   
 `;
 const Table = styled.table`
-  // position: absolute;
   width: 1250px;
-  width: 100%;
-  height: 84px;
+  height: auto;
   opacity: 1;
   border-spacing: 0px;
   border-top: 2px solid #414ffd;
   border-bottom: 2px solid #447bf7;
+  table-layout: fixed;
+  word-break : break-all; 
 `;
 const TableTitle = styled.tr`
   height: 84px;
@@ -1142,7 +1152,7 @@ const TableTitleData = styled.td`
   border-left: 1px solid #dfdcdc;
   border-right: 1px solid #dfdcdc;
   white-space: pre-line;
-  padding: 10px;
+  // padding: 10px;
 `;
 const TableData = styled.td`
   border-bottom: 1px solid #b4b4b4;
