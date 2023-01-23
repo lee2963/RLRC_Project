@@ -4,9 +4,10 @@ import styles from "../styles/researchOutcomesAdmin.module.css";
 import SearchIcon from "../static/search.png";
 import axios from "axios";
 import Pagination from "../components/Pagination";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import AdminNavbar from "../../src/components/Navbar";
-
+import ContentBar from "../../src/components/ContentBar";
+import ContentIndex from "../../src/components/ContentIndex";
 const sampleThesis = {
   content: [
     {
@@ -380,10 +381,62 @@ function ResearchOutcomesAdmin() {
     searchText ? getThesisPatentSearch(content) : getThesisPatent(content);
     // getThesisPatentYear(content);
   }, [content, page]);
+
+  const [showContent, setShowContent] = useState(false);
   return (
     <>
       <main className={styles.main}>
         <AdminNavbar />
+        <ContentBar setShow={setShowContent} />
+        {showContent && (
+          <ContentIndex setShow={setShowContent} isShow={showContent} />
+        )}
+        <SelectionBarCotainer>
+          <div className={styles.selection_line_white} />
+          <div className={styles.selection_line_grey} />
+          <ul className={styles.selectionbar_menu}>
+            <StyledLink
+              to="/AboutRLRC"
+              id={styles.selectbar_content}
+              className="select_rlrc"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              ABOUT RLRC
+            </StyledLink>
+            <StyledLink
+              to="/Research"
+              id={styles.selectbar_content}
+              className="slelect_research"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              RESEARCH
+            </StyledLink>
+            <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              OUTCOMES
+            </StyledLink>
+            <StyledLink
+              to="/NewNotice"
+              id={styles.selectbar_content}
+              className="select_new_notice"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              NEW & NOTICE
+            </StyledLink>
+          </ul>
+        </SelectionBarCotainer>
       </main>
       <OutComes id="outcomes">
         <ThesisButton
@@ -951,6 +1004,26 @@ function ResearchOutcomesAdmin() {
     </>
   );
 }
+const SelectionBarCotainer = styled.div`
+  position: absolute;
+  float: left;
+  top: 250px;
+  left: 200px;
+  width: auto;
+  height: auto;
+`;
+
+
+const StyledLink = styled((props) => <Link {...props} />)`
+  &:hover {
+    color: #447bf7;
+  }
+  &:link {
+    color: white;
+  }
+  text-decoration: none;
+`;
+
 const OutComes = styled.div`
   display: flex;
   justify-content: center;
