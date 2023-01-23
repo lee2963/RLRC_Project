@@ -891,11 +891,11 @@ function ResearchOutcomesAdmin() {
                   <Table>
                     <tbody>
                       <TableTitle>
-                        <TableTitleData>No</TableTitleData>
-                        <TableTitleData>Date</TableTitleData>
-                        <TableTitleData>Submit</TableTitleData>
-                        <TableTitleData>Title</TableTitleData>
-                        <TableTitleData>Author</TableTitleData>
+                        <TableTitleData style={{ width: "7%" }}>연번</TableTitleData>
+                        <TableTitleData style={{ width: "10%" }}>출원일자</TableTitleData>
+                        <TableTitleData style={{ width: "12%" }}>출원등록구분</TableTitleData>
+                        <TableTitleData style={{ width: "48%" }}>출원등록명</TableTitleData>
+                        <TableTitleData >발명자명</TableTitleData>
                       </TableTitle>
                       {patentPosts &&
                         patentPosts.content.map((patent) => {
