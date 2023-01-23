@@ -17,7 +17,8 @@ export default function Navbar(props) {
           src={logo}
           style={{
             position: "absolute",
-            top: "60px",
+            // top: "60px",
+            left: "205px",
             width: "110px",
             height: "38px",
           }}
