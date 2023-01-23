@@ -562,13 +562,13 @@ function ResearchOutcomesAdmin() {
                   <tbody>
                     <TableTitle>
                       <TableTitleData style={{ width: "5%" }}>No</TableTitleData>
-                      <TableTitleData>Year</TableTitleData>
-                      <TableTitleData>Title</TableTitleData>
-                      <TableTitleData>Authors</TableTitleData>
-                      <TableTitleData>Journal</TableTitleData>
-                      <TableTitleData>IF</TableTitleData>
-                      <TableTitleData>JCI</TableTitleData>
-                      <TableTitleData>DOI</TableTitleData>
+                      <TableTitleData style={{ width: "6%" }}>Year</TableTitleData>
+                      <TableTitleData style={{ width: "30%" }}> Title</TableTitleData>
+                      <TableTitleData style={{ width: "16%" }}>Authors</TableTitleData>
+                      <TableTitleData style={{ width: "16%" }}>Journal</TableTitleData>
+                      <TableTitleData style={{ width: "8%" }}>IF</TableTitleData>
+                      <TableTitleData style={{ width: "8%" }}>JCI</TableTitleData>
+                      <TableTitleData >DOI</TableTitleData>
                     </TableTitle>
                     {thesisPosts && (
                       <>
