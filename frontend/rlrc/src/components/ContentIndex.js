@@ -145,7 +145,7 @@ const AdminButton = styled.div`
   top: 35%;
   right: 10%;
   width: 9vw;
-  height: 3.8vw;
+  height: 3vw;
   background: #464646;
   border: 1px solid #464646;
   border-radius: 36px;

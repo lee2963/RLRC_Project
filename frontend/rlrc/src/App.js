@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AboutRLRC from "./pages/AboutRLRC";
 import Detail from "./pages/Detail";
+import Landing from "./pages/Landing";
 import NewNotice from "./pages/NewNotice";
 import NewNoticeAdmin from "./pages/NewNoticeAdmin";
 import Research from "./pages/Research";
@@ -10,44 +11,34 @@ import ResearchOutcomes from "./pages/ResearchOutcomes";
 import ResearchOutcomesAdmin from "./pages/ResearchOutcomesAdmin";
 import SiteMap from "./pages/SiteMap";
 import UserLogin from "./pages/UserLogin";
-import Landing from "./pages/Landing";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route
-<<<<<<< Updated upstream
-          path='/'
+          path="/"
           style={{ textDecoration: "none" }}
           element={<Landing />}
-        >
-        </Route>
-        {/* <Route
-=======
+        ></Route>
+        <Route
           path="/SiteMap"
           style={{ textDecoration: "none" }}
           element={<SiteMap />}
         ></Route>
-        <Route
->>>>>>> Stashed changes
-          path="/"
-          style={{ textDecoration: "none" }}
-          element={<AboutRLRC />}
-        ></Route> */}
         <Route
           path="/AboutRLRC"
           style={{ textDecoration: "none" }}
           element={<AboutRLRC />}
         ></Route>
         <Route
-          className="rearch"
+          className="research"
           path="/Research"
           style={{ textDecoration: "none" }}
           element={<Research />}
         ></Route>
         <Route
-          className="rearchField"
+          className="researchField"
           path="/ResearchField"
           style={{ textDecoration: "none" }}
           element={<ResearchField />}
