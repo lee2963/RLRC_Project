@@ -34,7 +34,7 @@ public class LoginController {
 
         Admin loginAdmin = loginService.login(loginDto.getLoginId(), loginDto.getPassword());
         log.info("id ={}", loginDto.getLoginId());
-        log.info("id ={}", loginDto.getPassword());
+        log.info("password ={}", loginDto.getPassword());
 
         if (loginAdmin == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
