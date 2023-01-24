@@ -615,9 +615,6 @@ const TableData = styled.td`
   border-right: none;
 `;
 const StyledLink = styled((props) => <Link {...props} />)`
-  &:hover {
-    color: #447bf7;
-  }
   &:link {
     color: white;
   }
