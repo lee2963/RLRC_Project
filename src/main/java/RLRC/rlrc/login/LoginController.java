@@ -4,6 +4,7 @@ import RLRC.rlrc.admin.Admin;
 import RLRC.rlrc.news.NewsRepository;
 import RLRC.rlrc.session.SessionConst;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+@Slf4j
 @Controller
 @RequiredArgsConstructor
 public class LoginController {
@@ -31,6 +33,8 @@ public class LoginController {
     public ResponseEntity<Void> login(@RequestBody LoginDto loginDto, BindingResult bindingResult, HttpServletRequest request) {
 
         Admin loginAdmin = loginService.login(loginDto.getLoginId(), loginDto.getPassword());
+        log.info("id ={}", loginDto.getLoginId());
+        log.info("id ={}", loginDto.getPassword());
 
         if (loginAdmin == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
