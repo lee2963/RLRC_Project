@@ -277,8 +277,8 @@ export default function ResearchOutcomes() {
   const [content, setContent] = useState("thesis");
   const [searchText, setSearchText] = useState("");
   // const [years, setYears] = useState(null);
-  const [thesisPosts, setThesisPosts] = useState(sampleThesis);
-  const [patentPosts, setPatentPosts] = useState(samplePatent);
+  const [thesisPosts, setThesisPosts] = useState(null);
+  const [patentPosts, setPatentPosts] = useState(null);
   const [page, setPage] = useState(1);
   // console.log("env", process.env.production.REACT_APP_API_URL);
   const handleSearch = async (event) => {
@@ -357,6 +357,7 @@ export default function ResearchOutcomes() {
               className="select_rlrc"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               ABOUT RLRC
@@ -367,6 +368,7 @@ export default function ResearchOutcomes() {
               className="slelect_research"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               RESEARCH
@@ -387,6 +389,7 @@ export default function ResearchOutcomes() {
               className="select_new_notice"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               NEW & NOTICE
@@ -725,9 +728,6 @@ const Paginate = styled.div`
   top: calc(135px * 1);
 `;
 const StyledLink = styled((props) => <Link {...props} />)`
-  &:hover {
-    color: #447bf7;
-  }
   &:link {
     color: white;
   }

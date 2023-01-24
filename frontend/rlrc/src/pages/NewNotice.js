@@ -24,8 +24,8 @@ export default function NewNotice() {
         ? Array(newsPosts.numberOfElements).fill(false)
         : []
       : noticePosts
-        ? Array(noticePosts.number).fill(false)
-        : []
+      ? Array(noticePosts.number).fill(false)
+      : []
   );
   const handleSearch = async (event) => {
     event.preventDefault();
@@ -107,6 +107,7 @@ export default function NewNotice() {
               className="select_rlrc"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               ABOUT RLRC
@@ -117,6 +118,7 @@ export default function NewNotice() {
               className="slelect_research"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               RESEARCH
@@ -127,6 +129,7 @@ export default function NewNotice() {
               className="select_research_outcomes"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               OUTCOMES
@@ -545,9 +548,6 @@ const Paginate = styled.div`
 `;
 
 const StyledLink = styled((props) => <Link {...props} />)`
-  &:hover {
-    color: #447bf7;
-  }
   &:link {
     color: white;
   }

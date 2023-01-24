@@ -58,6 +58,7 @@ export default function AboutRLRC() {
               className="select_rlrc"
               style={{
                 textDecoration: "none",
+                color: "white",
               }}
             >
               ABOUT RLRC
@@ -68,6 +69,7 @@ export default function AboutRLRC() {
               className="slelect_research"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               RESEARCH
@@ -78,6 +80,7 @@ export default function AboutRLRC() {
               className="select_research_outcomes"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               OUTCOMES
@@ -88,6 +91,7 @@ export default function AboutRLRC() {
               className="select_new_notice"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               NEW & NOTICE
@@ -163,9 +167,6 @@ const Image = styled.img`
   }
 `;
 const StyledLink = styled((props) => <Link {...props} />)`
-  &:hover {
-    color: #447bf7;
-  }
   &:link {
     color: white;
   }
