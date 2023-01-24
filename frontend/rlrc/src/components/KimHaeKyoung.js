@@ -264,7 +264,7 @@ const SmallTitleNonImage = styled.h2`
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 1.1vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
@@ -278,7 +278,7 @@ const SmallTitle = styled.h2`
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 1.1vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;

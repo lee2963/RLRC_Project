@@ -1,12 +1,12 @@
 import React from "react";
-import styled from "styled-components";
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css";
+import styled from "styled-components";
 
-import prevArrow from "../static/prevArrow.png";
-import nextArrow from "../static/nextArrow.png";
 import kangseokwon1 from "../static/images/kangseokwon1.png";
+import nextArrow from "../static/nextArrow.png";
+import prevArrow from "../static/prevArrow.png";
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -45,34 +45,33 @@ function KangSeokWon() {
   return (
     <Body>
       <Container>
-        <Name>Seokwon Kang</Name>
-        <Text>RESEARCH FIELD</Text>
-        <Title>
-          Lateral and Longitudinal Adaptive Control <br />
-          Technology for Autonomous Vehicle
-        </Title>
-        <SubTitle>
-          (DMP: Fail-safe Steering and AI-based Control Considering Vehicle
-          Status and Road Conditions)
-        </SubTitle>
+        <NameContainer>
+          <Name>Seokwon Kang</Name>
+        </NameContainer>
+        <TextContainer>
+          <Text>
+            RESEARCH FIELD
+            <Title>
+              Lateral and Longitudinal Adaptive Control <br />
+              Technology for Autonomous Vehicle
+              <SubTitle>
+                (DMP: Fail-safe Steering and AI-based Control Considering
+                Vehicle Status and Road Conditions)
+              </SubTitle>
+            </Title>
+          </Text>
+        </TextContainer>
       </Container>
-      <StyledSlider
-        {...settings}
-        style={{
-          position: "absolute",
-          top: "500px",
-          left: "200px",
-          width: "1508px",
-          height: "480px",
-          opacity: 1,
-          backgroundColor: "white",
-        }}
-      >
+      <StyledSlider {...settings}>
         <Content>
-          <SmallTitleNonImage style={{ top: "120px" }}>
-            Research Target
-          </SmallTitleNonImage>
-          <ListNonImage style={{ top: "125px", listStyle: "none" }}>
+          <ListNonImage
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              left: "15%",
+            }}
+          >
+            <SmallTitleNonImage>Research Target</SmallTitleNonImage>
             <ListContent>
               Currently, autonomous vehicles are not sufficiently capable of
               performing safe steering maneuvers or coping with emergency
@@ -85,12 +84,16 @@ function KangSeokWon() {
           </ListNonImage>
         </Content>
         <Content>
-          <SmallTitleNonImage style={{ top: "100px" }}>
-            Novelty and Difficulty of Technical Approach
-          </SmallTitleNonImage>
           <ListNonImage
-            style={{ top: "105px", width: "1000px", listStyle: "none" }}
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              left: "15%",
+            }}
           >
+            <SmallTitleNonImage>
+              Novelty and Difficulty of Technical Approach
+            </SmallTitleNonImage>
             <ListContent>
               This study requires the development of technologies in both H/W
               and S/W respects for improved safety and efficiency at an actual
@@ -106,12 +109,14 @@ function KangSeokWon() {
           </ListNonImage>
         </Content>
         <Content>
-          <SmallTitleNonImage style={{ top: "80px" }}>
-            Research Progress
-          </SmallTitleNonImage>
           <ListNonImage
-            style={{ top: "85px", width: "1000px", listStyle: "none" }}
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              left: "15%",
+            }}
           >
+            <SmallTitleNonImage>Research Progress</SmallTitleNonImage>
             <ListContent>
               The experimental apparatus for validation of the designed control
               algorithm for the fail-safe steering device has been developed.
@@ -129,31 +134,35 @@ function KangSeokWon() {
           </ListNonImage>
         </Content>
         <Content>
-          <SmallTitleNonImage style={{ top: "100px" }}>
-            Research Plan
-          </SmallTitleNonImage>
           <ListNonImage
-            style={{ top: "105px", width: "1000px", listStyle: "none" }}
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              left: "15%",
+            }}
           >
+            <SmallTitleNonImage>Research Plan</SmallTitleNonImage>
             <ListContent>
               Stage 1 (Year 1 – 4): Design of a fail-safe control algorithm for
               an EPS for autonomous vehicles
-              <br /> - 1st year: Concept design of fail-safe structure for an
-              EPS <br />- 2nd year: Implementation of a small demonstration
-              system for testing of control algorithms
-              <br /> - 3rd year: Test-bed setup for validation of the fail-safe
-              design <br /> - 4th year: Performance evaluation and design
+              <br />- 1st year: Concept design of fail-safe structure for an EPS{" "}
+              <br />- 2nd year: Implementation of a small demonstration system
+              for testing of control algorithms
+              <br />- 3rd year: Test-bed setup for validation of the fail-safe
+              design <br />- 4th year: Performance evaluation and design
               improvement through lab-scale experiments
             </ListContent>
           </ListNonImage>
         </Content>
         <Content>
-          <SmallTitleNonImage style={{ top: "110px" }}>
-            Research Plan
-          </SmallTitleNonImage>
           <ListNonImage
-            style={{ top: "115px", width: "1000px", listStyle: "none" }}
+            style={{
+              flexDirection: "column",
+              alignItems: "flex-start",
+              left: "15%",
+            }}
           >
+            <SmallTitleNonImage>Research Plan</SmallTitleNonImage>
             <ListContent>
               Stage 2(Year 5 – 7): Development of AI-based lateral/longitudinal
               adaptive control technology <br /> - 5th year: Algorithm design
@@ -168,10 +177,9 @@ function KangSeokWon() {
           <Image
             src={kangseokwon1}
             style={{
-              top: "50px",
-              left: "290px",
-              width: "887px",
-              height: "374px",
+              top: "10%",
+              right: "12%",
+              width: "60%",
             }}
           ></Image>
         </Content>
@@ -180,80 +188,77 @@ function KangSeokWon() {
   );
 }
 
-const Body = styled.main`
+const Body = styled.div`
+  position: absolute;
   top: 0px;
   left: 0px;
-  width: 1920px;
-  height: 1149px;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
   /* UI Properties */
-  background: #f0f0f0 0% 0% no-repeat padding-box;
+  background: #f0f0f0;
   opacity: 1;
 `;
 const Container = styled.div`
-  position: absolute;
+  position: relative;
   top: 196px;
-  left: -68px;
-  width: 643px;
+  width: 100%;
   height: 160px;
-
-  /* UI Properties */
-  background: #447bf7 0% 0% no-repeat padding-box;
-  border-radius: 80px;
-  opacity: 1;
+  display: flex;
 `;
-const Name = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 60px;
-  left: 280px;
-  width: 280px;
-  height: 47px;
-  /* UI Properties */
-  text-align: left;
-  font: normal normal bold 40px/47px sans-serif;
+const NameContainer = styled.span`
+  background: #447bf7 0% 0% no-repeat padding-box;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  opacity: 1;
+  width: 650px;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+`;
+const TextContainer = styled.div`
+  width: 70%;
+  height: 100%;
+  display: table;
+  table-layout: fixed;
+`;
+const Name = styled.p`
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font: normal normal bold 2.5em sans-serif;
   letter-spacing: 0px;
   color: #ffffff;
   opacity: 1;
 `;
-const Text = styled.div`
-  /* Layout Properties */
-  position: absolute;
-  top: 0px;
-  left: 703px;
-  width: 190px;
-  height: 24px;
+const Text = styled.p`
+  position: relative;
+  width: auto;
+  height: auto;
+  white-space: nowrap;
+  vertical-align: middle;
+  display: table-cell;
+  padding-left: 5%;
   /* UI Properties */
-  text-align: left;
-  font: normal normal medium sans-serif;
-  font-size: 25px;
+  font: normal normal medium 1vw sans-serif;
   letter-spacing: 0px;
   color: #818181;
-  opacity: 0.69;
 `;
-const Title = styled.div`
+const Title = styled.p`
   /* Layout Properties */
-  position: absolute;
-  top: 30px;
-  left: 700px;
-  width: 967px;
-  height: 58px;
+  position: relative;
+  display: table-cell;
+  white-space: nowrap;
+  vertical-align: middle;
+  width: auto;
+  height: 0;
+  padding-top: 2%;
   /* UI Properties */
-  text-align: left;
-  font: normal normal bold 50px/58px sans-serif;
-  letter-spacing: 0px;
-  color: #447bf7;
-  opacity: 1;
-`;
-const SubTitle = styled.div`
-  position: absolute;
-  top: 150px;
-  left: 700px;
-  width: 1078px;
-  height: 48px;
-  letter-spacing: var(--unnamed-character-spacing-0);
-  text-align: left;
-  font: normal normal normal sans-serif;
-  font-size: 25px;
+  font: normal normal bold 2.3em sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -268,19 +273,34 @@ const Div = styled.div`
   text-align: right;
   line-height: 30px;
 `;
+const SubTitle = styled.div`
+  position: relative;
+  top: 10px;
+  display: table-cell;
+  white-space: nowrap;
+  vertical-align: bottom;
+  font-size: 25px;
+  font-weight: 400;
+  color: #447bf7;
+`;
+
 const DivPre = styled.div`
   width: 30px;
   height: 30px;
   position: absolute;
-  left: 16px;
   z-index: 99;
   text-align: left;
   line-height: 30px;
+  clear: both;
+  display: block;
+  right: 40px;
+  float: right;
 `;
-const StyledSlider = styled(Slider)`
-  height: 260px;
-  width: 100%;
+const StyledSlider = styled((props) => <Slider {...props} />)`
   position: relative;
+  width: 90%;
+  top: 23%;
+  left: 5%;
   .slick-prev::before,
   .slick-next::before {
     opacity: 0;
@@ -289,6 +309,9 @@ const StyledSlider = styled(Slider)`
   .slick-slide div {
     //슬라이더  컨텐츠
     cursor: pointer;
+  }
+  .slick-slide img {
+    display: inline;
   }
 `;
 
@@ -302,18 +325,19 @@ const PrevIcon = styled.img`
   opacity: 1;
 `;
 const NextIcon = styled.img`
-  position: absolute;
-  left: 1410px;
+  position: relative;
+  display: block;
   width: 51px;
   height: 51px;
   background: 0% 0% no-repeat padding-box;
   border-radius: 100px;
   opacity: 1;
+  margin-left: auto;
+  display: block;
 `;
 
 const Content = styled.div`
-  width: 1508px;
-  height: 480px;
+  height: 30vw;
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
@@ -321,23 +345,19 @@ const Content = styled.div`
 const Image = styled.img`
   /* Layout Properties */
   position: relative;
-  top: 140px;
-  left: 121px;
-  width: 404px;
-  height: 213px;
+  width: 50%;
+  padding-left: 30%;
+  height: auto;
+  margin: 0px;
   /* UI Properties */
   opacity: 1;
 `;
 const SmallTitleNonImage = styled.h2`
   position: relative;
-  top: 196px;
-  left: 228px;
-  width: 768px;
-  height: 25px;
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 1.1vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
@@ -347,14 +367,11 @@ const SmallTitleNonImage = styled.h2`
 
 const SmallTitle = styled.h2`
   position: relative;
-  top: -100px;
-  left: 580px;
-  width: 768px;
-  height: 25px;
+  width: 100%;
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 1.1vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
@@ -364,25 +381,31 @@ const SmallTitle = styled.h2`
 
 const List = styled.div`
   position: relative;
-  top: -80px;
-  left: 580px;
-  width: 796px;
-  height: 199px;
-  text-align: left;
+  top: 28%;
+  width: 100%;
+  white-space: nowrap;
+  column-count: 2;
+  column-gap: 0;
 `;
 const ListNonImage = styled.div`
   position: relative;
-  top: 205px;
-  left: 228px;
-  width: 950px;
-  height: 199px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: left;
 `;
 
 const ListContent = styled.li`
-  font: normal normal normal 20px/36px sans-serif;
+  width: 70%;
+  white-space: pre-wrap;
+  display: block;
+  font: normal normal normal 0.9vw sans-serif;
   letter-spacing: 0px;
+  line-height: 1.5vw;
   color: #606060;
   opacity: 1;
 `;
+
 export default KangSeokWon;

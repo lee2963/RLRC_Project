@@ -133,14 +133,16 @@ function ParkJuHyun() {
         <Content>
           <List style={{ top: "10%", left: "8%" }}>
             <Image src={parkjuhyun3} style={{ width: "50%" }}></Image>
-            <SmallTitle style={{ top: "30%" }}>
+            <SmallTitle style={{ top: "32%", right: "10%" }}>
               Cyber-Physical Systems (CPS) for Vehicles
             </SmallTitle>
-            <ListContent style={{ top: "30%" }}>
+            <ListContent style={{ top: "32%", right: "10%" }}>
               Analysis of cyber-physical systems
             </ListContent>
-            <ListContent style={{ top: "30%" }}>Cyber security</ListContent>
-            <ListContent style={{ top: "30%" }}>
+            <ListContent style={{ top: "32%", right: "10%" }}>
+              Cyber security
+            </ListContent>
+            <ListContent style={{ top: "32%", right: "10%" }}>
               Control and applications of CPS for vehicle systems
             </ListContent>
           </List>
@@ -344,7 +346,7 @@ const SmallTitleNonImage = styled.h2`
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 22px/36px;
+  font-size: 1.1vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;
