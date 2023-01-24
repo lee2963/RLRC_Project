@@ -73,6 +73,7 @@ function FormEditor(props) {
 
   return (
     <form onSubmit={handleSubmit} encType="multipart/form-data">
+      <EditorTitle> {currentContent} 게시글 작성 </EditorTitle>
       <table
         style={{
           position: "relative",
@@ -340,6 +341,15 @@ function FormEditor(props) {
     </form>
   );
 }
+
+const EditorTitle = styled.div`
+  // margin: 0 15.35vw;
+  margin-top: 18vh;
+  font: normal normal bold 33px/70px Roboto;
+  letter-spacing: 0px;
+  color: #447BF7;
+  text-transform: uppercase;
+`;
 
 const RowTitle = styled.p`
   text-align: center;

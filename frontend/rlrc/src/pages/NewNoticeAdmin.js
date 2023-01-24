@@ -251,20 +251,21 @@ export default function NewNoticeAdmin() {
                 display: "flex",
                 flexDirection: "row"
               }}>
+                <ButtonContainer>
+                  <Button value="add" onClick={handleAddNews}>
+                    추가
+                  </Button>
+                  <Button value="delete" onClick={handleDelete}>
+                    삭제
+                  </Button>
+                </ButtonContainer>
                 <Search placeholder="검색" onChange={changeSearch} />
                 <Icon src={SearchIcon} onClick={handleSearch}></Icon>
               </form>
             </SearchWrapper>
             <Line />
 
-            <ButtonContainer>
-              <Button value="add" onClick={handleAddNews}>
-                추가
-              </Button>
-              <Button value="delete" onClick={handleDelete}>
-                삭제
-              </Button>
-            </ButtonContainer>
+
             <PaginationContainer>
               {newsPosts && (
                 <>
@@ -379,8 +380,9 @@ export default function NewNoticeAdmin() {
           </News>
         ) : (
           <>
-            <EditorTitle> NEWS 게시글 작성 </EditorTitle>
+
             <Editor>
+              {/* <EditorTitle> NEWS 게시글 작성 </EditorTitle> */}
               <FormEditor
                 addContents={addNews}
                 setAddContents={setAddNews}
@@ -393,24 +395,26 @@ export default function NewNoticeAdmin() {
         <Notice>
           <SearchWrapper>
             <NoticeTitle>NOTICE</NoticeTitle>
+
             <form onSubmit={handleSearch} style={{
               display: "flex",
               flexDirection: "row"
             }}>
+              <ButtonContainer>
+                <Button value="add" onClick={handleAddNotice}>
+                  추가
+                </Button>
+                <Button value="delete" onClick={handleDelete}>
+                  삭제
+                </Button>
+              </ButtonContainer>
               <Search placeholder="검색" onChange={changeSearch} />
               <Icon src={SearchIcon} onClick={handleSearch}></Icon>
 
             </form>
           </SearchWrapper>
           <Line />
-          <ButtonContainer>
-            <Button value="add" onClick={handleAddNotice}>
-              추가
-            </Button>
-            <Button value="delete" onClick={handleDelete}>
-              삭제
-            </Button>
-          </ButtonContainer>
+
 
           <PaginationContainer>
             {noticePosts && (
@@ -528,7 +532,7 @@ export default function NewNoticeAdmin() {
         </Notice>
       ) : (
         <>
-          <EditorTitle> NOTICE 게시글 작성 </EditorTitle>
+          {/* <EditorTitle> NOTICE 게시글 작성 </EditorTitle> */}
           <Editor>
             <FormEditor
               addContents={addNotice}
@@ -683,11 +687,12 @@ const ButtonContainer = styled.div`
   // position: relative;
   // top: 79.8em;
   // left: 81em;
-  margin-top: 30px;
-  width: 18em;
+  // margin-top: 30px;
+  width: 14em;
   display: flex;
   justify-content: space-around;
   // background: red;
+  margin-right: 1em;
 `;
 const Button = styled.button`
   width: 100px;
