@@ -18,11 +18,9 @@ const LandingContainer = styled.div`
     align-items: flex-end;
     justify-content: flex-end;
     background-image: url(${backgroundImg});
+    background-size: 100vw 100vh; 
     width: 100vw;
     height: 100vh;
-    min-width: 1080px;
-    background-size: cover;
-
 `;
 
 const LinkButton = styled.button`
