@@ -277,8 +277,8 @@ export default function ResearchOutcomes() {
   const [content, setContent] = useState("thesis");
   const [searchText, setSearchText] = useState("");
   // const [years, setYears] = useState(null);
-  const [thesisPosts, setThesisPosts] = useState(null);
-  const [patentPosts, setPatentPosts] = useState(null);
+  const [thesisPosts, setThesisPosts] = useState(sampleThesis);
+  const [patentPosts, setPatentPosts] = useState(samplePatent);
   const [page, setPage] = useState(1);
   // console.log("env", process.env.production.REACT_APP_API_URL);
   const handleSearch = async (event) => {
@@ -683,6 +683,7 @@ const Table = styled.table`
   border-bottom: 2px solid #447bf7;
   table-layout: fixed;
   word-break: break-all;
+  margin-bottom: 3%;
 `;
 const TableTitle = styled.tr`
   height: 84px;
