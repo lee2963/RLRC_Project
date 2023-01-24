@@ -33,8 +33,6 @@ public class LoginController {
     public ResponseEntity<Void> login(@RequestBody LoginDto loginDto, BindingResult bindingResult, HttpServletRequest request) {
 
         Admin loginAdmin = loginService.login(loginDto.getLoginId(), loginDto.getPassword());
-        log.info("id ={}", loginDto.getLoginId());
-        log.info("password ={}", loginDto.getPassword());
 
         if (loginAdmin == null) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
