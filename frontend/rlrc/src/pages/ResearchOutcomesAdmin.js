@@ -1045,6 +1045,9 @@ const FunctionWrapper = styled.div`
   align-items: center;
   justify-content: flex-end;
   margin-bottom: 40px;
+  // background : red;
+  width: 100%;
+  // margin-right: 26.5%;
 `;
 const ThesisButton = styled.button`
   display: flex;
@@ -1091,15 +1094,19 @@ const PatenteButton = styled.button`
 `;
 
 const ThesisContainer = styled.div`
-  height: 1500px;
+display:flex;
+flex-direction: column;
+align-items: center;  
+height: 1500px;
   // width: 1250px;
   width: 70vw;
   // background: red;
 `;
 const PatentContainer = styled.div`
   height: 1500px;
-  width: 1250px;
-    width: 70vw;
+  width: 70vw;
+  // background: red;
+  
 `;
 
 const TabList = styled.div`
@@ -1179,7 +1186,7 @@ const Search = styled.input`
 const IconWrapper = styled.div`
 display: flex;
 align-items: center;
-height: 4.6vh;    
+height: 4.9vh;    
 background: #efefef;
 padding: 0 30px;
 `;
@@ -1190,7 +1197,7 @@ const Icon = styled.img`
   
 `;
 const Table = styled.table`
-  width: 1250px;
+  width: 100%;
   height: auto;
   opacity: 1;
   border-spacing: 0px;
@@ -1238,7 +1245,6 @@ const UploadContainer = styled.div`
   display: flex;
   justify-content: flex-start;
   // height: 274px;
-  // background: green;
 `;
 const UploadTitle = styled.h1`
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
