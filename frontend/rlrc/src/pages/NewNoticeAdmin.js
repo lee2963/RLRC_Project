@@ -5,8 +5,10 @@ import styles from "../styles/newNoticeAdmin.module.css";
 import axios from "axios";
 import SearchIcon from "../static/search.png";
 import FormEditor from "../components/FormEditor";
-import { useNavigate } from "react-router-dom";
-import AdminNavbar from "../../src/components/AdminNavbar";
+import { useNavigate, Link } from "react-router-dom";
+import AdminNavbar from "../../src/components/Navbar";
+import ContentBar from "../../src/components/ContentBar";
+import ContentIndex from "../../src/components/ContentIndex";
 const page1 = {
   content: [
     {
@@ -208,11 +210,66 @@ export default function NewNoticeAdmin() {
       handleSearch(e);
     }
   };
+
+  const [showContent, setShowContent] = useState(false);
   return (
     <>
       <main className={styles.main}>
         <AdminNavbar />
         <Title>NEWS & NOTICE</Title>
+        <ContentBar setShow={setShowContent} />
+        {showContent && (
+          <ContentIndex setShow={setShowContent} isShow={showContent} />
+        )}
+        <SelectionBarCotainer>
+          <div className={styles.selection_line_white} />
+          <div className={styles.selection_line_grey} />
+          <ul className={styles.selectionbar_menu}>
+            <StyledLink
+              to="/AboutRLRC"
+              id={styles.selectbar_content}
+              className="select_rlrc"
+              style={{
+                textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
+              }}
+            >
+              ABOUT RLRC
+            </StyledLink>
+            <StyledLink
+              to="/Research"
+              id={styles.selectbar_content}
+              className="slelect_research"
+              style={{
+                textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
+              }}
+            >
+              RESEARCH
+            </StyledLink>
+            <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
+              }}
+            >
+              OUTCOMES
+            </StyledLink>
+            <StyledLink
+              to="/NewNotice"
+              id={styles.selectbar_content}
+              className="select_new_notice"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              NEW & NOTICE
+            </StyledLink>
+          </ul>
+        </SelectionBarCotainer>
       </main>
       <ButtonWrapper>
         <NewsButton
@@ -547,6 +604,26 @@ export default function NewNoticeAdmin() {
 
   );
 }
+
+const SelectionBarCotainer = styled.div`
+  position: absolute;
+  float: left;
+  top: 250px;
+  left: 200px;
+  width: auto;
+  height: auto;
+`;
+
+
+const StyledLink = styled((props) => <Link {...props} />)`
+  &:hover {
+    color: #447bf7;
+  }
+  &:link {
+    color: white;
+  }
+  text-decoration: none;
+`;
 const Title = styled.p`
   position: absolute;
   top: 683px;
