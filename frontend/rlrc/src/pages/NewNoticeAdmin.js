@@ -814,7 +814,6 @@ const SelectYear = styled.select`
   -moz-appearance: none;
   appearance: none;
   font: normal normal normal 16px/30px sans-serif;
-  font-size: 0.8vw;
   letter-spacing: 0px;
   color: #171717;
   opacity: 0.7;
