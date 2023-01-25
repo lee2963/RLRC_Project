@@ -46,14 +46,14 @@ function ContentIndex({ history }) {
             </StyledLink>
           </TableData>
           <TableData>
-            <StyledLink smooth to="/Research#key_project">
+            <StyledLink smooth to="/Research#material">
               Research Group
             </StyledLink>
           </TableData>
         </TableRow>
         <TableRow>
           <TableData>
-            <StyledLink smooth to="/AboutRLRC#material">
+            <StyledLink smooth to="/AboutRLRC#key_project">
               Key Projects
             </StyledLink>
           </TableData>

@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
 
+import back from "../static/backIcon.png";
 import jeonsangmin1 from "../static/images/jeonsangmin1.png";
 import jeonsangmin2 from "../static/images/jeonsangmin2.png";
 import nextArrow from "../static/nextArrow.png";
@@ -35,6 +37,7 @@ const NextBtn = (props) => {
 };
 
 function JeonSangMin() {
+  const navigate = useNavigate();
   const settings = {
     // dots: true,
     infinite: false,
@@ -46,6 +49,13 @@ function JeonSangMin() {
   };
   return (
     <Body>
+      <BackButton
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        <img src={back} style={{ height: "30px", width: "20px" }}></img>
+      </BackButton>
       <Container>
         <NameContainer>
           <Name>Sangmin Jeon</Name>
@@ -109,6 +119,14 @@ function JeonSangMin() {
   );
 }
 
+const BackButton = styled.button`
+  position: absolute;
+  top: 86px;
+  left: 150px;
+  background-color: transparent;
+  border-width: 0px;
+`;
+
 const Body = styled.div`
   position: absolute;
   top: 0px;
@@ -165,7 +183,7 @@ const Text = styled.p`
   display: table-cell;
   padding-left: 5%;
   /* UI Properties */
-  font: normal normal medium 1vw sans-serif;
+  font: normal normal normal 1.5rem sans-serif;
   letter-spacing: 0px;
   color: #818181;
 `;
@@ -179,7 +197,7 @@ const Title = styled.p`
   height: 0;
   padding-top: 2%;
   /* UI Properties */
-  font: normal normal bold 2.3em sans-serif;
+  font: normal normal bold 3rem sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
