@@ -325,9 +325,8 @@ function ResearchOutcomesAdmin() {
     // event handler
     const year = e.target.value;
     if (year !== "default") {
-      console.log(year, "API 송신");
       try {
-        const response = await axios.get(`/${content}/year`);
+        const response = await axios.get(`/${content}/search/year?word=${year}`);
         content === "thesis"
           ? setThesisPosts(response.data)
           : setPatentPosts(response.data);
