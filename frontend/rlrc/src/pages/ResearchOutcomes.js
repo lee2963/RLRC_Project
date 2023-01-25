@@ -281,6 +281,33 @@ export default function ResearchOutcomes() {
   const [patentPosts, setPatentPosts] = useState(null);
   const [page, setPage] = useState(1);
   // console.log("env", process.env.production.REACT_APP_API_URL);
+
+  const nowYear = new Date().getFullYear();
+
+  const years = [
+    { value: nowYear, name: nowYear },
+    { value: nowYear - 1, name: nowYear - 1 },
+    { value: nowYear - 2, name: nowYear - 2 },
+    { value: nowYear - 3, name: nowYear - 3 },
+    { value: nowYear - 4, name: nowYear - 4 },
+  ];
+
+  const handleYear = async (e) => {
+    // event handler
+    const year = e.target.value;
+    if (year !== "default") {
+      console.log(year, "API 송신");
+      try {
+        const response = await axios.get(`/${content}/year`);
+        content === "thesis"
+          ? setThesisPosts(response.data)
+          : setPatentPosts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   const handleSearch = async (event) => {
     event.preventDefault();
     try {
@@ -326,14 +353,17 @@ export default function ResearchOutcomes() {
       console.log(error);
     }
   };
-  // const getThesisPatentYear = async (content) => {
-  //   try {
-  //     const response = await axios.get(`/${content}/year`);
-  //     setYears(response.data);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+
+  const getThesisPatentYear = async (content) => {
+    try {
+      const response = await axios.get(`/${content}/year`);
+      content === "thesis"
+        ? setThesisPosts(response.data)
+        : setPatentPosts(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   useEffect(() => {
     // // 페이지 요청
     // const pageContent = page === 1 ? page1 : page2;
@@ -441,6 +471,34 @@ export default function ResearchOutcomes() {
                 <form onSubmit={handleSearch}>
                   <SearchContainer>
                     <InputContainer>
+                      <SelectYearWrapper>
+                        <SelectYear onChange={handleYear}>
+                          <option value="default" selected>연도</option>
+                          {years.map((years) => (
+                            <option
+                              key={years.value}
+                              value={years.value}
+                            >
+                              {years.name}
+                            </option>
+                          ))}
+                        </SelectYear>
+                        <IconSVG
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M10 14L16 6H4L10 14Z"
+                            fill="#1A1A1A"
+                          />
+                        </IconSVG>
+                      </SelectYearWrapper>
+
                       <Search placeholder="검색" onChange={changeSearch} />
                       <Icon src={SearchIcon} onClick={handleSearch}></Icon>
                     </InputContainer>
@@ -517,6 +575,33 @@ export default function ResearchOutcomes() {
                 <form onSubmit={handleSearch}>
                   <SearchContainer>
                     <InputContainer>
+                      <SelectYearWrapper>
+                        <SelectYear onChange={handleYear}>
+                          <option value="default" selected>연도</option>
+                          {years.map((years) => (
+                            <option
+                              key={years.value}
+                              value={years.value}
+                            >
+                              {years.name}
+                            </option>
+                          ))}
+                        </SelectYear>
+                        <IconSVG
+                          width="20"
+                          height="20"
+                          viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            clip-rule="evenodd"
+                            d="M10 14L16 6H4L10 14Z"
+                            fill="#1A1A1A"
+                          />
+                        </IconSVG>
+                      </SelectYearWrapper>
                       <Search placeholder="검색" onChange={changeSearch} />
                       <Icon src={SearchIcon} onClick={handleSearch}></Icon>
                     </InputContainer>
@@ -655,6 +740,35 @@ const SearchContainer = styled.div`
 const InputContainer = styled.div`
   display: inline-flex;
 `;
+
+const SelectYearWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  `
+  ;
+
+const SelectYear = styled.select`
+  background: #D3D3D35C 0% 0% no-repeat padding-box;
+  border: 0px;
+  height: 52.5px;
+  width: 129px;
+  padding: 0 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font: normal normal normal 16px/30px sans-serif;
+  letter-spacing: 0px;
+  color: #171717;
+  opacity: 0.7;
+`;
+
+const IconSVG = styled.svg`
+	margin-left: -28px;
+	width: 24px;
+	height: 24px;
+`;
+
 const Search = styled.input`
   position: relative;
   width: 500px;

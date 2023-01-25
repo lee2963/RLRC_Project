@@ -38,11 +38,18 @@ export default function NewNotice() {
     { value: nowYear - 4, name: nowYear - 4 },
   ];
 
-  const handleYear = (e) => {
+  const handleYear = async (e) => {
     // event handler
     const year = e.target.value;
     if (year !== "default") {
-      console.log(year, "API 송신");
+      try {
+        const response = await axios.get(`/${curContent}/year`);
+        curContent === "news"
+          ? setNewsPosts(response.data)
+          : setNoticePosts(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
   const handleYearSearch = async (event) => {
