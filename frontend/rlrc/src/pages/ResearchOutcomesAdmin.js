@@ -292,7 +292,7 @@ function ResearchOutcomesAdmin() {
     formData.append("content", content);
     try {
       const response = await axios.post(
-        `/admin/${content.toLowerCase()}/read`,
+        `/admin/${content === "PAPER" ? "thesis" : content.toLowerCase()}/read`,
         formData,
         {
           headers: {
@@ -300,6 +300,7 @@ function ResearchOutcomesAdmin() {
           },
         }
       );
+
       alert("업로드 성공");
       console.log(response);
       setUpload(false);
@@ -324,12 +325,19 @@ function ResearchOutcomesAdmin() {
   const handleYear = async (e) => {
     // event handler
     const year = e.target.value;
+
     if (year !== "default") {
       try {
-        const response = await axios.get(`/${content}/search/year?word=${year}`);
-        content === "thesis"
-          ? setThesisPosts(response.data)
-          : setPatentPosts(response.data);
+        if (content === "PAPER") {
+          const response = await axios.get(`/thesis/search/year?word=${year}`);
+          setThesisPosts(response.data);
+          return;
+        }
+
+        if (content === "PATENT") {
+          const response = await axios.get(`/patent/search/year?word=${year}`);
+          setPatentPosts(response.data);
+        }
       } catch (error) {
         console.log(error);
       }

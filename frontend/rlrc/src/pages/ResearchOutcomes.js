@@ -295,13 +295,19 @@ export default function ResearchOutcomes() {
   const handleYear = async (e) => {
     // event handler
     const year = e.target.value;
+
     if (year !== "default") {
-      console.log(year, "API 송신");
       try {
-        const response = await axios.get(`/${content}/search/year?word=${year}`);
-        content === "thesis"
-          ? setThesisPosts(response.data)
-          : setPatentPosts(response.data);
+        if (content === "PAPER") {
+          const response = await axios.get(`/thesis/search/year?word=${year}`);
+          setThesisPosts(response.data);
+          return;
+        }
+
+        if (content === "PATENT") {
+          const response = await axios.get(`/patent/search/year?word=${year}`);
+          setPatentPosts(response.data);
+        }
       } catch (error) {
         console.log(error);
       }
