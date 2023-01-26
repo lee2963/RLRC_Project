@@ -5,7 +5,7 @@ import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
 
 import { useNavigate } from "react-router-dom";
-import back from "../static/back.png";
+import back from "../static/backIcon.png";
 import junghoyoul1 from "../static/images/junghoyoul1.png";
 import junghoyoul2 from "../static/images/junghoyoul2.png";
 import junghoyoul3 from "../static/images/junghoyoul3.png";
@@ -54,7 +54,7 @@ function JungHoYoul() {
           navigate(-1);
         }}
       >
-        <img src={back} style={{ height: "36px", width: "36px" }}></img>
+        <img src={back} style={{ height: "30px", width: "20px" }}></img>
       </BackButton>
       <Container>
         <NameContainer>
@@ -202,7 +202,7 @@ const Text = styled.p`
   display: table-cell;
   padding-left: 5%;
   /* UI Properties */
-  font: normal normal medium 1vw sans-serif;
+  font: normal normal normal 1.5rem sans-serif;
   letter-spacing: 0px;
   color: #818181;
 `;
@@ -216,7 +216,7 @@ const Title = styled.p`
   height: 0;
   padding-top: 2%;
   /* UI Properties */
-  font: normal normal bold 2.3em sans-serif;
+  font: normal normal bold 3rem sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;

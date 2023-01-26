@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
 
+import back from "../static/backIcon.png";
 import logo from "../static/images/parkjuhyun1.png";
 import nextArrow from "../static/nextArrow.png";
 import prevArrow from "../static/prevArrow.png";
@@ -33,6 +35,7 @@ const NextBtn = (props) => {
   );
 };
 function JooSangWoo() {
+  const navigate = useNavigate();
   const settings = {
     // dots: true,
     infinite: false,
@@ -44,6 +47,13 @@ function JooSangWoo() {
   };
   return (
     <Body>
+      <BackButton
+        onClick={() => {
+          navigate(-1);
+        }}
+      >
+        <img src={back} style={{ height: "30px", width: "20px" }}></img>
+      </BackButton>
       <Container>
         <NameContainer>
           <Name>Joo Sang Woo</Name>
@@ -77,7 +87,13 @@ function JooSangWoo() {
     </Body>
   );
 }
-
+const BackButton = styled.button`
+  position: absolute;
+  top: 86px;
+  left: 150px;
+  background-color: transparent;
+  border-width: 0px;
+`;
 const Body = styled.div`
   position: absolute;
   top: 0px;
@@ -136,7 +152,7 @@ const Text = styled.p`
   display: table-cell;
   padding-left: 5%;
   /* UI Properties */
-  font: normal normal medium 1vw sans-serif;
+  font: normal normal normal 1.5rem sans-serif;
   letter-spacing: 0px;
   color: #818181;
 `;
@@ -150,7 +166,7 @@ const Title = styled.p`
   height: 0;
   padding-top: 2%;
   /* UI Properties */
-  font: normal normal bold 2.7vw sans-serif;
+  font: normal normal bold 3rem sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
@@ -240,7 +256,7 @@ const SmallTitle = styled.h2`
   /* UI Properties */
   text-align: left;
   letter-spacing: var(--unnamed-character-spacing-0);
-  font-size: 2vw;
+  font-size: 1.5vw;
   font-family: sans-serif;
   text-align: left;
   letter-spacing: 0px;

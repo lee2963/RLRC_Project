@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
-import back from "../static/back.png";
+import back from "../static/backIcon.png";
 import parkjuhyun1 from "../static/images/parkjuhyun1.png";
 import parkjuhyun2 from "../static/images/parkjuhyun2.png";
 import parkjuhyun3 from "../static/images/parkjuhyun3.png";
@@ -54,9 +54,8 @@ function ParkJuHyun() {
           navigate(-1);
         }}
       >
-        <img src={back} style={{ height: "36px", width: "36px" }}></img>
+        <img src={back} style={{ height: "30px", width: "20px" }}></img>
       </BackButton>
-      {/* back 버튼(파란색) 로고 받기 */}
       <Container>
         <NameContainer>
           <Name>Ju Hyun Park</Name>
@@ -229,7 +228,7 @@ const Text = styled.p`
   display: table-cell;
   padding-left: 5%;
   /* UI Properties */
-  font: normal normal medium 1vw sans-serif;
+  font: normal normal normal 1.5rem sans-serif;
   letter-spacing: 0px;
   color: #818181;
 `;
@@ -243,7 +242,7 @@ const Title = styled.p`
   height: 0;
   padding-top: 2%;
   /* UI Properties */
-  font: normal normal bold 2.3em sans-serif;
+  font: normal normal bold 3rem sans-serif;
   letter-spacing: 0px;
   color: #447bf7;
   opacity: 1;
