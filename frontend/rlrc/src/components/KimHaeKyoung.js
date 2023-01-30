@@ -57,7 +57,7 @@ function KimHaeKyoung() {
 
       <Container>
         <NameContainer>
-          <Name>Kim. Hae Kyoung</Name>
+          <Name>Hae Kyoung Kim</Name>
         </NameContainer>
         <TextContainer>
           <Text>

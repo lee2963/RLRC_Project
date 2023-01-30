@@ -213,7 +213,7 @@ export default function Research() {
                         navigateTo("Joo");
                       }}
                     >
-                      Joo, Sang Woo
+                      Joo Sang Woo
                     </Button>
                   </center>
                 </td>
@@ -231,7 +231,7 @@ export default function Research() {
                         navigateTo("Rho");
                       }}
                     >
-                      Junsuk Rho
+                      Junsuk Rho
                     </Button>
                   </center>
                 </td>
@@ -269,7 +269,7 @@ export default function Research() {
                         navigateTo("Jeon");
                       }}
                     >
-                      Sangmin Jeon
+                      Sangmin Jeon
                     </Button>
                   </center>
                 </td>
@@ -289,7 +289,7 @@ export default function Research() {
                         navigateTo("Kyoung");
                       }}
                     >
-                      Kim. Hae Kyoung
+                      Hae Kyoung Kim
                     </Button>
                   </center>
                 </td>
@@ -307,7 +307,7 @@ export default function Research() {
                         navigateTo("Youl");
                       }}
                     >
-                      Jung Ho-Youl
+                      Ho-Youl Jung
                     </Button>
                   </center>
                 </td>
@@ -327,7 +327,7 @@ export default function Research() {
                         navigateTo("Sook");
                       }}
                     >
-                      Kang, Misook
+                      Misook Kang
                     </Button>
                   </center>
                 </td>
@@ -345,7 +345,7 @@ export default function Research() {
                         navigateTo("Won");
                       }}
                     >
-                      Seokwon Kang
+                      Seok-won Kang
                     </Button>
                   </center>
                 </td>
