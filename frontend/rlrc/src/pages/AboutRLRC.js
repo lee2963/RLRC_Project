@@ -41,13 +41,13 @@ export default function AboutRLRC() {
   };
   const [showContent, setShowContent] = useState(false);
   return (
-    <>
-      <Navbar />
-      <ContentBar setShow={setShowContent} />
-      {showContent && (
-        <ContentIndex setShow={setShowContent} isShow={showContent} />
-      )}
+    <ScrollContainer>
       <div className={styles.main}>
+        <Navbar />
+        <ContentBar setShow={setShowContent} />
+        {showContent && (
+          <ContentIndex setShow={setShowContent} isShow={showContent} />
+        )}
         <SelectionBarCotainer>
           <div className={styles.selection_line_white} />
           <div className={styles.selection_line_grey} />
@@ -124,17 +124,27 @@ export default function AboutRLRC() {
         <Partners
           src={partnersList}
           style={{
-            marginTop: "135px",
-            marginLeft: "15%",
-            width: "70%",
+            marginTop: "50px",
+            marginLeft: "24.2%",
+            width: "54%",
             height: "auto",
           }}
         />
       </PartnersContainer>
-      <div style={{ marginTop: "135px" }}>
+      <InfoContainer>
+        <MapWrapper>
+          <MapTitle>오시는 길</MapTitle>
+          <Map></Map>
+          <AddressInfoWrapper>
+            <AddressText>[38541] 경상북도 경산시 대학로 280 영남대학교 기계관 327호</AddressText>
+            <TelText>TEL 053-1477~1478</TelText>
+            <FaxText>FAX 053-810-4741</FaxText>
+          </AddressInfoWrapper>
+        </MapWrapper>
         <Footer />
-      </div>
-    </>
+      </InfoContainer>
+
+    </ScrollContainer>
   );
 }
 function Card({ image, largeImage }) {
@@ -149,6 +159,12 @@ function Card({ image, largeImage }) {
   );
 }
 
+const ScrollContainer = styled.div`
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+`;
+
 const CardComponent = styled.div`
   display: inline-flex;
   justify-content: center;
@@ -157,13 +173,13 @@ const CardComponent = styled.div`
 const Image = styled.img`
   position: relative;
   width: 10vw;
-  height: 40vw;
+  height: 29vw;
   padding: 10px;
   object-fit: cover;
   transition-duration: 0.25s;
   &:hover {
     width: 17vw;
-    height: 40vw;
+    height: 29vw;
   }
 `;
 const StyledLink = styled((props) => <Link {...props} />)`
@@ -188,11 +204,73 @@ const SelectionBarCotainer = styled.div`
   height: auto;
 `;
 const PartnersContainer = styled.div`
-  margin-top: calc(3 * 135px);
+  // margin-top: calc(3 * 135px);
   width: 100%;
-  height: auto;
+  height: 100vh;
+  scroll-snap-align: start;
+  
 `;
+
+const KeyProjectContainer = styled.div`
+  background-color: red;
+`;
+
 const Partners = styled.img`
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 35vh;
 `;
+
+const InfoContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  flex-direction: column;
+  // background-color: green;
+  align-items: center;
+`;
+
+const MapWrapper = styled.div`
+  width: 75vw;
+  height: 74vh;
+
+`;
+
+const MapTitle = styled.span`
+  font: normal normal bold 33px/39px Roboto;
+  color: #191919;
+  margin: 40px 0 0 0;
+  display: inline-block;
+  
+`;
+
+const Map = styled.div`
+  width: 100%;
+  height: 60%;
+  background-color: #c8c8c8;
+  margin: 23px 0;
+  
+`;
+
+const AddressInfoWrapper = styled.div`
+  display: flex;
+  flex-direction: column;`;
+
+const AddressText = styled.span`
+  font: normal normal normal 20px/24px Apple SD Gothic Neo ;
+  color: #707070;
+  margin-bottom: 10px;
+`;
+
+const TelText = styled.span`
+  font: normal normal normal 16px/24px Noto Sans CJK KR;
+  letter-spacing: -0.16px;
+  color: #818181;
+`;
+
+const FaxText = styled.span`
+  font: normal normal normal 16px/24px Noto Sans CJK KR;
+  letter-spacing: -0.16px;
+  color: #818181;
+`;
+
