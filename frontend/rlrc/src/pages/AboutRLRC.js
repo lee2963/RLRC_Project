@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "../../src/components/Navbar";
 import Footer from "../components/Footer";
@@ -27,6 +27,8 @@ import largeImage5 from "../static/images/홀로그램 디스플레이(2).png";
 import smallImage8 from "../static/images/횡종방향(1).png";
 import largeImage8 from "../static/images/횡종방향(2).png";
 
+const { kakao } = window;
+
 export default function AboutRLRC() {
   const settings = {
     dots: false,
@@ -40,6 +42,36 @@ export default function AboutRLRC() {
     pauseOnHover: true,
   };
   const [showContent, setShowContent] = useState(false);
+
+
+
+  function getMap() {
+    const container = document.getElementById("map");
+    const options = {
+      center: new kakao.maps.LatLng(35.8265, 128.7542),
+      level: 3
+    }
+    const map = new kakao.maps.Map(container, options);
+
+    const markerPosition = new kakao.maps.LatLng(35.8265, 128.7542);
+
+    // 마커를 생성합니다
+    const marker = new kakao.maps.Marker({
+      position: markerPosition
+    });
+
+    marker.setMap(map);
+
+    kakao.maps.event.addListener(marker, 'click', function () {
+      // 마커 위에 인포윈도우를 표시합니다
+      window.open("http://kko.to/j3Y-ZcV2Rn", "", "");
+    });
+  }
+
+  useEffect(() => {
+    getMap();
+  }, []);
+
   return (
     <ScrollContainer>
       <div className={styles.main}>
@@ -134,10 +166,10 @@ export default function AboutRLRC() {
       <InfoContainer>
         <MapWrapper>
           <MapTitle>오시는 길</MapTitle>
-          <Map></Map>
+          <Map id="map"></Map>
           <AddressInfoWrapper>
             <AddressText>[38541] 경상북도 경산시 대학로 280 영남대학교 기계관 327호</AddressText>
-            <TelText>TEL 053-1477~1478</TelText>
+            <TelText>TEL 053-810-1477~1478</TelText>
             <FaxText>FAX 053-810-4741</FaxText>
           </AddressInfoWrapper>
         </MapWrapper>
