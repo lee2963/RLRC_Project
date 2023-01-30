@@ -25,14 +25,14 @@ ul {
   position: relative;
   background-color: #ffffff;
   top: 2px;
-  left: 610px;
-  width: 225px;
+  left: 560px;
+  width: 240px;
   height: 2px;
   z-index: 10;
 }
 .selection_line_grey {
   background-color: rgba(221, 221, 221, 0.674);
-  width: 835px;
+  width: 800px;
   height: 2px;
   /* top: 247.5px; */
 }
@@ -49,6 +49,6 @@ ul {
     sans-serif;
   letter-spacing: 0px;
   opacity: 1;
-  margin-left: 40px;
-  margin-right: 80px;
+  margin-left: 50px;
+  margin-right: 70px;
 }

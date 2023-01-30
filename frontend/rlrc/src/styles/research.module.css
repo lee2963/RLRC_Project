@@ -15,6 +15,7 @@ ul {
   margin: 0;
   padding: 0;
 }
+
 .selectionbar_menu {
   color: #ffffff;
   align-items: center;
@@ -25,15 +26,15 @@ ul {
   position: relative;
   background-color: #ffffff;
   top: 2px;
-  left: 190px;
-  width: 200px;
+  left: 170px;
+  width: 190px;
   height: 2px;
   z-index: 10;
   /* top: 247.5px; */
 }
 .selection_line_grey {
   background-color: rgba(221, 221, 221, 0.674);
-  width: 835px;
+  width: 800px;
   height: 2px;
   /* top: 247.5px; */
 }
@@ -50,8 +51,8 @@ ul {
     sans-serif;
   letter-spacing: 0px;
   opacity: 1;
-  margin-left: 40px;
-  margin-right: 80px;
+  margin-left: 50px;
+  margin-right: 70px;
 }
 .material_group {
   width: 100%;

@@ -61,7 +61,7 @@ export default function AboutRLRC() {
                 color: "white",
               }}
             >
-              ABOUT RLRC
+              ABOUT
             </StyledLink>
             <StyledLink
               to="/Research"

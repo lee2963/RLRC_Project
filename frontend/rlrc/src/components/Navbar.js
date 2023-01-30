@@ -31,7 +31,7 @@ export default function Navbar(props) {
           style={{ textDecoration: "none" }}
           element={<AboutRLRC />}
         >
-          ABOUT RLRC
+          ABOUT
         </Link>
         <Link
           id={styles.navbar_content}

@@ -437,7 +437,7 @@ function ResearchOutcomesAdmin() {
                 textDecoration: "none",
               }}
             >
-              ABOUT RLRC
+              ABOUT
             </StyledLink>
             <StyledLink
               to="/Research"

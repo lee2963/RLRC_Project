@@ -396,7 +396,7 @@ export default function ResearchOutcomes() {
                 color: "rgba(221, 221, 221, 0.674)",
               }}
             >
-              ABOUT RLRC
+              ABOUT
             </StyledLink>
             <StyledLink
               to="/Research"
