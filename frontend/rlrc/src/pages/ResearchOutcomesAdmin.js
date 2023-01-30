@@ -329,13 +329,13 @@ function ResearchOutcomesAdmin() {
     if (year !== "default") {
       try {
         if (content === "PAPER") {
-          const response = await axios.get(`/thesis/search/year?word=${year}`);
+          const response = await axios.get(`/thesis/search/year?year=${year}`);
           setThesisPosts(response.data);
           return;
         }
 
         if (content === "PATENT") {
-          const response = await axios.get(`/patent/search/year?word=${year}`);
+          const response = await axios.get(`/patent/search/year?year=${year}`);
           setPatentPosts(response.data);
         }
       } catch (error) {
