@@ -27,7 +27,6 @@ import largeImage5 from "../static/images/홀로그램 디스플레이(2).png";
 import smallImage8 from "../static/images/횡종방향(1).png";
 import largeImage8 from "../static/images/횡종방향(2).png";
 
-const { kakao } = window;
 
 export default function AboutRLRC() {
   const settings = {
@@ -46,13 +45,14 @@ export default function AboutRLRC() {
 
 
   function getMap() {
+    const { kakao } = window;
     const container = document.getElementById("map");
     const options = {
       center: new kakao.maps.LatLng(35.8265, 128.7542),
       level: 3
     }
     const map = new kakao.maps.Map(container, options);
-
+    console.log("debug");
     const markerPosition = new kakao.maps.LatLng(35.8265, 128.7542);
 
     // 마커를 생성합니다
