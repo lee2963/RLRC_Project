@@ -19,8 +19,8 @@ export default function Navbar(props) {
             position: "absolute",
             // top: "60px",
             left: "205px",
-            width: "110px",
-            height: "38px",
+            width: "310px",
+            height: "50px",
           }}
         />
       </h1>
