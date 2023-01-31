@@ -342,8 +342,8 @@ function ResearchOutcomesAdmin() {
         switch (error.response.status) {
           case 400:
             content === "PUBLCATION"
-              ? setThesisPosts([])
-              : setPatentPosts([]);
+              ? setThesisPosts(null)
+              : setPatentPosts(null);
             break;
           default:
             console.log(error);
@@ -379,8 +379,8 @@ function ResearchOutcomesAdmin() {
       switch (error.response.status) {
         case 400:
           content === "PUBLCATION"
-            ? setThesisPosts([])
-            : setPatentPosts([]);
+            ? setThesisPosts(null)
+            : setPatentPosts(null);
           break;
         default:
           console.log(error);
@@ -404,8 +404,8 @@ function ResearchOutcomesAdmin() {
       switch (error.response.status) {
         case 400:
           content === "PUBLCATION"
-            ? setThesisPosts([])
-            : setPatentPosts([]);
+            ? setThesisPosts(null)
+            : setPatentPosts(null);
           break;
         default:
           console.log(error);
