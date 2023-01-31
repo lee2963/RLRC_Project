@@ -355,7 +355,7 @@ function ResearchOutcomesAdmin() {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `/${content.toLowerCase()}/search/title?word=${encodeURIComponent(
+        `/${content.toLowerCase() === "publication" ? "thesis" : "patent"}/search/title?word=${encodeURIComponent(
           searchText
         )}`
       );
@@ -379,7 +379,7 @@ function ResearchOutcomesAdmin() {
   const getThesisPatent = async (content) => {
     try {
       const response = await axios.get(
-        `/${content.toLowerCase()}/search/all?page=${page - 1}`
+        `/${content === "PUBLCATION" ? "thesis" : "patent"}/search/all?page=${page - 1}`
       );
       content === "PUBLCATION"
         ? setThesisPosts(response.data)
@@ -391,7 +391,7 @@ function ResearchOutcomesAdmin() {
   const getThesisPatentSearch = async (content) => {
     try {
       const response = await axios.get(
-        `/${content.toLowerCase()}/search/title?word=${encodeURIComponent(
+        `/${content === "PUBLCATION" ? "thesis" : "patent"}/search/title?word=${encodeURIComponent(
           searchText
         )}`
       );
