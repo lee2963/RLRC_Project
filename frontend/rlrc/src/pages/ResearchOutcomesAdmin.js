@@ -363,7 +363,7 @@ function ResearchOutcomesAdmin() {
     event.preventDefault();
     try {
       const response = await axios.get(
-        `/${content.toLowerCase() === "publication" ? "thesis" : "patent"}/search/title?word=${encodeURIComponent(
+        `/${content === "PUBLCATION" ? "thesis" : "patent"}/search/title?word=${encodeURIComponent(
           searchText
         )}`
       );
@@ -401,6 +401,11 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
+      // // 디버그 코드
+      // content === "PUBLCATION"
+      //   ? setThesisPosts(sampleThesis)
+      //   : setPatentPosts(samplePatent);
+      // //
       switch (error.response.status) {
         case 400:
           content === "PUBLCATION"
@@ -415,7 +420,7 @@ function ResearchOutcomesAdmin() {
   const getThesisPatentSearch = async (content) => {
     try {
       const response = await axios.get(
-        `/${content === "PUBLCATION" ? "thesis" : "patent"}/search/title?word=${encodeURIComponent(
+        `/${content.toLowerCase()}/search/title?word=${encodeURIComponent(
           searchText
         )}`
       );
@@ -426,15 +431,10 @@ function ResearchOutcomesAdmin() {
       switch (error.response.status) {
         case 400:
           content === "PUBLCATION"
-            ? setThesisPosts([])
-            : setPatentPosts([]);
+            ? setThesisPosts(null)
+            : setPatentPosts(null);
           break;
         default:
-          // // 디버그 코드
-          // content === "PUBLCATION"
-          //   ? setThesisPosts(sampleThesis)
-          //   : setPatentPosts(samplePatent);
-          // // 
           console.log(error);
       }
     }
