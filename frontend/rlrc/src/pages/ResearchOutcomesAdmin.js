@@ -401,11 +401,6 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
-      // // 디버그 코드
-      // content === "PUBLCATION"
-      //   ? setThesisPosts(sampleThesis)
-      //   : setPatentPosts(samplePatent);
-      // //
       switch (error.response.status) {
         case 400:
           content === "PUBLCATION"
@@ -415,6 +410,11 @@ function ResearchOutcomesAdmin() {
         default:
           console.log(error);
       }
+      // // 디버그 코드
+      // content === "PUBLCATION"
+      //   ? setThesisPosts(sampleThesis)
+      //   : setPatentPosts(samplePatent);
+      // //
     }
   };
   // const getThesisPatentYear = async (content) => {
@@ -492,6 +492,7 @@ function ResearchOutcomesAdmin() {
           onClick={() => {
             setContent("PUBLCATION");
             setUpload(false);
+            setPage(1);
             // setPosts(sampleThesis);
           }}
           content={content}
@@ -503,6 +504,7 @@ function ResearchOutcomesAdmin() {
           onClick={() => {
             setContent("PATENT");
             setUpload(false);
+            setPage(1);
             // setPosts(samplePatent);
           }}
           content={content}

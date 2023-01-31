@@ -447,6 +447,7 @@ function ResearchOutcomesAdmin() {
           onClick={() => {
             setContent("PUBLCATION");
             setUpload(false);
+            setPage(1);
             // setPosts(sampleThesis);
           }}
           content={content}
@@ -458,6 +459,7 @@ function ResearchOutcomesAdmin() {
           onClick={() => {
             setContent("PATENT");
             setUpload(false);
+            setPage(1);
             // setPosts(samplePatent);
           }}
           content={content}
