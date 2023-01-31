@@ -273,7 +273,7 @@ const samplePatent = {
 
 
 function ResearchOutcomesAdmin() {
-  const [content, setContent] = useState("PAPER");
+  const [content, setContent] = useState("PUBLCATION");
   const [searchText, setSearchText] = useState("");
   // const [years, setYears] = useState(null);
   const [thesisPosts, setThesisPosts] = useState(null);
@@ -292,7 +292,7 @@ function ResearchOutcomesAdmin() {
     formData.append("content", content);
     try {
       const response = await axios.post(
-        `/admin/${content === "PAPER" ? "thesis" : content.toLowerCase()}/read`,
+        `/admin/${content === "PUBLCATION" ? "thesis" : content.toLowerCase()}/read`,
         formData,
         {
           headers: {
@@ -328,7 +328,7 @@ function ResearchOutcomesAdmin() {
 
     if (year !== "default") {
       try {
-        if (content === "PAPER") {
+        if (content === "PUBLCATION") {
           const response = await axios.get(`/thesis/search/year?year=${year}`);
           setThesisPosts(response.data);
           return;
@@ -359,12 +359,12 @@ function ResearchOutcomesAdmin() {
           searchText
         )}`
       );
-      content === "PAPER"
+      content === "PUBLCATION"
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
       // // 디버그 코드
-      // content === "PAPER"
+      // content === "PUBLCATION"
       //   ? setThesisPosts(sampleThesis)
       //   : setPatentPosts(samplePatent);
       // //
@@ -381,7 +381,7 @@ function ResearchOutcomesAdmin() {
       const response = await axios.get(
         `/${content.toLowerCase()}/search/all?page=${page - 1}`
       );
-      content === "PAPER"
+      content === "PUBLCATION"
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
@@ -395,7 +395,7 @@ function ResearchOutcomesAdmin() {
           searchText
         )}`
       );
-      content === "PAPER"
+      content === "PUBLCATION"
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
@@ -475,14 +475,14 @@ function ResearchOutcomesAdmin() {
       <OutComes id="outcomes">
         <ThesisButton
           onClick={() => {
-            setContent("PAPER");
+            setContent("PUBLCATION");
             setUpload(false);
             // setPosts(sampleThesis);
           }}
           content={content}
           id="new_notice"
         >
-          PAPER
+          PUBLCATION
         </ThesisButton>
         <PatenteButton
           onClick={() => {
@@ -496,7 +496,7 @@ function ResearchOutcomesAdmin() {
         </PatenteButton>
       </OutComes>
       <ContentsWrapper>
-        {content === "PAPER" ? (
+        {content === "PUBLCATION" ? (
           <>
             <ThesisContainer>
               {!isUpload && (
@@ -699,20 +699,20 @@ function ResearchOutcomesAdmin() {
                     </TableTitle>
                     {thesisPosts && (
                       <>
-                        {thesisPosts.content.map((PAPER) => {
+                        {thesisPosts.content.map((PUBLCATION) => {
                           return (
                             <>
                               <TableRow>
-                                <TableData>{PAPER.id}</TableData>
-                                <TableData>{PAPER.year}</TableData>
+                                <TableData>{PUBLCATION.id}</TableData>
+                                <TableData>{PUBLCATION.year}</TableData>
                                 <TableData style={{ maxWidth: "300px" }}>
-                                  {PAPER.title}
+                                  {PUBLCATION.title}
                                 </TableData>
-                                <TableData>{PAPER.authors}</TableData>
-                                <TableData>{PAPER.journal}</TableData>
-                                <TableData>{PAPER.iif}</TableData>
-                                <TableData>{PAPER.jcr}</TableData>
-                                <TableData>{PAPER.doi.replace('/', '/\n')}</TableData>
+                                <TableData>{PUBLCATION.authors}</TableData>
+                                <TableData>{PUBLCATION.journal}</TableData>
+                                <TableData>{PUBLCATION.iif}</TableData>
+                                <TableData>{PUBLCATION.jcr}</TableData>
+                                <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
                               </TableRow>
                             </>
                           );
@@ -1177,7 +1177,7 @@ const ThesisButton = styled.button`
   height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
-    props.content === "PAPER" ? "#ffffff" : "#447bfb"};
+    props.content === "PUBLCATION" ? "#ffffff" : "#447bfb"};
   opacity: 1;
 
   font: var(--unnamed-font-style-normal) normal bold 33px/70px
@@ -1187,7 +1187,7 @@ const ThesisButton = styled.button`
   font: normal normal bold 33px/70px sans-serif;
   font-size: 1.8vw;
   letter-spacing: 0px;
-  color: ${(props) => (props.content === "PAPER" ? "#447bfb" : "#ffffff")};
+  color: ${(props) => (props.content === "PUBLCATION" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
   opacity: 1;
   text-align: center;
@@ -1198,7 +1198,7 @@ const PatenteButton = styled.button`
   height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
-    props.content === "PAPER" ? "#447bfb" : "#ffffff"};
+    props.content === "PUBLCATION" ? "#447bfb" : "#ffffff"};
   opacity: 1;
 
   letter-spacing: var(--unnamed-character-spacing-0);
