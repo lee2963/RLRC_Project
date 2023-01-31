@@ -379,32 +379,10 @@ function ResearchOutcomesAdmin() {
       }
     }
   };
-  const getThesisPatentSearch = async (content) => {
-    try {
-      const response = await axios.get(
-        `/${content.toLowerCase()}/search/title?word=${encodeURIComponent(
-          searchText
-        )}`
-      );
-      content === "PUBLCATION"
-        ? setThesisPosts(response.data)
-        : setPatentPosts(response.data);
-    } catch (error) {
-      switch (error.response.status) {
-        case 400:
-          content === "PUBLCATION"
-            ? setThesisPosts(null)
-            : setPatentPosts(null);
-          break;
-        default:
-          console.log(error);
-      }
-    }
-  };
 
   useEffect(() => {
     // // 페이지 요청
-    searchText ? getThesisPatentSearch(content) : getThesisPatent(content);
+    getThesisPatent(content);
     // getThesisPatentYear(content);
   }, [content, page]);
 
