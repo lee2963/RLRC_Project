@@ -56,33 +56,35 @@ function JooSangWoo() {
       </BackButton>
       <Container>
         <NameContainer>
-          <Name>Joo Sang Woo</Name>
+          <Name>Sang Woo Joo</Name>
         </NameContainer>
         <TextContainer>
           <Text>
             RESEARCH FIELD <br />
-            <Title>Control of Autonomous Intelligent Vehicles</Title>
+            <Title>Energy Parts and Materials <br /> Healthcare Technology</Title>
           </Text>
         </TextContainer>
       </Container>
       <StyledSlider {...settings}>
         <Content>
           <List>
-            <Image src={logo}></Image>
-            <SmallTitle>Vehicular Platooning</SmallTitle>
-            <ListContent>Leader-followers consensus problem. </ListContent>
-            <ListContent>
-              Neuroadaptive fault-tolerant control, (IEEETr.
-              IntelligentTransport. Sys., Accepted, 2021).{" "}
-            </ListContent>
-            <ListContent>
-              SMC control for spacing constraints and unknown direction faults,
-              <br />
-              Automatica, Vol. 129, 2021.
-            </ListContent>
+            <SmallTitle>Development of new nano materials for energy applications</SmallTitle>
+            <ListContent>Supercapacitor electrodes with ultra energy density </ListContent>
+            <ListContent>Battery and fuel-cell materials</ListContent>
+            <ListContent>Materials for hydrogen technology</ListContent>
           </List>
         </Content>
-        <Content>3asdasdasdad</Content>
+        <Content_2>
+          <SmallTitle>Computational analysis of battery cell and module for performance and risk predictions</SmallTitle>
+        </Content_2>
+        <Content>
+          <List>
+            <SmallTitle>Healthcare for smart mobility</SmallTitle>
+            <ListContent>Onsite diagnostic technology against infections</ListContent>
+            <ListContent>Antimicrobial micro particles</ListContent>
+            <ListContent>Nanoparticle technology for sunscreen</ListContent>
+          </List>
+        </Content>
       </StyledSlider>
     </Body>
   );
@@ -236,7 +238,23 @@ const Content = styled.div`
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
+  box-sizing: border-box;
 `;
+
+
+const Content_2 = styled.div`
+  width: 100%;
+  height: 30vw;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  padding: 14% 0 0 19%;
+  box-sizing: border-box;
+`;
+
+
+
+
 const Image = styled.img`
   /* Layout Properties */
   position: relative;
@@ -268,8 +286,9 @@ const SmallTitle = styled.h2`
 `;
 
 const List = styled.div`
-  position: relative;
-  top: 28%;
+  display:flex;
+  flex-direction: column;
+  margin: 10% 0 0 17%;
   width: auto;
   white-space: nowrap;
   column-count: 2;
