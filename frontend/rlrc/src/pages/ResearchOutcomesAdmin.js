@@ -701,20 +701,18 @@ function ResearchOutcomesAdmin() {
                       <>
                         {thesisPosts.content.map((PUBLCATION) => {
                           return (
-                            <>
-                              <TableRow>
-                                <TableData>{PUBLCATION.id}</TableData>
-                                <TableData>{PUBLCATION.year}</TableData>
-                                <TableData style={{ maxWidth: "300px" }}>
-                                  {PUBLCATION.title}
-                                </TableData>
-                                <TableData>{PUBLCATION.authors}</TableData>
-                                <TableData>{PUBLCATION.journal}</TableData>
-                                <TableData>{PUBLCATION.iif}</TableData>
-                                <TableData>{PUBLCATION.jcr}</TableData>
-                                <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
-                              </TableRow>
-                            </>
+                            <TableRow key={PUBLCATION.id}>
+                              <TableData>{PUBLCATION.id}</TableData>
+                              <TableData>{PUBLCATION.year}</TableData>
+                              <TableData style={{ maxWidth: "300px" }}>
+                                {PUBLCATION.title}
+                              </TableData>
+                              <TableData>{PUBLCATION.authors}</TableData>
+                              <TableData>{PUBLCATION.journal}</TableData>
+                              <TableData>{PUBLCATION.iif}</TableData>
+                              <TableData>{PUBLCATION.jcr}</TableData>
+                              <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                            </TableRow>
                           );
                         })}
                       </>
@@ -800,126 +798,6 @@ function ResearchOutcomesAdmin() {
                 </>
               )}
               {isUpload ? (
-                // <UploadContainer>
-                //   <form onSubmit={handleSubmit} encType="multipart/form-data">
-                //     <UploadTitle>{content} 파일 업로드</UploadTitle>
-                //     <table
-                //       style={{
-                //         borderCollapse: "collapse",
-                //       }}
-                //     >
-                //       <tbody>
-                //         <tr
-                //           style={{
-                //             borderTop: "3px solid #447BF7",
-                //           }}
-                //         >
-                //           <td
-                //             style={{
-                //               // width: "160px",
-                //               width: "7.5vw",
-                //               height: "84px",
-                //               background: "#D5D5D5 0% 0% no-repeat padding-box",
-                //               opacity: 1,
-                //             }}
-                //           >
-                //             <RowTitle>업로드 파일</RowTitle>
-                //           </td>
-                //           <td
-                //             style={{
-                //               display: "flex",
-                //               width: "1078px",
-                //               height: "84px",
-                //               background: "#F4F4F4 0% 0% no-repeat padding-box",
-                //               opacity: 1,
-                //               justifyContent: "center",
-                //               alignItems: "center",
-                //             }}
-                //           >
-                //             <input
-                //               ref={input}
-                //               type={"file"}
-                //               onChange={handleFileSelect}
-                //               style={{
-                //                 display: "none",
-                //               }}
-                //             ></input>
-                //             <label
-                //               htmlFor="file"
-                //               style={{
-                //                 display: "inline-block",
-                //                 padding: "0px 20px",
-                //                 color: "#fff",
-                //                 verticalAlign: "middle",
-                //                 cursor: "pointer",
-                //                 marginLeft: "10px",
-                //                 textAlign: "center",
-                //                 width: "83px",
-                //                 height: "47px",
-                //                 background: "#DDDDDD 0% 0% no-repeat padding-box",
-                //                 border: "1px solid #9F9F9F",
-                //                 opacity: 1,
-                //               }}
-                //               onClick={() => {
-                //                 input.current?.click();
-                //               }}
-                //             >
-                //               <span
-                //                 style={{
-                //                   position: "relative",
-                //                   top: "0.7rem",
-                //                   font: "normal normal bold 20px/28px sans-serif",
-                //                   letterSpacing: "0px",
-                //                   color: "#000000",
-                //                   opacity: 0.7,
-                //                 }}
-                //               >
-                //                 파일선택
-                //               </span>
-                //             </label>
-                //             <input
-                //               className="upload-name"
-                //               placeholder={selectedFileName}
-                //               style={{
-                //                 position: "relative",
-                //                 display: "inline-block",
-                //                 padding: "0 10px",
-                //                 verticalAlign: "middle",
-                //                 border: "1px solid #dddddd",
-                //                 width: "863px",
-                //                 width: "50vw",
-                //                 height: "47px",
-                //                 right: "6px",
-                //               }}
-                //               readOnly
-                //             ></input>
-                //           </td>
-                //         </tr>
-                //       </tbody>
-                //     </table>
-                //     <div
-                //       style={{
-                //         display: "flex",
-                //         justifyContent: "flex-end",
-                //         width: "1250px",
-                //         height: "100px",
-                //         marginTop: "60px",
-                //       }}
-                //     >
-                //       <Button
-                //         style={{ marginRight: "1em" }}
-                //         onClick={() => {
-                //           setUpload(false);
-                //         }}
-                //       >
-                //         목록으로
-                //       </Button>
-                //       <Button type="submit" value="Upload File">
-                //         게시하기
-                //       </Button>
-                //     </div>
-                //   </form>
-                // </UploadContainer>
                 <UploadContainer>
                   <form onSubmit={handleSubmit} encType="multipart/form-data">
                     <UploadTitle>{content} 파일 업로드</UploadTitle>
@@ -1056,17 +934,15 @@ function ResearchOutcomesAdmin() {
                       {patentPosts &&
                         patentPosts.content.map((patent) => {
                           return (
-                            <>
-                              <TableRow>
-                                <TableData>{patent.id}</TableData>
-                                <TableData>{patent.date}</TableData>
-                                <TableData>{patent.submit}</TableData>
-                                <TableData style={{ maxWidth: "300px" }}>
-                                  {patent.title}
-                                </TableData>
-                                <TableData>{patent.author}</TableData>
-                              </TableRow>
-                            </>
+                            <TableRow key={patent.id}>
+                              <TableData>{patent.id}</TableData>
+                              <TableData>{patent.date}</TableData>
+                              <TableData>{patent.submit}</TableData>
+                              <TableData style={{ maxWidth: "300px" }}>
+                                {patent.title}
+                              </TableData>
+                              <TableData>{patent.author}</TableData>
+                            </TableRow>
                           );
                         })}
                     </tbody>

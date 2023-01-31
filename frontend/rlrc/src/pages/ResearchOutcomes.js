@@ -311,6 +311,11 @@ function ResearchOutcomesAdmin() {
           setPatentPosts(response.data);
         }
       } catch (error) {
+        // 디버그 코드
+        content === "PUBLCATION"
+          ? setThesisPosts(sampleThesis)
+          : setPatentPosts(samplePatent);
+        //
         console.log(error);
       }
     }
@@ -350,6 +355,11 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
+      // // 디버그 코드
+      // content === "PUBLCATION"
+      //   ? setThesisPosts(sampleThesis)
+      //   : setPatentPosts(samplePatent);
+      // //
       console.log(error);
     }
   };
@@ -538,20 +548,18 @@ function ResearchOutcomesAdmin() {
                     <>
                       {thesisPosts.content.map((PUBLCATION) => {
                         return (
-                          <>
-                            <TableRow>
-                              <TableData>{PUBLCATION.id}</TableData>
-                              <TableData>{PUBLCATION.year}</TableData>
-                              <TableData style={{ maxWidth: "300px" }}>
-                                {PUBLCATION.title}
-                              </TableData>
-                              <TableData>{PUBLCATION.authors}</TableData>
-                              <TableData>{PUBLCATION.journal}</TableData>
-                              <TableData>{PUBLCATION.iif}</TableData>
-                              <TableData>{PUBLCATION.jcr}</TableData>
-                              <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
-                            </TableRow>
-                          </>
+                          <TableRow key={PUBLCATION.id}>
+                            <TableData>{PUBLCATION.id}</TableData>
+                            <TableData>{PUBLCATION.year}</TableData>
+                            <TableData style={{ maxWidth: "300px" }}>
+                              {PUBLCATION.title}
+                            </TableData>
+                            <TableData>{PUBLCATION.authors}</TableData>
+                            <TableData>{PUBLCATION.journal}</TableData>
+                            <TableData>{PUBLCATION.iif}</TableData>
+                            <TableData>{PUBLCATION.jcr}</TableData>
+                            <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                          </TableRow>
                         );
                       })}
                     </>
@@ -650,17 +658,15 @@ function ResearchOutcomesAdmin() {
                   {patentPosts &&
                     patentPosts.content.map((patent) => {
                       return (
-                        <>
-                          <TableRow>
-                            <TableData>{patent.id}</TableData>
-                            <TableData>{patent.date}</TableData>
-                            <TableData>{patent.submit}</TableData>
-                            <TableData style={{ maxWidth: "300px" }}>
-                              {patent.title}
-                            </TableData>
-                            <TableData>{patent.author}</TableData>
-                          </TableRow>
-                        </>
+                        <TableRow key={patent.id}>
+                          <TableData>{patent.id}</TableData>
+                          <TableData>{patent.date}</TableData>
+                          <TableData>{patent.submit}</TableData>
+                          <TableData style={{ maxWidth: "300px" }}>
+                            {patent.title}
+                          </TableData>
+                          <TableData>{patent.author}</TableData>
+                        </TableRow>
                       );
                     })}
                 </tbody>
