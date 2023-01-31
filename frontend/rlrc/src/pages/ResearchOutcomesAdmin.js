@@ -339,7 +339,15 @@ function ResearchOutcomesAdmin() {
           setPatentPosts(response.data);
         }
       } catch (error) {
-        console.log(error);
+        switch (error.response.status) {
+          case 400:
+            content === "PUBLCATION"
+              ? setThesisPosts([])
+              : setPatentPosts([]);
+            break;
+          default:
+            console.log(error);
+        }
       }
     }
   };
@@ -368,7 +376,15 @@ function ResearchOutcomesAdmin() {
       //   ? setThesisPosts(sampleThesis)
       //   : setPatentPosts(samplePatent);
       // //
-      console.log(error);
+      switch (error.response.status) {
+        case 400:
+          content === "PUBLCATION"
+            ? setThesisPosts([])
+            : setPatentPosts([]);
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
   const handleFileSelect = (event) => {
@@ -385,7 +401,15 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
-      console.log(error);
+      switch (error.response.status) {
+        case 400:
+          content === "PUBLCATION"
+            ? setThesisPosts([])
+            : setPatentPosts([]);
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
   const getThesisPatentSearch = async (content) => {
@@ -399,7 +423,20 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
-      console.log(error);
+      switch (error.response.status) {
+        case 400:
+          content === "PUBLCATION"
+            ? setThesisPosts([])
+            : setPatentPosts([]);
+          break;
+        default:
+          // // 디버그 코드
+          // content === "PUBLCATION"
+          //   ? setThesisPosts(sampleThesis)
+          //   : setPatentPosts(samplePatent);
+          // // 
+          console.log(error);
+      }
     }
   };
   // const getThesisPatentYear = async (content) => {

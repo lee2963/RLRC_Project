@@ -343,7 +343,15 @@ function ResearchOutcomesAdmin() {
       //   ? setThesisPosts(sampleThesis)
       //   : setPatentPosts(samplePatent);
       // //
-      console.log(error);
+      switch (error.response.status) {
+        case 400:
+          content === "PUBLCATION"
+            ? setThesisPosts([])
+            : setPatentPosts([]);
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
   const getThesisPatent = async (content) => {
@@ -360,7 +368,15 @@ function ResearchOutcomesAdmin() {
       //   ? setThesisPosts(sampleThesis)
       //   : setPatentPosts(samplePatent);
       // //
-      console.log(error);
+      switch (error.response.status) {
+        case 400:
+          content === "PUBLCATION"
+            ? setThesisPosts([])
+            : setPatentPosts([]);
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
   const getThesisPatentSearch = async (content) => {
@@ -374,7 +390,15 @@ function ResearchOutcomesAdmin() {
         ? setThesisPosts(response.data)
         : setPatentPosts(response.data);
     } catch (error) {
-      console.log(error);
+      switch (error.response.status) {
+        case 400:
+          content === "PUBLCATION"
+            ? setThesisPosts([])
+            : setPatentPosts([]);
+          break;
+        default:
+          console.log(error);
+      }
     }
   };
 
