@@ -38,10 +38,13 @@ function FormEditor(props) {
           },
         }
       );
-      swal("성공");
-      console.log(response);
       setAddContents(false);
-      window.location.reload();
+      swal('성공', "게시글을 작성하였습니다.", 'success')
+        .then(function () {
+          navigate('/NewNotice', { state: `${currentContent}` })
+        });
+      console.log(response);
+      // window.location.reload();
     } catch (error) {
       if (error.status === 400) {
         navigate("/Login");
