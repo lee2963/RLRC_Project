@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import ContentBar from "../components/ContentBar";
 import ContentIndex from "../components/ContentIndex";
-import Navbar from "../components/Navbar";
+import Navbar from "../../src/components/Navbar";
 import styles from "../styles/newNoticeAdmin.module.css";
 import styled from "styled-components";
 function Detail() {
@@ -15,7 +15,7 @@ function Detail() {
   const [imageName, setImageName] = useState("");
   const id = state ? state[0] : 0;
   const content = state ? state[1] : "";
-
+  const [curContent, setCurContent] = useState("news");
   const getDetailData = async (content, id) => {
     try {
       const response = await axios.get(`/${content}/${id}`);
@@ -40,133 +40,142 @@ function Detail() {
   }, [content, id]);
 
   return (
-    <main className={styles.main}>
-      <Navbar />
-      <ContentBar setShow={setShowContent} />
-      {showContent && (
-        <ContentIndex setShow={setShowContent} isShow={showContent} />
-      )}
-      <SelectionBarCotainer>
-        <div className={styles.selection_line_white} />
-        <div className={styles.selection_line_grey} />
-        <ul className={styles.selectionbar_menu}>
-          <StyledLink
-            to="/AboutRLRC"
-            id={styles.selectbar_content}
-            className="select_rlrc"
-            style={{
-              textDecoration: "none",
-              color: "rgba(221, 221, 221, 0.674)",
-            }}
-          >
-            ABOUT
-          </StyledLink>
-          <StyledLink
-            to="/Research"
-            id={styles.selectbar_content}
-            className="slelect_research"
-            style={{
-              textDecoration: "none",
-              color: "rgba(221, 221, 221, 0.674)",
-            }}
-          >
-            RESEARCH
-          </StyledLink>
-          <StyledLink
-            to="/ResearchOutcomes"
-            id={styles.selectbar_content}
-            className="select_research_outcomes"
-            style={{
-              textDecoration: "none",
-              color: "rgba(221, 221, 221, 0.674)",
-            }}
-          >
-            OUTCOMES
-          </StyledLink>
-          <StyledLink
-            to="/NewNotice"
-            id={styles.selectbar_content}
-            className="select_new_notice"
-            style={{
-              textDecoration: "none",
-            }}
-          >
-            NEW & NOTICE
-          </StyledLink>
-        </ul>
-      </SelectionBarCotainer>
-      <Title>NEWS & NOTICE</Title>
-      <NewsButton
-        onClick={() => {
-          navigate("/NewNotice");
-        }}
-        content={content}
-        id="new_notice"
-      >
-        NEWS
-      </NewsButton>
-      <NoticeButton
-        onClick={() => {
-          navigate("/NewNotice");
-        }}
-        content={content}
-      >
-        NOTICE
-      </NoticeButton>
-      <DetailContainer>
-        <DetailTitle>
-          <TitleText>{detailData && <span>{detailData.title}</span>}</TitleText>
-        </DetailTitle>
-        <DetailProperties>
-          <h3 style={{ marginLeft: "10px", marginRight: "10px" }}>등록일</h3>
-          <span style={{ fontSize: "18px" }}>
-            {detailData && <span>{detailData.date}</span>}
-          </span>
-        </DetailProperties>
-        <DetailProperties
-          style={{
-            display: "flex",
-            flexDirection: "row",
+    <>
+      <main className={styles.main}>
+        <Navbar />
+        <Title>NEWS & NOTICE</Title>
+        <ContentBar setShow={setShowContent} />
+        {showContent && (
+          <ContentIndex setShow={setShowContent} isShow={showContent} />
+        )}
+        <SelectionBarCotainer>
+          <div className={styles.selection_line_white} />
+          <div className={styles.selection_line_grey} />
+          <ul className={styles.selectionbar_menu}>
+            <StyledLink
+              to="/AboutRLRC"
+              id={styles.selectbar_content}
+              className="select_rlrc"
+              style={{
+                textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
+              }}
+            >
+              ABOUT
+            </StyledLink>
+            <StyledLink
+              to="/Research"
+              id={styles.selectbar_content}
+              className="slelect_research"
+              style={{
+                textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
+              }}
+            >
+              RESEARCH
+            </StyledLink>
+            <StyledLink
+              to="/ResearchOutcomes"
+              id={styles.selectbar_content}
+              className="select_research_outcomes"
+              style={{
+                textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
+              }}
+            >
+              OUTCOMES
+            </StyledLink>
+            <StyledLink
+              to="/NewNotice"
+              id={styles.selectbar_content}
+              className="select_new_notice"
+              style={{
+                textDecoration: "none",
+              }}
+            >
+              NEW & NOTICE
+            </StyledLink>
+          </ul>
+        </SelectionBarCotainer>
+      </main>
+
+      <ButtonWrapper>
+        <NewsButton
+          onClick={() => {
+            setCurContent("news");
+
+            // console.log("newsButton");
           }}
+          content={curContent}
+          id="new_notice"
         >
-          <h3 style={{ marginLeft: "10px", marginRight: "10px" }}>첨부파일</h3>
-          <div
+          NEWS
+        </NewsButton>
+        <NoticeButton
+          onClick={() => {
+            setCurContent("notice")
+          }}
+          content={curContent}
+        >
+          NOTICE
+        </NoticeButton>
+      </ButtonWrapper>
+      <DetailContainer>
+        <DetailWrapper>
+          <DetailTitle>
+            <TitleText>{detailData && <span>{detailData.title}</span>}</TitleText>
+          </DetailTitle>
+          <DetailProperties>
+            <h3 style={{ marginLeft: "10px", marginRight: "10px" }}>등록일</h3>
+            <span style={{ fontSize: "18px" }}>
+              {detailData && <span>{detailData.date}</span>}
+            </span>
+          </DetailProperties>
+          <DetailProperties
             style={{
               display: "flex",
               flexDirection: "row",
-              width: "1000px",
             }}
           >
-            {detailData &&
-              detailData.attachFile.map((item) => {
-                return (
-                  <span
-                    style={{
-                      fontSize: "18px",
-                      marginLeft: "15px",
-                      textDecorationLine: "underline",
-                    }}
-                    onClick={() => {
-                      downloadFile(item.id);
-                    }}
-                  >
-                    {item.uploadFileName}
-                  </span>
-                );
-              })}
-          </div>
-        </DetailProperties>
-        {detailData && (
-          <DetailContent>
-            {imageName && <DetailImage src={`/notice/image/${imageName}`} />}
-            <br />
-            <br />
-            <br />
-            {detailData.content}
-          </DetailContent>
-        )}
+            <h3 style={{ marginLeft: "10px", marginRight: "10px" }}>첨부파일</h3>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                width: "1000px",
+              }}
+            >
+              {detailData &&
+                detailData.attachFile.map((item) => {
+                  return (
+                    <span
+                      style={{
+                        fontSize: "18px",
+                        marginLeft: "15px",
+                        textDecorationLine: "underline",
+                      }}
+                      onClick={() => {
+                        downloadFile(item.id);
+                      }}
+                    >
+                      {item.uploadFileName}
+                    </span>
+                  );
+                })}
+            </div>
+          </DetailProperties>
+          {detailData && (
+            <DetailContent>
+              {imageName && <DetailImage src={`/notice/image/${imageName}`} />}
+              <br />
+              <br />
+              <br />
+              {detailData.content}
+            </DetailContent>
+          )}
+        </DetailWrapper>
       </DetailContainer>
-    </main>
+    </>
   );
 }
 
@@ -207,12 +216,18 @@ const Title = styled.p`
   text-transform: uppercase;
   opacity: 1;
 `;
+const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+`;
+
 const NewsButton = styled.button`
-  position: absolute;
-  top: 977px;
-  left: 0px;
-  width: 960px;
-  height: 186px;
+  // position: absolute;
+  // top: 1080px;
+  // left: 0px;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "news" ? "#ffffff" : "#447bfb"};
@@ -223,6 +238,7 @@ const NewsButton = styled.button`
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 33px/70px sans-serif;
+  font-size: 1.8vw;
   letter-spacing: 0px;
   color: ${(props) => (props.content === "news" ? "#447bfb" : "#ffffff")};
   text-transform: uppercase;
@@ -231,11 +247,11 @@ const NewsButton = styled.button`
   border-style: none;
 `;
 const NoticeButton = styled.button`
-  position: absolute;
-  top: 977px;
-  left: 960px;
-  width: 960px;
-  height: 186px;
+  // position: absolute;
+  // top: 1080px;
+  // left: 960px;
+  width: 50vw;
+  height: 18vh;
   background: 0% 0% no-repeat padding-box;
   background-color: ${(props) =>
     props.content === "news" ? "#447bfb" : "#ffffff"};
@@ -252,14 +268,19 @@ const NoticeButton = styled.button`
   opacity: 1;
   text-align: center;
   border-style: none;
+  font-size: 1.8vw;
 `;
+
 const DetailContainer = styled.div`
-  position: absolute;
-  top: 1350px;
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+`;
+
+const DetailWrapper = styled.div`
   height: 1800px;
-  width: 1246px;
-  left: 338px;
   border-top: 3px solid #447bf7;
+  margin-top: 200px;
 `;
 const DetailTitle = styled.div`
   display: flex;
