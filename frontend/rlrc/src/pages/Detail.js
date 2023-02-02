@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import ContentBar from "../components/ContentBar";
 import ContentIndex from "../components/ContentIndex";
 import Navbar from "../components/Navbar";
-import styles from "../styles/newNotice.module.css";
+import styles from "../styles/newNoticeAdmin.module.css";
 import styled from "styled-components";
 function Detail() {
   const { state } = useLocation();
@@ -46,31 +46,44 @@ function Detail() {
       {showContent && (
         <ContentIndex setShow={setShowContent} isShow={showContent} />
       )}
-      <div className={styles.selectionbar}>
+      <SelectionBarCotainer>
         <div className={styles.selection_line_white} />
         <div className={styles.selection_line_grey} />
         <ul className={styles.selectionbar_menu}>
-          <Link
-            to="/"
+          <StyledLink
+            to="/AboutRLRC"
             id={styles.selectbar_content}
             className="select_rlrc"
             style={{
               textDecoration: "none",
+              color: "rgba(221, 221, 221, 0.674)",
             }}
           >
-            ABOUT RLRC
-          </Link>
-          <Link
+            ABOUT
+          </StyledLink>
+          <StyledLink
             to="/Research"
             id={styles.selectbar_content}
             className="slelect_research"
             style={{
               textDecoration: "none",
+              color: "rgba(221, 221, 221, 0.674)",
             }}
           >
             RESEARCH
-          </Link>
-          <Link
+          </StyledLink>
+          <StyledLink
+            to="/ResearchOutcomes"
+            id={styles.selectbar_content}
+            className="select_research_outcomes"
+            style={{
+              textDecoration: "none",
+              color: "rgba(221, 221, 221, 0.674)",
+            }}
+          >
+            OUTCOMES
+          </StyledLink>
+          <StyledLink
             to="/NewNotice"
             id={styles.selectbar_content}
             className="select_new_notice"
@@ -79,9 +92,9 @@ function Detail() {
             }}
           >
             NEW & NOTICE
-          </Link>
+          </StyledLink>
         </ul>
-      </div>
+      </SelectionBarCotainer>
       <Title>NEWS & NOTICE</Title>
       <NewsButton
         onClick={() => {
@@ -157,17 +170,38 @@ function Detail() {
   );
 }
 
+const SelectionBarCotainer = styled.div`
+  position: absolute;
+  float: left;
+  top: 250px;
+  left: 200px;
+  width: auto;
+  height: auto;
+`;
+
+
+const StyledLink = styled((props) => <Link {...props} />)`
+  &:hover {
+    color: #447bf7;
+  }
+  &:link {
+    color: white;
+  }
+  text-decoration: none;
+`;
+
 const Title = styled.p`
   position: absolute;
-  top: 683px;
-  left: 265px;
-  width: 592px;
+  top: 63vh;
+  left: 12vw;
+  width: 100%;
   height: 94px;
   font: var(--unnamed-font-style-normal) normal bold 80px/70px
     var(--unnamed-font-family-sans-serif);
   letter-spacing: var(--unnamed-character-spacing-0);
   text-align: left;
   font: normal normal bold 80px/70px sans-serif;
+  font-size: 4.1vw;
   letter-spacing: 0px;
   color: #ffffff;
   text-transform: uppercase;
@@ -175,7 +209,7 @@ const Title = styled.p`
 `;
 const NewsButton = styled.button`
   position: absolute;
-  top: 1080px;
+  top: 977px;
   left: 0px;
   width: 960px;
   height: 186px;
@@ -198,7 +232,7 @@ const NewsButton = styled.button`
 `;
 const NoticeButton = styled.button`
   position: absolute;
-  top: 1080px;
+  top: 977px;
   left: 960px;
   width: 960px;
   height: 186px;
@@ -221,7 +255,7 @@ const NoticeButton = styled.button`
 `;
 const DetailContainer = styled.div`
   position: absolute;
-  top: 1440px;
+  top: 1350px;
   height: 1800px;
   width: 1246px;
   left: 338px;

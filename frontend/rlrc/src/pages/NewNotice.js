@@ -5,7 +5,7 @@ import styles from "../styles/newNoticeAdmin.module.css";
 import axios from "axios";
 import SearchIcon from "../static/search.png";
 import FormEditor from "../components/FormEditor";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, redirect } from "react-router-dom";
 import AdminNavbar from "../../src/components/Navbar";
 import ContentBar from "../../src/components/ContentBar";
 import ContentIndex from "../../src/components/ContentIndex";
@@ -16,7 +16,7 @@ const page1 = {
       attachFile: null,
       title: "8",
       content: "11111",
-      dateTime: "2022-12-23T16:15:32.530192",
+      date: "2022-12-23",
       uploadFileName: null,
       storeFileName: null,
     },
@@ -25,7 +25,7 @@ const page1 = {
       attachFile: null,
       title: "7",
       content: "11111",
-      dateTime: "2022-12-23T16:15:28.301017",
+      date: "2022-12-23",
       uploadFileName: null,
       storeFileName: null,
     },
@@ -34,7 +34,7 @@ const page1 = {
       attachFile: null,
       title: "6",
       content: "11111",
-      dateTime: "2022-12-23T16:15:24.861397",
+      date: "2022-12-23",
       uploadFileName: null,
       storeFileName: null,
     },
@@ -44,7 +44,7 @@ const page1 = {
       title: "5",
       content:
         "Quis sit reprehenderit fugiat in amet reprehenderit est exercitation incididunt. Aliqua tempor exercitation in pariatur ea non qui irure labore dolor occaecat excepteur aliqua commodo. Aliqua consectetur culpa cupidatat dolor aute officia consequat incididunt sit est consectetur consectetur. Est ullamco quis eu minim nulla id enim aute. In amet in fugiat consequat nulla. Voluptate veniam elit dolore elit sint ea cupidatat ea labore ad commodo Lorem commodo. Enim elit eu velit minim amet officia ipsum magna.Id ipsum sunt laboris labore aliquip ex aute Lorem aute esse dolore tempor. Ad reprehenderit dolore ut sint ex adipisicing officia nisi adipisicing fugiat ea labore. Dolor esse est sint nisi magna enim consectetur non.Pariatur consectetur cupidatat culpa dolor aliqua non amet velit exercitation culpa occaecat. Exercitation consequat do nostrud consequat non ea anim laborum anim cillum ut occaecat. Ipsum incididunt do cupidatat voluptate qui. Incididunt est eiusmod labore tempor exercitation dolor cillum nostrud tempor do deserunt velit nulla tempor.Labore tempor velit nulla ea adipisicing sit incididunt deserunt amet eiusmod. Ut ad laboris ut eiusmod aute. Aliquip quis duis et ea eiusmod tempor qui eiusmod esse. Consectetur excepteur ad minim commodo. Ad reprehenderit ut reprehenderit cupidatat nulla dolore non anim aliquip in. Tempor qui cillum adipisicing nostrud ex consectetur eiusmod aute ex. Elit Lorem incididunt nisi proident.",
-      dateTime: "2022-12-23T16:15:21.558377",
+      date: "2022-12-23",
       uploadFileName: null,
       storeFileName: null,
     },
@@ -53,7 +53,7 @@ const page1 = {
       attachFile: null,
       title: "4",
       content: "11111",
-      dateTime: "2022-12-23T16:15:17.429154",
+      date: "2022-12-23",
       uploadFileName: null,
       storeFileName: null,
     },
@@ -62,7 +62,7 @@ const page1 = {
       attachFile: null,
       title: "3",
       content: "11111",
-      dateTime: "2022-12-23T16:15:14.163898",
+      date: "2022-12-23",
       uploadFileName: null,
       storeFileName: null,
     },
@@ -182,6 +182,10 @@ export default function NewNoticeAdmin() {
         : setNoticePosts(response.data);
     } catch (error) {
       console.log(error);
+      //디버그 코드
+      setNewsPosts(page1);
+      setNoticePosts(page1);
+      //
     }
   };
   const getNewNoticeSearch = async (content) => {
@@ -374,7 +378,7 @@ export default function NewNoticeAdmin() {
                           opacity: 1,
                         }}
                       >
-                        {ele.dateTime}
+                        {ele.date}
                       </p>
                     </ContentContainer>
                     {showButton[newsPosts.content.length - ele.id] ===
@@ -405,13 +409,7 @@ export default function NewNoticeAdmin() {
             )}
           </PaginationContainer>
           {newsPosts && (
-            <footer
-              style={{
-                position: "relative",
-                right: "50px",
-                top: "2200px",
-              }}
-            >
+            <footer>
               <Pagination
                 total={newsPosts.totalPages}
                 page={page}
@@ -504,7 +502,7 @@ export default function NewNoticeAdmin() {
                           opacity: 1,
                         }}
                       >
-                        {ele.dateTime}
+                        {ele.date}
                       </p>
                     </ContentContainer>
                     {showButton[noticePosts.content.length - ele.id] ===
@@ -536,13 +534,7 @@ export default function NewNoticeAdmin() {
           </PaginationContainer>
           {noticePosts && (
             <>
-              <footer
-                style={{
-                  position: "relative",
-                  right: "50px",
-                  top: "2200px",
-                }}
-              >
+              <footer>
                 <Pagination
                   total={noticePosts.totalPages}
                   page={page}
@@ -753,10 +745,8 @@ const Line = styled.span`
 
 const PaginationContainer = styled.div`
   display: flex;
-  position: absolute;
-  top: 1600px;
-  left: 13%;
-  padding: 10px;
+  // position: absolute;
+  padding-top: 80px; 
   width: 1500px;
   height: 800px;
   flex-direction: row;
@@ -773,7 +763,7 @@ const PaginationElement = styled.article`
   box-shadow: 5px 5px 22px #00000029;
   opacity: 1;
   margin-bottom: 0em;
-  margin-left: 5em;
+  margin-left: 6.5em;
   justify-content: center;
   text-align: left;
 `;

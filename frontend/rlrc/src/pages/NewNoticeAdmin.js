@@ -182,6 +182,10 @@ export default function NewNoticeAdmin() {
         : setNoticePosts(response.data);
     } catch (error) {
       console.log(error);
+      // 디버그 코드
+      setNewsPosts(page1);
+      setNoticePosts(page1);
+      //
     }
   };
   const getNewNoticeSearch = async (content) => {
@@ -420,13 +424,7 @@ export default function NewNoticeAdmin() {
               )}
             </PaginationContainer>
             {newsPosts && (
-              <footer
-                style={{
-                  position: "relative",
-                  right: "50px",
-                  top: "2200px",
-                }}
-              >
+              <footer>
                 <Pagination
                   total={newsPosts.totalPages}
                   page={page}
@@ -571,13 +569,7 @@ export default function NewNoticeAdmin() {
           </PaginationContainer>
           {noticePosts && (
             <>
-              <footer
-                style={{
-                  position: "relative",
-                  right: "50px",
-                  top: "2200px",
-                }}
-              >
+              <footer>
                 <Pagination
                   total={noticePosts.totalPages}
                   page={page}
@@ -800,10 +792,8 @@ const Line = styled.span`
 
 const PaginationContainer = styled.div`
   display: flex;
-  position: absolute;
-  top: 1600px;
-  left: 13%;
-  padding: 10px;
+  // position: absolute;
+  padding-top: 80px; 
   width: 1500px;
   height: 800px;
   flex-direction: row;
@@ -820,7 +810,7 @@ const PaginationElement = styled.article`
   box-shadow: 5px 5px 22px #00000029;
   opacity: 1;
   margin-bottom: 0em;
-  margin-left: 5em;
+  margin-left: 6.5em;
   justify-content: center;
   text-align: left;
 `;
