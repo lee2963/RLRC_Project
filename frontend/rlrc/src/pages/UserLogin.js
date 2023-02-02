@@ -48,8 +48,8 @@ function UserLogin() {
       // console.log(response.data);
       setCheckLogIn(true);
     } catch (error) {
-      setCheckLogIn(true); // 로그인 스킵 코드
-      // setCheckLogIn(false);
+      // setCheckLogIn(true); // 로그인 스킵 코드
+      setCheckLogIn(false);
     }
   };
   const handleId = useCallback((e) => {
