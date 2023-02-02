@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
@@ -40,6 +40,8 @@ const NextBtn = (props) => {
   );
 };
 function RhoJunSuk() {
+  const [thesisPosts, setThesisPosts] = useState(null);
+
   const navigate = useNavigate();
   const settings = {
     // dots: true,
@@ -194,6 +196,44 @@ function RhoJunSuk() {
               amplitude of light.
             </ListContent>
           </List>
+        </Content>
+        <Content>
+          <TableContainer>
+            <Table border={1}>
+              <tbody>
+                <TableTitle>
+                  <TableTitleData style={{ width: "5%" }}>No</TableTitleData>
+                  <TableTitleData style={{ width: "6%" }}>Year</TableTitleData>
+                  <TableTitleData style={{ width: "30%" }}> Title</TableTitleData>
+                  <TableTitleData style={{ width: "16%" }}>Authors</TableTitleData>
+                  <TableTitleData style={{ width: "16%" }}>Journal</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>IF</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>JCI</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>DOI</TableTitleData>
+                </TableTitle>
+                {thesisPosts && (
+                  <>
+                    {thesisPosts.content.map((PUBLCATION) => {
+                      return (
+                        <TableRow key={PUBLCATION.id}>
+                          <TableData>{PUBLCATION.id}</TableData>
+                          <TableData>{PUBLCATION.year}</TableData>
+                          <TableData style={{ maxWidth: "300px" }}>
+                            {PUBLCATION.title}
+                          </TableData>
+                          <TableData>{PUBLCATION.authors}</TableData>
+                          <TableData>{PUBLCATION.journal}</TableData>
+                          <TableData>{PUBLCATION.iif}</TableData>
+                          <TableData>{PUBLCATION.jcr}</TableData>
+                          <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                        </TableRow>
+                      );
+                    })}
+                  </>
+                )}
+              </tbody>
+            </Table>
+          </TableContainer>
         </Content>
       </StyledSlider>
     </Body>
@@ -399,5 +439,57 @@ const ListContent = styled.li`
   letter-spacing: 0px;
   color: #606060;
   opacity: 1;
+`;
+
+const TableContainer = styled.div`
+  width: 80%;
+  height: 80%;
+  box-sizing: border-box;
+  margin-top: 3.8%;
+  margin-left: 12%;
+`;
+
+const Table = styled.table`
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  border-spacing: 0px;
+  border: 0px;
+  table-layout: fixed;
+  word-break : break-all; 
+`;
+const TableTitle = styled.tr`
+  height: 84px;
+  text-align: center;
+  vertical-align: middle;
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+  opacity: 1;
+  font: var(--unnamed-font-style-normal) normal medium 20px /
+    var(--unnamed-line-spacing-28) var(--unnamed-font-family-sans-serif);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal bold 20px/28px sans-serif;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+`;
+const TableRow = styled.tr`
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  height: 117px;
+`;
+const TableTitleData = styled.td`
+  // border-bottom: 1px solid #b4b4b4;
+  // border-left: 1px solid #dfdcdc;
+  // border-right: 1px solid #dfdcdc;
+  white-space: pre-line;
+  // padding: 10px;
+`;
+const TableData = styled.td`
+  border-bottom: 1px solid #b4b4b4;
+  padding: 10px;
+  border-right: none;
+  white-space: pre-line;
 `;
 export default RhoJunSuk;

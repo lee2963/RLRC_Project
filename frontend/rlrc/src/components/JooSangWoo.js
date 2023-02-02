@@ -1,14 +1,165 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
-
+import axios from "axios";
 import back from "../static/backIcon.png";
 import logo from "../static/images/parkjuhyun1.png";
 import nextArrow from "../static/nextArrow.png";
 import prevArrow from "../static/prevArrow.png";
+
+const sampleThesis = {
+  content: [
+    {
+      id: 19,
+      no: 19,
+      year: 2020,
+      title: "Modern Catalysts in A3- Coupling Reactions",
+      authors: "Ali Ramazani, Hamideh Ahankar, Zahra T. Nafeh, Sang W. Joo",
+      journal: "CURRENT ORGANIC CHEMISTRY",
+      iif: 2.029,
+      jcr: 54.0,
+      doi: "10.2174/1385272823666191113160643",
+    },
+    {
+      id: 18,
+      no: 18,
+      year: 2019,
+      title: "Seismic phononic crystals by elastodynamic Navier equation",
+      authors: "Lee, Dongwoo, Joo Hwan Oh, In Seok Kang, Junsuk Rho",
+      journal: "PHYSICAL REVIEW E",
+      iif: 2.353,
+      jcr: 12.0,
+      doi: "10.1103/PhysRevE.100.063002",
+    },
+    {
+      id: 17,
+      no: 17,
+      year: 2019,
+      title:
+        "Observation of enhanced optical spin hall effect in a vertical hyperbolic metamaterial",
+      authors:
+        "Dasol Lee, Tae Hak Kim, Younghwan Yang, Hui Joon Park, Minkyung Kim,  Junsuk Rho",
+      journal: "ACS Photonics",
+      iif: 7.143,
+      jcr: 6.0,
+      doi: "10.1021/acsphotonics.9b00904.",
+    },
+    {
+      id: 16,
+      no: 16,
+      year: 2019,
+      title:
+        "Spectrally sharp plasmon resonances in near-infrared:subwavel ength coreshell nanoparticles",
+      authors: "Jungho Mun, Sunae So, Junsuk Rho",
+      journal: "Physical Review\nApplied",
+      iif: 4.532,
+      jcr: 17.0,
+      doi: "10.1103/PhysRevApplied.12.044072",
+    },
+    {
+      id: 15,
+      no: 15,
+      year: 2019,
+      title:
+        "Wavelength-decoupled geometric metasurfaces by arbitrary dispersion control",
+      authors:
+        "Jeonghyun Kim, Jungho Mun , Dasol Lee, Gwanho Yoon,Junsuk Rho\n, Ki Tae Nam ",
+      journal: "Communication\nPhysics",
+      iif: null,
+      jcr: null,
+      doi: "10.1038/s42005-019-0232-7",
+    },
+    {
+      id: 14,
+      no: 14,
+      year: 2019,
+      title: "Twisted non-diffracting beams through all dielectric meta-axicon",
+      authors:
+        "Heonyeong Jeong,  Inki Kim, Muhammad Qasim Mehmood, Muhammad Zubair, Ali Akbar, Murtaza Saleem, Muhammad Sabieh Anwar, Farooq Ahmad Tahir, Nasir Mahmood, Junsuk Rho",
+      journal: "Nanoscale",
+      iif: 6.97,
+      jcr: 12.0,
+      doi: "10.1039/C9NR04888J",
+    },
+    {
+      id: 13,
+      no: 13,
+      year: 2019,
+      title: "Metasurface zone plate: light manipulation in vectorial regime",
+      authors:
+        "Gwanho Yoon, Junsuk Rho,  Jaehyuck Jang,Jungho Mun, Ki Tae Nam ",
+      journal: "COMMUNICATIONS PHYSICS",
+      iif: null,
+      jcr: null,
+      doi: "10.1038/s42005-019-0258-x",
+    },
+    {
+      id: 12,
+      no: 12,
+      year: 2020,
+      title:
+        "Performance Enhancement of a\nQuartz Tuning Fork Sensor\nusing a Cellulose\nNanocrystal-Reinforced\nNanoporous Polymer Fiber",
+      authors: "Wuseok Kim, Sangmin Jeon, Eunjin Park",
+      journal: "SENSORS",
+      iif: 3.031,
+      jcr: 24.0,
+      doi: "10.3390/s20020437",
+    },
+    {
+      id: 11,
+      no: 11,
+      year: 2020,
+      title:
+        "Facile Fabrication of a Highly Efficient Moisture-Driven Power Generator using Laser-Induced Graphitization under Ambient Conditions",
+      authors: "Sanghee Lee, Sangmin Jeon, Jakyung Eun",
+      journal: "Nano\nEnergy",
+      iif: 15.548,
+      jcr: 4.0,
+      doi: "10.1016/j.nanoen.2019.104364",
+    },
+    {
+      id: 10,
+      no: 10,
+      year: 2019,
+      title:
+        "Asymmetric Encoder-Decoder Structured FCN Based LiDAR to Color Image Generation",
+      authors: "Hyun-Koo Kim, Kook-Yeol Yoo, Ju H. Park, Ho-Youl Jung",
+      journal: "SENSORS",
+      iif: 3.031,
+      jcr: 24.0,
+      doi: "10.3390/s19214818",
+    },
+  ],
+  pageable: {
+    sort: {
+      empty: false,
+      unsorted: false,
+      sorted: true,
+    },
+    offset: 0,
+    pageNumber: 0,
+    pageSize: 10,
+    paged: true,
+    unpaged: false,
+  },
+  totalPages: 2,
+  totalElements: 19,
+  last: false,
+  size: 10,
+  number: 0,
+  sort: {
+    empty: false,
+    unsorted: false,
+    sorted: true,
+  },
+  numberOfElements: 10,
+  first: true,
+  empty: false,
+};
+
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -35,6 +186,7 @@ const NextBtn = (props) => {
   );
 };
 function JooSangWoo() {
+  const [thesisPosts, setThesisPosts] = useState(null);
   const navigate = useNavigate();
   const settings = {
     // dots: true,
@@ -45,6 +197,23 @@ function JooSangWoo() {
     prevArrow: <PreviousBtn />,
     nextArrow: <NextBtn />,
   };
+
+  const getThesisPosts = async () => {
+    try {
+      const response = await axios.get();
+      setThesisPosts(response.data)
+    } catch (error) {
+      switch (error.response.status) {
+        default:
+          console.log(error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getThesisPosts();
+  }, []);
+
   return (
     <Body>
       <BackButton
@@ -84,6 +253,44 @@ function JooSangWoo() {
             <ListContent>Antimicrobial micro particles</ListContent>
             <ListContent>Nanoparticle technology for sunscreen</ListContent>
           </List>
+        </Content>
+        <Content>
+          <TableContainer>
+            <Table border={1}>
+              <tbody>
+                <TableTitle>
+                  <TableTitleData style={{ width: "5%" }}>No</TableTitleData>
+                  <TableTitleData style={{ width: "6%" }}>Year</TableTitleData>
+                  <TableTitleData style={{ width: "30%" }}> Title</TableTitleData>
+                  <TableTitleData style={{ width: "16%" }}>Authors</TableTitleData>
+                  <TableTitleData style={{ width: "16%" }}>Journal</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>IF</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>JCI</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>DOI</TableTitleData>
+                </TableTitle>
+                {thesisPosts && (
+                  <>
+                    {thesisPosts.content.map((PUBLCATION) => {
+                      return (
+                        <TableRow key={PUBLCATION.id}>
+                          <TableData>{PUBLCATION.id}</TableData>
+                          <TableData>{PUBLCATION.year}</TableData>
+                          <TableData style={{ maxWidth: "300px" }}>
+                            {PUBLCATION.title}
+                          </TableData>
+                          <TableData>{PUBLCATION.authors}</TableData>
+                          <TableData>{PUBLCATION.journal}</TableData>
+                          <TableData>{PUBLCATION.iif}</TableData>
+                          <TableData>{PUBLCATION.jcr}</TableData>
+                          <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                        </TableRow>
+                      );
+                    })}
+                  </>
+                )}
+              </tbody>
+            </Table>
+          </TableContainer>
         </Content>
       </StyledSlider>
     </Body>
@@ -239,6 +446,7 @@ const Content = styled.div`
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
   box-sizing: border-box;
+  overflow: auto
 `;
 
 
@@ -303,5 +511,57 @@ const ListContent = styled.li`
   letter-spacing: 0px;
   color: #606060;
   opacity: 1;
+`;
+
+const TableContainer = styled.div`
+  width: 80%;
+  height: 80%;
+  box-sizing: border-box;
+  margin-top: 3.8%;
+  margin-left: 12%;
+`;
+
+const Table = styled.table`
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  border-spacing: 0px;
+  border: 0px;
+  table-layout: fixed;
+  word-break : break-all; 
+`;
+const TableTitle = styled.tr`
+  height: 84px;
+  text-align: center;
+  vertical-align: middle;
+  background: #f4f4f4 0% 0% no-repeat padding-box;
+  opacity: 1;
+  font: var(--unnamed-font-style-normal) normal medium 20px /
+    var(--unnamed-line-spacing-28) var(--unnamed-font-family-sans-serif);
+  letter-spacing: var(--unnamed-character-spacing-0);
+  text-align: center;
+  font: normal normal bold 20px/28px sans-serif;
+  letter-spacing: 0px;
+  color: #000000;
+  opacity: 1;
+`;
+const TableRow = styled.tr`
+  background-color: white;
+  text-align: center;
+  vertical-align: middle;
+  height: 117px;
+`;
+const TableTitleData = styled.td`
+  // border-bottom: 1px solid #b4b4b4;
+  // border-left: 1px solid #dfdcdc;
+  // border-right: 1px solid #dfdcdc;
+  white-space: pre-line;
+  // padding: 10px;
+`;
+const TableData = styled.td`
+  border-bottom: 1px solid #b4b4b4;
+  padding: 10px;
+  border-right: none;
+  white-space: pre-line;
 `;
 export default JooSangWoo;
