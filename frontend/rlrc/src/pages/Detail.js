@@ -14,8 +14,8 @@ function Detail() {
   const [showContent, setShowContent] = useState(false);
   const [imageName, setImageName] = useState("");
   const id = state ? state[0] : 0;
-  const content = state ? state[1] : "";
-  const [curContent, setCurContent] = useState("news");
+  const content = state ? state[1] : "news";
+  const [curContent, setCurContent] = useState(content);
   const getDetailData = async (content, id) => {
     try {
       const response = await axios.get(`/${content}/${id}`);
@@ -102,7 +102,7 @@ function Detail() {
       <ButtonWrapper>
         <NewsButton
           onClick={() => {
-            setCurContent("news");
+            navigate('/NewNotice', { state: "news" });
 
             // console.log("newsButton");
           }}
@@ -113,7 +113,7 @@ function Detail() {
         </NewsButton>
         <NoticeButton
           onClick={() => {
-            setCurContent("notice")
+            navigate('/NewNotice', { state: "notice" })
           }}
           content={curContent}
         >

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
 import ContentBar from "../../src/components/ContentBar";
 import ContentIndex from "../../src/components/ContentIndex";
@@ -92,9 +92,10 @@ const page1 = {
   first: true,
   empty: false,
 };
-export default function NewNoticeAdmin() {
+export default function NewNotice() {
+  let { state } = useLocation();
   const navigate = useNavigate();
-  const [curContent, setCurContent] = useState("news");
+  const [curContent, setCurContent] = useState(state ?? "news");
   const [newsPosts, setNewsPosts] = useState(null);
   const [noticePosts, setNoticePosts] = useState(null);
   const [page, setPage] = useState(1);
@@ -108,8 +109,8 @@ export default function NewNoticeAdmin() {
         ? Array(newsPosts.numberOfElements).fill(false)
         : []
       : noticePosts
-      ? Array(noticePosts.number).fill(false)
-      : []
+        ? Array(noticePosts.number).fill(false)
+        : []
   );
 
   const handleSearch = async (event) => {
@@ -506,7 +507,7 @@ export default function NewNoticeAdmin() {
                       </p>
                     </ContentContainer>
                     {showButton[noticePosts.content.length - ele.id] ===
-                    true ? (
+                      true ? (
                       !deleteContent && (
                         <DetailButton
                           onClick={() => {
