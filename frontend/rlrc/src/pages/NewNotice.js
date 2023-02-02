@@ -182,10 +182,10 @@ export default function NewNoticeAdmin() {
         : setNoticePosts(response.data);
     } catch (error) {
       console.log(error);
-      //디버그 코드
-      setNewsPosts(page1);
-      setNoticePosts(page1);
-      //
+      // //디버그 코드
+      // setNewsPosts(page1);
+      // setNoticePosts(page1);
+      // //
     }
   };
   const getNewNoticeSearch = async (content) => {
