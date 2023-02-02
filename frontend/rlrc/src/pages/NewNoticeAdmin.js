@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Pagination from "../components/Pagination";
-import styles from "../styles/newNoticeAdmin.module.css";
 import axios from "axios";
-import SearchIcon from "../static/search.png";
-import FormEditor from "../components/FormEditor";
-import { useNavigate, Link } from "react-router-dom";
-import AdminNavbar from "../../src/components/Navbar";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import ContentBar from "../../src/components/ContentBar";
 import ContentIndex from "../../src/components/ContentIndex";
+import AdminNavbar from "../../src/components/Navbar";
+import FormEditor from "../components/FormEditor";
+import Pagination from "../components/Pagination";
+import SearchIcon from "../static/search.png";
+import styles from "../styles/newNoticeAdmin.module.css";
 const page1 = {
   content: [
     {
@@ -109,8 +109,8 @@ export default function NewNoticeAdmin() {
         ? Array(newsPosts.numberOfElements).fill(false)
         : []
       : noticePosts
-        ? Array(noticePosts.number).fill(false)
-        : []
+      ? Array(noticePosts.number).fill(false)
+      : []
   );
 
   const handleSearch = async (event) => {
@@ -309,10 +309,13 @@ export default function NewNoticeAdmin() {
           <News>
             <SearchWrapper>
               <NoticeTitle>NEWS</NoticeTitle>
-              <form onSubmit={handleSearch} style={{
-                display: "flex",
-                flexDirection: "row"
-              }}>
+              <form
+                onSubmit={handleSearch}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                }}
+              >
                 <ButtonContainer>
                   <Button value="add" onClick={handleAddNews}>
                     추가
@@ -326,7 +329,6 @@ export default function NewNoticeAdmin() {
               </form>
             </SearchWrapper>
             <Line />
-
 
             <PaginationContainer>
               {newsPosts && (
@@ -397,7 +399,7 @@ export default function NewNoticeAdmin() {
                         </p>
                       </ContentContainer>
                       {showButton[newsPosts.content.length - ele.id] ===
-                        true ? (
+                      true ? (
                         !deleteContent && (
                           <DetailButton
                             onClick={() => {
@@ -436,7 +438,6 @@ export default function NewNoticeAdmin() {
           </News>
         ) : (
           <>
-
             <Editor>
               {/* <EditorTitle> NEWS 게시글 작성 </EditorTitle> */}
               <FormEditor
@@ -452,10 +453,13 @@ export default function NewNoticeAdmin() {
           <SearchWrapper>
             <NoticeTitle>NOTICE</NoticeTitle>
 
-            <form onSubmit={handleSearch} style={{
-              display: "flex",
-              flexDirection: "row"
-            }}>
+            <form
+              onSubmit={handleSearch}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
               <ButtonContainer>
                 <Button value="add" onClick={handleAddNotice}>
                   추가
@@ -466,11 +470,9 @@ export default function NewNoticeAdmin() {
               </ButtonContainer>
               <Search placeholder="검색" onChange={changeSearch} />
               <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-
             </form>
           </SearchWrapper>
           <Line />
-
 
           <PaginationContainer>
             {noticePosts && (
@@ -541,7 +543,7 @@ export default function NewNoticeAdmin() {
                       </p>
                     </ContentContainer>
                     {showButton[noticePosts.content.length - ele.id] ===
-                      true ? (
+                    true ? (
                       !deleteContent && (
                         <DetailButton
                           onClick={() => {
@@ -591,10 +593,8 @@ export default function NewNoticeAdmin() {
             />
           </Editor>
         </>
-      )
-      }
+      )}
     </>
-
   );
 }
 
@@ -606,7 +606,6 @@ const SelectionBarCotainer = styled.div`
   width: auto;
   height: auto;
 `;
-
 
 const StyledLink = styled((props) => <Link {...props} />)`
   &:hover {
@@ -623,7 +622,6 @@ const Title = styled.p`
   left: 265px;
   top: 63vh;
   left: 12vw;
-  width: 100%;
   height: 94px;
   font: var(--unnamed-font-style-normal) normal bold 80px/70px
     var(--unnamed-font-family-sans-serif);
@@ -665,8 +663,6 @@ const NewsButton = styled.button`
   opacity: 1;
   text-align: center;
   border-style: none;
-
-  
 `;
 const NoticeButton = styled.button`
   // position: absolute;
@@ -783,7 +779,6 @@ const Button = styled.button`
 `;
 
 const Line = styled.span`
-
   width: 100vw;
   border: 1px solid #447bf7;
   background-color: #447bf7;
@@ -793,7 +788,7 @@ const Line = styled.span`
 const PaginationContainer = styled.div`
   display: flex;
   // position: absolute;
-  padding-top: 80px; 
+  padding-top: 80px;
   width: 1500px;
   height: 800px;
   flex-direction: row;
@@ -829,9 +824,7 @@ const DetailButton = styled.button`
   opacity: 1;
   border: none;
 `;
-const IconWrapper = styled.div`
-
-`;
+const IconWrapper = styled.div``;
 
 const Icon = styled.img`
   // position: absolute;
@@ -858,6 +851,6 @@ const EditorTitle = styled.div`
   margin-top: 18vh;
   font: normal normal bold 33px/70px Roboto;
   letter-spacing: 0px;
-  color: #447BF7;
+  color: #447bf7;
   text-transform: uppercase;
 `;

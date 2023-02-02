@@ -1,62 +1,61 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Pagination from "../components/Pagination";
-import styles from "../styles/newNoticeAdmin.module.css";
 import axios from "axios";
-import SearchIcon from "../static/search.png";
-import FormEditor from "../components/FormEditor";
-import { useNavigate, Link, redirect } from "react-router-dom";
-import AdminNavbar from "../../src/components/Navbar";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import ContentBar from "../../src/components/ContentBar";
 import ContentIndex from "../../src/components/ContentIndex";
+import AdminNavbar from "../../src/components/Navbar";
+import Pagination from "../components/Pagination";
+import SearchIcon from "../static/search.png";
+import styles from "../styles/newNoticeAdmin.module.css";
 const page1 = {
   content: [
-    {
-      id: 8,
-      attachFile: null,
-      title: "8",
-      content: "11111",
-      date: "2022-12-23",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 7,
-      attachFile: null,
-      title: "7",
-      content: "11111",
-      date: "2022-12-23",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 6,
-      attachFile: null,
-      title: "6",
-      content: "11111",
-      date: "2022-12-23",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 5,
-      attachFile: null,
-      title: "5",
-      content:
-        "Quis sit reprehenderit fugiat in amet reprehenderit est exercitation incididunt. Aliqua tempor exercitation in pariatur ea non qui irure labore dolor occaecat excepteur aliqua commodo. Aliqua consectetur culpa cupidatat dolor aute officia consequat incididunt sit est consectetur consectetur. Est ullamco quis eu minim nulla id enim aute. In amet in fugiat consequat nulla. Voluptate veniam elit dolore elit sint ea cupidatat ea labore ad commodo Lorem commodo. Enim elit eu velit minim amet officia ipsum magna.Id ipsum sunt laboris labore aliquip ex aute Lorem aute esse dolore tempor. Ad reprehenderit dolore ut sint ex adipisicing officia nisi adipisicing fugiat ea labore. Dolor esse est sint nisi magna enim consectetur non.Pariatur consectetur cupidatat culpa dolor aliqua non amet velit exercitation culpa occaecat. Exercitation consequat do nostrud consequat non ea anim laborum anim cillum ut occaecat. Ipsum incididunt do cupidatat voluptate qui. Incididunt est eiusmod labore tempor exercitation dolor cillum nostrud tempor do deserunt velit nulla tempor.Labore tempor velit nulla ea adipisicing sit incididunt deserunt amet eiusmod. Ut ad laboris ut eiusmod aute. Aliquip quis duis et ea eiusmod tempor qui eiusmod esse. Consectetur excepteur ad minim commodo. Ad reprehenderit ut reprehenderit cupidatat nulla dolore non anim aliquip in. Tempor qui cillum adipisicing nostrud ex consectetur eiusmod aute ex. Elit Lorem incididunt nisi proident.",
-      date: "2022-12-23",
-      uploadFileName: null,
-      storeFileName: null,
-    },
-    {
-      id: 4,
-      attachFile: null,
-      title: "4",
-      content: "11111",
-      date: "2022-12-23",
-      uploadFileName: null,
-      storeFileName: null,
-    },
+    // {
+    //   id: 8,
+    //   attachFile: null,
+    //   title: "8",
+    //   content: "11111",
+    //   date: "2022-12-23",
+    //   uploadFileName: null,
+    //   storeFileName: null,
+    // },
+    // {
+    //   id: 7,
+    //   attachFile: null,
+    //   title: "7",
+    //   content: "11111",
+    //   date: "2022-12-23",
+    //   uploadFileName: null,
+    //   storeFileName: null,
+    // },
+    // {
+    //   id: 6,
+    //   attachFile: null,
+    //   title: "6",
+    //   content: "11111",
+    //   date: "2022-12-23",
+    //   uploadFileName: null,
+    //   storeFileName: null,
+    // },
+    // {
+    //   id: 5,
+    //   attachFile: null,
+    //   title: "5",
+    //   content:
+    //     "Quis sit reprehenderit fugiat in amet reprehenderit est exercitation incididunt. Aliqua tempor exercitation in pariatur ea non qui irure labore dolor occaecat excepteur aliqua commodo. Aliqua consectetur culpa cupidatat dolor aute officia consequat incididunt sit est consectetur consectetur. Est ullamco quis eu minim nulla id enim aute. In amet in fugiat consequat nulla. Voluptate veniam elit dolore elit sint ea cupidatat ea labore ad commodo Lorem commodo. Enim elit eu velit minim amet officia ipsum magna.Id ipsum sunt laboris labore aliquip ex aute Lorem aute esse dolore tempor. Ad reprehenderit dolore ut sint ex adipisicing officia nisi adipisicing fugiat ea labore. Dolor esse est sint nisi magna enim consectetur non.Pariatur consectetur cupidatat culpa dolor aliqua non amet velit exercitation culpa occaecat. Exercitation consequat do nostrud consequat non ea anim laborum anim cillum ut occaecat. Ipsum incididunt do cupidatat voluptate qui. Incididunt est eiusmod labore tempor exercitation dolor cillum nostrud tempor do deserunt velit nulla tempor.Labore tempor velit nulla ea adipisicing sit incididunt deserunt amet eiusmod. Ut ad laboris ut eiusmod aute. Aliquip quis duis et ea eiusmod tempor qui eiusmod esse. Consectetur excepteur ad minim commodo. Ad reprehenderit ut reprehenderit cupidatat nulla dolore non anim aliquip in. Tempor qui cillum adipisicing nostrud ex consectetur eiusmod aute ex. Elit Lorem incididunt nisi proident.",
+    //   date: "2022-12-23",
+    //   uploadFileName: null,
+    //   storeFileName: null,
+    // },
+    // {
+    //   id: 4,
+    //   attachFile: null,
+    //   title: "4",
+    //   content: "11111",
+    //   date: "2022-12-23",
+    //   uploadFileName: null,
+    //   storeFileName: null,
+    // },
     {
       id: 3,
       attachFile: null,
@@ -109,8 +108,8 @@ export default function NewNoticeAdmin() {
         ? Array(newsPosts.numberOfElements).fill(false)
         : []
       : noticePosts
-        ? Array(noticePosts.number).fill(false)
-        : []
+      ? Array(noticePosts.number).fill(false)
+      : []
   );
 
   const handleSearch = async (event) => {
@@ -302,16 +301,18 @@ export default function NewNoticeAdmin() {
         <News>
           <SearchWrapper>
             <NoticeTitle>NEWS</NoticeTitle>
-            <form onSubmit={handleSearch} style={{
-              display: "flex",
-              flexDirection: "row"
-            }}>
+            <form
+              onSubmit={handleSearch}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
               <Search placeholder="검색" onChange={changeSearch} />
               <Icon src={SearchIcon} onClick={handleSearch}></Icon>
             </form>
           </SearchWrapper>
           <Line />
-
 
           <PaginationContainer>
             {newsPosts && (
@@ -381,8 +382,7 @@ export default function NewNoticeAdmin() {
                         {ele.date}
                       </p>
                     </ContentContainer>
-                    {showButton[newsPosts.content.length - ele.id] ===
-                      true ? (
+                    {showButton[newsPosts.content.length - ele.id] === true ? (
                       !deleteContent && (
                         <DetailButton
                           onClick={() => {
@@ -419,23 +419,23 @@ export default function NewNoticeAdmin() {
             </footer>
           )}
         </News>
-
-      ) :
+      ) : (
         <Notice>
           <SearchWrapper>
             <NoticeTitle>NOTICE</NoticeTitle>
 
-            <form onSubmit={handleSearch} style={{
-              display: "flex",
-              flexDirection: "row"
-            }}>
+            <form
+              onSubmit={handleSearch}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+              }}
+            >
               <Search placeholder="검색" onChange={changeSearch} />
               <Icon src={SearchIcon} onClick={handleSearch}></Icon>
-
             </form>
           </SearchWrapper>
           <Line />
-
 
           <PaginationContainer>
             {noticePosts && (
@@ -506,7 +506,7 @@ export default function NewNoticeAdmin() {
                       </p>
                     </ContentContainer>
                     {showButton[noticePosts.content.length - ele.id] ===
-                      true ? (
+                    true ? (
                       !deleteContent && (
                         <DetailButton
                           onClick={() => {
@@ -545,9 +545,8 @@ export default function NewNoticeAdmin() {
             </>
           )}
         </Notice>
-      }
+      )}
     </>
-
   );
 }
 
@@ -559,7 +558,6 @@ const SelectionBarCotainer = styled.div`
   width: auto;
   height: auto;
 `;
-
 
 const StyledLink = styled((props) => <Link {...props} />)`
   &:hover {
@@ -576,7 +574,7 @@ const Title = styled.p`
   left: 265px;
   top: 63vh;
   left: 12vw;
-  width: 100%;
+  width: auto;
   height: 94px;
   font: var(--unnamed-font-style-normal) normal bold 80px/70px
     var(--unnamed-font-family-sans-serif);
@@ -618,8 +616,6 @@ const NewsButton = styled.button`
   opacity: 1;
   text-align: center;
   border-style: none;
-
-  
 `;
 const NoticeButton = styled.button`
   // position: absolute;
@@ -736,7 +732,6 @@ const Button = styled.button`
 `;
 
 const Line = styled.span`
-
   width: 100vw;
   border: 1px solid #447bf7;
   background-color: #447bf7;
@@ -746,7 +741,7 @@ const Line = styled.span`
 const PaginationContainer = styled.div`
   display: flex;
   // position: absolute;
-  padding-top: 80px; 
+  padding-top: 80px;
   width: 1500px;
   height: 800px;
   flex-direction: row;
@@ -782,9 +777,7 @@ const DetailButton = styled.button`
   opacity: 1;
   border: none;
 `;
-const IconWrapper = styled.div`
-
-`;
+const IconWrapper = styled.div``;
 
 const Icon = styled.img`
   // position: absolute;
@@ -811,6 +804,6 @@ const EditorTitle = styled.div`
   margin-top: 18vh;
   font: normal normal bold 33px/70px Roboto;
   letter-spacing: 0px;
-  color: #447BF7;
+  color: #447bf7;
   text-transform: uppercase;
 `;
