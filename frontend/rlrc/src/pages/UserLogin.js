@@ -60,7 +60,7 @@ function UserLogin() {
   }, []);
   useEffect(() => {
     receiveLoginStatus();
-  });
+  }, []);
   return (
     <>
       {checkLogin ? (
