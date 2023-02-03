@@ -200,7 +200,7 @@ function JooSangWoo() {
 
   const getThesisPosts = async () => {
     try {
-      const response = await axios.get();
+      const response = await axios.get(`http://rlrc.co.kr:80/thesis/search/author?name=${encodeURIComponent("주상우")}`);
       setThesisPosts(response.data)
     } catch (error) {
       switch (error.response.status) {
@@ -282,7 +282,7 @@ function JooSangWoo() {
                           <TableData>{PUBLCATION.journal}</TableData>
                           <TableData>{PUBLCATION.iif}</TableData>
                           <TableData>{PUBLCATION.jcr}</TableData>
-                          <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                          <TableData><a href={PUBLCATION.doi}>{PUBLCATION.doi}</a></TableData>
                         </TableRow>
                       );
                     })}
@@ -563,5 +563,9 @@ const TableData = styled.td`
   padding: 10px;
   border-right: none;
   white-space: pre-line;
+
+  & > a:visited {
+    color: blueviolet;
+  }
 `;
 export default JooSangWoo;

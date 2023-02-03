@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
 import styled from "styled-components";
-
+import axios from "axios";
 import back from "../static/backIcon.png";
 import rhojunsuk1 from "../static/images/rhojunsuk1.png";
 import rhojunsuk3 from "../static/images/rhojunsuk3.png";
@@ -52,6 +52,23 @@ function RhoJunSuk() {
     prevArrow: <PreviousBtn />,
     nextArrow: <NextBtn />,
   };
+
+  const getThesisPosts = async () => {
+    try {
+      const response = await axios.get(`http://rlrc.co.kr:80/thesis/search/author?name=${encodeURIComponent("주상우")}`);
+      setThesisPosts(response.data)
+    } catch (error) {
+      switch (error.response.status) {
+        default:
+          console.log(error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getThesisPosts();
+  }, []);
+
   return (
     <Body>
       <BackButton
@@ -225,7 +242,7 @@ function RhoJunSuk() {
                           <TableData>{PUBLCATION.journal}</TableData>
                           <TableData>{PUBLCATION.iif}</TableData>
                           <TableData>{PUBLCATION.jcr}</TableData>
-                          <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                          <TableData><a href={PUBLCATION.doi}>{PUBLCATION.doi}</a></TableData>
                         </TableRow>
                       );
                     })}
@@ -491,5 +508,9 @@ const TableData = styled.td`
   padding: 10px;
   border-right: none;
   white-space: pre-line;
+
+  & > a:visited {
+    color: blueviolet;
+  }
 `;
 export default RhoJunSuk;

@@ -554,7 +554,7 @@ function ResearchOutcomesAdmin() {
                             <TableData>{PUBLCATION.journal}</TableData>
                             <TableData>{PUBLCATION.iif}</TableData>
                             <TableData>{PUBLCATION.jcr}</TableData>
-                            <TableData>{PUBLCATION.doi.replace('/', '/\n')}</TableData>
+                            <TableData><a href={PUBLCATION.doi}>{PUBLCATION.doi}</a></TableData>
                           </TableRow>
                         );
                       })}
@@ -954,6 +954,10 @@ const TableData = styled.td`
   padding: 10px;
   border-right: none;
   white-space: pre-line;
+
+  & > a:visited {
+    color: blueviolet;
+  }
 `;
 
 const UploadContainer = styled.div`
