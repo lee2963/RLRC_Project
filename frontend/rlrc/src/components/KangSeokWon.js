@@ -205,7 +205,7 @@ function KangSeokWon() {
                   <TableTitleData style={{ width: "16%" }}>Authors</TableTitleData>
                   <TableTitleData style={{ width: "16%" }}>Journal</TableTitleData>
                   <TableTitleData style={{ width: "8%" }}>IF</TableTitleData>
-                  <TableTitleData style={{ width: "8%" }}>JCI</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>JCR</TableTitleData>
                   <TableTitleData style={{ width: "8%" }}>DOI</TableTitleData>
                 </TableTitle>
                 {thesisPosts && (
@@ -312,7 +312,7 @@ const Title = styled.p`
   vertical-align: middle;
   width: auto;
   height: 0;
-  padding-top: 2%;
+  // padding-top: 2%;
   /* UI Properties */
   font: normal normal bold 3rem sans-serif;
   letter-spacing: 0px;

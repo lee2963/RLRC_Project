@@ -159,7 +159,7 @@ function KangMiSook() {
                   <TableTitleData style={{ width: "16%" }}>Authors</TableTitleData>
                   <TableTitleData style={{ width: "16%" }}>Journal</TableTitleData>
                   <TableTitleData style={{ width: "8%" }}>IF</TableTitleData>
-                  <TableTitleData style={{ width: "8%" }}>JCI</TableTitleData>
+                  <TableTitleData style={{ width: "8%" }}>JCR</TableTitleData>
                   <TableTitleData style={{ width: "8%" }}>DOI</TableTitleData>
                 </TableTitle>
                 {thesisPosts && (
