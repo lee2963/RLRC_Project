@@ -135,10 +135,9 @@ export default function AboutRLRC() {
       <div className={styles.key_project}>
         <h4
           className={styles.key_project_title}
-          style={{ color: "black" }}
           id="key_project"
         >
-          Key Project
+          Key Projects
         </h4>
         <div className={styles.key_project_contents}>
           <Card image={smallImage2} largeImage={largeImage2} />
@@ -204,14 +203,14 @@ const CardComponent = styled.div`
 `;
 const Image = styled.img`
   position: relative;
-  width: 10vw;
-  height: 29vw;
+  width: 11vw;
+  height: 33.5vw;
   padding: 10px;
   object-fit: cover;
   transition-duration: 0.25s;
   &:hover {
     width: 17vw;
-    height: 29vw;
+    height: 33.5vw;
   }
 `;
 const StyledLink = styled((props) => <Link {...props} />)`
