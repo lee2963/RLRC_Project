@@ -15,14 +15,4 @@ public class RlrcApplication {
 
 		SpringApplication.run(RlrcApplication.class, args);
 	}
-		@Bean
-		CommandLineRunner run(AdminRepository adminRepository){
-			return args -> {
-				Admin admin = new Admin();
-				admin.setLoginId("admin");
-				admin.setPassword("1q2w3e4r!");
-
-				adminRepository.save(admin);
-			};
-		}
 }
