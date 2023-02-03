@@ -54,6 +54,17 @@ public class ThesisService {
         return findThesis;
     }
 
+    public List<Thesis> searchThesisByAuthor(String author) throws Exception {
+
+        List<Thesis> findThesis = thesisRepository.findAllByAuthorsContaining(author);
+
+        if (findThesis.isEmpty()) {
+            throw new Exception("조회한 결과가 없습니다.");
+        }
+
+        return findThesis;
+    }
+
 
         public void delete(Long id) {
         Optional<Thesis> findThesis = thesisRepository.findById(id);

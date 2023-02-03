@@ -106,7 +106,7 @@ public class ThesisController {
 //        return new ResponseEntity<>(yearCount, HttpStatus.OK);
 //    }
     @GetMapping("/thesis/search/all")
-    public ResponseEntity<Page<Thesis>> searchAllNotice(
+    public ResponseEntity<Page<Thesis>> searchAllThesis(
             @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
 
         try {
@@ -119,7 +119,7 @@ public class ThesisController {
     }
 
     @GetMapping("/thesis/search/title")
-    public ResponseEntity<Page<Thesis>> searchNoticeByTitle(@RequestParam String word,
+    public ResponseEntity<Page<Thesis>> searchThesisByTitle(@RequestParam String word,
                                                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         try {
             String title = URLDecoder.decode(word, "UTF-8");
@@ -132,7 +132,7 @@ public class ThesisController {
     }
 
     @GetMapping("/thesis/search/year")
-    public ResponseEntity<Page<Thesis>> searchNoticeByYear(@RequestParam int year,
+    public ResponseEntity<Page<Thesis>> searchThesisByYear(@RequestParam int year,
                                                      @PageableDefault(size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable) {
         try {
             Page<Thesis> findThesis = thesisService.searchThesisByYear(year, pageable);
@@ -143,8 +143,21 @@ public class ThesisController {
         }
     }
 
+    @GetMapping("/thesis/search/author")
+    public ResponseEntity<List<Thesis>> searchThesisByAuthor(@RequestParam String name) {
+
+        try{
+            String author = URLDecoder.decode(name, "UTF-8");
+            List<Thesis> findThesis = thesisService.searchThesisByAuthor(author);
+
+            return new ResponseEntity<>(findThesis, HttpStatus.OK);
+        } catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+    }
+
     @DeleteMapping("/admin/thesis/{id}")
-    public ResponseEntity<Void> deleteNotice(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Long adminId, @PathVariable("id") Long id) {
+    public ResponseEntity<Void> deleteThesis(@SessionAttribute(name = SessionConst.LOGIN_MEMBER, required = false) Long adminId, @PathVariable("id") Long id) {
         try {
 
             if (adminId == null) {
