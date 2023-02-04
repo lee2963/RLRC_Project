@@ -1,69 +1,92 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import leftArrow from "../static/leftArrow.png";
 import righttArrow from "../static/rightArrow.png";
-function Pagination(props) {
-  const numPages = props.total;
-  const [currPage, setCurrPage] = useState(props.page);
-  let firstNum = currPage - (currPage % 5) + 1;
-  let lastNum = currPage - (currPage % 5) + 5;
-  let slicePage = numPages < 5 ? numPages : 5;
-  let remainPage = numPages % 5;
+const PAGES_PER_LIST = 5;
+function Pagination({ total, page, setPage }) {
+  const [showing, setShowing] = useState({
+    start: 1,
+    end: PAGES_PER_LIST,
+  });
+  const changePageNumbersBackward = () => {
+    page > 1 && setShowing((prev) => arrowHandler(prev, -1, total));
+  };
+  const changePageNumbersForward = () => {
+    page < total && setShowing((prev) => arrowHandler(prev, 1, total));
+  };
+  const arrowHandler = (prev, sign, total) => {
+    const nextIndex = prev.end + PAGES_PER_LIST;
+    let res;
+    console.log("prev", prev.end, prev.start);
+    if (sign === 1) {
+      res = nextIndex > total ? total : nextIndex;
+    } else if (sign === -1) {
+      res =
+        prev.end - prev.start < 4
+          ? prev.start + 4 - PAGES_PER_LIST
+          : prev.end - PAGES_PER_LIST;
+    }
+    return { ...prev, start: prev.start + PAGES_PER_LIST * sign, end: res };
+  };
+  useEffect(() => {
+    const lessThanFive = total <= PAGES_PER_LIST;
+    lessThanFive
+      ? setShowing((prev) => ({ ...prev, start: 1, end: total }))
+      : setShowing((prev) => ({ ...prev, start: 1, end: PAGES_PER_LIST }));
+  }, [total]);
+
+  useEffect(() => {
+    setPage(showing.start);
+  }, [showing, setPage]);
+
+  const pages = Array.from(
+    { length: showing.end + 1 - showing.start },
+    (_, i) => {
+      return showing.start + i;
+    }
+  );
   return (
     <>
       <Nav>
         <Button
           onClick={() => {
-            props.setPage(props.page - 1);
-            setCurrPage(props.page - 2);
+            changePageNumbersBackward();
           }}
           style={{
             border: "none",
           }}
-          disabled={props.page === 1}
+          disabled={page === 1}
         >
           <img src={leftArrow} style={{ width: "7px", height: "14px" }}></img>
         </Button>
-        <Button
+        {/* <Button
           onClick={() => props.setPage(firstNum)}
           aria-current={props.page === firstNum ? "page" : null}
         >
           {firstNum}
-        </Button>
-        {Array(currPage - 5 >= 0 ? remainPage - 1 : slicePage - 1)
-          .fill()
-          .map((_, i) => {
-            if (i <= 2) {
-              return (
-                <Button
-                  key={i + 1}
-                  onClick={() => props.setPage(firstNum + i + 1)}
-                  aria-current={props.page === firstNum + i + 1 ? "page" : null}
-                >
-                  {firstNum + 1 + i}
-                </Button>
-              );
-            } else if (i >= 3) {
-              return (
-                <Button
-                  key={i + 1}
-                  onClick={() => props.setPage(lastNum)}
-                  aria-current={props.page === lastNum ? "page" : null}
-                >
-                  {lastNum}
-                </Button>
-              );
-            }
-          })}
+        </Button> */}
+        {pages.map((content, i) => {
+          return (
+            <Button
+              key={i + 1}
+              onClick={() => {
+                setPage(content);
+                console.log(showing);
+              }}
+              isActive={content === page}
+            >
+              {content}
+            </Button>
+          );
+        })}
         <Button
           onClick={() => {
-            props.setPage(props.page + 1);
-            setCurrPage(props.page);
+            changePageNumbersForward();
           }}
           style={{
             border: "none",
           }}
-          disabled={props.page === numPages}
+          disabled={showing.end === total}
         >
           <img src={righttArrow} style={{ width: "7px", height: "14px" }}></img>
         </Button>
@@ -87,10 +110,10 @@ const Button = styled.button`
   margin: 0;
   width: 53px;
   height: 53px;
-  background: #ffffff 0% 0% no-repeat padding-box;
+  background-color: ${({ isActive }) => (isActive ? "#447bfb" : "#ffffff")};
   border: 1px solid #bababa;
   font: normal normal normal 22px/25px sans-serif;
-  color: #aaaaaa;
+  color: ${({ isActive }) => (isActive ? "#ffffff" : "#aaaaaa")};
   opacity: 1;
   opacity: 1;
   &:hover {
