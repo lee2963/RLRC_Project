@@ -268,7 +268,7 @@ const MapWrapper = styled.div`
 `;
 
 const MapTitle = styled.span`
-  font: normal normal bold 33px/39px Roboto;
+  font: normal normal bold 33px/39px sans-serif;
   color: #191919;
   margin: 40px 0 0 0;
   display: inline-block;

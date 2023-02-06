@@ -348,7 +348,7 @@ function FormEditor(props) {
 const EditorTitle = styled.div`
   // margin: 0 15.35vw;
   margin-top: 18vh;
-  font: normal normal bold 33px/70px Roboto;
+  font: normal normal bold 33px/70px sans-serif;
   letter-spacing: 0px;
   color: #447BF7;
   text-transform: uppercase;

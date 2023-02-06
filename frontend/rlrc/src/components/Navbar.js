@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 import AboutRLRC from "../pages/AboutRLRC";
 import NewNotice from "../pages/NewNotice";
 import Research from "../pages/Research";
@@ -36,7 +37,7 @@ export default function Navbar(props) {
           style={{ textDecoration: "none" }}
           element={<AboutRLRC />}
         >
-          ABOUT
+          <LinkText>ABOUT</LinkText>
         </Link>
         <Link
           id={styles.navbar_content}
@@ -45,7 +46,7 @@ export default function Navbar(props) {
           style={{ textDecoration: "none" }}
           element={<Research />}
         >
-          RESEARCH
+          <LinkText>RESEARCH</LinkText>
         </Link>
         <Link
           id={styles.navbar_content}
@@ -54,7 +55,7 @@ export default function Navbar(props) {
           style={{ textDecoration: "none" }}
           element={<ResearchOutcomes />}
         >
-          OUTCOMES
+          <LinkText> OUTCOMES </LinkText>
         </Link>
         <Link
           id={styles.navbar_content}
@@ -63,9 +64,15 @@ export default function Navbar(props) {
           style={{ textDecoration: "none" }}
           element={<NewNotice />}
         >
-          NEW & NOTICE
+          <LinkText>NEW & NOTICE</LinkText>
         </Link>
       </div>
     </div>
   );
 }
+
+const LinkText = styled.span`
+  font-size: 22px;
+`;
+
+

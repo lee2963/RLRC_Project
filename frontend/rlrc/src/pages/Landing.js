@@ -29,7 +29,7 @@ const LinkButton = styled.button`
     border: 0px;
     width: 230px;
     height: 60px;
-    font: normal normal bold 18px/30px Roboto;
+    font: normal normal bold 18px/30px sans-serif;
     letter-spacing: 0px;
     color: #FFFFFF;
     margin-right: 12.500vw;
