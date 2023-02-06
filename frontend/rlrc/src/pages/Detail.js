@@ -7,6 +7,9 @@ import ContentIndex from "../components/ContentIndex";
 import Navbar from "../../src/components/Navbar";
 import styles from "../styles/newNoticeAdmin.module.css";
 import styled from "styled-components";
+
+// import testImg from "../static/images/junghoyoul2.png";
+
 function Detail() {
   const { state } = useLocation();
   const navigate = useNavigate();
@@ -16,6 +19,8 @@ function Detail() {
   const id = state ? state[0] : 0;
   const content = state ? state[1] : "news";
   const [curContent, setCurContent] = useState(content);
+
+
   const getDetailData = async (content, id) => {
     try {
       const response = await axios.get(`/${content}/${id}`);
@@ -166,7 +171,9 @@ function Detail() {
           </DetailProperties>
           {detailData && (
             <DetailContent>
-              {imageName && <DetailImage src={`/notice/image/${imageName}`} />}
+              <ImageWrapper>
+                {imageName && <DetailImage src={`/notice/image/${imageName}`} />}
+              </ImageWrapper>
               <br />
               <br />
               <br />
@@ -335,10 +342,14 @@ const DetailContent = styled.div`
   overflow: scroll;
   white-space: pre-wrap;
 `;
+
+const ImageWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`;
 const DetailImage = styled.img`
-  position: relative;
-  width: 500px;
-  height: 500px;
-  left: 250px;
+  width: 100%;
+  height: auto;
 `;
 export default Detail;
