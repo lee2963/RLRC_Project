@@ -10,156 +10,11 @@ import logo from "../static/images/parkjuhyun1.png";
 import nextArrow from "../static/nextArrow.png";
 import prevArrow from "../static/prevArrow.png";
 
-const sampleThesis = {
-  content: [
-    {
-      id: 19,
-      no: 19,
-      year: 2020,
-      title: "Modern Catalysts in A3- Coupling Reactions",
-      authors: "Ali Ramazani, Hamideh Ahankar, Zahra T. Nafeh, Sang W. Joo",
-      journal: "CURRENT ORGANIC CHEMISTRY",
-      iif: 2.029,
-      jcr: 54.0,
-      doi: "10.2174/1385272823666191113160643",
-    },
-    {
-      id: 18,
-      no: 18,
-      year: 2019,
-      title: "Seismic phononic crystals by elastodynamic Navier equation",
-      authors: "Lee, Dongwoo, Joo Hwan Oh, In Seok Kang, Junsuk Rho",
-      journal: "PHYSICAL REVIEW E",
-      iif: 2.353,
-      jcr: 12.0,
-      doi: "10.1103/PhysRevE.100.063002",
-    },
-    {
-      id: 17,
-      no: 17,
-      year: 2019,
-      title:
-        "Observation of enhanced optical spin hall effect in a vertical hyperbolic metamaterial",
-      authors:
-        "Dasol Lee, Tae Hak Kim, Younghwan Yang, Hui Joon Park, Minkyung Kim,  Junsuk Rho",
-      journal: "ACS Photonics",
-      iif: 7.143,
-      jcr: 6.0,
-      doi: "10.1021/acsphotonics.9b00904.",
-    },
-    {
-      id: 16,
-      no: 16,
-      year: 2019,
-      title:
-        "Spectrally sharp plasmon resonances in near-infrared:subwavel ength coreshell nanoparticles",
-      authors: "Jungho Mun, Sunae So, Junsuk Rho",
-      journal: "Physical Review\nApplied",
-      iif: 4.532,
-      jcr: 17.0,
-      doi: "10.1103/PhysRevApplied.12.044072",
-    },
-    {
-      id: 15,
-      no: 15,
-      year: 2019,
-      title:
-        "Wavelength-decoupled geometric metasurfaces by arbitrary dispersion control",
-      authors:
-        "Jeonghyun Kim, Jungho Mun , Dasol Lee, Gwanho Yoon,Junsuk Rho\n, Ki Tae Nam ",
-      journal: "Communication\nPhysics",
-      iif: null,
-      jcr: null,
-      doi: "10.1038/s42005-019-0232-7",
-    },
-    {
-      id: 14,
-      no: 14,
-      year: 2019,
-      title: "Twisted non-diffracting beams through all dielectric meta-axicon",
-      authors:
-        "Heonyeong Jeong,  Inki Kim, Muhammad Qasim Mehmood, Muhammad Zubair, Ali Akbar, Murtaza Saleem, Muhammad Sabieh Anwar, Farooq Ahmad Tahir, Nasir Mahmood, Junsuk Rho",
-      journal: "Nanoscale",
-      iif: 6.97,
-      jcr: 12.0,
-      doi: "10.1039/C9NR04888J",
-    },
-    {
-      id: 13,
-      no: 13,
-      year: 2019,
-      title: "Metasurface zone plate: light manipulation in vectorial regime",
-      authors:
-        "Gwanho Yoon, Junsuk Rho,  Jaehyuck Jang,Jungho Mun, Ki Tae Nam ",
-      journal: "COMMUNICATIONS PHYSICS",
-      iif: null,
-      jcr: null,
-      doi: "10.1038/s42005-019-0258-x",
-    },
-    {
-      id: 12,
-      no: 12,
-      year: 2020,
-      title:
-        "Performance Enhancement of a\nQuartz Tuning Fork Sensor\nusing a Cellulose\nNanocrystal-Reinforced\nNanoporous Polymer Fiber",
-      authors: "Wuseok Kim, Sangmin Jeon, Eunjin Park",
-      journal: "SENSORS",
-      iif: 3.031,
-      jcr: 24.0,
-      doi: "10.3390/s20020437",
-    },
-    {
-      id: 11,
-      no: 11,
-      year: 2020,
-      title:
-        "Facile Fabrication of a Highly Efficient Moisture-Driven Power Generator using Laser-Induced Graphitization under Ambient Conditions",
-      authors: "Sanghee Lee, Sangmin Jeon, Jakyung Eun",
-      journal: "Nano\nEnergy",
-      iif: 15.548,
-      jcr: 4.0,
-      doi: "10.1016/j.nanoen.2019.104364",
-    },
-    {
-      id: 10,
-      no: 10,
-      year: 2019,
-      title:
-        "Asymmetric Encoder-Decoder Structured FCN Based LiDAR to Color Image Generation",
-      authors: "Hyun-Koo Kim, Kook-Yeol Yoo, Ju H. Park, Ho-Youl Jung",
-      journal: "SENSORS",
-      iif: 3.031,
-      jcr: 24.0,
-      doi: "10.3390/s19214818",
-    },
-  ],
-  pageable: {
-    sort: {
-      empty: false,
-      unsorted: false,
-      sorted: true,
-    },
-    offset: 0,
-    pageNumber: 0,
-    pageSize: 10,
-    paged: true,
-    unpaged: false,
-  },
-  totalPages: 2,
-  totalElements: 19,
-  last: false,
-  size: 10,
-  number: 0,
-  sort: {
-    empty: false,
-    unsorted: false,
-    sorted: true,
-  },
-  numberOfElements: 10,
-  first: true,
-  empty: false,
-};
-
+const sampleThesis = [
+  { "id": 20, "no": 20, "year": 2022, "title": "Superior energy-power performance of N-doped carbon nano-onions-based asymmetric and symmetric supercapacitor devices", "authors": "주상우", "journal": "INTERNATIONAL JOURNAL OF ENERGY RESEARCH", "iif": 5.164, "jcr": 1.0, "doi": "https://onlinelibrary.wiley.com/doi/abs/10.1002/er.7242" },
+  { "id": 20, "no": 20, "year": 2022, "title": "Superior energy-power performance of N-doped carbon nano-onions-based asymmetric and symmetric supercapacitor devices", "authors": "주상우", "journal": "INTERNATIONAL JOURNAL OF ENERGY RESEARCH", "iif": 5.164, "jcr": 1.0, "doi": "https://onlinelibrary.wiley.com/doi/abs/10.1002/er.7242" },
+  { "id": 20, "no": 20, "year": 2022, "title": "Superior energy-power performance of N-doped carbon nano-onions-based asymmetric and symmetric supercapacitor devices", "authors": "주상우", "journal": "INTERNATIONAL JOURNAL OF ENERGY RESEARCH", "iif": 5.164, "jcr": 1.0, "doi": "https://onlinelibrary.wiley.com/doi/abs/10.1002/er.7242" },
+];
 const PreviousBtn = (props) => {
   const { className, onClick, currentSlide } = props;
   return (
@@ -254,7 +109,7 @@ function JooSangWoo() {
             <ListContent>Nanoparticle technology for sunscreen</ListContent>
           </List>
         </Content>
-        <Content>
+        <TableContent>
           <TableContainer>
             <Table border={1}>
               <tbody>
@@ -270,7 +125,7 @@ function JooSangWoo() {
                 </TableTitle>
                 {thesisPosts && (
                   <>
-                    {thesisPosts.content.map((PUBLCATION) => {
+                    {thesisPosts.map((PUBLCATION) => {
                       return (
                         <TableRow key={PUBLCATION.id}>
                           <TableData>{PUBLCATION.id}</TableData>
@@ -291,7 +146,7 @@ function JooSangWoo() {
               </tbody>
             </Table>
           </TableContainer>
-        </Content>
+        </TableContent>
       </StyledSlider>
     </Body>
   );
@@ -321,6 +176,16 @@ const Container = styled.div`
   height: 160px;
   display: flex;
   /* UI Properties */
+`;
+
+const TableContent = styled.div`
+  width: 100 %;
+  height: 30vw;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: auto;
 `;
 const NameContainer = styled.span`
   background: #447bf7 0% 0% no-repeat padding-box;

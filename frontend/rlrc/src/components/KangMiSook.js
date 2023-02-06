@@ -163,7 +163,7 @@ function KangMiSook() {
           ></Image>
         </Content>
 
-        <Content>
+        <TableContent>
           <TableContainer>
             <Table border={1}>
               <tbody>
@@ -179,7 +179,7 @@ function KangMiSook() {
                 </TableTitle>
                 {thesisPosts && (
                   <>
-                    {thesisPosts.content.map((PUBLCATION) => {
+                    {thesisPosts.map((PUBLCATION) => {
                       return (
                         <TableRow key={PUBLCATION.id}>
                           <TableData>{PUBLCATION.id}</TableData>
@@ -200,7 +200,7 @@ function KangMiSook() {
               </tbody>
             </Table>
           </TableContainer>
-        </Content>
+        </TableContent>
       </StyledSlider>
     </Body>
   );
@@ -354,6 +354,16 @@ const Content = styled.div`
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
+`;
+
+const TableContent = styled.div`
+  width: 100 %;
+  height: 30vw;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: auto;
 `;
 const Image = styled.img`
   /* Layout Properties */

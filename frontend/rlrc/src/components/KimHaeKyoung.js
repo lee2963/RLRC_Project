@@ -46,6 +46,21 @@ function KimHaeKyoung() {
     prevArrow: <PreviousBtn />,
     nextArrow: <NextBtn />,
   };
+  const getThesisPosts = async () => {
+    try {
+      const response = await axios.get(`http://rlrc.co.kr:80/thesis/search/author?name=${encodeURIComponent("김혜경")}`);
+      setThesisPosts(response.data)
+    } catch (error) {
+      switch (error.response.status) {
+        default:
+          console.log(error);
+      }
+    }
+  };
+
+  useEffect(() => {
+    getThesisPosts();
+  }, []);
   return (
     <Body>
       <BackButton
@@ -129,7 +144,7 @@ function KimHaeKyoung() {
                 </TableTitle>
                 {thesisPosts && (
                   <>
-                    {thesisPosts.content.map((PUBLCATION) => {
+                    {thesisPosts.map((PUBLCATION) => {
                       return (
                         <TableRow key={PUBLCATION.id}>
                           <TableData>{PUBLCATION.id}</TableData>

@@ -130,7 +130,7 @@ function JeonSangMin() {
             </ListContentWithImage>
           </List>
         </Content>
-        <Content>
+        <TableContent>
           <TableContainer>
             <Table border={1}>
               <tbody>
@@ -146,7 +146,7 @@ function JeonSangMin() {
                 </TableTitle>
                 {thesisPosts && (
                   <>
-                    {thesisPosts.content.map((PUBLCATION) => {
+                    {thesisPosts.map((PUBLCATION) => {
                       return (
                         <TableRow key={PUBLCATION.id}>
                           <TableData>{PUBLCATION.id}</TableData>
@@ -167,7 +167,7 @@ function JeonSangMin() {
               </tbody>
             </Table>
           </TableContainer>
-        </Content>
+        </TableContent>
       </StyledSlider>
     </Body>
   );
@@ -319,11 +319,25 @@ const NextIcon = styled.img`
 `;
 
 const Content = styled.div`
+  width: 100%;
   height: 30vw;
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
+  box-sizing: border-box;
+  overflow: auto
 `;
+
+const TableContent = styled.div`
+  width: 100 %;
+  height: 30vw;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: auto;
+`;
+
 const Image = styled.img`
   /* Layout Properties */
   position: relative;

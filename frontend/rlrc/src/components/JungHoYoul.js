@@ -151,7 +151,7 @@ function JungHoYoul() {
           ></Image>
         </Content>
 
-        <Content>
+        <TableContent>
           <TableContainer>
             <Table border={1}>
               <tbody>
@@ -167,7 +167,7 @@ function JungHoYoul() {
                 </TableTitle>
                 {thesisPosts && (
                   <>
-                    {thesisPosts.content.map((PUBLCATION) => {
+                    {thesisPosts.map((PUBLCATION) => {
                       return (
                         <TableRow key={PUBLCATION.id}>
                           <TableData>{PUBLCATION.id}</TableData>
@@ -188,7 +188,7 @@ function JungHoYoul() {
               </tbody>
             </Table>
           </TableContainer>
-        </Content>
+        </TableContent>
       </StyledSlider>
     </Body>
   );
@@ -219,6 +219,16 @@ const Container = styled.div`
   width: 100%;
   height: 160px;
   display: flex;
+`;
+
+const TableContent = styled.div`
+  width: 100 %;
+  height: 30vw;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: auto;
 `;
 const NameContainer = styled.span`
   background: #447bf7 0% 0% no-repeat padding-box;
