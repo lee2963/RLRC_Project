@@ -128,7 +128,7 @@ function KimHaeKyoung() {
             style={{ top: "10%", width: "35%" }}
           ></Image>
         </Content>
-        <Content>
+        <TableContent>
           <TableContainer>
             <Table border={1}>
               <tbody>
@@ -165,7 +165,7 @@ function KimHaeKyoung() {
               </tbody>
             </Table>
           </TableContainer>
-        </Content>
+        </TableContent>
       </StyledSlider>
     </Body>
   );
@@ -195,6 +195,8 @@ const Container = styled.div`
   height: 160px;
   display: flex;
 `;
+
+
 const NameContainer = styled.span`
   background: #447bf7 0% 0% no-repeat padding-box;
   border-top-right-radius: 80px;
@@ -319,6 +321,16 @@ const Content = styled.div`
   /* UI Properties */
   background: #ffffff 0% 0% no-repeat padding-box;
   opacity: 1;
+`;
+
+const TableContent = styled.div`
+  width: 100 %;
+  height: 30vw;
+  /* UI Properties */
+  background: #ffffff 0% 0% no-repeat padding-box;
+  opacity: 1;
+  box-sizing: border-box;
+  overflow: auto;
 `;
 const Image = styled.img`
   /* Layout Properties */
