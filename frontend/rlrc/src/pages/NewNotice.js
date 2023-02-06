@@ -261,7 +261,7 @@ export default function NewNotice() {
                 color: "rgba(221, 221, 221, 0.674)",
               }}
             >
-              OUTCOMES
+              OUTCOME
             </StyledLink>
             <StyledLink
               to="/NewNotice"

@@ -55,7 +55,7 @@ export default function Navbar(props) {
           style={{ textDecoration: "none" }}
           element={<ResearchOutcomes />}
         >
-          <LinkText> OUTCOMES </LinkText>
+          <LinkText> OUTCOME </LinkText>
         </Link>
         <Link
           id={styles.navbar_content}

@@ -427,7 +427,7 @@ function ResearchOutcomesAdmin() {
                 textDecoration: "none",
               }}
             >
-              OUTCOMES
+              OUTCOME
             </StyledLink>
             <StyledLink
               to="/NewNotice"

@@ -31,7 +31,7 @@ function ContentIndex({ history }) {
         </TableHeader>
         <TableHeader>
           <CustomLink to="/ResearchOutcomes">
-            <p style={{ whiteSpace: "nowrap" }}>OUTCOMES</p>
+            <p style={{ whiteSpace: "nowrap" }}>OUTCOME</p>
           </CustomLink>
         </TableHeader>
         <TableHeader>
