@@ -73,6 +73,7 @@ export default function Navbar(props) {
 
 const LinkText = styled.span`
   font-size: 22px;
+  font-weight: 500;
 `;
 
 
