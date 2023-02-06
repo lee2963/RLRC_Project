@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AboutRLRC from "../pages/AboutRLRC";
 import NewNotice from "../pages/NewNotice";
 import Research from "../pages/Research";
@@ -10,6 +10,10 @@ import styles from "../styles/navbar.module.css";
 export default function Navbar(props) {
   const [isClick, setIsClick] = useState(false);
   const contentBar = props;
+  const navigate = useNavigate();
+  const toAboutRLRC = () => {
+    navigate('/AboutRLRC')
+  }
   return (
     <div className={styles.navbar}>
       <h1 className={styles.logo}>
@@ -22,6 +26,7 @@ export default function Navbar(props) {
             width: "310px",
             height: "50px",
           }}
+          onClick={toAboutRLRC}
         />
       </h1>
       <div className={styles.navbar_menu}>
