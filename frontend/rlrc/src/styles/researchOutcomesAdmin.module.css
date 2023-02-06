@@ -18,12 +18,7 @@ ul {
   vertical-align: center;
   width: auto;
 }
-.selectionbar_menu {
-  color: #ffffff;
-  align-items: center;
-  vertical-align: center;
-  width: auto;
-}
+
 .selection_line_white {
   position: relative;
   background-color: #ffffff;

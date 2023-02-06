@@ -405,6 +405,7 @@ function ResearchOutcomesAdmin() {
               className="select_rlrc"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               ABOUT
@@ -415,6 +416,7 @@ function ResearchOutcomesAdmin() {
               className="slelect_research"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               RESEARCH
@@ -435,6 +437,7 @@ function ResearchOutcomesAdmin() {
               className="select_new_notice"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               NEW & NOTICE
@@ -824,68 +827,6 @@ const PatentContainer = styled.div`
   
 `;
 
-const TabList = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  width: 700px;
-`;
-const Tab = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 125px;
-  height: 46px;
-  font: var(--unnamed-font-style-normal) normal
-    var(--unnamed-font-weight-normal) 17px/30px
-    var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-ffffff);
-  text-align: left;
-  font: normal normal normal 17px/30px sans-serif;
-  letter-spacing: 0px;
-  color: #ffffff;
-  opacity: 1;
-  background: var(--unnamed-color-447bf7) 0% 0% no-repeat padding-box;
-  background: #447bf7 0% 0% no-repeat padding-box;
-  opacity: 1;
-  margin-right: 10px;
-`;
-const Cases = styled.div`
-  width: 53px;
-  height: 28px;
-  border-radius: 10px;
-  font: var(--unnamed-font-style-normal) normal bold 15px/30px
-    var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-447bf7);
-  text-align: center;
-  font: normal normal bold 15px/30px sans-serif;
-  letter-spacing: 0px;
-  color: #447bf7;
-  opacity: 1;
-  background-color: white;
-`;
-const UploadButton = styled.button`
-  display: flex;
-  border: none;
-  // width: 132px;
-  width: 7vw;
-  // height: 46px;
-  height: 4.6vh;
-  /* UI Properties */
-  background: #d3d3d35c 0% 0% no-repeat padding-box;
-  opacity: 1;
-  /* text-align: center; */
-  justify-content: center;
-  align-items: center;
-  font: normal normal normal 16px/30px sans-serif;
-  font-size: 0.8vw;
-  letter-spacing: 0px;
-  color: #171717;
-  opacity: 0.7;
-`;
 const Search = styled.input`
   margin-left: 30px;
   // width: 280px;
@@ -960,42 +901,5 @@ const TableData = styled.td`
   }
 `;
 
-const UploadContainer = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  // height: 274px;
-`;
-const UploadTitle = styled.h1`
-  font: var(--unnamed-font-style-normal) normal bold 33px/70px
-    var(--unnamed-font-family-sans-serif);
-  letter-spacing: var(--unnamed-character-spacing-0);
-  color: var(--unnamed-color-447bf7);
-  text-align: left;
-  font: normal normal bold 33px/70px sans-serif;
-  letter-spacing: 0px;
-  color: #447bf7;
-  text-transform: uppercase;
-  opacity: 1;
-  font-size: 1.8vw;
-`;
-const RowTitle = styled.p`
-  text-align: center;
-  font: normal normal bold 20px/28px sans-serif;
-  letter-spacing: 0px;
-  color: #000000;
-  opacity: 1;
-`;
-const Button = styled.button`
-  width: 143px;
-  height: 45px;
-  /* UI Properties */
-  background: #e8e8e8 0% 0% no-repeat padding-box;
-  opacity: 1;
-  border: none;
-  font: normal normal bold 18px/28px sans-serif;
-  letter-spacing: 0px;
-  color: #575757;
-  opacity: 1;
-`;
 
 export default ResearchOutcomesAdmin;

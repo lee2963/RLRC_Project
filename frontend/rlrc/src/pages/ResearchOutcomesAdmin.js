@@ -450,6 +450,7 @@ function ResearchOutcomesAdmin() {
               className="select_rlrc"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               ABOUT
@@ -460,6 +461,7 @@ function ResearchOutcomesAdmin() {
               className="slelect_research"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               RESEARCH
@@ -480,6 +482,7 @@ function ResearchOutcomesAdmin() {
               className="select_new_notice"
               style={{
                 textDecoration: "none",
+                color: "rgba(221, 221, 221, 0.674)",
               }}
             >
               NEW & NOTICE
