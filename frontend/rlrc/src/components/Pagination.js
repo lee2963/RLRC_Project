@@ -9,10 +9,11 @@ function Pagination({ total, page, setPage }) {
     end: PAGES_PER_LIST,
   });
   const changePageNumbersBackward = () => {
-    page > 1 && setShowing((prev) => arrowHandler(prev, -1, total));
+    page > PAGES_PER_LIST &&
+      setShowing((prev) => arrowHandler(prev, -1, total));
   };
   const changePageNumbersForward = () => {
-    page < total && setShowing((prev) => arrowHandler(prev, 1, total));
+    showing.end <= total && setShowing((prev) => arrowHandler(prev, 1, total));
   };
   const arrowHandler = (prev, sign, total) => {
     const nextIndex = prev.end + PAGES_PER_LIST;
@@ -55,7 +56,7 @@ function Pagination({ total, page, setPage }) {
           style={{
             border: "none",
           }}
-          disabled={page === 1}
+          disabled={page <= PAGES_PER_LIST}
         >
           <img src={leftArrow} style={{ width: "7px", height: "14px" }}></img>
         </Button>
