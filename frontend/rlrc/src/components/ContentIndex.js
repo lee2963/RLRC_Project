@@ -177,6 +177,10 @@ const AdminLink = styled((props) => <Link {...props} />)`
   opacity: 1;
   white-space: nowrap;
   text-decoration: none;
+  display: block;
+  height: 100%;
+  line-height: 60px;
+  width: 100%;
   &:hover {
     color: #447bf7;
   }
