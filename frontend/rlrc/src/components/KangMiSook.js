@@ -179,10 +179,10 @@ function KangMiSook() {
                 </TableTitle>
                 {thesisPosts && (
                   <>
-                    {thesisPosts.map((PUBLCATION) => {
+                    {thesisPosts.map((PUBLCATION, index) => {
                       return (
                         <TableRow key={PUBLCATION.id}>
-                          <TableData>{PUBLCATION.id}</TableData>
+                          <TableData>{index + 1}</TableData>
                           <TableData>{PUBLCATION.year}</TableData>
                           <TableData style={{ maxWidth: "300px" }}>
                             {PUBLCATION.title}
