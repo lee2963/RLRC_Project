@@ -15,6 +15,7 @@ public class PatentService {
     private final PatentRepository patentRepository;
 
     public void excelSave(List<Patent> dataList) {
+        patentRepository.truncatePatent();
         patentRepository.saveAll(dataList);
     }
 
