@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface ThesisRepository extends JpaRepository<Thesis, Long> {
+    @Transactional
     @Modifying
     @Query(value = "truncate table thesis", nativeQuery = true)
     void truncateThesis();
