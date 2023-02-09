@@ -15,12 +15,9 @@ public class ThesisService {
     private final ThesisRepository thesisRepository;
 
     public void excelSave(List<Thesis> dataList) {
+        thesisRepository.truncateThesis();
         thesisRepository.saveAll(dataList);
     }
-
-//    public List<YearCount> searchYearThesis() {
-//        return thesisRepository.findGroupByYearWithJPQL();
-//    }
 
     public Page<Thesis> searchAllThesis(Pageable pageable) throws Exception {
         Page<Thesis> findThesis = thesisRepository.findAll(pageable);
