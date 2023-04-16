@@ -29,9 +29,10 @@
 </p>
 
 ### 백엔드
-
+<p dir="auto">
 <img src="https://img.shields.io/badge/spring-6DB33F?style=for-the-badge&logo=spring&logoColor=white" />
 <img src="https://img.shields.io/badge/springBoot-6DB33F?style=for-the-badge&logo=springBoot&logoColor=white" />
+</p>
 
 ### 커뮤니케이션
 
