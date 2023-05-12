@@ -219,13 +219,13 @@ const StyledLink = styled((props) => <Link {...props} />)`
   }
   text-decoration: none;
 `;
-const TitleContainer = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-`;
+// const TitleContainer = styled.div`
+//   position: relative;
+//   width: 100%;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: center;
+// `;
 const SelectionBarCotainer = styled.div`
   position: absolute;
   float: left;

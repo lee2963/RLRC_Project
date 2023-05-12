@@ -56,9 +56,9 @@ ul {
 #selectbar_content.select_new_notice {
   width: auto;
 }
-a:visited {
+/* a:visited {
   color: #ffffff;
-}
+} */
 .vision_mission {
   /* position: relative; */
   /* top: -135px; */
