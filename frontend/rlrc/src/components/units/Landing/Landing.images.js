@@ -1,0 +1,1 @@
+export const backgroundImg = require("../../../static/images/Landing.png")

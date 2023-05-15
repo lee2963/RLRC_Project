@@ -28,11 +28,11 @@ export default function AboutRLRC() {
         });
     }
 
-    return <AboutRLRCUI
-        getMap={getMap}
-        showContent={showContent}
-        setShowContent={setShowContent}
-    />;
+    return (
+        <AboutRLRCUI
+            getMap={getMap}
+            showContent={showContent}
+            setShowContent={setShowContent}
+        />
+    );
 }
-
-

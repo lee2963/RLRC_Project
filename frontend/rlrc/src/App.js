@@ -1,8 +1,8 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Landing from "./pages/Landing.new";
 import AboutRLRC from "./pages/AboutRLRC.new";
 import Detail from "./pages/Detail";
-import Landing from "./pages/Landing";
 import NewNotice from "./pages/NewNotice";
 import NewNoticeAdmin from "./pages/NewNoticeAdmin";
 import Research from "./pages/Research";
